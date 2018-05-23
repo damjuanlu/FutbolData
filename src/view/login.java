@@ -1,13 +1,14 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class login {
+public class login extends Frame{
 
 	private JFrame frame;
 	private JTextField txtPassword;

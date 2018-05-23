@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenuBar;
+import javax.swing.BoxLayout;
+import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
 
 public class menuPrincipal {
 
