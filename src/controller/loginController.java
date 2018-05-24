@@ -1,12 +1,12 @@
 package controller;
 
-import view.login;
+import view.VistaLogin;
 
 public class loginController {
 
-	private login milogin;
+	private VistaLogin milogin;
 	
-	public loginController(login milogin) {
+	public loginController(VistaLogin milogin) {
 		
 		this.milogin=milogin;
 		
