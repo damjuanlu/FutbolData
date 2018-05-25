@@ -1,160 +1,172 @@
 package view;
 
-import java.awt.EventQueue;
-
+import java.awt.*;
 import javax.swing.JFrame;
-import javax.swing.JDesktopPane;
-import javax.swing.JMenuBar;
-import javax.swing.BoxLayout;
-import javax.swing.JTabbedPane;
-import javax.swing.JToolBar;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Toolkit;
-import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Frame;
-import java.awt.Insets;
+import javax.swing.JPasswordField;
 
-public class VistaPrincipal extends Frame{
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
-	public JFrame frmSportClubData;
+public class VistaPrincipal extends JFrame{
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaPrincipal window = new VistaPrincipal();
-					window.frmSportClubData.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JPanel panel;
+	public JMenuBar menuPrincipal;
+	public JMenu mnInicio;
+	public JMenu mnJugadores;
+	public JMenuItem mntmFichas;
+	public JMenuItem mntmAsistencia;
+	public JMenuItem mntmEstadisticas;
+	public JMenu mnCompeticion;
+	public JMenuItem mntmMantenimientoEquipos;
+	public JMenuItem mntmPartidosDisputados;
+	public JMenuItem mntmConvocatorias;
+	public JMenuItem mntmCalendariosYResultados;
+	public JMenu mnEntrenamiento;
+	public JMenuItem mntmPlanificacionSesiones;
+	public JMenuItem mntmBaseDeDatos;
+	public JMenu mnAdministracion;
+	public JMenuItem mntmCuotasJugadores;
+	public JMenu mnAyuda;
+	public JMenuItem mntmUsuario;
+	public JMenuItem mntmContacto;
+	public JMenuItem mntmAcercaDe;
+	public JButton btnCerrarSesion;
+	public JLabel lblUser;
 
-	/**
-	 * Create the application.
-	 */
-	public VistaPrincipal() {
-		initialize();
+public VistaPrincipal() {
 		
-	}
+		setResizable(false);
+		int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+		int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+		super.setBounds(0, 0, ancho, alto);
+	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		frmSportClubData = new JFrame();
-		frmSportClubData.setExtendedState(Frame.MAXIMIZED_BOTH);
-		frmSportClubData.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
-		frmSportClubData.setTitle("SportClubData");
-		frmSportClubData.getContentPane().setBackground(new Color(255, 255, 204));
-		frmSportClubData.setBounds(100, 100, 721, 530);
-		frmSportClubData.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSportClubData.getContentPane().setLayout(null);
+		panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 204));
+		panel.setLayout(null);
+		setTitle("SportClubData");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
 		
-		JMenuBar menuPrincipal = new JMenuBar();
+		super.setContentPane(panel);
+		
+		lblUser = new JLabel("");
+		lblUser.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUser.setBounds(1078, 0, 260, 21);
+		panel.add(lblUser);
+		
+		menuPrincipal = new JMenuBar();
 		menuPrincipal.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.setBounds(0, 0, 1362, 21);
-		frmSportClubData.getContentPane().add(menuPrincipal);
+		panel.add(menuPrincipal);
 		
-		JMenu mnInicio = new JMenu("INICIO");
+		mnInicio = new JMenu("INICIO");
 		mnInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		mnInicio.setMargin(new Insets(2, 10, 0, 10));
 		mnInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnInicio);
 		
-		JMenu mnJugadores = new JMenu("JUGADORES");
+		mnJugadores = new JMenu("JUGADORES");
 		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
 		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
 		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnJugadores);
 		
-		JMenuItem mntmFichas = new JMenuItem("FICHAS");
+		mntmFichas = new JMenuItem("FICHAS");
 		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmFichas);
 		
-		JMenuItem mntmAsistencia = new JMenuItem("ASISTENCIA");
+		mntmAsistencia = new JMenuItem("ASISTENCIA");
 		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmAsistencia);
 		
-		JMenuItem mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
+		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmEstadisticas);
 		
-		JMenu mnCompeticion = new JMenu("COMPETICI\u00D3N");
+		mnCompeticion = new JMenu("COMPETICI\u00D3N");
 		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
 		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnCompeticion);
 		
-		JMenuItem mntmMantenimientoEquipos = new JMenuItem("MANTENIMIENTO EQUIPOS");
+		mntmMantenimientoEquipos = new JMenuItem("MANTENIMIENTO EQUIPOS");
 		mntmMantenimientoEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmMantenimientoEquipos);
 		
-		JMenuItem mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
+		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
 		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmPartidosDisputados);
 		
-		JMenuItem mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
+		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
 		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmConvocatorias);
 		
-		JMenuItem mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
+		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
 		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmCalendariosYResultados);
 		
-		JMenu mnEntrenamiento = new JMenu("ENTRENAMIENTO");
+		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
 		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
 		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnEntrenamiento);
 		
-		JMenuItem mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
+		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
 		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
 		
-		JMenuItem mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
+		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
 		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnEntrenamiento.add(mntmBaseDeDatos);
 		
-		JMenu mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
+		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
 		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnAdministracion);
 		
-		JMenuItem mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
+		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
 		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
-		JMenu mnAyuda = new JMenu("AYUDA");
+		mnAyuda = new JMenu("AYUDA");
 		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
 		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnAyuda);
 		
-		JMenuItem mntmUsuario = new JMenuItem("USUARIO");
+		mntmUsuario = new JMenuItem("USUARIO");
 		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmUsuario);
 		
-		JMenuItem mntmContacto = new JMenuItem("CONTACTO");
+		mntmContacto = new JMenuItem("CONTACTO");
 		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmContacto);
 		
-		JMenuItem mntmAcercaDe = new JMenuItem("ACERCA DE ...");
+		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
 		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmAcercaDe);
 		
-		JButton btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
+		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		
+		//ACTION LISTENER
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	}
 }
