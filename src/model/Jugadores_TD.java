@@ -1,6 +1,6 @@
 package model;
 
-public class jugador {
+public class Jugadores_TD {
 
 	private String nombre;
 	private String posicion;
@@ -8,7 +8,7 @@ public class jugador {
 	private int edad;
 	private String categoria;
 
-	public jugador(String nombre, String posicion, String fecha_nac, int edad, String categoria) {
+	public Jugadores_TD(String nombre, String posicion, String fecha_nac, int edad, String categoria) {
 		this.nombre=nombre;
 		this.posicion=posicion;
 		this.fecha_nac=fecha_nac;

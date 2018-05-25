@@ -1,11 +1,11 @@
 package model;
 
-public class usuario {
+public class Usuarios_TD {
 	
 	private String nombre_usuario;
 	private String password;
 	
-	public usuario (String nombre_usuario, String password) {
+	public Usuarios_TD (String nombre_usuario, String password) {
 		this.nombre_usuario=nombre_usuario;
 		this.password=password;
 	}
@@ -25,6 +25,5 @@ public class usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 }

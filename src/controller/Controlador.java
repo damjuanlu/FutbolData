@@ -88,6 +88,7 @@ public class Controlador implements ActionListener {
 			miVistaLogin.txtPassword.setVisible(false);
 			miVistaLogin.btnLogin.setVisible(false);
 			miVistaLogin.btnVolver.setVisible(false);
+			miVistaLogin.setTitle("SportClubData");
 		}
 		
 		if (e.getSource()==miVistaPrincipal.btnCerrarSesion) {
@@ -101,6 +102,8 @@ public class Controlador implements ActionListener {
 			miVistaLogin.txtUser.setVisible(false);
 			miVistaLogin.txtPassword.setVisible(false);
 			miVistaLogin.btnLogin.setVisible(false);
+			miVistaLogin.btnVolver.setVisible(false);
+			miVistaLogin.setTitle("SportClubData");
 		}
 	}
 }
