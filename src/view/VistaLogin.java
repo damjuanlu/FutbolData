@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.*;
-import java.awt.Frame;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -12,91 +10,131 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dimension;
+import javax.swing.JPanel;
 
 public class VistaLogin extends JFrame{
 
-	public JFrame frmSportClubData;
-	public JTextField txtUser;
+	public JPanel panel;
+	public JButton btnRegistrarse;
+	public JButton btnIniciarSesion;
 	public JButton btnLogin;
+	public JTextField txtUser;
 	public JPasswordField txtPassword;
+	public JLabel lblError;
+	public JLabel lblUsuario;
+	public JLabel lblPassword;
+	public JButton btnVolver;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaLogin window = new VistaLogin();
-					window.frmSportClubData.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public VistaLogin() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmSportClubData = new JFrame();
-		frmSportClubData.setResizable(false);
-		frmSportClubData.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
-		frmSportClubData.setTitle("SportClubData");
-		frmSportClubData.getContentPane().setBackground(new Color(255, 255, 204));
-		frmSportClubData.setBounds(100, 100, 400, 250);
-		frmSportClubData.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSportClubData.getContentPane().setLayout(null);
+public VistaLogin() {
 		
-		JLabel lblUsuario = new JLabel("USUARIO");
+		setResizable(false);
+	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+		int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+		int centroAncho = (ancho / 2) - 200;
+		int centroAlto = (alto / 2) - 110;
+
+        super.setBounds(centroAncho, centroAlto, 400, 220);
+		
+		panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 204));
+		panel.setLayout(null);
+		setTitle("SportClubData");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		
+		super.setContentPane(panel);
+
+		btnRegistrarse = new JButton("REGISTRARSE");
+		btnRegistrarse.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnRegistrarse.setBounds(124, 59, 145, 23);
+		panel.add(btnRegistrarse);
+		
+		btnIniciarSesion = new JButton("INICIAR SESI\u00D3N");
+		btnIniciarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnIniciarSesion.setBounds(124, 105, 145, 23);
+		panel.add(btnIniciarSesion);
+		
+		lblUsuario = new JLabel("USUARIO");
+		lblUsuario.setVisible(false);
+		lblUsuario.setBounds(170, 46, 53, 15);
+		panel.add(lblUsuario);
 		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		lblUsuario.setBounds(127, 35, 140, 14);
-		frmSportClubData.getContentPane().add(lblUsuario);
 		
-		JLabel lblContrasea = new JLabel("CONTRASE\u00D1A");
-		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
-		lblContrasea.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		lblContrasea.setBounds(127, 95, 140, 14);
-		frmSportClubData.getContentPane().add(lblContrasea);
+		lblPassword = new JLabel("CONTRASE\u00D1A");
+		lblPassword.setVisible(false);
+		lblPassword.setBounds(155, 91, 83, 15);
+		panel.add(lblPassword);
+		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPassword.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		txtUser = new JTextField();
+		txtUser.setVisible(false);
+		txtUser.setBounds(137, 61, 120, 21);
+		panel.add(txtUser);
 		txtUser.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		txtUser.setColumns(10);
-		txtUser.setBounds(127, 55, 140, 20);
-		frmSportClubData.getContentPane().add(txtUser);
 		
 		btnLogin = new JButton("LOGIN");
+		btnLogin.setVisible(false);
+		btnLogin.setBounds(137, 157, 120, 23);
+		panel.add(btnLogin);
 		btnLogin.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		btnLogin.setBounds(127, 169, 140, 23);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setVisible(false);
+		txtPassword.setBounds(137, 106, 120, 20);
+		panel.add(txtPassword);
+		
+		JLabel lblVersion = new JLabel("0.9.4");
+		lblVersion.setBounds(370, 176, 24, 15);
+		panel.add(lblVersion);
+		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblVersion.setForeground(Color.LIGHT_GRAY);
+		
+		lblError = new JLabel("Usuario o Contrase\u00F1a incorrectos.");
+		lblError.setVisible(false);
+		lblError.setHorizontalAlignment(SwingConstants.CENTER);
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 12));
+		lblError.setBounds(99, 21, 195, 14);
+		panel.add(lblError);
+		
+		btnVolver = new JButton("VOLVER");
+		btnVolver.setVisible(false);
+		btnVolver.setMargin(new Insets(2, 5, 2, 5));
+		btnVolver.setFont(new Font("Palatino Linotype", Font.PLAIN, 9));
+		btnVolver.setBounds(335, 0, 59, 23);
+		panel.add(btnVolver);
+		
+		//ACTION LISTENER
+		btnRegistrarse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		frmSportClubData.getContentPane().add(btnLogin);
-		
-		txtPassword = new JPasswordField();
-		txtPassword.setBounds(127, 115, 140, 20);
-		frmSportClubData.getContentPane().add(txtPassword);
-		
-		JLabel lblVersion = new JLabel("0.9.4");
-		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblVersion.setForeground(Color.LIGHT_GRAY);
-		lblVersion.setBounds(358, 207, 36, 14);
-		frmSportClubData.getContentPane().add(lblVersion);
+
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
 	}
 }
