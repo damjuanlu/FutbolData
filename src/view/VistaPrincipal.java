@@ -67,7 +67,7 @@ public VistaPrincipal() {
 		
 		menuPrincipal = new JMenuBar();
 		menuPrincipal.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.setBounds(0, 0, 1362, 21);
+		menuPrincipal.setBounds(0, 0, ancho, 21);
 		panel.add(menuPrincipal);
 		
 		mnInicio = new JMenu("INICIO");

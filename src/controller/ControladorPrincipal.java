@@ -13,6 +13,7 @@ public class ControladorPrincipal {
 		try {
 			//UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
 			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+			//UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel");
 		}catch(Exception ex){
 			System.out.println("Apariencia Look & Feel no cargada");
 		}
