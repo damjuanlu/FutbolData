@@ -42,24 +42,17 @@ public VistaLogin() {
         super.setBounds(centroAncho, centroAlto, 400, 220);
 		
 		panel = new JPanel();
-		//panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		//setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("\\icon-soccer\\026-strategy-1.png"));
+		Image icon= Toolkit.getDefaultToolkit().getImage( "../img/proveedores.png" );
 		
 		super.setContentPane(panel);
-		
-		ImageIcon iconBG = new ImageIcon("\\FutbolData\\Repositorios\\background\\background-grass-01.png"); 
-		JLabel background = new JLabel();
-		background.setIcon(iconBG);
-		panel.add(background);
 
 		btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		btnRegistrarse.setBounds(124, 59, 145, 23);
 		panel.add(btnRegistrarse);
-		
 		
 		btnIniciarSesion = new JButton("INICIAR SESI\u00D3N");
 		btnIniciarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
@@ -99,7 +92,7 @@ public VistaLogin() {
 		panel.add(txtPassword);
 		
 		JLabel lblVersion = new JLabel("0.9.4");
-		lblVersion.setBounds(370, 176, 24, 15);
+		lblVersion.setBounds(365, 176, 24, 15);
 		panel.add(lblVersion);
 		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		lblVersion.setForeground(Color.LIGHT_GRAY);

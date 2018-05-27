@@ -44,13 +44,14 @@ public class VistaPrincipal extends JFrame{
 public VistaPrincipal() {
 		
 		setResizable(false);
-		//int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-		//int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+		
+		int CentrarAncho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+		int CentrarAlto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		
 		int alto=720;
 		int ancho=1080;
-
-		super.setBounds(0, 0, ancho, alto);
+	
+		super.setBounds(((CentrarAncho / 2) - 540), ((CentrarAlto / 2) - 360), ancho, alto);
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -58,7 +59,7 @@ public VistaPrincipal() {
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("../Repositorios/icon-soccer/026-strategy-1.png"));
 		
 		super.setContentPane(panel);
 		

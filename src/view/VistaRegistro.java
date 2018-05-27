@@ -41,7 +41,7 @@ public VistaRegistro() {
         super.setBounds(centroAncho, centroAlto, 400, 220);
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 204));
+		//panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData - REGISTRO");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
@@ -76,7 +76,7 @@ public VistaRegistro() {
 		panel.add(txtRegistroPassword);
 		
 		JLabel lblVersion = new JLabel("0.9.4");
-		lblVersion.setBounds(370, 176, 24, 15);
+		lblVersion.setBounds(365, 176, 24, 15);
 		panel.add(lblVersion);
 		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		lblVersion.setForeground(Color.LIGHT_GRAY);
