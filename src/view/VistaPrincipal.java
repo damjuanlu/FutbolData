@@ -44,8 +44,11 @@ public class VistaPrincipal extends JFrame{
 public VistaPrincipal() {
 		
 		setResizable(false);
-		int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-		int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+		//int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+		//int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+		
+		int alto=720;
+		int ancho=1080;
 
 		super.setBounds(0, 0, ancho, alto);
 	
@@ -55,14 +58,14 @@ public VistaPrincipal() {
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
 		
 		super.setContentPane(panel);
 		
 		lblUser = new JLabel("");
 		lblUser.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUser.setBounds(1078, 0, 260, 21);
+		lblUser.setBounds(800, 0, 260, 21);
 		panel.add(lblUser);
 		
 		menuPrincipal = new JMenuBar();
