@@ -12,7 +12,8 @@ import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.UIManager.*;
 
 public class VistaLogin extends JFrame{
 
@@ -41,17 +42,24 @@ public VistaLogin() {
         super.setBounds(centroAncho, centroAlto, 400, 220);
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 204));
+		//panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
 		
 		super.setContentPane(panel);
+		
+		ImageIcon iconBG = new ImageIcon("\\FutbolData\\Repositorios\\background\\background-grass-01.png"); 
+		JLabel background = new JLabel();
+		background.setIcon(iconBG);
+		panel.add(background);
 
 		btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		btnRegistrarse.setBounds(124, 59, 145, 23);
 		panel.add(btnRegistrarse);
+		
 		
 		btnIniciarSesion = new JButton("INICIAR SESI\u00D3N");
 		btnIniciarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
