@@ -8,6 +8,7 @@ public class Controlador implements ActionListener {
 	private VistaLogin miVistaLogin;
 	private VistaRegistro miVistaRegistro;
 	private VistaPrincipal miVistaPrincipal;
+	private VistaFichas miVistaFichas;
 	
 	//CONSTRUCTOR DEL CONTROLADOR
 	public Controlador(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP) {
@@ -92,6 +93,21 @@ public class Controlador implements ActionListener {
 		}
 		
 		if (e.getSource()==miVistaPrincipal.btnCerrarSesion) {
+			miVistaPrincipal.setVisible(false);
+			miVistaLogin.setVisible(true);
+			miVistaLogin.lblError.setVisible(false);
+			miVistaLogin.btnIniciarSesion.setVisible(true);
+			miVistaLogin.btnRegistrarse.setVisible(true);
+			miVistaLogin.lblUsuario.setVisible(false);
+			miVistaLogin.lblPassword.setVisible(false);
+			miVistaLogin.txtUser.setVisible(false);
+			miVistaLogin.txtPassword.setVisible(false);
+			miVistaLogin.btnLogin.setVisible(false);
+			miVistaLogin.btnVolver.setVisible(false);
+			miVistaLogin.setTitle("SportClubData");
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmFichas) {
 			miVistaPrincipal.setVisible(false);
 			miVistaLogin.setVisible(true);
 			miVistaLogin.lblError.setVisible(false);
