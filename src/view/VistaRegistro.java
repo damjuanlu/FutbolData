@@ -44,7 +44,7 @@ public VistaRegistro() {
 		//panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData - REGISTRO");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\rballesterosa\\git\\FutbolData\\Repositorios\\icon-soccer\\026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/026-strategy-1.png"));
 		
 		super.setContentPane(panel);
 		

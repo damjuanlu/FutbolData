@@ -7,6 +7,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
@@ -14,6 +16,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class VistaPrincipal extends JFrame{
 
@@ -25,7 +28,7 @@ public class VistaPrincipal extends JFrame{
 	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
-	public JMenuItem mntmMantenimientoEquipos;
+	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
 	public JMenuItem mntmCalendariosYResultados;
@@ -40,6 +43,10 @@ public class VistaPrincipal extends JFrame{
 	public JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
+	public JLabel lblEscudo;
+	public JButton btnSelectorEscudo;
+	public JLabel lblCumpleaños;
+	public JLabel lblEntrenamientos;
 
 public VistaPrincipal() {
 		
@@ -59,7 +66,7 @@ public VistaPrincipal() {
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("../Repositorios/icon-soccer/026-strategy-1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/026-strategy-1.png"));
 		
 		super.setContentPane(panel);
 		
@@ -104,9 +111,9 @@ public VistaPrincipal() {
 		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnCompeticion);
 		
-		mntmMantenimientoEquipos = new JMenuItem("MANTENIMIENTO EQUIPOS");
-		mntmMantenimientoEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmMantenimientoEquipos);
+		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
+		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnCompeticion.add(mntmGestionEquipos);
 		
 		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
 		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
@@ -166,9 +173,119 @@ public VistaPrincipal() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
+		btnSelectorEscudo = new JButton("...");
+		btnSelectorEscudo.setMargin(new Insets(0, 14, 0, 14));
+		btnSelectorEscudo.setToolTipText("Cambia Escudo");
+		btnSelectorEscudo.setBounds(1029, 172, 30, 12);
+		panel.add(btnSelectorEscudo);
+		
+		btnSelectorEscudo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		lblEscudo = new JLabel("");
+		lblEscudo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblEscudo.setBounds(910, 35, 150, 150);
+		panel.add(lblEscudo);
+		
+		//OBTENER ESCUDO DEL CLUB
+		ImageIcon Escudo = new ImageIcon("src/Repositorios/sinEscudo.png");
+		Icon imagenEscudo = new ImageIcon(Escudo.getImage().getScaledInstance(lblEscudo.getWidth(), lblEscudo.getHeight(), Image.SCALE_DEFAULT));
+		lblEscudo.setIcon(imagenEscudo);
+		
+		lblCumpleaños = new JLabel("CUMPLEA\u00D1OS");
+		lblCumpleaños.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblCumpleaños.setBounds(910, 220, 150, 200);
+		panel.add(lblCumpleaños);
+		
+		lblEntrenamientos = new JLabel("ENTRENAMIENTOS");
+		lblEntrenamientos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblEntrenamientos.setBounds(910, 455, 150, 200);
+		panel.add(lblEntrenamientos);
+		
 		//ACTION LISTENER
 		
+		mnInicio.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		mntmFichas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmAsistencia.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmEstadisticas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmGestionEquipos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmPartidosDisputados.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmConvocatorias.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmCalendariosYResultados.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmBaseDeDatos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmCuotasJugadores.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmUsuario.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmContacto.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmAcercaDe.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}

@@ -44,8 +44,7 @@ public VistaLogin() {
 		panel = new JPanel();
 		panel.setLayout(null);
 		setTitle("SportClubData");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("\\icon-soccer\\026-strategy-1.png"));
-		Image icon= Toolkit.getDefaultToolkit().getImage( "../img/proveedores.png" );
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/026-strategy-1.png"));
 		
 		super.setContentPane(panel);
 
