@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="C:/Users/rballesterosa/Downloads/JTattoo-1.6.11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rballesterosa/Downloads/liquidlnf.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rballesterosa/Downloads/syntheticaBlackStar.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rballesterosa/Downloads/jcalendar-1.4.jar/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

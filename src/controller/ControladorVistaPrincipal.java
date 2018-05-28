@@ -3,31 +3,24 @@ package controller;
 import view.*;
 import model.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
-import com.sun.java.util.jar.pack.*;
-
-public class Controlador implements ActionListener {
+public class ControladorVistaPrincipal implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
 	private VistaRegistro miVistaRegistro;
 	private VistaPrincipal miVistaPrincipal;
 	private VistaFichas miVistaFichas;
+	private VistaAsistencias miVistaAsistencias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public Controlador(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP) {
+	public ControladorVistaPrincipal(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
 		miVistaRegistro = miVR;
 		miVistaPrincipal = miVP;
+		miVistaFichas = miVF;
+		miVistaAsistencias = miVA;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaLogin.btnLogin.addActionListener(this);
@@ -37,6 +30,7 @@ public class Controlador implements ActionListener {
 		miVistaRegistro.btnVolver.addActionListener(this);
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
 		miVistaPrincipal.btnCerrarSesion.addActionListener(this);
+		miVistaPrincipal.mntmAsistencia.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -118,10 +112,6 @@ public class Controlador implements ActionListener {
 			miVistaLogin.setTitle("SportClubData");
 		}
 		
-		if (e.getSource()==miVistaPrincipal.mnInicio) {
-			miVistaPrincipal.setVisible(true);
-		}
-		
 		if (e.getSource()==miVistaPrincipal.mntmFichas) {
 			miVistaPrincipal.setVisible(false);
 			miVistaLogin.setVisible(true);
@@ -135,6 +125,11 @@ public class Controlador implements ActionListener {
 			miVistaLogin.btnLogin.setVisible(false);
 			miVistaLogin.btnVolver.setVisible(false);
 			miVistaLogin.setTitle("SportClubData");
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmAsistencia) {
+			miVistaPrincipal.setVisible(false);
+			miVistaAsistencias.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {

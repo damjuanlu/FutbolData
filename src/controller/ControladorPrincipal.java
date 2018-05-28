@@ -21,8 +21,11 @@ public class ControladorPrincipal {
 		VistaLogin miVistaLogin = new VistaLogin();
 		VistaRegistro miVistaRegistro = new VistaRegistro();
 		VistaPrincipal miVistaPrincipal = new VistaPrincipal();
+		VistaFichas miVistaFichas = new VistaFichas();
+		VistaAsistencias miVistaAsistencias = new VistaAsistencias();
 		
-		Controlador miControlador = new Controlador(miVistaLogin, miVistaRegistro, miVistaPrincipal);
+		ControladorVistaPrincipal miControladorPrincipal = new ControladorVistaPrincipal(miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaAsistencias);
+		ControladorAsistencias  miControladorAsistencias = new ControladorAsistencias(miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaAsistencias);
 		
 		miVistaLogin.setVisible(true);
 	}
