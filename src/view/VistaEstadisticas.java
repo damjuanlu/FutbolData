@@ -71,7 +71,7 @@ public class VistaEstadisticas extends JFrame{
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JTable tableAsistencias;
+	public JTable tableEstadisticas;
 
 public VistaEstadisticas() {
 		
@@ -249,13 +249,13 @@ public VistaEstadisticas() {
 		
 		//TABLA ASISTENCIAS
 		//FALTA CABECERA DE COLUMNAS
-		tableAsistencias = new JTable();
-		tableAsistencias.setRowHeight(18);
-		tableAsistencias.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		tableAsistencias.setFocusable(false);
-		tableAsistencias.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		tableAsistencias.setRowSelectionAllowed(false);
-		tableAsistencias.setModel(new DefaultTableModel(
+		tableEstadisticas = new JTable();
+		tableEstadisticas.setRowHeight(18);
+		tableEstadisticas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tableEstadisticas.setFocusable(false);
+		tableEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		tableEstadisticas.setRowSelectionAllowed(false);
+		tableEstadisticas.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"Jugador", "Convocado", "Titular", "Suplente", "Sin jugar", "Minutos", "Goles", "Asistencias", "TAmarillas", "TRojas"},
 				{null, null, null, null, null, null, null, null, null, null},
@@ -291,36 +291,36 @@ public VistaEstadisticas() {
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, true, true, true, true, true, true
+				false, false, false, false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		tableAsistencias.getColumnModel().getColumn(0).setPreferredWidth(200);
-		tableAsistencias.getColumnModel().getColumn(0).setMinWidth(200);
-		tableAsistencias.getColumnModel().getColumn(1).setPreferredWidth(65);
-		tableAsistencias.getColumnModel().getColumn(1).setMinWidth(65);
-		tableAsistencias.getColumnModel().getColumn(2).setPreferredWidth(45);
-		tableAsistencias.getColumnModel().getColumn(2).setMinWidth(45);
-		tableAsistencias.getColumnModel().getColumn(3).setPreferredWidth(55);
-		tableAsistencias.getColumnModel().getColumn(3).setMinWidth(55);
-		tableAsistencias.getColumnModel().getColumn(4).setPreferredWidth(55);
-		tableAsistencias.getColumnModel().getColumn(4).setMinWidth(55);
-		tableAsistencias.getColumnModel().getColumn(5).setPreferredWidth(50);
-		tableAsistencias.getColumnModel().getColumn(5).setMinWidth(50);
-		tableAsistencias.getColumnModel().getColumn(6).setPreferredWidth(35);
-		tableAsistencias.getColumnModel().getColumn(6).setMinWidth(35);
-		tableAsistencias.getColumnModel().getColumn(7).setPreferredWidth(65);
-		tableAsistencias.getColumnModel().getColumn(7).setMinWidth(65);
-		tableAsistencias.getColumnModel().getColumn(8).setPreferredWidth(65);
-		tableAsistencias.getColumnModel().getColumn(8).setMinWidth(65);
-		tableAsistencias.getColumnModel().getColumn(9).setPreferredWidth(45);
-		tableAsistencias.getColumnModel().getColumn(9).setMinWidth(45);
-		tableAsistencias.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
-		tableAsistencias.setBorder(new LineBorder(Color.BLACK));
-		tableAsistencias.setBounds(312, 120, 733, 505);
-		panel.add(tableAsistencias);
+		tableEstadisticas.getColumnModel().getColumn(0).setPreferredWidth(200);
+		tableEstadisticas.getColumnModel().getColumn(0).setMinWidth(200);
+		tableEstadisticas.getColumnModel().getColumn(1).setPreferredWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(1).setMinWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(2).setPreferredWidth(45);
+		tableEstadisticas.getColumnModel().getColumn(2).setMinWidth(45);
+		tableEstadisticas.getColumnModel().getColumn(3).setPreferredWidth(55);
+		tableEstadisticas.getColumnModel().getColumn(3).setMinWidth(55);
+		tableEstadisticas.getColumnModel().getColumn(4).setPreferredWidth(55);
+		tableEstadisticas.getColumnModel().getColumn(4).setMinWidth(55);
+		tableEstadisticas.getColumnModel().getColumn(5).setPreferredWidth(50);
+		tableEstadisticas.getColumnModel().getColumn(5).setMinWidth(50);
+		tableEstadisticas.getColumnModel().getColumn(6).setPreferredWidth(35);
+		tableEstadisticas.getColumnModel().getColumn(6).setMinWidth(35);
+		tableEstadisticas.getColumnModel().getColumn(7).setPreferredWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(7).setMinWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(8).setPreferredWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(8).setMinWidth(65);
+		tableEstadisticas.getColumnModel().getColumn(9).setPreferredWidth(45);
+		tableEstadisticas.getColumnModel().getColumn(9).setMinWidth(45);
+		tableEstadisticas.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tableEstadisticas.setBorder(new LineBorder(Color.BLACK));
+		tableEstadisticas.setBounds(312, 120, 733, 505);
+		panel.add(tableEstadisticas);
 		
 		JButton btnInformeAsistencia = new JButton("INFORME");
 		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -332,17 +332,6 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnInformeAsistencia.setBounds(945, 40, 100, 25);
 		panel.add(btnInformeAsistencia);
-		
-		JButton btnGuardarAsistencia = new JButton("GUARDAR");
-		btnGuardarAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnGuardarAsistencia.setVerticalAlignment(SwingConstants.TOP);
-		btnGuardarAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnGuardarAsistencia.setFocusable(false);
-		btnGuardarAsistencia.setFocusPainted(false);
-		btnGuardarAsistencia.setDefaultCapable(false);
-		btnGuardarAsistencia.setBackground(SystemColor.activeCaption);
-		btnGuardarAsistencia.setBounds(810, 39, 100, 25);
-		panel.add(btnGuardarAsistencia);
 		
 		//ACTION LISTENER
 		
