@@ -13,6 +13,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 
 public class VistaRegistro extends JFrame{
 
@@ -26,6 +27,7 @@ public class VistaRegistro extends JFrame{
 	public JLabel lblRepitaPassword;
 	public JPasswordField txtRepitaPassword;
 	public JButton btnVolver;
+	private JLabel label;
 
 public VistaRegistro() {
 		
@@ -103,6 +105,11 @@ public VistaRegistro() {
 		btnVolver.setFont(new Font("Palatino Linotype", Font.PLAIN, 9));
 		btnVolver.setBounds(335, 0, 59, 23);
 		panel.add(btnVolver);
+		
+		label = new JLabel("New label");
+		label.setIcon(new ImageIcon(VistaRegistro.class.getResource("/Repositorios/fondo3.jpg")));
+		label.setBounds(-74, -30, 511, 330);
+		panel.add(label);
 		
 		btnGuardaRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
