@@ -4,7 +4,7 @@ import view.*;
 import model.*;
 import java.awt.event.*;
 
-public class ControladorGestionEquipos implements ActionListener {
+public class ControladorPartidosDisputados implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
 	private VistaPrincipal miVistaPrincipal;
@@ -15,7 +15,7 @@ public class ControladorGestionEquipos implements ActionListener {
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorGestionEquipos(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
+	public ControladorPartidosDisputados(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
 										VistaPartidosDisputados miVPD) {
 		
@@ -79,9 +79,9 @@ public class ControladorGestionEquipos implements ActionListener {
 			miVistaEstadisticas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaGestionEquipos.mntmPartidosDisputados) {
+		if (e.getSource()==miVistaGestionEquipos.mntmGestionEquipos) {
 			miVistaGestionEquipos.setVisible(false);
-			miVistaPartidosDisputados.setVisible(true);
+			miVistaGestionEquipos.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
