@@ -11,9 +11,10 @@ public class ControladorVistaPrincipal implements ActionListener {
 	private VistaPrincipal miVistaPrincipal;
 	private VistaFichas miVistaFichas;
 	private VistaAsistencias miVistaAsistencias;
+	private VistaEstadisticas miVistaEstadisticas;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorVistaPrincipal(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA) {
+	public ControladorVistaPrincipal(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -21,6 +22,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 		miVistaPrincipal = miVP;
 		miVistaFichas = miVF;
 		miVistaAsistencias = miVA;
+		miVistaEstadisticas = miVE;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaLogin.btnLogin.addActionListener(this);
@@ -30,7 +32,9 @@ public class ControladorVistaPrincipal implements ActionListener {
 		miVistaRegistro.btnVolver.addActionListener(this);
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
 		miVistaPrincipal.btnCerrarSesion.addActionListener(this);
+		miVistaPrincipal.mntmFichas.addActionListener(this);
 		miVistaPrincipal.mntmAsistencia.addActionListener(this);
+		miVistaPrincipal.mntmEstadisticas.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -114,17 +118,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 		
 		if (e.getSource()==miVistaPrincipal.mntmFichas) {
 			miVistaPrincipal.setVisible(false);
-			miVistaLogin.setVisible(true);
-			miVistaLogin.lblError.setVisible(false);
-			miVistaLogin.btnIniciarSesion.setVisible(true);
-			miVistaLogin.btnRegistrarse.setVisible(true);
-			miVistaLogin.lblUsuario.setVisible(false);
-			miVistaLogin.lblPassword.setVisible(false);
-			miVistaLogin.txtUser.setVisible(false);
-			miVistaLogin.txtPassword.setVisible(false);
-			miVistaLogin.btnLogin.setVisible(false);
-			miVistaLogin.btnVolver.setVisible(false);
-			miVistaLogin.setTitle("SportClubData");
+			//miVistaFichas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPrincipal.mntmAsistencia) {
@@ -132,6 +126,11 @@ public class ControladorVistaPrincipal implements ActionListener {
 			miVistaAsistencias.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaPrincipal.mntmEstadisticas) {
+			miVistaPrincipal.setVisible(false);
+			miVistaEstadisticas.setVisible(true);
+		}
+
 		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {
 				
 		}

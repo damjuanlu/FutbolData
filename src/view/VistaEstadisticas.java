@@ -39,7 +39,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
 
-public class VistaAsistencias extends JFrame{
+public class VistaEstadisticas extends JFrame{
 
 	public JPanel panel;
 	public JMenuBar menuPrincipal;
@@ -68,10 +68,12 @@ public class VistaAsistencias extends JFrame{
 	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
+	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
+	public String mesSeleccionado;
 	public JTable tableAsistencias;
 
-public VistaAsistencias() {
+public VistaEstadisticas() {
 		
 		setResizable(false);
 		
@@ -88,7 +90,7 @@ public VistaAsistencias() {
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
-		setTitle("SportClubData - ASISTENCIA");
+		setTitle("SportClubData - ESTADISTICAS");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/047-stopwatch.png"));
 		
 		super.setContentPane(panel);
@@ -217,29 +219,19 @@ public VistaAsistencias() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
-		//OBTENER ESCUDO DEL CLUB
-		ImageIcon Escudo = new ImageIcon("src/Repositorios/sinEscudo.png");
-		
-		//CALENDARIO
-		calendar = new JCalendar();
-		calendar.setBorder(new LineBorder(new Color(0, 0, 0)));
-		calendar.getMonthChooser().getSpinner().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		calendar.getYearChooser().getSpinner().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		calendar.getMonthChooser().getComboBox().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		calendar.getDayChooser().getDayPanel().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		calendar.setWeekOfYearVisible(false);
-		calendar.setBounds(35, 95, 248, 180);
-		panel.add(calendar);
-		Date fecha = calendar.getDate();
-		stringFecha = DateFormat.getDateInstance().format(fecha);
+		comboBoxSelecMes = new JComboBox();
+		comboBoxSelecMes.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Mes", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		comboBoxSelecMes.setModel(new DefaultComboBoxModel(new String[] {"0 - TODOS", "1 - ENERO", "2 - FEBRERO", "3 - MARZO", "4 - ABRIL", "5 - MAYO", "6 - JUNIO", "7 - JULIO", "8 - AGOSTO", "9 - SEPTIEMBRE", "10 - OCTUBRE", "11 - NOVIEMBRE", "12 - DICIEMBRE"}));
+		comboBoxSelecMes.setBounds(35, 95, 248, 40);
+		panel.add(comboBoxSelecMes);
 		
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL A", "JUVENIL B", "CADETE A", "CADETE B", "INFANTIL A", "INFANTIL B", "ALEVIN A", "ALEVIN B", "BENJAMIN A", "BENJAMIN B"}));
-		comboBoxSelecEquipo.setBounds(35, 310, 248, 40);
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
+		comboBoxSelecEquipo.setBounds(35, 170, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
-		lblFechaAsistencia = new JLabel("Asistencia de "+equipoSeleccionado+" correspondiente a lunes, "+stringFecha);
+		lblFechaAsistencia = new JLabel("Visualizando estadisticas de "+equipoSeleccionado);
 		lblFechaAsistencia.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblFechaAsistencia.setOpaque(true);
 		lblFechaAsistencia.setBackground(new Color(144, 238, 144));
@@ -249,15 +241,7 @@ public VistaAsistencias() {
 		lblFechaAsistencia.setBounds(312, 95, 733, 20);
 		panel.add(lblFechaAsistencia);
 		
-		JEditorPane dtrpnTipoIncidencia = new JEditorPane();
-		dtrpnTipoIncidencia.setBorder(new TitledBorder(null, "Tipos de incidencia", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-		dtrpnTipoIncidencia.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
-		dtrpnTipoIncidencia.setEditable(false);
-		dtrpnTipoIncidencia.setText("A - Asiste\r\nF - Falta Injustificada\r\nJ - Falta Justificada\r\nP - Permiso\r\nR - Retraso\r\nL - Lesi\u00F3n/Enfermedad\r\nS - Convocatoria Selecci\u00F3n\r\nO - Otros");
-		dtrpnTipoIncidencia.setBounds(35, 385, 248, 165);
-		panel.add(dtrpnTipoIncidencia);
-		
-		JLabel lblTituloventana = new JLabel("CONTROL DE ASISTENCIAS");
+		JLabel lblTituloventana = new JLabel("ESTAD\u00CDSTICAS");
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
 		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTituloventana.setBounds(35, 40, 248, 20);
@@ -273,54 +257,66 @@ public VistaAsistencias() {
 		tableAsistencias.setRowSelectionAllowed(false);
 		tableAsistencias.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Jugador", "Tipo", "Observaci\u00F3n", "Avisa"},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
+				{"Jugador", "Convocado", "Titular", "Suplente", "Sin jugar", "Minutos", "Goles", "Asistencias", "TAmarillas", "TRojas"},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"Jugador", "Tipo", "Obeservacion / Motivo", "Avisa"
+				"Jugador", "Convocado", "Titular", "Suplente", "Sin jugar", "Minutos", "Goles", "Asistencias", "TAmarillas", "TRojas"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, true, true, false
+				false, false, false, false, true, true, true, true, true, true
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		tableAsistencias.getColumnModel().getColumn(0).setPreferredWidth(330);
-		tableAsistencias.getColumnModel().getColumn(0).setMinWidth(330);
-		tableAsistencias.getColumnModel().getColumn(1).setPreferredWidth(30);
-		tableAsistencias.getColumnModel().getColumn(1).setMinWidth(30);
-		tableAsistencias.getColumnModel().getColumn(2).setPreferredWidth(330);
-		tableAsistencias.getColumnModel().getColumn(2).setMinWidth(330);
-		tableAsistencias.getColumnModel().getColumn(3).setPreferredWidth(40);
-		tableAsistencias.getColumnModel().getColumn(3).setMinWidth(40);
+		tableAsistencias.getColumnModel().getColumn(0).setPreferredWidth(200);
+		tableAsistencias.getColumnModel().getColumn(0).setMinWidth(200);
+		tableAsistencias.getColumnModel().getColumn(1).setPreferredWidth(65);
+		tableAsistencias.getColumnModel().getColumn(1).setMinWidth(65);
+		tableAsistencias.getColumnModel().getColumn(2).setPreferredWidth(45);
+		tableAsistencias.getColumnModel().getColumn(2).setMinWidth(45);
+		tableAsistencias.getColumnModel().getColumn(3).setPreferredWidth(55);
+		tableAsistencias.getColumnModel().getColumn(3).setMinWidth(55);
+		tableAsistencias.getColumnModel().getColumn(4).setPreferredWidth(55);
+		tableAsistencias.getColumnModel().getColumn(4).setMinWidth(55);
+		tableAsistencias.getColumnModel().getColumn(5).setPreferredWidth(50);
+		tableAsistencias.getColumnModel().getColumn(5).setMinWidth(50);
+		tableAsistencias.getColumnModel().getColumn(6).setPreferredWidth(35);
+		tableAsistencias.getColumnModel().getColumn(6).setMinWidth(35);
+		tableAsistencias.getColumnModel().getColumn(7).setPreferredWidth(65);
+		tableAsistencias.getColumnModel().getColumn(7).setMinWidth(65);
+		tableAsistencias.getColumnModel().getColumn(8).setPreferredWidth(65);
+		tableAsistencias.getColumnModel().getColumn(8).setMinWidth(65);
+		tableAsistencias.getColumnModel().getColumn(9).setPreferredWidth(45);
+		tableAsistencias.getColumnModel().getColumn(9).setMinWidth(45);
 		tableAsistencias.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		tableAsistencias.setBorder(new LineBorder(Color.BLACK));
 		tableAsistencias.setBounds(312, 120, 733, 505);
@@ -440,13 +436,13 @@ public VistaAsistencias() {
 			}
 		});
 		
-		calendar.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent evt) {
-				
-			}
+		comboBoxSelecEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
 		});
 		
-		comboBoxSelecEquipo.addActionListener(new ActionListener(){
+		comboBoxSelecMes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 
             }

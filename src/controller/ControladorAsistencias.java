@@ -10,21 +10,25 @@ public class ControladorAsistencias implements ActionListener {
 	private VistaPrincipal miVistaPrincipal;
 	private VistaFichas miVistaFichas;
 	private VistaAsistencias miVistaAsistencias;
+	private VistaEstadisticas miVistaEstadisticas;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorAsistencias(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA) {
+	public ControladorAsistencias(VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
 		miVistaPrincipal = miVP;
 		miVistaFichas = miVF;
 		miVistaAsistencias = miVA;
+		miVistaEstadisticas = miVE;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaAsistencias.btnCerrarSesion.addActionListener(this);
 		miVistaAsistencias.mntmInicio.addActionListener(this);
 		miVistaAsistencias.mntmFichas.addActionListener(this);
+		miVistaAsistencias.mntmEstadisticas.addActionListener(this);
 		miVistaAsistencias.calendar.addPropertyChangeListener(null);
+		miVistaAsistencias.comboBoxSelecEquipo.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -53,18 +57,18 @@ public class ControladorAsistencias implements ActionListener {
 		}
 		
 		if (e.getSource()==miVistaAsistencias.mntmFichas) {
-			miVistaPrincipal.setVisible(false);
-			miVistaLogin.setVisible(true);
-			miVistaLogin.lblError.setVisible(false);
-			miVistaLogin.btnIniciarSesion.setVisible(true);
-			miVistaLogin.btnRegistrarse.setVisible(true);
-			miVistaLogin.lblUsuario.setVisible(false);
-			miVistaLogin.lblPassword.setVisible(false);
-			miVistaLogin.txtUser.setVisible(false);
-			miVistaLogin.txtPassword.setVisible(false);
-			miVistaLogin.btnLogin.setVisible(false);
-			miVistaLogin.btnVolver.setVisible(false);
-			miVistaLogin.setTitle("SportClubData");
+			miVistaAsistencias.setVisible(false);
+			//miVistaFichas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaAsistencias.mntmEstadisticas) {
+			miVistaAsistencias.setVisible(false);
+			miVistaEstadisticas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaAsistencias.comboBoxSelecEquipo) {
+			String seleccion =  (String) miVistaAsistencias.comboBoxSelecEquipo.getSelectedItem();
+            miVistaAsistencias.equipoSeleccionado = seleccion;
 		}
 	}
 }

@@ -86,98 +86,126 @@ public VistaPrincipal() {
 		panel.add(menuPrincipal);
 		
 		mntmInicio = new JMenuItem("INICIO");
+		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmInicio.setMaximumSize(new Dimension(60, 32767));
 		mntmInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mntmInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		menuPrincipal.add(mntmInicio);
 		
 		mnJugadores = new JMenu("JUGADORES");
+		mnJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
 		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
 		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnJugadores);
 		
 		mntmFichas = new JMenuItem("FICHAS");
+		mntmFichas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmFichas);
 		
 		mntmAsistencia = new JMenuItem("ASISTENCIA");
+		mntmAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmAsistencia);
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
+		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
+		mnCompeticion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
 		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnCompeticion);
 		
 		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
+		mntmGestionEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmGestionEquipos);
 		
 		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
+		mntmPartidosDisputados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmPartidosDisputados);
 		
 		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
+		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmConvocatorias);
 		
 		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
+		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmCalendariosYResultados);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
+		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
 		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
 		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnEntrenamiento);
 		
 		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
+		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
 		
 		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
+		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
+		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
 		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnAdministracion);
 		
 		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
+		mntmCuotasJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
 		mnAyuda = new JMenu("AYUDA");
+		mnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
 		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		menuPrincipal.add(mnAyuda);
 		
 		mntmUsuario = new JMenuItem("USUARIO");
+		mntmUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmUsuario);
 		
 		mntmContacto = new JMenuItem("CONTACTO");
+		mntmContacto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmContacto);
 		
 		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
+		mntmAcercaDe.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAyuda.add(mntmAcercaDe);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
+		btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCerrarSesion.setFocusable(false);
+		btnCerrarSesion.setDefaultCapable(false);
+		btnCerrarSesion.setFocusPainted(false);
+		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		btnSelectorEscudo = new JButton("...");
+		btnSelectorEscudo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSelectorEscudo.setFocusable(false);
+		btnSelectorEscudo.setDefaultCapable(false);
+		btnSelectorEscudo.setFocusPainted(false);
 		btnSelectorEscudo.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnSelectorEscudo.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnSelectorEscudo.setMargin(new Insets(0, 14, 0, 14));
