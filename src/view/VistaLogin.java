@@ -27,6 +27,7 @@ public class VistaLogin extends JFrame{
 	public JLabel lblUsuario;
 	public JLabel lblPassword;
 	public JButton btnVolver;
+	private final JLabel lblNewLabel = new JLabel("New label");
 
 public VistaLogin() {
 		
@@ -91,10 +92,10 @@ public VistaLogin() {
 		panel.add(txtPassword);
 		
 		JLabel lblVersion = new JLabel("0.9.4");
-		lblVersion.setBounds(365, 176, 24, 15);
+		lblVersion.setBounds(10, 176, 24, 15);
 		panel.add(lblVersion);
 		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblVersion.setForeground(Color.LIGHT_GRAY);
+		lblVersion.setForeground(Color.BLACK);
 		
 		lblError = new JLabel("Usuario o Contrase\u00F1a incorrectos.");
 		lblError.setVisible(false);
@@ -110,6 +111,9 @@ public VistaLogin() {
 		btnVolver.setFont(new Font("Palatino Linotype", Font.PLAIN, 9));
 		btnVolver.setBounds(335, 0, 59, 23);
 		panel.add(btnVolver);
+		lblNewLabel.setIcon(new ImageIcon(VistaLogin.class.getResource("/Repositorios/fondo3.jpg")));
+		lblNewLabel.setBounds(-78, -27, 511, 330);
+		panel.add(lblNewLabel);
 		
 		//ACTION LISTENER
 		btnRegistrarse.addActionListener(new ActionListener() {
