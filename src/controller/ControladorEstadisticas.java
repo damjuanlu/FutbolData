@@ -11,9 +11,10 @@ public class ControladorEstadisticas implements ActionListener {
 	private VistaFichas miVistaFichas;
 	private VistaAsistencias miVistaAsistencias;
 	private VistaEstadisticas miVistaEstadisticas;
+	private VistaGestionEquipos miVistaGestionEquipos;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorEstadisticas(VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE) {
+	public ControladorEstadisticas(VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -21,12 +22,14 @@ public class ControladorEstadisticas implements ActionListener {
 		miVistaFichas = miVF;
 		miVistaAsistencias = miVA;
 		miVistaEstadisticas = miVE;
+		miVistaGestionEquipos = miVGE;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaEstadisticas.btnCerrarSesion.addActionListener(this);
 		miVistaEstadisticas.mntmInicio.addActionListener(this);
 		miVistaEstadisticas.mntmFichas.addActionListener(this);
 		miVistaEstadisticas.mntmAsistencia.addActionListener(this);
+		miVistaEstadisticas.mntmGestionEquipos.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecMes.addActionListener(this);
 	}
@@ -66,14 +69,19 @@ public class ControladorEstadisticas implements ActionListener {
 			miVistaAsistencias.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaEstadisticas.mntmGestionEquipos) {
+			miVistaEstadisticas.setVisible(false);
+			miVistaGestionEquipos.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaEstadisticas.comboBoxSelecEquipo) {
 			String seleccion =  (String) miVistaEstadisticas.comboBoxSelecEquipo.getSelectedItem();
-			miVistaEstadisticas.equipoSeleccionado = seleccion;
+			miVistaEstadisticas.equipoSeleccionado.equals(seleccion);
 		}
 		
 		if (e.getSource()==miVistaEstadisticas.comboBoxSelecMes) {
 			String mesSeleccionado =  (String) miVistaEstadisticas.comboBoxSelecMes.getSelectedItem();
-			miVistaEstadisticas.mesSeleccionado = mesSeleccionado;
+			miVistaEstadisticas.mesSeleccionado.equals(mesSeleccionado);
 		}
 	}
 }
