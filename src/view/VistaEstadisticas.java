@@ -226,7 +226,7 @@ public VistaEstadisticas() {
 		panel.add(comboBoxSelecMes);
 		
 		comboBoxSelecEquipo = new JComboBox();
-		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
 		comboBoxSelecEquipo.setBounds(35, 170, 248, 40);
 		panel.add(comboBoxSelecEquipo);
