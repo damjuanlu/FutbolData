@@ -44,6 +44,7 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.Box;
+import javax.swing.JTextArea;
 
 public class VistaFichaPartidos extends JFrame{
 
@@ -88,6 +89,9 @@ public class VistaFichaPartidos extends JFrame{
 	public JTextField txtJornada;
 	public JTextField txtResulLocal;
 	public JTextField txtResulVisitante;
+	private JLabel lblNotaImportante;
+	private JLabel lblNewLabel;
+	private JTable tableAlineacion;
 
 public VistaFichaPartidos() {
 		
@@ -236,7 +240,7 @@ public VistaFichaPartidos() {
 		ImageIcon imgPlantilla = new ImageIcon("src/Repositorios/fotoPlantillaATM.jpg");
 		
 		comboBoxSelecEquipo = new JComboBox();
-		comboBoxSelecEquipo.setBounds(35, 150, 248, 40);
+		comboBoxSelecEquipo.setBounds(35, 110, 248, 40);
 		comboBoxSelecEquipo.setFocusable(false);
 		comboBoxSelecEquipo.setFocusTraversalKeysEnabled(false);
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
@@ -249,7 +253,7 @@ public VistaFichaPartidos() {
 		
 		btnVolver = new JButton("VOLVER");
 		btnVolver.setBounds(945, 40, 100, 25);
-		btnVolver.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
+		btnVolver.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVolver.setFocusable(false);
 		btnVolver.setFocusPainted(false);
 		btnVolver.setDefaultCapable(false);
@@ -278,7 +282,7 @@ public VistaFichaPartidos() {
 		btnGuardar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		
 		tableResultado = new JTable();
-		tableResultado.setBounds(35, 95, 1010, 30);
+		tableResultado.setBounds(35, 75, 1010, 25);
 		tableResultado.setEnabled(false);
 		tableResultado.setRowHeight(30);
 		tableResultado.setOpaque(false);
@@ -300,7 +304,7 @@ public VistaFichaPartidos() {
 		
 		txtFecha = new JTextField();
 		txtFecha.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
-		txtFecha.setBounds(312, 150, 90, 40);
+		txtFecha.setBounds(312, 110, 90, 40);
 		txtFecha.setOpaque(false);
 		txtFecha.setFocusTraversalKeysEnabled(false);
 		txtFecha.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Fecha", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
@@ -320,9 +324,18 @@ public VistaFichaPartidos() {
 		panel.add(tableResultado);
 		panel.add(txtFecha);
 		
+		textHora = new JTextField();
+		textHora.setOpaque(false);
+		textHora.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Hora", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		textHora.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		textHora.setText("hh:mm");
+		textHora.setBounds(442, 110, 86, 40);
+		panel.add(textHora);
+		textHora.setColumns(10);
+		
 		txtContrario = new JTextField();
 		txtContrario.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
-		txtContrario.setBounds(442, 152, 250, 40);
+		txtContrario.setBounds(556, 110, 250, 40);
 		txtContrario.setOpaque(false);
 		txtContrario.setFocusTraversalKeysEnabled(false);
 		txtContrario.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "EquipoRival", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
@@ -335,7 +348,7 @@ public VistaFichaPartidos() {
 		Box horizontalBox = Box.createHorizontalBox();
 		horizontalBox.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		horizontalBox.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Jugando Como", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
-		horizontalBox.setBounds(710, 150, 150, 40);
+		horizontalBox.setBounds(836, 110, 150, 40);
 		panel.add(horizontalBox);
 		
 		JRadioButton rdbtnLocal = new JRadioButton("Local");
@@ -355,22 +368,13 @@ public VistaFichaPartidos() {
 		rdbtnVisitante.setRequestFocusEnabled(false);
 		horizontalBox.add(rdbtnVisitante);
 		
-		textHora = new JTextField();
-		textHora.setOpaque(false);
-		textHora.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Hora", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
-		textHora.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
-		textHora.setText("hh:mm");
-		textHora.setBounds(35, 220, 86, 40);
-		panel.add(textHora);
-		textHora.setColumns(10);
-		
 		txtLugar = new JTextField();
 		txtLugar.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		txtLugar.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Lugar", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
 		txtLugar.setFocusTraversalKeysEnabled(false);
 		txtLugar.setOpaque(false);
 		txtLugar.setText("Lugar");
-		txtLugar.setBounds(150, 220, 200, 40);
+		txtLugar.setBounds(35, 155, 248, 40);
 		panel.add(txtLugar);
 		txtLugar.setColumns(10);
 		
@@ -380,7 +384,7 @@ public VistaFichaPartidos() {
 		txtJornada.setFocusTraversalKeysEnabled(false);
 		txtJornada.setOpaque(false);
 		txtJornada.setText("Jornada");
-		txtJornada.setBounds(380, 220, 200, 40);
+		txtJornada.setBounds(312, 155, 216, 40);
 		panel.add(txtJornada);
 		txtJornada.setColumns(10);
 		
@@ -390,7 +394,7 @@ public VistaFichaPartidos() {
 		txtResulLocal.setFocusTraversalKeysEnabled(false);
 		txtResulLocal.setOpaque(false);
 		txtResulLocal.setText("Resultado Local");
-		txtResulLocal.setBounds(610, 220, 150, 40);
+		txtResulLocal.setBounds(556, 155, 216, 40);
 		panel.add(txtResulLocal);
 		txtResulLocal.setColumns(10);
 		
@@ -400,9 +404,82 @@ public VistaFichaPartidos() {
 		txtResulVisitante.setFocusTraversalKeysEnabled(false);
 		txtResulVisitante.setOpaque(false);
 		txtResulVisitante.setText("Resultado Visitante");
-		txtResulVisitante.setBounds(790, 220, 150, 40);
+		txtResulVisitante.setBounds(800, 155, 150, 40);
 		panel.add(txtResulVisitante);
 		txtResulVisitante.setColumns(10);
+		
+		lblNotaImportante = new JLabel("IMPORTANTE: Antes de modificar la alineaci\u00F3n, los no convocados o los goles, guarde los cambios");
+		lblNotaImportante.setForeground(new Color(255, 0, 0));
+		lblNotaImportante.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 12));
+		lblNotaImportante.setBounds(259, 200, 555, 20);
+		panel.add(lblNotaImportante);
+		
+		lblNewLabel = new JLabel("ALINEACI\u00D3N");
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(244, 164, 96));
+		lblNewLabel.setFont(new Font("Palatino Linotype", Font.BOLD, 14));
+		lblNewLabel.setBounds(35, 230, 1010, 20);
+		panel.add(lblNewLabel);
+		
+		tableAlineacion = new JTable();
+		tableAlineacion.setEnabled(false);
+		tableAlineacion.setOpaque(false);
+		tableAlineacion.setBackground(Color.WHITE);
+		tableAlineacion.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tableAlineacion.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"btnA\u00F1adir", "Dorsal", "Jugador", "Minutos", "Posicion", "Titular", "Goles", "Asis.Gol", "T.Amarillas", "T.Rojas", "Valoracion"},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				" ", "Dorsal", "Jugador", "Minutos", "Posicion", "Titular", "Goles", "Asis.Gol", "T.Amarillas", "T.Rojas", "Valoracion"
+			}
+		));
+		tableAlineacion.getColumnModel().getColumn(0).setPreferredWidth(50);
+		tableAlineacion.getColumnModel().getColumn(1).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(2).setPreferredWidth(250);
+		tableAlineacion.getColumnModel().getColumn(3).setPreferredWidth(50);
+		tableAlineacion.getColumnModel().getColumn(4).setPreferredWidth(150);
+		tableAlineacion.getColumnModel().getColumn(5).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(6).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(7).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(8).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(9).setPreferredWidth(40);
+		tableAlineacion.getColumnModel().getColumn(10).setPreferredWidth(40);
+		tableAlineacion.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tableAlineacion.setBounds(35, 250, 1010, 340);
+		panel.add(tableAlineacion);
+		
+		JLabel lblObservacion = new JLabel("OBSERVACIONES");
+		lblObservacion.setOpaque(true);
+		lblObservacion.setFont(new Font("Palatino Linotype", Font.BOLD, 14));
+		lblObservacion.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblObservacion.setBackground(new Color(244, 164, 96));
+		lblObservacion.setBounds(35, 600, 1010, 20);
+		panel.add(lblObservacion);
+		
+		JTextArea textAreaObservaciones = new JTextArea();
+		textAreaObservaciones.setMargin(new Insets(4, 4, 4, 4));
+		textAreaObservaciones.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		textAreaObservaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaObservaciones.setBounds(35, 620, 1010, 60);
+		panel.add(textAreaObservaciones);
 		
 		//ACTION LISTENER
 		
