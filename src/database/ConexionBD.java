@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.*;
+import view.*;
 
 import javax.swing.JOptionPane;
 
@@ -19,26 +19,23 @@ public class ConexionBD {
     public String usuario;
     public String contraseña;
     
-    public ConexionBD(String usuario,String contraseña){
-    	this.usuario=usuario;
-    	this.contraseña=contraseña;
+    VistaLogin vistaLogin = new VistaLogin();
+    
+    public ConexionBD(String usuario, String contraseña){
+    	this.conexion(usuario,contraseña);
     }
     
-    public boolean ConexionBD(String usuario, String contraseña){
+    public boolean conexion (String usuario, String contraseña) {
         try{
-            Class. forName ("com.mysql.jdbc.Driver");
-            conexion= DriverManager.getConnection("jdbc:mysql://www.db4free.net:3306/sportdataclub",usuario,contraseña);
-            statement = conexion.createStatement(); 
-    		return true;
+        	DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
+            Connection conexion = DriverManager.getConnection (
+                "jdbc:mysql://localhost/sportclubdata",usuario, contraseña);
+            System.out.println("Conexión a la BD establecida");
+            return true;
         } catch(Exception e){
-            Mensaje (" USUARIO O CONTRASEÑA INCORRECTOS "+e);
-            return false;
+          System.out.println(e);
+          return false;
         }
-
-        
-    }
-    void Mensaje (String ms){
-     JOptionPane.showMessageDialog(null, ms);
     }
 
 	public String getUsuario() {

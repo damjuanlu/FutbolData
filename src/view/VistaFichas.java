@@ -49,19 +49,19 @@ public class VistaFichas extends JFrame{
 	public JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JLabel lblFoto;
+	public JTextField txtNombre;
+	public JTextField txtEquipo;
+	public JTextField txtApellido;
+	public JTextField txtPosicion;
+	public JTextField txtFecha;
+	public JTextField txtDorsal;
+	public JLabel lblFoto;
 	public JTextField txtNombreBuscar;
 	public JLabel lblBuscadorDeJugadores;
 	public JTextField txtApellidoBuscar;
 	public JLabel lblNombre;
 	public JLabel lblApellido_1;
-	public JTextArea textArea;
+	public JTextArea txtObservaciones;
 	public JLabel lblObservaciones;
 	public JButton btnBuscar;
 	private JButton btnGuardar;
@@ -218,35 +218,35 @@ public VistaFichas() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
-		textField = new JTextField();
-		textField.setBounds(410, 194, 126, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		txtNombre = new JTextField();
+		txtNombre.setBounds(410, 194, 126, 20);
+		panel.add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(410, 225, 126, 20);
-		panel.add(textField_1);
+		txtEquipo = new JTextField();
+		txtEquipo.setColumns(10);
+		txtEquipo.setBounds(410, 225, 126, 20);
+		panel.add(txtEquipo);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(671, 194, 137, 20);
-		panel.add(textField_2);
+		txtApellido = new JTextField();
+		txtApellido.setColumns(10);
+		txtApellido.setBounds(671, 194, 137, 20);
+		panel.add(txtApellido);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(671, 225, 137, 20);
-		panel.add(textField_3);
+		txtPosicion = new JTextField();
+		txtPosicion.setColumns(10);
+		txtPosicion.setBounds(671, 225, 137, 20);
+		panel.add(txtPosicion);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(410, 256, 126, 20);
-		panel.add(textField_4);
+		txtFecha = new JTextField();
+		txtFecha.setColumns(10);
+		txtFecha.setBounds(410, 256, 126, 20);
+		panel.add(txtFecha);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(671, 256, 137, 20);
-		panel.add(textField_5);
+		txtDorsal = new JTextField();
+		txtDorsal.setColumns(10);
+		txtDorsal.setBounds(671, 256, 137, 20);
+		panel.add(txtDorsal);
 		
 		JLabel lblNombreFic = new JLabel("NOMBRE");
 		lblNombreFic.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -266,7 +266,7 @@ public VistaFichas() {
 		lblFechaNacimiento.setBounds(270, 259, 130, 14);
 		panel.add(lblFechaNacimiento);
 		
-		JLabel lblCaducidadFicha = new JLabel("CADUCIDAD FICHA");
+		JLabel lblCaducidadFicha = new JLabel("DORSAL");
 		lblCaducidadFicha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCaducidadFicha.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		lblCaducidadFicha.setBounds(546, 259, 115, 14);
@@ -337,12 +337,12 @@ public VistaFichas() {
 		comboBoxSelecEquipo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setBounds(667, 81, 248, 40);
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
 		panel.add(comboBoxSelecEquipo);
 		
-		textArea = new JTextArea();
-		textArea.setBounds(410, 294, 398, 90);
-		panel.add(textArea);
+		txtObservaciones = new JTextArea();
+		txtObservaciones.setBounds(410, 294, 398, 90);
+		panel.add(txtObservaciones);
 		
 		lblObservaciones = new JLabel("OBSERVACIONES");
 		lblObservaciones.setHorizontalAlignment(SwingConstants.RIGHT);

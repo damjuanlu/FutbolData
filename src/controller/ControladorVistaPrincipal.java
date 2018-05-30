@@ -87,24 +87,11 @@ public class ControladorVistaPrincipal implements ActionListener {
 			String User = miVistaLogin.txtUser.getText();
 			String Pass = new String(miVistaLogin.txtPassword.getPassword());
 			
-//			ConexionBD conexion = new ConexionBD (User, Pass);
-//			
-//			if (conexion.ConexionBD(conexion.getUsuario(), conexion.getContraseña()) == true){
-//				miVistaPrincipal.setVisible(true);
-//			}else
-//				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-			
-			if (User.equals("root") && Pass.equals("1234")) {
-				miVistaLogin.txtUser.setText("");
-				miVistaLogin.txtPassword.setText("");
+			ConexionBD conexion = new ConexionBD (User, Pass);
+			if (conexion.conexion(User, Pass) == true) {
 				miVistaLogin.setVisible(false);
 				miVistaPrincipal.setVisible(true);
 				miVistaPrincipal.lblUser.setText("Bienvenido " + User);
-				}
-				else {
-					miVistaLogin.lblError.setVisible(true);
-					miVistaLogin.txtUser.setText("");
-					miVistaLogin.txtPassword.setText("");
 			}
 		}
 		
