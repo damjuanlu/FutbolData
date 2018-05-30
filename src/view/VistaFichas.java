@@ -56,13 +56,14 @@ public class VistaFichas extends JFrame{
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JLabel lblFoto;
-	private JTextField txtNombreBuscar;
-	private JLabel lblBuscadorDeJugadores;
-	private JTextField txtApellidoBuscar;
-	private JLabel lblNombre;
-	private JLabel lblApellido_1;
-	private JTextArea textArea;
-	private JLabel lblObservaciones;
+	public JTextField txtNombreBuscar;
+	public JLabel lblBuscadorDeJugadores;
+	public JTextField txtApellidoBuscar;
+	public JLabel lblNombre;
+	public JLabel lblApellido_1;
+	public JTextArea textArea;
+	public JLabel lblObservaciones;
+	public JButton btnBuscar;
 	private JButton btnGuardar;
 	private JButton btnModificar;
 	private JButton btnBorrar;
@@ -321,7 +322,7 @@ public VistaFichas() {
 		lblApellido_1.setBounds(358, 99, 77, 14);
 		panel.add(lblApellido_1);
 		
-		JButton btnBuscar = new JButton("BUSCAR");
+		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		btnBuscar.setBounds(945, 95, 89, 23);
 		panel.add(btnBuscar);

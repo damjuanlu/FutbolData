@@ -245,6 +245,9 @@ public VistaPrincipal() {
 		lblClasificacion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblClasificacion.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblClasificacion.setBounds(312, 40, 539, 395);
+		ImageIcon imgClasif = new ImageIcon("src/Repositorios/clasificacion.jpg");
+		Icon imagenClasif = new ImageIcon(imgClasif.getImage().getScaledInstance(lblClasificacion.getWidth(), lblClasificacion.getHeight(), Image.SCALE_DEFAULT));
+		lblClasificacion.setIcon(imagenClasif);
 		panel.add(lblClasificacion);
 		
 		lblProximosPartidos = new JLabel("ProximosPartidos");

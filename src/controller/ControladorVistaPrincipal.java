@@ -4,6 +4,10 @@ import view.*;
 import model.*;
 import java.awt.event.*;
 
+import javax.swing.JOptionPane;
+
+import database.ConexionBD;
+
 public class ControladorVistaPrincipal implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
@@ -82,6 +86,14 @@ public class ControladorVistaPrincipal implements ActionListener {
 		if (e.getSource()==miVistaLogin.btnLogin) {
 			String User = miVistaLogin.txtUser.getText();
 			String Pass = new String(miVistaLogin.txtPassword.getPassword());
+			
+//			ConexionBD conexion = new ConexionBD (User, Pass);
+//			
+//			if (conexion.ConexionBD(conexion.getUsuario(), conexion.getContraseña()) == true){
+//				miVistaPrincipal.setVisible(true);
+//			}else
+//				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+			
 			if (User.equals("root") && Pass.equals("1234")) {
 				miVistaLogin.txtUser.setText("");
 				miVistaLogin.txtPassword.setText("");

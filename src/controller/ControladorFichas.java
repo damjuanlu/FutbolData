@@ -2,7 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
+import database.ConexionBD;
+import model.Jugadores_TD;
 import view.*;
 
 public class ControladorFichas implements ActionListener {
@@ -83,6 +87,23 @@ public class ControladorFichas implements ActionListener {
 		if (e.getSource()==miVistaFichas.mntmPartidosDisputados) {
 			miVistaFichas.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
+		}
+		if (e.getSource()==miVistaFichas.btnBuscar) {
+			
+//			ConexionBD conexion = new ConexionBD (conexion.getUsuario(), conexion.getContraseña());
+			
+			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
+			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
+			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
+			
+			if (nombreBusc!=null && apellidoBusc!=null && equipoBusc!=null){
+//				Statement stmt = conexion.createStatement();
+//				ResultSet rs = stmt.executeQuery("SELECT * FROM jugadores WHERE nombre = " +nombreBusc+" AND apellido ="+apellidoBusc+" AND EQUIPO="+equipoBusc);
+//				String nombre=rs.getString(1);
+//				String apellido=rs.getString(2);
+//				Jugadores_TD jugadorBusc = new Jugadores_TD();
+			}
+			
 		}
 	}
 }
