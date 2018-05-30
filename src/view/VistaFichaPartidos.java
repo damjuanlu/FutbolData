@@ -501,5 +501,11 @@ public VistaFichaPartidos() {
                 
             }
 		});
+		
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	}
 }

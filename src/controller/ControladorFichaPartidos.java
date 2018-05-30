@@ -39,6 +39,7 @@ public class ControladorFichaPartidos implements ActionListener {
 		miVistaFichaPartidos.mntmGestionEquipos.addActionListener(this);
 		miVistaFichaPartidos.mntmPartidosDisputados.addActionListener(this);
 		miVistaFichaPartidos.comboBoxSelecEquipo.addActionListener(this);
+		miVistaFichaPartidos.btnVolver.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -94,6 +95,11 @@ public class ControladorFichaPartidos implements ActionListener {
 		if (e.getSource()==miVistaFichaPartidos.comboBoxSelecEquipo) {
 			String seleccion =  (String) miVistaFichaPartidos.comboBoxSelecEquipo.getSelectedItem();
 			miVistaFichaPartidos.equipoSeleccionado.equals(seleccion);
+		}
+		
+		if (e.getSource()==miVistaFichaPartidos.btnVolver) {
+			miVistaFichaPartidos.setVisible(false);
+			miVistaPartidosDisputados.setVisible(true);
 		}
 	}
 }
