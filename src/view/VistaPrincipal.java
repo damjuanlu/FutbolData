@@ -7,16 +7,19 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaPrincipal extends JFrame{
 
@@ -47,10 +50,10 @@ public class VistaPrincipal extends JFrame{
 	public JButton btnSelectorEscudo;
 	public JLabel lblCumpleaños;
 	public JLabel lblEntrenamientos;
-	private JLabel lblClasificacion;
-	private JLabel lblProximosPartidos;
-	private JLabel lblUltimosPartidos;
+	public JTable tableClasif;
 	private JLabel lblMensajes;
+	private JTable tableProximos;
+	private JTable tableUltimos;
 
 public VistaPrincipal() {
 		
@@ -241,32 +244,118 @@ public VistaPrincipal() {
 		lblEntrenamientos.setBounds(880, 465, 165, 200);
 		panel.add(lblEntrenamientos);
 		
-		lblClasificacion = new JLabel("CLASIFICACION");
-		lblClasificacion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblClasificacion.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblClasificacion.setBounds(312, 40, 539, 395);
-		ImageIcon imgClasif = new ImageIcon("src/Repositorios/clasificacion.jpg");
-		Icon imagenClasif = new ImageIcon(imgClasif.getImage().getScaledInstance(lblClasificacion.getWidth(), lblClasificacion.getHeight(), Image.SCALE_DEFAULT));
-		lblClasificacion.setIcon(imagenClasif);
-		panel.add(lblClasificacion);
-		
-		lblProximosPartidos = new JLabel("ProximosPartidos");
-		lblProximosPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblProximosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblProximosPartidos.setBounds(35, 40, 248, 180);
-		panel.add(lblProximosPartidos);
-		
-		lblUltimosPartidos = new JLabel("UltimosPartidos");
-		lblUltimosPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblUltimosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUltimosPartidos.setBounds(35, 255, 248, 180);
-		panel.add(lblUltimosPartidos);
+		//TABLA CLASIFICACION
+		//FALTA CABECERA DE COLUMNAS
+		tableClasif = new JTable();
+		tableClasif.setRowHeight(18);
+		tableClasif.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tableClasif.setFocusable(false);
+		tableClasif.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		tableClasif.setRowSelectionAllowed(false);
+		tableClasif.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"POS","EQUIPO", "PUNTOS", "PJ", "GF", "GC"},
+				{1,null, null, null, null, null},
+				{2,null, null, null, null, null},
+				{3,null, null, null, null, null},
+				{4,null, null, null, null, null},
+				{5,null, null, null, null, null},
+				{6,null, null, null, null, null},
+				{7,null, null, null, null, null},
+				{8, null, null, null, null, null},
+				{9, null, null, null, null, null},
+				{10, null, null, null, null, null},
+				{11, null, null, null, null, null},
+				{12, null, null, null, null, null},
+				{13, null, null, null, null, null},
+				{14, null, null, null, null, null},
+				{15, null, null, null, null, null},
+				{16, null, null, null, null, null},
+				{17, null, null, null, null, null},
+				{18, null, null, null, null, null},
+				{19, null, null, null, null, null},
+				{20, null, null, null, null, null},
+			},
+			new String[] {
+					"POS","EQUIPO", "PUNTOS", "PJ", "GF", "GC"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, true, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		tableClasif.getColumnModel().getColumn(0).setPreferredWidth(30);
+		tableClasif.getColumnModel().getColumn(0).setMinWidth(30);
+		tableClasif.getColumnModel().getColumn(1).setPreferredWidth(330);
+		tableClasif.getColumnModel().getColumn(1).setMinWidth(330);
+		tableClasif.getColumnModel().getColumn(2).setPreferredWidth(50);
+		tableClasif.getColumnModel().getColumn(2).setMinWidth(50);
+		tableClasif.getColumnModel().getColumn(3).setPreferredWidth(30);
+		tableClasif.getColumnModel().getColumn(3).setMinWidth(30);
+		tableClasif.getColumnModel().getColumn(4).setPreferredWidth(30);
+		tableClasif.getColumnModel().getColumn(4).setMinWidth(30);
+		tableClasif.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tableClasif.setBorder(new LineBorder(Color.BLACK));
+		tableClasif.setBounds(312, 119, 539, 378);
+		panel.add(tableClasif);
 		
 		lblMensajes = new JLabel("MENSAJES");
 		lblMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblMensajes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensajes.setBounds(35, 465, 816, 200);
+		lblMensajes.setBounds(35, 508, 816, 157);
 		panel.add(lblMensajes);
+		
+		tableProximos = new JTable();
+		tableProximos.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"LOCAL", "CONTRA", "VISITANTE"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Object.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		tableProximos.getColumnModel().getColumn(0).setResizable(false);
+		tableProximos.getColumnModel().getColumn(1).setPreferredWidth(30);
+		tableProximos.getColumnModel().getColumn(1).setMinWidth(30);
+		tableProximos.getColumnModel().getColumn(1).setMaxWidth(30);
+		tableProximos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tableProximos.setBounds(35, 32, 248, 201);
+		panel.add(tableProximos);
+		
+		tableUltimos = new JTable();
+		tableUltimos.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"LOCAL", "CONTRA", "VISITANTE"
+			}
+		));
+		tableUltimos.getColumnModel().getColumn(1).setPreferredWidth(30);
+		tableUltimos.getColumnModel().getColumn(1).setMaxWidth(30);
+		tableUltimos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tableUltimos.setBounds(35, 259, 248, 201);
+		panel.add(tableUltimos);
 		
 		//ACTION LISTENER
 		
