@@ -19,7 +19,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.JSeparator;
 
 public class VistaPrincipal extends JFrame{
 
@@ -54,6 +57,10 @@ public class VistaPrincipal extends JFrame{
 	private JLabel lblMensajes;
 	private JTable tableProximos;
 	private JTable tableUltimos;
+	private JLabel lblMensajes_1;
+	private JSeparator separator_1;
+	private JSeparator separator_2;
+	private JSeparator separator_3;
 
 public VistaPrincipal() {
 		
@@ -252,6 +259,9 @@ public VistaPrincipal() {
 		tableClasif.setFocusable(false);
 		tableClasif.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		tableClasif.setRowSelectionAllowed(false);
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		tableClasif.setDefaultRenderer(String.class, centerRenderer);
 		tableClasif.setModel(new DefaultTableModel(
 			new Object[][] {
 				{"POS","EQUIPO", "PUNTOS", "PJ", "GF", "GC"},
@@ -334,7 +344,7 @@ public VistaPrincipal() {
 		tableProximos.getColumnModel().getColumn(1).setMinWidth(30);
 		tableProximos.getColumnModel().getColumn(1).setMaxWidth(30);
 		tableProximos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tableProximos.setBounds(35, 32, 248, 201);
+		tableProximos.setBounds(35, 162, 248, 96);
 		panel.add(tableProximos);
 		
 		tableUltimos = new JTable();
@@ -354,8 +364,36 @@ public VistaPrincipal() {
 		tableUltimos.getColumnModel().getColumn(1).setPreferredWidth(30);
 		tableUltimos.getColumnModel().getColumn(1).setMaxWidth(30);
 		tableUltimos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tableUltimos.setBounds(35, 259, 248, 201);
+		tableUltimos.setBounds(35, 339, 248, 96);
 		panel.add(tableUltimos);
+		
+		JLabel lblltimosPartidos = new JLabel("\u00DALTIMOS PARTIDOS");
+		lblltimosPartidos.setBounds(35, 309, 248, 14);
+		panel.add(lblltimosPartidos);
+		
+		JLabel lblPrximosPartidos = new JLabel("PR\u00D3XIMOS PARTIDOS");
+		lblPrximosPartidos.setBounds(35, 141, 248, 14);
+		panel.add(lblPrximosPartidos);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(35, 288, 248, 2);
+		panel.add(separator);
+		
+		lblMensajes_1 = new JLabel("MENSAJES");
+		lblMensajes_1.setBounds(35, 483, 248, 14);
+		panel.add(lblMensajes_1);
+		
+		separator_1 = new JSeparator();
+		separator_1.setBounds(35, 465, 248, 2);
+		panel.add(separator_1);
+		
+		separator_2 = new JSeparator();
+		separator_2.setBounds(861, 215, 203, 2);
+		panel.add(separator_2);
+		
+		separator_3 = new JSeparator();
+		separator_3.setBounds(857, 446, 203, 2);
+		panel.add(separator_3);
 		
 		//ACTION LISTENER
 		
