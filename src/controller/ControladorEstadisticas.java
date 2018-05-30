@@ -66,7 +66,7 @@ public class ControladorEstadisticas implements ActionListener {
 		
 		if (e.getSource()==miVistaEstadisticas.mntmFichas) {
 			miVistaEstadisticas.setVisible(false);
-			//miVistaFichas.setVisible(true);
+			miVistaFichas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaEstadisticas.mntmAsistencia) {

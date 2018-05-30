@@ -16,7 +16,9 @@ public class ControladorVistaPrincipal implements ActionListener {
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorVistaPrincipal(VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, VistaPartidosDisputados miVPD) {
+	public ControladorVistaPrincipal(	VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, 
+										VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE, 
+										VistaGestionEquipos miVGE, VistaPartidosDisputados miVPD) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -124,7 +126,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 		
 		if (e.getSource()==miVistaPrincipal.mntmFichas) {
 			miVistaPrincipal.setVisible(false);
-			//miVistaFichas.setVisible(true);
+			miVistaFichas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPrincipal.mntmAsistencia) {

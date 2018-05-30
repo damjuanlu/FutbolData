@@ -66,7 +66,7 @@ public class ControladorAsistencias implements ActionListener {
 		
 		if (e.getSource()==miVistaAsistencias.mntmFichas) {
 			miVistaAsistencias.setVisible(false);
-			//miVistaFichas.setVisible(true);
+			miVistaFichas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaAsistencias.mntmEstadisticas) {

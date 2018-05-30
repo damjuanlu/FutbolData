@@ -66,7 +66,7 @@ public class ControladorGestionEquipos implements ActionListener {
 		
 		if (e.getSource()==miVistaGestionEquipos.mntmFichas) {
 			miVistaGestionEquipos.setVisible(false);
-			//miVistaFichas.setVisible(true);
+			miVistaFichas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.mntmAsistencia) {
