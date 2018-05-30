@@ -4,7 +4,7 @@ import view.*;
 import model.*;
 import java.awt.event.*;
 
-public class ControladorPartidosDisputados implements ActionListener {
+public class ControladorFichaPartidos implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
 	private VistaPrincipal miVistaPrincipal;
@@ -16,7 +16,7 @@ public class ControladorPartidosDisputados implements ActionListener {
 	private VistaFichaPartidos miVistaFichaPartidos;
 
 	//CONSTRUCTOR DEL CONTROLADOR
-	public ControladorPartidosDisputados(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
+	public ControladorFichaPartidos(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
 										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP) {
 		
@@ -31,15 +31,14 @@ public class ControladorPartidosDisputados implements ActionListener {
 		miVistaFichaPartidos = miVFP;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
-		miVistaPartidosDisputados.btnCerrarSesion.addActionListener(this);
-		miVistaPartidosDisputados.mntmInicio.addActionListener(this);
-		miVistaPartidosDisputados.mntmFichas.addActionListener(this);
-		miVistaPartidosDisputados.mntmAsistencia.addActionListener(this);
-		miVistaPartidosDisputados.mntmEstadisticas.addActionListener(this);
-		miVistaPartidosDisputados.mntmGestionEquipos.addActionListener(this);
-		miVistaPartidosDisputados.mntmPartidosDisputados.addActionListener(this);
-		miVistaPartidosDisputados.comboBoxSelecEquipo.addActionListener(this);
-		miVistaPartidosDisputados.btnNuevoPartido.addActionListener(this);
+		miVistaFichaPartidos.btnCerrarSesion.addActionListener(this);
+		miVistaFichaPartidos.mntmInicio.addActionListener(this);
+		miVistaFichaPartidos.mntmFichas.addActionListener(this);
+		miVistaFichaPartidos.mntmAsistencia.addActionListener(this);
+		miVistaFichaPartidos.mntmEstadisticas.addActionListener(this);
+		miVistaFichaPartidos.mntmGestionEquipos.addActionListener(this);
+		miVistaFichaPartidos.mntmPartidosDisputados.addActionListener(this);
+		miVistaFichaPartidos.comboBoxSelecEquipo.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -47,8 +46,8 @@ public class ControladorPartidosDisputados implements ActionListener {
 	public void actionPerformed (ActionEvent e) {
 		
 		//SI EL EVENTO ESTÁ PAUSADO POR EL BOTON QUE ESTAMOS INTERESADOS, REALIZAR ACCIONES
-		if (e.getSource()==miVistaPartidosDisputados.btnCerrarSesion) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.btnCerrarSesion) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaLogin.setVisible(true);
 			miVistaLogin.lblError.setVisible(false);
 			miVistaLogin.btnIniciarSesion.setVisible(true);
@@ -62,39 +61,39 @@ public class ControladorPartidosDisputados implements ActionListener {
 			miVistaLogin.setTitle("SportClubData");
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.mntmInicio) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.mntmInicio) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaPrincipal.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.mntmFichas) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.mntmFichas) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaFichas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.mntmAsistencia) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.mntmAsistencia) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaAsistencias.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.mntmEstadisticas) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.mntmEstadisticas) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.mntmGestionEquipos) {
-			miVistaPartidosDisputados.setVisible(false);
+		if (e.getSource()==miVistaFichaPartidos.mntmGestionEquipos) {
+			miVistaFichaPartidos.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.btnNuevoPartido) {
-			miVistaPartidosDisputados.setVisible(false);
-			miVistaFichaPartidos.setVisible(true);
+		if (e.getSource()==miVistaFichaPartidos.mntmPartidosDisputados) {
+			miVistaFichaPartidos.setVisible(false);
+			miVistaPartidosDisputados.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPartidosDisputados.comboBoxSelecEquipo) {
-			String seleccion =  (String) miVistaPartidosDisputados.comboBoxSelecEquipo.getSelectedItem();
-			miVistaPartidosDisputados.equipoSeleccionado.equals(seleccion);
+		if (e.getSource()==miVistaFichaPartidos.comboBoxSelecEquipo) {
+			String seleccion =  (String) miVistaFichaPartidos.comboBoxSelecEquipo.getSelectedItem();
+			miVistaFichaPartidos.equipoSeleccionado.equals(seleccion);
 		}
 	}
 }

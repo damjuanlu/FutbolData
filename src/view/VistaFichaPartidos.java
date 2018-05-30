@@ -36,10 +36,16 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.Box;
 
-public class VistaPartidosDisputados extends JFrame{
+public class VistaFichaPartidos extends JFrame{
 
 	public JPanel panel;
 	public JMenuBar menuPrincipal;
@@ -67,13 +73,23 @@ public class VistaPartidosDisputados extends JFrame{
 	public JCalendar calendar;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
+	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JLabel lblResumenPartidos;
-	public JLabel lblDatosEquipo;
-	public JButton btnNuevoPartido;
+	public JButton btnVolver;
+	public JButton btnEliminaPartido;
+	public JButton btnGuardar;
+	public JTable tableResultado;
+	public JTextField txtFecha;
+	public JTextField txtContrario2;
+	public JTextField txtContrario;
+	public JTextField textHora;
+	public JTextField txtLugar;
+	public JTextField txtJornada;
+	public JTextField txtResulLocal;
+	public JTextField txtResulVisitante;
 
-public VistaPartidosDisputados() {
+public VistaFichaPartidos() {
 		
 		setResizable(false);
 		
@@ -89,22 +105,19 @@ public VistaPartidosDisputados() {
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 204));
-		panel.setLayout(null);
-		setTitle("SportClubData - PARTIDOS DISPUTADOS");
+		setTitle("SportClubData - GESTION DE EQUIPOS");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/047-stopwatch.png"));
 		
 		super.setContentPane(panel);
 		
 		lblUser = new JLabel("");
+		lblUser.setBounds(800, 0, 260, 21);
 		lblUser.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUser.setBounds(800, 0, 260, 21);
-		panel.add(lblUser);
 		
 		menuPrincipal = new JMenuBar();
+		menuPrincipal.setBounds(0, 0, 1080, 21);
 		menuPrincipal.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.setBounds(0, 0, ancho, 21);
-		panel.add(menuPrincipal);
 		
 		mntmInicio = new JMenuItem("INICIO");
 		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -223,50 +236,173 @@ public VistaPartidosDisputados() {
 		ImageIcon imgPlantilla = new ImageIcon("src/Repositorios/fotoPlantillaATM.jpg");
 		
 		comboBoxSelecEquipo = new JComboBox();
-		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		comboBoxSelecEquipo.setBounds(35, 150, 248, 40);
+		comboBoxSelecEquipo.setFocusable(false);
+		comboBoxSelecEquipo.setFocusTraversalKeysEnabled(false);
+		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
-		comboBoxSelecEquipo.setBounds(413, 40, 248, 40);
-		panel.add(comboBoxSelecEquipo);
 		
-		JLabel lblTituloventana = new JLabel("PARTIDOS DISPUTADOS");
+		JLabel lblTituloventana = new JLabel("FICHA DE PARTIDO");
+		lblTituloventana.setBounds(35, 40, 248, 20);
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
 		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloventana.setBounds(35, 40, 248, 20);
+		
+		btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(945, 40, 100, 25);
+		btnVolver.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
+		btnVolver.setFocusable(false);
+		btnVolver.setFocusPainted(false);
+		btnVolver.setDefaultCapable(false);
+		btnVolver.setBackground(SystemColor.activeCaption);
+		btnVolver.setVerticalAlignment(SwingConstants.TOP);
+		btnVolver.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		
+		btnEliminaPartido = new JButton("ELIMINAR PARTIDO");
+		btnEliminaPartido.setBounds(770, 40, 160, 25);
+		btnEliminaPartido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminaPartido.setFocusable(false);
+		btnEliminaPartido.setFocusPainted(false);
+		btnEliminaPartido.setDefaultCapable(false);
+		btnEliminaPartido.setBackground(SystemColor.activeCaption);
+		btnEliminaPartido.setVerticalAlignment(SwingConstants.TOP);
+		btnEliminaPartido.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		
+		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setBounds(650, 40, 100, 25);
+		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnGuardar.setFocusable(false);
+		btnGuardar.setFocusPainted(false);
+		btnGuardar.setDefaultCapable(false);
+		btnGuardar.setBackground(SystemColor.activeCaption);
+		btnGuardar.setVerticalAlignment(SwingConstants.TOP);
+		btnGuardar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		
+		tableResultado = new JTable();
+		tableResultado.setBounds(35, 95, 1010, 30);
+		tableResultado.setEnabled(false);
+		tableResultado.setRowHeight(30);
+		tableResultado.setOpaque(false);
+		tableResultado.setRequestFocusEnabled(false);
+		tableResultado.setFocusable(false);
+		tableResultado.setFocusTraversalKeysEnabled(false);
+		tableResultado.setRowSelectionAllowed(false);
+		tableResultado.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		tableResultado.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"-", "-", "-", "-"},
+			},
+			new String[] {
+				"EquipoLocal", "GolesLocal", "GolesVisitante", "EquipoVisitante"
+			}
+		));
+		tableResultado.setBackground(new Color(152, 251, 152));
+		tableResultado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		
+		txtFecha = new JTextField();
+		txtFecha.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtFecha.setBounds(312, 150, 90, 40);
+		txtFecha.setOpaque(false);
+		txtFecha.setFocusTraversalKeysEnabled(false);
+		txtFecha.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Fecha", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
+		txtFecha.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFecha.setText("dd/mm/aaaa");
+		txtFecha.setToolTipText("");
+		txtFecha.setColumns(10);
+
+		panel.setLayout(null);
+		panel.add(lblUser);
+		panel.add(menuPrincipal);
+		panel.add(comboBoxSelecEquipo);
 		panel.add(lblTituloventana);
+		panel.add(btnVolver);
+		panel.add(btnEliminaPartido);
+		panel.add(btnGuardar);
+		panel.add(tableResultado);
+		panel.add(txtFecha);
 		
-		JButton btnInformeEquipo = new JButton("INFORME");
-		btnInformeEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnInformeEquipo.setFocusable(false);
-		btnInformeEquipo.setFocusPainted(false);
-		btnInformeEquipo.setDefaultCapable(false);
-		btnInformeEquipo.setBackground(SystemColor.activeCaption);
-		btnInformeEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnInformeEquipo.setBounds(945, 40, 100, 25);
-		panel.add(btnInformeEquipo);
+		txtContrario = new JTextField();
+		txtContrario.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtContrario.setBounds(442, 152, 250, 40);
+		txtContrario.setOpaque(false);
+		txtContrario.setFocusTraversalKeysEnabled(false);
+		txtContrario.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "EquipoRival", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
+		txtContrario.setHorizontalAlignment(SwingConstants.LEADING);
+		txtContrario.setText("Contrario");
+		txtContrario.setToolTipText("");
+		txtContrario.setColumns(10);
+		panel.add(txtContrario);
 		
-		btnNuevoPartido = new JButton("NUEVO PARTIDO");
-		btnNuevoPartido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNuevoPartido.setFocusable(false);
-		btnNuevoPartido.setFocusPainted(false);
-		btnNuevoPartido.setDefaultCapable(false);
-		btnNuevoPartido.setBackground(SystemColor.activeCaption);
-		btnNuevoPartido.setVerticalAlignment(SwingConstants.TOP);
-		btnNuevoPartido.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnNuevoPartido.setBounds(770, 40, 160, 25);
-		panel.add(btnNuevoPartido);
+		Box horizontalBox = Box.createHorizontalBox();
+		horizontalBox.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		horizontalBox.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Jugando Como", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		horizontalBox.setBounds(710, 150, 150, 40);
+		panel.add(horizontalBox);
 		
-		lblResumenPartidos = new JLabel("TABLA CON RESUMEN DE PJ, G, E, P, GF, GC, PTS. TOTALES, EN CASA Y FUERA");
-		lblResumenPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblResumenPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblResumenPartidos.setBounds(35, 110, 1010, 100);
-		panel.add(lblResumenPartidos);
+		JRadioButton rdbtnLocal = new JRadioButton("Local");
+		rdbtnLocal.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		rdbtnLocal.setRequestFocusEnabled(false);
+		rdbtnLocal.setOpaque(false);
+		rdbtnLocal.setFocusable(false);
+		rdbtnLocal.setFocusPainted(false);
+		horizontalBox.add(rdbtnLocal);
 		
-		lblDatosEquipo = new JLabel("TABLA CON CADA PARTIDO DISPUTADO POR EL EQUIPO SELECCIONADO. FECHA, HORA, RIVAL, JORNADA, CAMPO Y RESULTADO. A\u00D1ADIR BARRA PARA SCROLL (MUCHOS PARTIDOS)");
-		lblDatosEquipo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblDatosEquipo.setBounds(35, 228, 1010, 435);
-		panel.add(lblDatosEquipo);
+		JRadioButton rdbtnVisitante = new JRadioButton("Visitante");
+		rdbtnVisitante.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		rdbtnVisitante.setMargin(new Insets(2, 10, 2, 2));
+		rdbtnVisitante.setFocusPainted(false);
+		rdbtnVisitante.setFocusable(false);
+		rdbtnVisitante.setOpaque(false);
+		rdbtnVisitante.setRequestFocusEnabled(false);
+		horizontalBox.add(rdbtnVisitante);
+		
+		textHora = new JTextField();
+		textHora.setOpaque(false);
+		textHora.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Hora", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		textHora.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		textHora.setText("hh:mm");
+		textHora.setBounds(35, 220, 86, 40);
+		panel.add(textHora);
+		textHora.setColumns(10);
+		
+		txtLugar = new JTextField();
+		txtLugar.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtLugar.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Lugar", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		txtLugar.setFocusTraversalKeysEnabled(false);
+		txtLugar.setOpaque(false);
+		txtLugar.setText("Lugar");
+		txtLugar.setBounds(150, 220, 200, 40);
+		panel.add(txtLugar);
+		txtLugar.setColumns(10);
+		
+		txtJornada = new JTextField();
+		txtJornada.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtJornada.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Jornada", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		txtJornada.setFocusTraversalKeysEnabled(false);
+		txtJornada.setOpaque(false);
+		txtJornada.setText("Jornada");
+		txtJornada.setBounds(380, 220, 200, 40);
+		panel.add(txtJornada);
+		txtJornada.setColumns(10);
+		
+		txtResulLocal = new JTextField();
+		txtResulLocal.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtResulLocal.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Resultado Local", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		txtResulLocal.setFocusTraversalKeysEnabled(false);
+		txtResulLocal.setOpaque(false);
+		txtResulLocal.setText("Resultado Local");
+		txtResulLocal.setBounds(610, 220, 150, 40);
+		panel.add(txtResulLocal);
+		txtResulLocal.setColumns(10);
+		
+		txtResulVisitante = new JTextField();
+		txtResulVisitante.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		txtResulVisitante.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Resultado Visitante", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, null));
+		txtResulVisitante.setFocusTraversalKeysEnabled(false);
+		txtResulVisitante.setOpaque(false);
+		txtResulVisitante.setText("Resultado Visitante");
+		txtResulVisitante.setBounds(790, 220, 150, 40);
+		panel.add(txtResulVisitante);
+		txtResulVisitante.setColumns(10);
 		
 		//ACTION LISTENER
 		
@@ -364,12 +500,6 @@ public VistaPartidosDisputados() {
 			public void actionPerformed(ActionEvent e) {
                 
             }
-		});
-		
-		btnNuevoPartido.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
 		});
 	}
 }

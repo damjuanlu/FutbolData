@@ -111,6 +111,7 @@ public VistaLogin() {
 		btnVolver.setFont(new Font("Palatino Linotype", Font.PLAIN, 9));
 		btnVolver.setBounds(335, 0, 59, 23);
 		panel.add(btnVolver);
+		
 		lblNewLabel.setIcon(new ImageIcon(VistaLogin.class.getResource("/Repositorios/fondo3.jpg")));
 		lblNewLabel.setBounds(-78, -27, 511, 330);
 		panel.add(lblNewLabel);

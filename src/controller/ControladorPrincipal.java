@@ -26,13 +26,15 @@ public class ControladorPrincipal {
 		VistaEstadisticas miVistaEstadisticas = new VistaEstadisticas();
 		VistaGestionEquipos miVistaGestionEquipos = new VistaGestionEquipos();
 		VistaPartidosDisputados miVistaPartidosDisputados = new VistaPartidosDisputados();
+		VistaFichaPartidos miVistaFichaPartidos = new VistaFichaPartidos();
 		
 		ControladorVistaPrincipal miControladorPrincipal = new ControladorVistaPrincipal(miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
 		ControladorFichas  miControladorFichas = new ControladorFichas(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
 		ControladorAsistencias  miControladorAsistencias = new ControladorAsistencias(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
 		ControladorEstadisticas  miControladorEstadisticas = new ControladorEstadisticas(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
 		ControladorGestionEquipos  miControladorGestionEquipos = new ControladorGestionEquipos(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
-		ControladorPartidosDisputados  miControladorPartidosDisputados = new ControladorPartidosDisputados(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados);
+		ControladorPartidosDisputados  miControladorPartidosDisputados = new ControladorPartidosDisputados(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados, miVistaFichaPartidos);
+		ControladorFichaPartidos miControladorFichaPartidos = new ControladorFichaPartidos(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados, miVistaFichaPartidos);
 		
 		miVistaLogin.setVisible(true);
 	}
