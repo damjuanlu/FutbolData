@@ -38,6 +38,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.JTextArea;
 
 public class VistaGestionEquipos extends JFrame{
 
@@ -63,17 +64,18 @@ public class VistaGestionEquipos extends JFrame{
 	public JMenuItem mntmContacto;
 	public JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
+	public JButton btnMostrarEquipo;
 	public JLabel lblUser;
 	public JLabel lblFotoPlantilla;
 	public JCalendar calendar;
+	public JTextArea textAreaJugadores;
+	public JTextArea textAreaDatosEquipo;
 	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JLabel lblListajugadores;
-	public JLabel lblDatosEquipo;
 	private JLabel lblDatosPartidos;
 
 public VistaGestionEquipos() {
@@ -234,7 +236,7 @@ public VistaGestionEquipos() {
 		
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
 		comboBoxSelecEquipo.setBounds(35, 85, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
@@ -298,23 +300,31 @@ public VistaGestionEquipos() {
 		btnEliminarEquipo.setBounds(885, 655, 160, 25);
 		panel.add(btnEliminarEquipo);
 		
-		lblListajugadores = new JLabel("LISTA DE JUGADORES");
-		lblListajugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblListajugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblListajugadores.setBounds(35, 150, 248, 495);
-		panel.add(lblListajugadores);
-		
-		lblDatosEquipo = new JLabel("DATOS DEL EQUIPO");
-		lblDatosEquipo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblDatosEquipo.setBounds(312, 150, 300, 495);
-		panel.add(lblDatosEquipo);
-		
 		lblDatosPartidos = new JLabel("\u00BF\u00BF\u00BF DATOS DE PARTIDOS ???");
 		lblDatosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDatosPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblDatosPartidos.setBounds(640, 434, 405, 211);
 		panel.add(lblDatosPartidos);
+		
+		JButton btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
+		btnMostrarEquipo.setVerticalAlignment(SwingConstants.TOP);
+		btnMostrarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnMostrarEquipo.setFocusable(false);
+		btnMostrarEquipo.setFocusPainted(false);
+		btnMostrarEquipo.setDefaultCapable(false);
+		btnMostrarEquipo.setBackground(SystemColor.activeCaption);
+		btnMostrarEquipo.setBounds(75, 150, 160, 25);
+		panel.add(btnMostrarEquipo);
+		
+		JTextArea textAreaJugadores = new JTextArea();
+		textAreaJugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaJugadores.setBounds(35, 211, 260, 434);
+		panel.add(textAreaJugadores);
+		
+		JTextArea textAreaDatosEquipo = new JTextArea();
+		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaDatosEquipo.setBounds(336, 211, 260, 434);
+		panel.add(textAreaDatosEquipo);
 		
 		//ACTION LISTENER
 		

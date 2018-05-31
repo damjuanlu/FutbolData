@@ -92,6 +92,11 @@ public class Jugadores_TD {
 	public void setDorsal(int dorsal) {
 		this.dorsal = dorsal;
 	}
+	
+	public String toString (){
+        String mensaje=""+ nombre+","+ apellido+","+posicion;
+        return mensaje;
+    }
 
 	
 }

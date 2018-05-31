@@ -3,6 +3,9 @@ package controller;
 import view.*;
 import model.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
+import view.VistaGestionEquipos;
 
 public class ControladorGestionEquipos implements ActionListener {
 	
@@ -87,6 +90,21 @@ public class ControladorGestionEquipos implements ActionListener {
 		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
 			miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
+			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+			Jugadores_AD jugadores = new Jugadores_AD();
+			ArrayList <Jugadores_TD> miArrayList=jugadores.BuscaJugadoresEquipo(seleccion);
+//			for (TransactionObject transaction : A.getTransactions()) {
+//			    reportArea.append(transaction.toString());
+//			    reportArea.append("\n");
+//			}
+//			for(String a : miArrayList){
+//				miVistaGestionEquipos.textAreaJugadores.append(a);
+//				miVistaGestionEquipos.textAreaJugadores.append("\n");
+//				}
+			
 		}
 	}
 }
