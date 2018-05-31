@@ -19,10 +19,9 @@ public class ConexionBD {
     public String usuario;
     public String contraseña;
     
-    VistaLogin vistaLogin = new VistaLogin();
-    
     public ConexionBD(String usuario, String contraseña){
-    	this.conexion(usuario,contraseña);
+    	this.usuario=usuario;
+    	this.contraseña=contraseña;
     }
     
     public boolean conexion (String usuario, String contraseña) {
