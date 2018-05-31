@@ -306,7 +306,7 @@ public VistaGestionEquipos() {
 		lblDatosPartidos.setBounds(640, 434, 405, 211);
 		panel.add(lblDatosPartidos);
 		
-		JButton btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
+		btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
 		btnMostrarEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnMostrarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnMostrarEquipo.setFocusable(false);
@@ -316,7 +316,7 @@ public VistaGestionEquipos() {
 		btnMostrarEquipo.setBounds(75, 150, 160, 25);
 		panel.add(btnMostrarEquipo);
 		
-		JTextArea textAreaJugadores = new JTextArea();
+		textAreaJugadores = new JTextArea();
 		textAreaJugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaJugadores.setBounds(35, 211, 260, 434);
 		panel.add(textAreaJugadores);
@@ -419,6 +419,12 @@ public VistaGestionEquipos() {
 		});
 		
 		comboBoxSelecEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
+		
+		btnMostrarEquipo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 
             }

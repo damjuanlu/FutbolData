@@ -4,6 +4,7 @@ import view.*;
 import model.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ControladorGestionEquipos implements ActionListener {
 	
@@ -41,6 +42,7 @@ public class ControladorGestionEquipos implements ActionListener {
 		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
+		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -95,22 +97,18 @@ public class ControladorGestionEquipos implements ActionListener {
 		
 		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
-			miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
+			//miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
 			Jugadores_AD jugadores = new Jugadores_AD();
 			ArrayList <Jugadores_TD> miArrayList=jugadores.BuscaJugadoresEquipo(seleccion);
-//			for (TransactionObject transaction : A.getTransactions()) {
-//			    reportArea.append(transaction.toString());
-//			    reportArea.append("\n");
-//			}
-//			for(String a : miArrayList){
-//				miVistaGestionEquipos.textAreaJugadores.append(a);
-//				miVistaGestionEquipos.textAreaJugadores.append("\n");
-//				}
-			
+			Iterator<Jugadores_TD> it = miArrayList.iterator();	
+			while(it.hasNext()) {
+				miVistaGestionEquipos.textAreaJugadores.append(it.toString()); //No funciona correctamente
+				it.next();
+			}
 		}
 	}
 }
