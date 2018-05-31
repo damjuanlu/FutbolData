@@ -22,13 +22,14 @@ public class Jugadores_AD {
 			Statement stmt = miConexion.createStatement();
 		    ResultSet result = stmt.executeQuery(InstruccionSQL);
 			while(result.next()) {
+				int codigo=result.getInt(1);
 				String nombre=result.getString(2);
 				String apellido=result.getString(3);
 				Date fecha_nac=result.getDate(4);
 				String equipo=result.getString(5);
 				String posicion=result.getString(6);
 				int dorsal=result.getInt(7);
-				jugador = new Jugadores_TD(nombre,apellido,fecha_nac,equipo,posicion,dorsal);
+				jugador = new Jugadores_TD(codigo,nombre,apellido,fecha_nac,equipo,posicion,dorsal);
 			  }
 			
 			miSentencia.close();

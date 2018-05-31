@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Jugadores_TD {
 
+	private int cod_jugador;
 	private String nombre;
 	private String apellido;
 	private Date fecha_nac;
@@ -12,13 +13,24 @@ public class Jugadores_TD {
 	private int dorsal;
 
 
-	public Jugadores_TD(String nombre, String apellido, Date fecha_nac, String equipo, String posicion, int dorsal) {
+	public Jugadores_TD(int cod_jugador, String nombre, String apellido, Date fecha_nac, String equipo, String posicion, int dorsal) {
+		this.cod_jugador=cod_jugador;
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.fecha_nac=fecha_nac;
 		this.equipo=equipo;
 		this.posicion=posicion;
 		this.dorsal=dorsal;
+	}
+
+
+	public int getCod_jugador() {
+		return cod_jugador;
+	}
+
+
+	public void setCod_jugador(int cod_jugador) {
+		this.cod_jugador = cod_jugador;
 	}
 
 
