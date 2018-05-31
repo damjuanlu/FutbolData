@@ -211,6 +211,12 @@ public VistaPrincipal() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
+		JLabel lblTituloventana = new JLabel("SPORT CLUB DATA");
+		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
+		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloventana.setBounds(35, 40, 248, 20);
+		panel.add(lblTituloventana);
+		
 		btnSelectorEscudo = new JButton("...");
 		btnSelectorEscudo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSelectorEscudo.setFocusable(false);

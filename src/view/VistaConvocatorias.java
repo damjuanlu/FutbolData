@@ -64,7 +64,6 @@ public class VistaConvocatorias extends JFrame{
 	public JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
-	public JLabel lblFotoPlantilla;
 	public JCalendar calendar;
 	public JLabel lblFechaAsistencia;
 	public String stringFecha;
@@ -72,9 +71,8 @@ public class VistaConvocatorias extends JFrame{
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JLabel lblListajugadores;
-	public JLabel lblDatosEquipo;
-	private JLabel lblDatosPartidos;
+	public JTable tableConvocatorias;
+	public JButton btnBuscar;
 
 public VistaConvocatorias() {
 		
@@ -222,20 +220,13 @@ public VistaConvocatorias() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
-		lblFotoPlantilla = new JLabel("");
-		lblFotoPlantilla.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFotoPlantilla.setBounds(640, 150, 405, 255);
-		panel.add(lblFotoPlantilla);
-		
 		//OBTENER IMAGEN DE PLANTILLA
 		ImageIcon imgPlantilla = new ImageIcon("src/Repositorios/fotoPlantillaATM.jpg");
-		Icon imagenPlantilla = new ImageIcon(imgPlantilla.getImage().getScaledInstance(lblFotoPlantilla.getWidth(), lblFotoPlantilla.getHeight(), Image.SCALE_DEFAULT));
-		lblFotoPlantilla.setIcon(imagenPlantilla);
 		
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
-		comboBoxSelecEquipo.setBounds(35, 85, 248, 40);
+		comboBoxSelecEquipo.setBounds(35, 85, 150, 40);
 		panel.add(comboBoxSelecEquipo);
 		
 		lblFechaAsistencia = new JLabel(equipoSeleccionado);
@@ -248,73 +239,74 @@ public VistaConvocatorias() {
 		lblFechaAsistencia.setBounds(312, 95, 733, 30);
 		panel.add(lblFechaAsistencia);
 		
-		JLabel lblTituloventana = new JLabel("EQUIPOS");
+		JLabel lblTituloventana = new JLabel("CONVOCATORIAS");
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
 		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTituloventana.setBounds(35, 40, 248, 20);
 		panel.add(lblTituloventana);
 		
-		JButton btnInformeEquipo = new JButton("INFORME");
-		btnInformeEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnInformeEquipo.setFocusable(false);
-		btnInformeEquipo.setFocusPainted(false);
-		btnInformeEquipo.setDefaultCapable(false);
-		btnInformeEquipo.setBackground(SystemColor.activeCaption);
-		btnInformeEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnInformeEquipo.setBounds(945, 40, 100, 25);
-		panel.add(btnInformeEquipo);
+		JButton btnNuevaConvocatoria = new JButton("NUEVA CONVOCATORIA");
+		btnNuevaConvocatoria.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNuevaConvocatoria.setFocusable(false);
+		btnNuevaConvocatoria.setFocusPainted(false);
+		btnNuevaConvocatoria.setDefaultCapable(false);
+		btnNuevaConvocatoria.setBackground(SystemColor.activeCaption);
+		btnNuevaConvocatoria.setVerticalAlignment(SwingConstants.TOP);
+		btnNuevaConvocatoria.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnNuevaConvocatoria.setBounds(845, 40, 200, 25);
+		panel.add(btnNuevaConvocatoria);
 		
-		JButton btnModificarEquipo = new JButton("MODIFICAR DATOS");
-		btnModificarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnModificarEquipo.setFocusable(false);
-		btnModificarEquipo.setFocusPainted(false);
-		btnModificarEquipo.setDefaultCapable(false);
-		btnModificarEquipo.setBackground(SystemColor.activeCaption);
-		btnModificarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnModificarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnModificarEquipo.setBounds(770, 40, 160, 25);
-		panel.add(btnModificarEquipo);
+		tableConvocatorias = new JTable();
+		tableConvocatorias.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Editar", "Fecha", "Hora", "Motivo", "Lugar"},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"Editar", "Fecha", "Hora", "Motivo", "Lugar"
+			}
+		));
+		tableConvocatorias.getColumnModel().getColumn(0).setPreferredWidth(40);
+		tableConvocatorias.getColumnModel().getColumn(1).setPreferredWidth(80);
+		tableConvocatorias.getColumnModel().getColumn(2).setPreferredWidth(80);
+		tableConvocatorias.getColumnModel().getColumn(3).setPreferredWidth(30);
+		tableConvocatorias.getColumnModel().getColumn(3).setMinWidth(300);
+		tableConvocatorias.getColumnModel().getColumn(4).setPreferredWidth(30);
+		tableConvocatorias.getColumnModel().getColumn(4).setMinWidth(300);
+		tableConvocatorias.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tableConvocatorias.setBounds(35, 150, 1010, 495);
+		panel.add(tableConvocatorias);
 		
-		JButton btnAgregarEquipo = new JButton("AGREGAR EQUIPO");
-		btnAgregarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnAgregarEquipo.setFocusable(false);
-		btnAgregarEquipo.setFocusPainted(false);
-		btnAgregarEquipo.setDefaultCapable(false);
-		btnAgregarEquipo.setBackground(SystemColor.activeCaption);
-		btnAgregarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnAgregarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnAgregarEquipo.setBounds(590, 40, 160, 25);
-		panel.add(btnAgregarEquipo);
-		
-		JButton btnEliminarEquipo = new JButton("ELIMINAR EQUIPO");
-		btnEliminarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEliminarEquipo.setFocusable(false);
-		btnEliminarEquipo.setFocusPainted(false);
-		btnEliminarEquipo.setDefaultCapable(false);
-		btnEliminarEquipo.setBackground(new Color(255, 0, 0));
-		btnEliminarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnEliminarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnEliminarEquipo.setBounds(885, 655, 160, 25);
-		panel.add(btnEliminarEquipo);
-		
-		lblListajugadores = new JLabel("LISTA DE JUGADORES");
-		lblListajugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblListajugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblListajugadores.setBounds(35, 150, 248, 495);
-		panel.add(lblListajugadores);
-		
-		lblDatosEquipo = new JLabel("DATOS DEL EQUIPO");
-		lblDatosEquipo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblDatosEquipo.setBounds(312, 150, 300, 495);
-		panel.add(lblDatosEquipo);
-		
-		lblDatosPartidos = new JLabel("\u00BF\u00BF\u00BF DATOS DE PARTIDOS ???");
-		lblDatosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDatosPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblDatosPartidos.setBounds(640, 434, 405, 211);
-		panel.add(lblDatosPartidos);
+		btnBuscar = new JButton("buscar");
+		btnBuscar.setBounds(205, 85, 89, 40);
+		ImageIcon iconoBuscar = new ImageIcon("src/Repositorios/sinEscudo.png");
+		Icon imagenBuscar = new ImageIcon(iconoBuscar.getImage().getScaledInstance(btnBuscar.getWidth(), btnBuscar.getHeight(), Image.SCALE_DEFAULT));
+		btnBuscar.setIcon(imagenBuscar);
+		panel.add(btnBuscar);
 		
 		//ACTION LISTENER
 		

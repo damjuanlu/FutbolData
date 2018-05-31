@@ -365,6 +365,12 @@ public VistaFichas() {
 		btnBorrar.setBounds(910, 309, 100, 23);
 		panel.add(btnBorrar);
 		
+		JLabel lblTituloventana = new JLabel("FICHAS JUGADOR");
+		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
+		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloventana.setBounds(35, 40, 248, 20);
+		panel.add(lblTituloventana);
+		
 		lblEstadsticasDeJugador = new JLabel("ESTAD\u00CDSTICAS DE JUGADOR");
 		lblEstadsticasDeJugador.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEstadsticasDeJugador.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
@@ -478,6 +484,12 @@ public VistaFichas() {
 		});
 		
 		comboBoxSelecEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
+		
+		btnBuscar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 
             }
