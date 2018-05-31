@@ -14,11 +14,12 @@ public class ControladorPartidosDisputados implements ActionListener {
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaFichaPartidos miVistaFichaPartidos;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorPartidosDisputados(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP) {
+										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -29,6 +30,7 @@ public class ControladorPartidosDisputados implements ActionListener {
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
 		miVistaFichaPartidos = miVFP;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaPartidosDisputados.btnCerrarSesion.addActionListener(this);
@@ -38,6 +40,7 @@ public class ControladorPartidosDisputados implements ActionListener {
 		miVistaPartidosDisputados.mntmEstadisticas.addActionListener(this);
 		miVistaPartidosDisputados.mntmGestionEquipos.addActionListener(this);
 		miVistaPartidosDisputados.mntmPartidosDisputados.addActionListener(this);
+		miVistaPartidosDisputados.mntmConvocatorias.addActionListener(this);
 		miVistaPartidosDisputados.comboBoxSelecEquipo.addActionListener(this);
 		miVistaPartidosDisputados.btnNuevoPartido.addActionListener(this);
 	}
@@ -85,6 +88,11 @@ public class ControladorPartidosDisputados implements ActionListener {
 		if (e.getSource()==miVistaPartidosDisputados.mntmGestionEquipos) {
 			miVistaPartidosDisputados.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidosDisputados.mntmConvocatorias) {
+			miVistaPartidosDisputados.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPartidosDisputados.btnNuevoPartido) {

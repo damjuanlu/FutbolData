@@ -13,11 +13,12 @@ public class ControladorAsistencias implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorAsistencias(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
-									VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-									VistaPartidosDisputados miVPD) {
+										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
+										VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -27,6 +28,7 @@ public class ControladorAsistencias implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaAsistencias.btnCerrarSesion.addActionListener(this);
@@ -35,6 +37,7 @@ public class ControladorAsistencias implements ActionListener {
 		miVistaAsistencias.mntmEstadisticas.addActionListener(this);
 		miVistaAsistencias.mntmGestionEquipos.addActionListener(this);
 		miVistaAsistencias.mntmPartidosDisputados.addActionListener(this);
+		miVistaAsistencias.mntmConvocatorias.addActionListener(this);
 		miVistaAsistencias.calendar.addPropertyChangeListener(null);
 		miVistaAsistencias.comboBoxSelecEquipo.addActionListener(this);
 	}
@@ -82,6 +85,11 @@ public class ControladorAsistencias implements ActionListener {
 		if (e.getSource()==miVistaAsistencias.mntmPartidosDisputados) {
 			miVistaAsistencias.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaAsistencias.mntmConvocatorias) {
+			miVistaAsistencias.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaAsistencias.comboBoxSelecEquipo) {

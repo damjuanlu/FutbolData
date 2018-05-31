@@ -13,11 +13,12 @@ public class ControladorEstadisticas implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorEstadisticas(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
-									VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-									VistaPartidosDisputados miVPD) {
+										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
+										VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -27,6 +28,7 @@ public class ControladorEstadisticas implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaEstadisticas.btnCerrarSesion.addActionListener(this);
@@ -35,6 +37,7 @@ public class ControladorEstadisticas implements ActionListener {
 		miVistaEstadisticas.mntmAsistencia.addActionListener(this);
 		miVistaEstadisticas.mntmGestionEquipos.addActionListener(this);
 		miVistaEstadisticas.mntmPartidosDisputados.addActionListener(this);
+		miVistaEstadisticas.mntmConvocatorias.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecMes.addActionListener(this);
 	}
@@ -68,12 +71,12 @@ public class ControladorEstadisticas implements ActionListener {
 			miVistaEstadisticas.setVisible(false);
 			miVistaFichas.setVisible(true);
 		}
-		
+
 		if (e.getSource()==miVistaEstadisticas.mntmAsistencia) {
 			miVistaEstadisticas.setVisible(false);
 			miVistaAsistencias.setVisible(true);
 		}
-		
+
 		if (e.getSource()==miVistaEstadisticas.mntmGestionEquipos) {
 			miVistaEstadisticas.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
@@ -82,6 +85,11 @@ public class ControladorEstadisticas implements ActionListener {
 		if (e.getSource()==miVistaEstadisticas.mntmPartidosDisputados) {
 			miVistaEstadisticas.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaEstadisticas.mntmConvocatorias) {
+			miVistaEstadisticas.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaEstadisticas.comboBoxSelecEquipo) {

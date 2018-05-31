@@ -19,6 +19,7 @@ public class ControladorFichas implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
+	private VistaConvocatorias miVistaConvocatorias;
 	
 	Jugadores_AD jugadorAD = new Jugadores_AD();
 	Jugadores_TD jugador;
@@ -26,7 +27,7 @@ public class ControladorFichas implements ActionListener {
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorFichas(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 								VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-								VistaPartidosDisputados miVPD) {
+								VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -36,16 +37,16 @@ public class ControladorFichas implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
-		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
-		miVistaFichas.mntmFichas.addActionListener(this);
-		miVistaFichas.mntmAsistencia.addActionListener(this);
 		miVistaFichas.mntmEstadisticas.addActionListener(this);
+		miVistaFichas.mntmAsistencia.addActionListener(this);
 		miVistaFichas.mntmGestionEquipos.addActionListener(this);
 		miVistaFichas.mntmPartidosDisputados.addActionListener(this);
+		miVistaFichas.mntmConvocatorias.addActionListener(this);
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
 	}
 	
@@ -74,16 +75,16 @@ public class ControladorFichas implements ActionListener {
 			miVistaPrincipal.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaFichas.mntmAsistencia) {
-			miVistaFichas.setVisible(false);
-			miVistaAsistencias.setVisible(true);
-		}
-		
 		if (e.getSource()==miVistaFichas.mntmEstadisticas) {
 			miVistaFichas.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-		
+
+		if (e.getSource()==miVistaFichas.mntmAsistencia) {
+			miVistaFichas.setVisible(false);
+			miVistaAsistencias.setVisible(true);
+		}
+
 		if (e.getSource()==miVistaFichas.mntmGestionEquipos) {
 			miVistaFichas.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
@@ -93,6 +94,12 @@ public class ControladorFichas implements ActionListener {
 			miVistaFichas.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
 		}
+		
+		if (e.getSource()==miVistaFichas.mntmConvocatorias) {
+			miVistaFichas.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaFichas.btnBuscar) {
 						
 			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();

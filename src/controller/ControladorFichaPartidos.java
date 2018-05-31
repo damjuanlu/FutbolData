@@ -14,11 +14,12 @@ public class ControladorFichaPartidos implements ActionListener {
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaFichaPartidos miVistaFichaPartidos;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorFichaPartidos(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP) {
+										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -29,6 +30,7 @@ public class ControladorFichaPartidos implements ActionListener {
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
 		miVistaFichaPartidos = miVFP;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaFichaPartidos.btnCerrarSesion.addActionListener(this);
@@ -38,6 +40,7 @@ public class ControladorFichaPartidos implements ActionListener {
 		miVistaFichaPartidos.mntmEstadisticas.addActionListener(this);
 		miVistaFichaPartidos.mntmGestionEquipos.addActionListener(this);
 		miVistaFichaPartidos.mntmPartidosDisputados.addActionListener(this);
+		miVistaFichaPartidos.mntmConvocatorias.addActionListener(this);
 		miVistaFichaPartidos.comboBoxSelecEquipo.addActionListener(this);
 		miVistaFichaPartidos.btnVolver.addActionListener(this);
 	}

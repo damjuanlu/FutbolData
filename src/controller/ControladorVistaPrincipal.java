@@ -18,11 +18,12 @@ public class ControladorVistaPrincipal implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorVistaPrincipal(	VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, 
 										VistaFichas miVF, VistaAsistencias miVA, VistaEstadisticas miVE, 
-										VistaGestionEquipos miVGE, VistaPartidosDisputados miVPD) {
+										VistaGestionEquipos miVGE, VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -33,6 +34,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaLogin.btnLogin.addActionListener(this);
@@ -47,6 +49,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 		miVistaPrincipal.mntmEstadisticas.addActionListener(this);
 		miVistaPrincipal.mntmGestionEquipos.addActionListener(this);
 		miVistaPrincipal.mntmPartidosDisputados.addActionListener(this);
+		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -146,6 +149,11 @@ public class ControladorVistaPrincipal implements ActionListener {
 		if (e.getSource()==miVistaPrincipal.mntmPartidosDisputados) {
 			miVistaPrincipal.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmConvocatorias) {
+			miVistaPrincipal.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
 		}
 
 		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {

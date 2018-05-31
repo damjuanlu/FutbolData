@@ -13,13 +13,12 @@ public class ControladorConvocatorias implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
-	private VistaFichaPartidos miVistaFichaPartidos;
 	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorConvocatorias(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-										VistaPartidosDisputados miVPD, VistaFichaPartidos miVFP, miVistaConvocatorias miVCO) {
+										VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -29,7 +28,6 @@ public class ControladorConvocatorias implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
-		miVistaFichaPartidos = miVFP;
 		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
@@ -72,7 +70,7 @@ public class ControladorConvocatorias implements ActionListener {
 			miVistaConvocatorias.setVisible(false);
 			miVistaFichas.setVisible(true);
 		}
-		
+
 		if (e.getSource()==miVistaConvocatorias.mntmAsistencia) {
 			miVistaConvocatorias.setVisible(false);
 			miVistaAsistencias.setVisible(true);

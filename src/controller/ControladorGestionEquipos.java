@@ -5,8 +5,6 @@ import model.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-import view.VistaGestionEquipos;
-
 public class ControladorGestionEquipos implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
@@ -16,11 +14,12 @@ public class ControladorGestionEquipos implements ActionListener {
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
+	private VistaConvocatorias miVistaConvocatorias;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorGestionEquipos(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
 										VistaAsistencias miVA, VistaEstadisticas miVE, VistaGestionEquipos miVGE, 
-										VistaPartidosDisputados miVPD) {
+										VistaPartidosDisputados miVPD, VistaConvocatorias miVCO) {
 		
 		//INICIALIZAR ATRIBUTOS
 		miVistaLogin = miVL;
@@ -30,6 +29,7 @@ public class ControladorGestionEquipos implements ActionListener {
 		miVistaEstadisticas = miVE;
 		miVistaGestionEquipos = miVGE;
 		miVistaPartidosDisputados = miVPD;
+		miVistaConvocatorias = miVCO;
 		
 		//ASOCIAR EL COMPONENTE Swing AL LISTENER
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
@@ -39,6 +39,7 @@ public class ControladorGestionEquipos implements ActionListener {
 		miVistaGestionEquipos.mntmEstadisticas.addActionListener(this);
 		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
 		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
+		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
 	}
 	
@@ -85,6 +86,11 @@ public class ControladorGestionEquipos implements ActionListener {
 		if (e.getSource()==miVistaGestionEquipos.mntmPartidosDisputados) {
 			miVistaGestionEquipos.setVisible(false);
 			miVistaPartidosDisputados.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmConvocatorias) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
