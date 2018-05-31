@@ -48,6 +48,7 @@ public class ControladorFichas implements ActionListener {
 		miVistaFichas.mntmPartidosDisputados.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
+		miVistaFichas.btnBuscar.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -116,7 +117,6 @@ public class ControladorFichas implements ActionListener {
 				miVistaFichas.txtDorsal.setText(Integer.toString(jugador.getDorsal()));
 				
 			}
-			
 		}
 	}
 }

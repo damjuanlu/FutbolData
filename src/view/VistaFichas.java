@@ -488,5 +488,11 @@ public VistaFichas() {
                 
             }
 		});
+		
+		btnBuscar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
 	}
 }
