@@ -4,6 +4,11 @@ import view.*;
 import model.*;
 import java.awt.event.*;
 
+import database.ConexionBD;
+import model.Jugadores_AD;
+import model.Jugadores_TD;
+import view.*;
+
 public class ControladorConvocatorias implements ActionListener {
 	
 	private VistaLogin miVistaLogin;
@@ -14,6 +19,9 @@ public class ControladorConvocatorias implements ActionListener {
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaConvocatorias miVistaConvocatorias;
+	
+	Jugadores_AD jugadorAD = new Jugadores_AD();
+	Jugadores_TD jugador;
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorConvocatorias(	VistaLogin miVL, VistaPrincipal miVP, VistaFichas miVF, 
@@ -39,6 +47,7 @@ public class ControladorConvocatorias implements ActionListener {
 		miVistaConvocatorias.mntmGestionEquipos.addActionListener(this);
 		miVistaConvocatorias.mntmPartidosDisputados.addActionListener(this);
 		miVistaConvocatorias.comboBoxSelecEquipo.addActionListener(this);
+		miVistaConvocatorias.btnBuscar.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -91,9 +100,21 @@ public class ControladorConvocatorias implements ActionListener {
 			miVistaPartidosDisputados.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaConvocatorias.comboBoxSelecEquipo) {
-			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
-			miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
+		if (e.getSource()==miVistaConvocatorias.btnBuscar) {
+			
+			String equipoBusc=(String)miVistaConvocatorias.comboBoxSelecEquipo.getSelectedItem();
+			miVistaConvocatorias.lblFechaAsistencia.setText("Mostrando convocatoria de "+equipoBusc);
+			
+//			if (nombreBusc!=null && apellidoBusc!=null && equipoBusc!=null){
+//				jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);
+//				miVistaFichas.txtNombre.setText(jugador.getNombre());
+//				miVistaFichas.txtApellido.setText(jugador.getApellido());
+//				miVistaFichas.txtEquipo.setText(jugador.getEquipo());
+//				//miVistaFichas.txtFecha.setText((String)jugador.getFecha_nac());
+//				miVistaFichas.txtPosicion.setText(jugador.getPosicion());
+//				miVistaFichas.txtDorsal.setText(Integer.toString(jugador.getDorsal()));
+//				
+//			}
 		}
 	}
 }
