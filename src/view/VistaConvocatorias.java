@@ -225,7 +225,7 @@ public VistaConvocatorias() {
 		
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
 		comboBoxSelecEquipo.setBounds(35, 85, 150, 40);
 		panel.add(comboBoxSelecEquipo);
 		
@@ -301,11 +301,8 @@ public VistaConvocatorias() {
 		tableConvocatorias.setBounds(35, 150, 1010, 495);
 		panel.add(tableConvocatorias);
 		
-		btnBuscar = new JButton("buscar");
+		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setBounds(205, 85, 89, 40);
-		ImageIcon iconoBuscar = new ImageIcon("src/Repositorios/sinEscudo.png");
-		Icon imagenBuscar = new ImageIcon(iconoBuscar.getImage().getScaledInstance(btnBuscar.getWidth(), btnBuscar.getHeight(), Image.SCALE_DEFAULT));
-		btnBuscar.setIcon(imagenBuscar);
 		panel.add(btnBuscar);
 		
 		//ACTION LISTENER
@@ -404,6 +401,12 @@ public VistaConvocatorias() {
 			public void actionPerformed(ActionEvent e) {
                 
             }
+		});
+		
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
 		});
 	}
 }
