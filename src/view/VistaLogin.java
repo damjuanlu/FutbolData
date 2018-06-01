@@ -28,6 +28,7 @@ public class VistaLogin extends JFrame{
 	public JLabel lblPassword;
 	public JButton btnVolver;
 	private final JLabel lblNewLabel = new JLabel("New label");
+	private JLabel label;
 
 public VistaLogin() {
 		
@@ -51,44 +52,44 @@ public VistaLogin() {
 
 		btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		btnRegistrarse.setBounds(124, 59, 145, 23);
+		btnRegistrarse.setBounds(124, 130, 145, 23);
 		panel.add(btnRegistrarse);
 		
 		btnIniciarSesion = new JButton("INICIAR SESI\u00D3N");
 		btnIniciarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		btnIniciarSesion.setBounds(124, 105, 145, 23);
+		btnIniciarSesion.setBounds(124, 176, 145, 23);
 		panel.add(btnIniciarSesion);
 		
 		lblUsuario = new JLabel("USUARIO");
 		lblUsuario.setVisible(false);
-		lblUsuario.setBounds(170, 46, 53, 15);
+		lblUsuario.setBounds(170, 117, 53, 15);
 		panel.add(lblUsuario);
 		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		lblPassword = new JLabel("CONTRASE\u00D1A");
 		lblPassword.setVisible(false);
-		lblPassword.setBounds(155, 91, 83, 15);
+		lblPassword.setBounds(155, 162, 83, 15);
 		panel.add(lblPassword);
 		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPassword.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		txtUser = new JTextField();
 		txtUser.setVisible(false);
-		txtUser.setBounds(137, 61, 120, 21);
+		txtUser.setBounds(137, 132, 120, 21);
 		panel.add(txtUser);
 		txtUser.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		txtUser.setColumns(10);
 		
 		btnLogin = new JButton("LOGIN");
 		btnLogin.setVisible(false);
-		btnLogin.setBounds(137, 157, 120, 23);
+		btnLogin.setBounds(137, 228, 120, 23);
 		panel.add(btnLogin);
 		btnLogin.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		txtPassword = new JPasswordField();
 		txtPassword.setVisible(false);
-		txtPassword.setBounds(137, 106, 120, 20);
+		txtPassword.setBounds(137, 177, 120, 20);
 		panel.add(txtPassword);
 		
 		JLabel lblVersion = new JLabel("0.9.4");
@@ -111,6 +112,11 @@ public VistaLogin() {
 		btnVolver.setFont(new Font("Palatino Linotype", Font.PLAIN, 9));
 		btnVolver.setBounds(335, 0, 59, 23);
 		panel.add(btnVolver);
+		
+		label = new JLabel("New label");
+		label.setIcon(new ImageIcon(VistaLogin.class.getResource("/Repositorios/1_Primary_logo_on_transparent_201x71.png")));
+		label.setBounds(103, 40, 180, 72);
+		panel.add(label);
 		
 		lblNewLabel.setIcon(new ImageIcon(VistaLogin.class.getResource("/Repositorios/fondo3.jpg")));
 		lblNewLabel.setBounds(-78, -27, 511, 330);

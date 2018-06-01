@@ -61,6 +61,7 @@ public class VistaPrincipal extends JFrame{
 	private JSeparator separator_1;
 	private JSeparator separator_2;
 	private JSeparator separator_3;
+	private JLabel label;
 
 public VistaPrincipal() {
 		
@@ -210,12 +211,6 @@ public VistaPrincipal() {
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		
-		JLabel lblTituloventana = new JLabel("SPORT CLUB DATA");
-		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
-		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloventana.setBounds(35, 40, 248, 20);
-		panel.add(lblTituloventana);
 		
 		btnSelectorEscudo = new JButton("...");
 		btnSelectorEscudo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -400,6 +395,16 @@ public VistaPrincipal() {
 		separator_3 = new JSeparator();
 		separator_3.setBounds(857, 446, 203, 2);
 		panel.add(separator_3);
+		
+		label = new JLabel("New label");
+		label.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/1_Primary_logo_on_transparent_201x71.png")));
+		label.setBounds(35, 40, 180, 72);
+		panel.add(label);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblNewLabel.setBounds(0, 15, 1080, 680);
+		panel.add(lblNewLabel);
 		
 		//ACTION LISTENER
 		
