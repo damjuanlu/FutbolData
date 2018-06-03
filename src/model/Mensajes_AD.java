@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Mensajes_AD {
 	
@@ -14,7 +15,7 @@ public class Mensajes_AD {
 		
 	}
 	
-	public Mensajes_TD BuscarMensajes () {
+	public ArrayList<Mensajes_TD> BuscarMensajes () {
 		try {
 			Mensajes_TD mensaje = null;
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
@@ -24,19 +25,21 @@ public class Mensajes_AD {
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();
 		    ResultSet result = stmt.executeQuery(InstruccionSQL);
+		    ArrayList <Mensajes_TD> ALMensajes= new ArrayList <Mensajes_TD> ();
 			while(result.next()) {
 				int codigo=result.getInt(1);
 				String mensaje_bd=result.getString(2);
 				String usuario_mensaje=result.getString(3);
 				mensaje = new Mensajes_TD(codigo,mensaje_bd,usuario_mensaje);
+				ALMensajes.add(mensaje);
 			  }
 			miSentencia.close();
 			miConexion.close();
-			return mensaje;
-		} catch (SQLException e) {
+			return ALMensajes;
+		} catch (NullPointerException e){
 			System.out.println("Error al buscar parametros");
 			return null;
-		} catch (NullPointerException e) {
+		} catch (SQLException e)  {
 			System.out.println("Error");
 			return null;
 		}

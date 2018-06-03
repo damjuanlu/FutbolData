@@ -20,12 +20,12 @@ public class VistaRegistro extends JFrame{
 	public JPanel panel;
 	public JButton btnGuardaRegistro;
 	public JTextField txtRegistroUser;
-	public JPasswordField txtRegistroPassword;
+	public JTextField txtRegistroPassword;
 	public JLabel lblError;
 	public JLabel lblUsuario;
 	public JLabel lblPassword;
 	public JLabel lblRepitaPassword;
-	public JPasswordField txtRepitaPassword;
+	public JTextField txtRepitaPassword;
 	public JButton btnVolver;
 	private JLabel label;
 

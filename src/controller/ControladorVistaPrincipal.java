@@ -56,6 +56,7 @@ public class ControladorVistaPrincipal implements ActionListener {
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
 	  CUANDO EL EVENTO SE PRODUCE Y ES ESCUCHADO.*/
+	
 	public void actionPerformed (ActionEvent e) {
 		
 		//SI EL EVENTO ESTÁ PAUSADO POR EL BOTON QUE ESTAMOS INTERESADOS, REALIZAR ACCIONES

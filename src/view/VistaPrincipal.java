@@ -8,11 +8,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import java.awt.event.ActionEvent;
@@ -61,6 +63,7 @@ public class VistaPrincipal extends JFrame{
 	private JSeparator separator_3;
 	private JLabel label;
 	private JTextArea textArea_2;
+	public JTextArea txtAreaMensajes;
 	private JLabel lblEntrenamientos;
 	private JLabel lblCumpleaosDa;
 
@@ -384,12 +387,6 @@ public VistaPrincipal() {
 		label.setBounds(35, 40, 180, 72);
 		panel.add(label);
 		
-		JTextArea txtAreaMensajes = new JTextArea();
-		txtAreaMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
-		txtAreaMensajes.setBackground(Color.WHITE);
-		txtAreaMensajes.setBounds(35, 525, 816, 140);
-		panel.add(txtAreaMensajes);
-		
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textArea_1.setBackground(Color.WHITE);
@@ -401,6 +398,15 @@ public VistaPrincipal() {
 		textArea_2.setBackground(Color.WHITE);
 		textArea_2.setBounds(880, 483, 165, 177);
 		panel.add(textArea_2);
+		
+		txtAreaMensajes = new JTextArea();
+		txtAreaMensajes.setEditable(false);
+		txtAreaMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
+		txtAreaMensajes.setBackground(Color.WHITE);
+		txtAreaMensajes.setBounds(35, 525, 816, 140);
+		panel.add(txtAreaMensajes);
+		
+		panel.add(txtAreaMensajes);
 		
 		lblCumpleaosDa = new JLabel("CUMPLEA\u00D1OS D\u00CDA");
 		lblCumpleaosDa.setBounds(880, 232, 160, 14);
