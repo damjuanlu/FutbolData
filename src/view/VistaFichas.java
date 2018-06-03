@@ -391,6 +391,11 @@ public VistaFichas() {
 		lblAsistencia.setBounds(81, 566, 907, 61);
 		panel.add(lblAsistencia);
 		
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		panel.add(lblImagenFondo);
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){

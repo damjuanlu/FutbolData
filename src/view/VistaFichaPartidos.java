@@ -481,6 +481,11 @@ public VistaFichaPartidos() {
 		textAreaObservaciones.setBounds(35, 620, 1010, 60);
 		panel.add(textAreaObservaciones);
 		
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		panel.add(lblImagenFondo);
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){

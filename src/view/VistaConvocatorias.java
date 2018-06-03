@@ -305,6 +305,11 @@ public VistaConvocatorias() {
 		btnBuscar.setBounds(205, 85, 89, 40);
 		panel.add(btnBuscar);
 		
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		panel.add(lblImagenFondo);
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){

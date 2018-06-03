@@ -333,6 +333,11 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setBounds(945, 40, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		panel.add(lblImagenFondo);
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){
