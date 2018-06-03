@@ -77,6 +77,17 @@ public class Controlador implements ActionListener{
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaFichas.btnBuscar.addActionListener(this);
 		
+		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
+		miVistaGestionEquipos.mntmInicio.addActionListener(this);
+		miVistaGestionEquipos.mntmFichas.addActionListener(this);
+		miVistaGestionEquipos.mntmAsistencia.addActionListener(this);
+		miVistaGestionEquipos.mntmEstadisticas.addActionListener(this);
+		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
+		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
+		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
+		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
+		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
+		
 	}
 	
 	@Override
@@ -139,14 +150,10 @@ public class Controlador implements ActionListener{
 			Usuarios_AD miUsuario = new Usuarios_AD();
 			String usuario = miVistaRegistro.txtRegistroUser.getText();
 			String pass = miVistaRegistro.txtRegistroPassword.getText();
+			String pass2=miVistaRegistro.txtRepitaPassword.getText();
 			
-			if (pass.equals(miVistaRegistro.txtRepitaPassword.getText())) {
-				try {
-					miUsuario.CreaUsuario(usuario, pass);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			if (pass.equals(pass2)) {
+				miUsuario.CreaUsuario(usuario, pass);
 				miVistaRegistro.setVisible(false);
 				miVistaLogin.setVisible(true);
 			}else
@@ -304,6 +311,89 @@ public class Controlador implements ActionListener{
 				miVistaFichas.txtDorsal.setText(Integer.toString(jugador.getDorsal()));
 			}
 		}
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA GESTION EQUIPOS
+		 * 
+		 * 
+		 */
+		if (e.getSource()==miVistaGestionEquipos.btnCerrarSesion) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaLogin.setVisible(true);
+			miVistaLogin.lblError.setVisible(false);
+			miVistaLogin.btnIniciarSesion.setVisible(true);
+			miVistaLogin.btnRegistrarse.setVisible(true);
+			miVistaLogin.lblUsuario.setVisible(false);
+			miVistaLogin.lblPassword.setVisible(false);
+			miVistaLogin.txtUser.setVisible(false);
+			miVistaLogin.txtPassword.setVisible(false);
+			miVistaLogin.btnLogin.setVisible(false);
+			miVistaLogin.btnVolver.setVisible(false);
+			miVistaLogin.setTitle("SportClubData");
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmInicio) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaPrincipal.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmFichas) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaFichas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmAsistencia) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaAsistencias.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmEstadisticas) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaEstadisticas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmPartidosDisputados) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaPartidosDisputados.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmConvocatorias) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
+			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+			//miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
+			
+			//Lista jugadores
+			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+			Jugadores_AD jugadores = new Jugadores_AD();
+			ArrayList <Jugadores_TD> miArrayList=new ArrayList <Jugadores_TD> ();
+			miArrayList=jugadores.BuscaJugadoresEquipo(seleccion);
+			Iterator listIterator = miArrayList.listIterator();	
+			int acum=0;
+			while(listIterator.hasNext()) {
+				Jugadores_TD jugador;
+				jugador=miArrayList.get(acum);
+				String nombre=jugador.getNombre();
+				String apellido=jugador.getApellido();
+				String posicion=jugador.getPosicion();
+				miVistaGestionEquipos.textAreaJugadores.append(""+nombre+" "+apellido+" , "+posicion+"\n");
+				listIterator.next();
+				acum++;
+			}
+			
+			//Lista Partidos
+			Partidos_AD partidos = new Partidos_AD();
+			
+		}
+		
 		
 	}
 

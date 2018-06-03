@@ -16,22 +16,37 @@ public class Usuarios_AD {
 	}
 	
 	public void CreaUsuario(String user, String password) {
+		String InstruccionSQL="";
+		PreparedStatement miSentencia=null;
+		Statement stmt=null;
+		Connection miConexion;
 		try {
-			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
-			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("CREATE USER '"+user+"'@'localhost' IDENTIFIED BY '"+password+"'");
-			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
-			System.out.println(InstruccionSQL);
-			Statement stmt = miConexion.createStatement();
-		    stmt.executeQuery(InstruccionSQL);
-			InstruccionSQL=("GRANT ALL PRIVILEGES ON * . * TO '"+user+"'@'localhost'");
-			miSentencia= miConexion.prepareStatement(InstruccionSQL);
-			System.out.println(InstruccionSQL);
-			stmt = miConexion.createStatement();
-		    stmt.executeQuery(InstruccionSQL);
-		    
-		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
+			miConexion = DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			
+			try {
+				
+				System.out.println("Se ha conectado a la BD");
+				InstruccionSQL=("CREATE USER '"+user+"'@'localhost' IDENTIFIED BY '"+password+"'");
+				miSentencia= miConexion.prepareStatement(InstruccionSQL);
+				System.out.println(InstruccionSQL);
+				stmt = miConexion.createStatement();
+			    stmt.executeQuery(InstruccionSQL);
+			    
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
+			}
+			try {
+				InstruccionSQL=("GRANT ALL PRIVILEGES ON sportclubdata TO '"+user+"'@'localhost'");
+				miSentencia= miConexion.prepareStatement(InstruccionSQL);
+				System.out.println(InstruccionSQL);
+				stmt = miConexion.createStatement();
+			    stmt.executeQuery(InstruccionSQL);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 	}
 

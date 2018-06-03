@@ -69,7 +69,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JLabel lblFotoPlantilla;
 	public JCalendar calendar;
 	public JTextArea textAreaJugadores;
-	public JTextArea textAreaDatosEquipo;
+	public JTextArea textAreaPartidosEquipo;
 	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
