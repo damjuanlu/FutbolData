@@ -91,7 +91,7 @@ public VistaPartidosDisputados() {
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
 		setTitle("SportClubData - PARTIDOS DISPUTADOS");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/icon-soccer/047-stopwatch.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/logoSCD_32x32.png"));
 		
 		super.setContentPane(panel);
 		
