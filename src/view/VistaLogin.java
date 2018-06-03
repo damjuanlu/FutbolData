@@ -41,7 +41,7 @@ public VistaLogin() {
 		int centroAncho = (ancho / 2) - 200;
 		int centroAlto = (alto / 2) - 110;
 
-        super.setBounds(centroAncho, centroAlto, 400, 220);
+        super.setBounds(centroAncho, centroAlto, 400, 250);
 		
 		panel = new JPanel();
 		panel.setLayout(null);

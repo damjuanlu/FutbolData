@@ -15,7 +15,6 @@ public class ConexionBD {
 	
 	public Connection conexion;
     public Statement statement;
-    
     public String usuario;
     public String contraseña;
     
