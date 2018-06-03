@@ -19,6 +19,8 @@ public class ControladorVistaPrincipal implements ActionListener {
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaConvocatorias miVistaConvocatorias;
+	
+	Mensajes_AD mensajeAD = new Mensajes_AD();
 
 	//CONSTRUCTOR DEL CONTROLADOR
 	public ControladorVistaPrincipal(	VistaLogin miVL, VistaRegistro miVR, VistaPrincipal miVP, 

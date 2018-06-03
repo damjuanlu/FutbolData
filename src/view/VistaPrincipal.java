@@ -23,38 +23,36 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 
 public class VistaPrincipal extends JFrame{
 
-	public JPanel panel;
-	public JMenuBar menuPrincipal;
-	public JMenuItem mntmInicio;
-	public JMenu mnJugadores;
+	private JPanel panel;
+	private JMenuBar menuPrincipal;
+	private JMenuItem mntmInicio;
+	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
-	public JMenu mnCompeticion;
+	private JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
-	public JMenuItem mntmCalendariosYResultados;
-	public JMenu mnEntrenamiento;
-	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
-	public JMenu mnAdministracion;
-	public JMenuItem mntmCuotasJugadores;
-	public JMenu mnAyuda;
-	public JMenuItem mntmUsuario;
-	public JMenuItem mntmContacto;
-	public JMenuItem mntmAcercaDe;
+	private JMenuItem mntmCalendariosYResultados;
+	private JMenu mnEntrenamiento;
+	private JMenuItem mntmPlanificacionSesiones;
+	private JMenuItem mntmBaseDeDatos;
+	private JMenu mnAdministracion;
+	private JMenuItem mntmCuotasJugadores;
+	private JMenu mnAyuda;
+	private JMenuItem mntmUsuario;
+	private JMenuItem mntmContacto;
+	private JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
-	public JLabel lblEscudo;
+	private JLabel lblEscudo;
 	public JButton btnSelectorEscudo;
-	public JLabel lblCumpleaños;
-	public JLabel lblEntrenamientos;
-	public JTable tableClasif;
-	private JLabel lblMensajes;
+	private JTable tableClasif;
 	private JTable tableProximos;
 	private JTable tableUltimos;
 	private JLabel lblMensajes_1;
@@ -62,6 +60,9 @@ public class VistaPrincipal extends JFrame{
 	private JSeparator separator_2;
 	private JSeparator separator_3;
 	private JLabel label;
+	private JTextArea textArea_2;
+	private JLabel lblEntrenamientos;
+	private JLabel lblCumpleaosDa;
 
 public VistaPrincipal() {
 		
@@ -240,18 +241,6 @@ public VistaPrincipal() {
 		Icon imagenEscudo = new ImageIcon(Escudo.getImage().getScaledInstance(lblEscudo.getWidth(), lblEscudo.getHeight(), Image.SCALE_DEFAULT));
 		lblEscudo.setIcon(imagenEscudo);
 		
-		lblCumpleaños = new JLabel("CUMPLEA\u00D1OS");
-		lblCumpleaños.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCumpleaños.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblCumpleaños.setBounds(880, 235, 165, 200);
-		panel.add(lblCumpleaños);
-		
-		lblEntrenamientos = new JLabel("ENTRENAMIENTOS");
-		lblEntrenamientos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEntrenamientos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblEntrenamientos.setBounds(880, 465, 165, 200);
-		panel.add(lblEntrenamientos);
-		
 		//TABLA CLASIFICACION
 		//FALTA CABECERA DE COLUMNAS
 		tableClasif = new JTable();
@@ -312,12 +301,6 @@ public VistaPrincipal() {
 		tableClasif.setBorder(new LineBorder(Color.BLACK));
 		tableClasif.setBounds(312, 119, 539, 378);
 		panel.add(tableClasif);
-		
-		lblMensajes = new JLabel("MENSAJES");
-		lblMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblMensajes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMensajes.setBounds(35, 508, 816, 157);
-		panel.add(lblMensajes);
 		
 		tableProximos = new JTable();
 		tableProximos.setModel(new DefaultTableModel(
@@ -400,6 +383,32 @@ public VistaPrincipal() {
 		label.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/1_Primary_logo_on_transparent_201x71.png")));
 		label.setBounds(35, 40, 180, 72);
 		panel.add(label);
+		
+		JTextArea txtAreaMensajes = new JTextArea();
+		txtAreaMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
+		txtAreaMensajes.setBackground(Color.WHITE);
+		txtAreaMensajes.setBounds(35, 525, 816, 140);
+		panel.add(txtAreaMensajes);
+		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textArea_1.setBackground(Color.WHITE);
+		textArea_1.setBounds(880, 257, 165, 165);
+		panel.add(textArea_1);
+		
+		textArea_2 = new JTextArea();
+		textArea_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textArea_2.setBackground(Color.WHITE);
+		textArea_2.setBounds(880, 483, 165, 177);
+		panel.add(textArea_2);
+		
+		lblCumpleaosDa = new JLabel("CUMPLEA\u00D1OS D\u00CDA");
+		lblCumpleaosDa.setBounds(880, 232, 160, 14);
+		panel.add(lblCumpleaosDa);
+		
+		lblEntrenamientos = new JLabel("ENTRENAMIENTOS D\u00CDA");
+		lblEntrenamientos.setBounds(880, 465, 160, 14);
+		panel.add(lblEntrenamientos);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
