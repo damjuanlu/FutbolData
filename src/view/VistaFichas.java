@@ -20,9 +20,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.border.LineBorder;
 import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 public class VistaFichas extends JFrame{
 
@@ -64,13 +67,12 @@ public class VistaFichas extends JFrame{
 	public JTextArea txtObservaciones;
 	public JLabel lblObservaciones;
 	public JButton btnBuscar;
-	private JButton btnGuardar;
-	private JButton btnModificar;
-	private JButton btnBorrar;
-	private JLabel lblEstadsticasDeJugador;
-	private JLabel lblEstadsticas;
-	private JLabel lblAsistencia;
+	public JButton btnGuardar;
+	public JButton btnModificar;
+	public JButton btnBorrar;
+	public JLabel lblEstadsticasDeJugador;
 	public JComboBox comboBoxSelecEquipo;
+	public JTable tablaEst;
 
 public VistaFichas() {
 		
@@ -219,31 +221,37 @@ public VistaFichas() {
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		txtNombre = new JTextField();
+		txtNombre.setEnabled(false);
 		txtNombre.setBounds(410, 194, 126, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtEquipo = new JTextField();
+		txtEquipo.setEnabled(false);
 		txtEquipo.setColumns(10);
 		txtEquipo.setBounds(410, 225, 126, 20);
 		panel.add(txtEquipo);
 		
 		txtApellido = new JTextField();
+		txtApellido.setEnabled(false);
 		txtApellido.setColumns(10);
 		txtApellido.setBounds(671, 194, 137, 20);
 		panel.add(txtApellido);
 		
 		txtPosicion = new JTextField();
+		txtPosicion.setEnabled(false);
 		txtPosicion.setColumns(10);
 		txtPosicion.setBounds(671, 225, 137, 20);
 		panel.add(txtPosicion);
 		
 		txtFecha = new JTextField();
+		txtFecha.setEnabled(false);
 		txtFecha.setColumns(10);
 		txtFecha.setBounds(410, 256, 126, 20);
 		panel.add(txtFecha);
 		
 		txtDorsal = new JTextField();
+		txtDorsal.setEnabled(false);
 		txtDorsal.setColumns(10);
 		txtDorsal.setBounds(671, 256, 137, 20);
 		panel.add(txtDorsal);
@@ -341,6 +349,8 @@ public VistaFichas() {
 		panel.add(comboBoxSelecEquipo);
 		
 		txtObservaciones = new JTextArea();
+		txtObservaciones.setEnabled(false);
+		txtObservaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtObservaciones.setBounds(410, 294, 398, 90);
 		panel.add(txtObservaciones);
 		
@@ -365,6 +375,35 @@ public VistaFichas() {
 		btnBorrar.setBounds(910, 309, 100, 23);
 		panel.add(btnBorrar);
 		
+		tablaEst = new JTable();
+		tablaEst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tablaEst.setRowSelectionAllowed(false);
+		tablaEst.setRowHeight(18);
+		tablaEst.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tablaEst.setFocusable(false);
+		tablaEst.setBorder(new LineBorder(Color.BLACK));
+
+		tablaEst.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"PARTIDOS JUGADOS", "GOLES", "ASISTENCIAS", "TARJETAS AMARILLAS", "TARJETAS ROJAS"},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"PARTIDOS JUGADOS", "GOLES", "ASISTENCIAS", "TARJETAS AMARILLAS", "TARJETAS ROJAS"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Object.class, Object.class, Object.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		tablaEst.getColumnModel().getColumn(0).setResizable(false);
+		tablaEst.setBorder(new LineBorder(new Color(1, 1, 1)));
+		tablaEst.setBounds(81, 509, 929, 36);
+		panel.add(tablaEst);
+		
 		JLabel lblTituloventana = new JLabel("FICHAS JUGADOR");
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
 		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
@@ -377,21 +416,8 @@ public VistaFichas() {
 		lblEstadsticasDeJugador.setBounds(445, 451, 194, 14);
 		panel.add(lblEstadsticasDeJugador);
 		
-		lblEstadsticas = new JLabel("ESTAD\u00CDSTICAS");
-		lblEstadsticas.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblEstadsticas.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEstadsticas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblEstadsticas.setBounds(81, 494, 907, 61);
-		panel.add(lblEstadsticas);
-		
-		lblAsistencia = new JLabel("ASISTENCIA");
-		lblAsistencia.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblAsistencia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAsistencia.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblAsistencia.setBounds(81, 566, 907, 61);
-		panel.add(lblAsistencia);
-		
 		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);

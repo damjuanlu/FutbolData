@@ -321,10 +321,10 @@ public VistaGestionEquipos() {
 		textAreaJugadores.setBounds(35, 211, 260, 434);
 		panel.add(textAreaJugadores);
 		
-		JTextArea textAreaDatosEquipo = new JTextArea();
-		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textAreaDatosEquipo.setBounds(336, 211, 260, 434);
-		panel.add(textAreaDatosEquipo);
+		textAreaPartidosEquipo = new JTextArea();
+		textAreaPartidosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaPartidosEquipo.setBounds(336, 211, 260, 434);
+		panel.add(textAreaPartidosEquipo);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));

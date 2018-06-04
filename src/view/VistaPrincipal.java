@@ -36,7 +36,7 @@ public class VistaPrincipal extends JFrame{
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
-	private JMenu mnCompeticion;
+	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
@@ -54,15 +54,15 @@ public class VistaPrincipal extends JFrame{
 	public JLabel lblUser;
 	private JLabel lblEscudo;
 	public JButton btnSelectorEscudo;
-	private JTable tableClasif;
-	private JTable tableProximos;
-	private JTable tableUltimos;
+	public JTable tableClasif;
+	public JTable tableProximos;
+	public JTable tableUltimos;
 	private JLabel lblMensajes_1;
 	private JSeparator separator_1;
 	private JSeparator separator_2;
 	private JSeparator separator_3;
 	private JLabel label;
-	private JTextArea textArea_2;
+	public JTextArea textArea_2;
 	public JTextArea txtAreaMensajes;
 	private JLabel lblEntrenamientos;
 	private JLabel lblCumpleaosDa;

@@ -33,6 +33,10 @@ public class Controlador implements ActionListener{
 	Usuarios_AD miUsuariosAD = new Usuarios_AD();
 	Mensajes_TD mensaje;
 	Mensajes_AD miMensajesAD = new Mensajes_AD();
+	Partidos_TD partidos;
+	Partidos_AD miPartidosAD = new Partidos_AD();
+	
+	int cod_jugador=0;
 	
 	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos) {
 		
@@ -76,6 +80,8 @@ public class Controlador implements ActionListener{
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaFichas.btnBuscar.addActionListener(this);
+		miVistaFichas.btnGuardar.addActionListener(this);
+		miVistaFichas.btnModificar.addActionListener(this);
 		
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
 		miVistaGestionEquipos.mntmInicio.addActionListener(this);
@@ -123,6 +129,8 @@ public class Controlador implements ActionListener{
 				miVistaLogin.setVisible(false);
 				miVistaPrincipal.setVisible(true);
 				miVistaPrincipal.lblUser.setText("Bienvenido " + User);
+				
+				//Carga Mensajes
 				ArrayList<Mensajes_TD> arrayListMensaje= new ArrayList <Mensajes_TD> ();
 				arrayListMensaje=miMensajesAD.BuscarMensajes();
 				Iterator listIterator = arrayListMensaje.listIterator();
@@ -136,6 +144,17 @@ public class Controlador implements ActionListener{
 					miVistaPrincipal.txtAreaMensajes.append("\n");
 					listIterator.next();
 					acum++;
+				}
+				
+				// Carga Ultimos Partidos
+				ArrayList<Partidos_TD> ArrayListPartidos= new ArrayList <Partidos_TD> ();
+				ArrayListPartidos=miPartidosAD.BuscaPartidosEquipo("SENIOR");
+				Iterator listIteratorEquipos = arrayListMensaje.listIterator();
+				int acumeq=0;
+				while(listIteratorEquipos.hasNext()) {
+					partidos=(Partidos_TD) listIteratorEquipos;
+					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_local(), 1, 0);
+					acumeq++;
 				}
 				
 			}
@@ -298,18 +317,74 @@ public class Controlador implements ActionListener{
 			
 			Jugadores_AD jugadorAD=new Jugadores_AD();
 			Jugadores_TD jugador;
+			Estadisticas_AD estadisticasAD=new Estadisticas_AD();
+			Estadisticas_TD estadisticas;
 			
 			if (nombreBusc.equals("") || apellidoBusc.equals("") || equipoBusc.equals(""))
 				JOptionPane.showMessageDialog(null, "Faltan campos por introducir");
 			else {
+				//Busca jugador
 				jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);
+				int codigojugador=jugador.getCod_jugador();
 				miVistaFichas.txtNombre.setText(jugador.getNombre());
 				miVistaFichas.txtApellido.setText(jugador.getApellido());
 				miVistaFichas.txtEquipo.setText(jugador.getEquipo());
 				//miVistaFichas.txtFecha.setText((String)jugador.getFecha_nac());
 				miVistaFichas.txtPosicion.setText(jugador.getPosicion());
 				miVistaFichas.txtDorsal.setText(Integer.toString(jugador.getDorsal()));
+				
+				//Busca estadistica
+				estadisticas=estadisticasAD.BuscaEstadisticas(codigojugador);
+				miVistaFichas.tablaEst.getModel().setValueAt(estadisticas.getPartidos_jug(), 1, 0);
+				miVistaFichas.tablaEst.getModel().setValueAt(estadisticas.getGoles(), 1, 1);
+				miVistaFichas.tablaEst.getModel().setValueAt(estadisticas.getAsistencias(), 1, 2);
+				miVistaFichas.tablaEst.getModel().setValueAt(estadisticas.getTarjetas_amarillas(), 1, 3);
+				miVistaFichas.tablaEst.getModel().setValueAt(estadisticas.getTarjetas_rojas(), 1, 4);
 			}
+		}
+		
+		if (e.getSource()==miVistaFichas.btnModificar) {
+			
+			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
+			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
+			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
+			
+			Jugadores_AD jugadorAD=new Jugadores_AD();
+			Jugadores_TD jugador;
+			
+			jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);
+			cod_jugador=jugador.getCod_jugador();
+			
+			miVistaFichas.txtNombre.setEnabled(true);
+			miVistaFichas.txtApellido.setEnabled(true);
+			miVistaFichas.txtEquipo.setEnabled(true);
+			//miVistaFichas.txtFecha.setEnabled(true);
+			miVistaFichas.txtPosicion.setEnabled(true);
+			miVistaFichas.txtDorsal.setEnabled(true);
+			
+		}
+		
+		if (e.getSource()==miVistaFichas.btnGuardar) {
+			
+			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
+			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
+			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
+			
+			Jugadores_AD jugadorAD=new Jugadores_AD();
+			Jugadores_TD jugador;
+			
+			String nombre=miVistaFichas.txtNombre.getText();
+			String apellido=miVistaFichas.txtApellido.getText();
+			String equipo=miVistaFichas.txtEquipo.getText();
+			String posicion=miVistaFichas.txtPosicion.getText();
+			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
+			boolean accion=jugadorAD.ModificaJugador(cod_jugador, nombre, apellido, equipo, posicion, dorsal);
+			if (accion==true)
+				JOptionPane.showMessageDialog(null, "Modificación realizada correctamente");
+			else
+				JOptionPane.showMessageDialog(null, "ERROR! Modificación realizada incorrectamente");
+			
+			
 		}
 		
 		/*
@@ -371,8 +446,9 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
 			
-			//Lista jugadores
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+
+			//Lista jugadores
 			Jugadores_AD jugadores = new Jugadores_AD();
 			ArrayList <Jugadores_TD> miArrayList=new ArrayList <Jugadores_TD> ();
 			miArrayList=jugadores.BuscaJugadoresEquipo(seleccion);
@@ -388,9 +464,25 @@ public class Controlador implements ActionListener{
 				listIterator.next();
 				acum++;
 			}
-			
+
 			//Lista Partidos
 			Partidos_AD partidos = new Partidos_AD();
+			ArrayList <Partidos_TD> miArrayListPart=new ArrayList <Partidos_TD> ();
+			miArrayListPart=partidos.BuscaPartidosEquipo(seleccion);
+			Iterator listIteratorPart = miArrayListPart.listIterator();	
+			int acumPart=0;
+			while(listIteratorPart.hasNext()) {
+				Partidos_TD partido;
+				partido=miArrayListPart.get(acumPart);
+				String eq_local=partido.getEq_local();
+				int gol_local=partido.getGol_local();
+				String eq_visit=partido.getEq_visit();
+				int gol_visit=partido.getGol_visit();
+				miVistaGestionEquipos.textAreaPartidosEquipo.append(""+eq_local+"  "+gol_local+" - "+gol_visit+"  "+eq_visit+"\n");
+				listIteratorPart.next();
+				acumPart++;
+			}
+
 			
 		}
 		

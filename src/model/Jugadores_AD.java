@@ -50,6 +50,31 @@ public class Jugadores_AD {
 
 	}
 	
+	public boolean ModificaJugador(int codigo, String nombre, String apellido, String equipo, String posicion, int dorsal) {
+		try {
+			Jugadores_TD jugador = null;
+	
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("UPDATE jugadores SET nombre_jugador = '" +nombre+"',apellido_jugador = '"+apellido+"',equipo='"+equipo+"', posicion='"+posicion+"', dorsal='"+dorsal+"' WHERE cod_jugador="+codigo);
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			miSentencia.executeUpdate();
+			miSentencia.close();
+			miConexion.close();
+			
+			return true;
+			
+		} catch (SQLException e) {
+			System.out.println("Error al buscar parametros");
+			return false;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return false;
+		}
+	}
+
+	
 	public ArrayList <Jugadores_TD> BuscaJugadoresEquipo(String equipoBusc) {
 		try {
 			
