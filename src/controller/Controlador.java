@@ -169,16 +169,20 @@ public class Controlador implements ActionListener{
 				ArrayList<Clasificacion_TD> arrayListClasif= new ArrayList <Clasificacion_TD> ();
 				arrayListClasif=miClasificacionAD.CargaClasificacion();
 				Iterator listIteratorClasif = arrayListClasif.listIterator();
+				int sizeArrayClasif=arrayListClasif.size();
 				int acumClas=1;
+				sizeArrayClasif--;
 				while(listIteratorClasif.hasNext()) {
 					Clasificacion_TD miClasif;
-					miClasif=arrayListClasif.get(acumClas);
+					miClasif=arrayListClasif.get(sizeArrayClasif);
 					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getNombre_eq(), acumClas, 1);
 					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPuntos(), acumClas, 2);
 					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPartidos_jug(), acumClas, 3);
 					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_favor(), acumClas, 4);
 					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_contra(), acumClas, 5);
 					acumClas++;
+					sizeArrayClasif--;
+					listIteratorClasif.next();
 				}
 				
 			}
