@@ -35,6 +35,8 @@ public class Controlador implements ActionListener{
 	Mensajes_AD miMensajesAD = new Mensajes_AD();
 	Partidos_TD partidos;
 	Partidos_AD miPartidosAD = new Partidos_AD();
+	Clasificacion_TD clasificacion;
+	Clasificacion_AD miClasificacionAD = new Clasificacion_AD();
 	
 	int cod_jugador=0;
 	
@@ -151,10 +153,32 @@ public class Controlador implements ActionListener{
 				ArrayListPartidos=miPartidosAD.BuscaPartidosEquipo("SENIOR");
 				Iterator listIteratorEquipos = arrayListMensaje.listIterator();
 				int acumeq=0;
+				int sizeArray=ArrayListPartidos.size();
+				sizeArray--;
 				while(listIteratorEquipos.hasNext()) {
-					partidos=(Partidos_TD) listIteratorEquipos;
-					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_local(), 1, 0);
+					partidos=ArrayListPartidos.get(sizeArray);
+					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_local(), acumeq, 0);
+					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getGol_local()+"-"+partidos.getGol_visit(), acumeq, 1);
+					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_visit(), acumeq, 2);
 					acumeq++;
+					sizeArray--;
+					listIteratorEquipos.next();
+				}
+				
+				//Carga Clasificación
+				ArrayList<Clasificacion_TD> arrayListClasif= new ArrayList <Clasificacion_TD> ();
+				arrayListClasif=miClasificacionAD.CargaClasificacion();
+				Iterator listIteratorClasif = arrayListClasif.listIterator();
+				int acumClas=1;
+				while(listIteratorClasif.hasNext()) {
+					Clasificacion_TD miClasif;
+					miClasif=arrayListClasif.get(acumClas);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getNombre_eq(), acumClas, 1);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPuntos(), acumClas, 2);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPartidos_jug(), acumClas, 3);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_favor(), acumClas, 4);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_contra(), acumClas, 5);
+					acumClas++;
 				}
 				
 			}

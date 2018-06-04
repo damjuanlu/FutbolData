@@ -348,8 +348,11 @@ public VistaPrincipal() {
 				"LOCAL", "CONTRA", "VISITANTE"
 			}
 		));
-		tableUltimos.getColumnModel().getColumn(1).setPreferredWidth(30);
-		tableUltimos.getColumnModel().getColumn(1).setMaxWidth(30);
+		tableUltimos.getColumnModel().getColumn(0).setPreferredWidth(70);
+		tableUltimos.getColumnModel().getColumn(1).setPreferredWidth(40);
+		tableUltimos.getColumnModel().getColumn(1).setMinWidth(25);
+		tableUltimos.getColumnModel().getColumn(1).setMaxWidth(40);
+		tableUltimos.getColumnModel().getColumn(2).setPreferredWidth(70);
 		tableUltimos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tableUltimos.setBounds(35, 339, 248, 96);
 		panel.add(tableUltimos);
