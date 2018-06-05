@@ -117,6 +117,31 @@ public class Jugadores_AD {
 
 	}
 	
+	public Jugadores_TD InsertaJugador(String nombre, String apellido, /*Date fecha,*/ String equipo, String posicion, int dorsal) {
+		try {
+			Jugadores_TD jugador=null;
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String busquedaID=("SELECT MAX(cod_jugador) FROM jugadores");
+			PreparedStatement miSentenciaID= miConexion.prepareStatement(busquedaID);
+			ResultSet rst = miSentenciaID.executeQuery();
+			rst.next();
+			int ID=(int)rst.getInt(1);
+			ID=ID+1;
+			String InstruccionSQL=("INSERT INTO jugadores (cod_jugador, nombre_jugador, apellido_jugador, equipo, posicion, dorsal) VALUES ("+ID+"," +nombre+"','"+apellido+"',equipo='"+equipo+"', posicion='"+posicion+"', dorsal='"+dorsal+"')");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			miSentencia.executeUpdate();
+			return null;
+		} catch (SQLException e) {
+			System.out.println("Error al buscar parametros");
+			return null;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return null;
+		}
+	}
+	
 	
 
 }
