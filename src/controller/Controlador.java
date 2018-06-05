@@ -24,6 +24,7 @@ public class Controlador implements ActionListener{
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaFichaPartidos miVistaFichaPartidos;
 	private VistaConvocatorias miVistaConvocatorias;
+	private VistaMensajes miVistaMensajes;
 	
 	Equipos_TD equipos;
 	Equipos_AD miEquipoAD=new Equipos_AD();
@@ -72,6 +73,7 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmGestionEquipos.addActionListener(this);
 		miVistaPrincipal.mntmPartidosDisputados.addActionListener(this);
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
+		miVistaPrincipal.mntmMensajes.addActionListener(this);
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
@@ -282,6 +284,11 @@ public class Controlador implements ActionListener{
 
 		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {
 				
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmMensajes) {
+			miVistaPrincipal.setVisible(false);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		/*
@@ -514,6 +521,23 @@ public class Controlador implements ActionListener{
 			
 		}
 		
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA MENSAJES
+		 * 
+		 * 
+		 */
+		
+		if (e.getSource()==miVistaMensajes.btnEnviar){
+			
+			String mensaje=miVistaMensajes.txtAreaMensaje.getText();
+			
+			miMensajesAD.InsertaMensaje(mensaje);
+			JOptionPane.showMessageDialog(null, "Mensaje enviado");
+			
+		}
 		
 	}
 

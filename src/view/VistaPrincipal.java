@@ -40,16 +40,14 @@ public class VistaPrincipal extends JFrame{
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
-	private JMenuItem mntmCalendariosYResultados;
-	private JMenu mnEntrenamiento;
-	private JMenuItem mntmPlanificacionSesiones;
-	private JMenuItem mntmBaseDeDatos;
-	private JMenu mnAdministracion;
-	private JMenuItem mntmCuotasJugadores;
-	private JMenu mnAyuda;
-	private JMenuItem mntmUsuario;
-	private JMenuItem mntmContacto;
-	private JMenuItem mntmAcercaDe;
+	public JMenuItem mntmCalendariosYResultados;
+	public JMenu mnEntrenamiento;
+	public JMenuItem mntmPlanificacionSesiones;
+	public JMenuItem mntmBaseDeDatos;
+	public JMenu mnAdministracion;
+	public JMenuItem mntmCuotasJugadores;
+	public JMenu mnMensajes;
+	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
 	private JLabel lblEscudo;
@@ -185,27 +183,17 @@ public VistaPrincipal() {
 		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
-		mnAyuda = new JMenu("AYUDA");
-		mnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
-		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
-		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnAyuda);
+		mnMensajes = new JMenu("MENSAJES");
+		mnMensajes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mnMensajes.setHorizontalAlignment(SwingConstants.CENTER);
+		mnMensajes.setMargin(new Insets(2, 10, 0, 10));
+		mnMensajes.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		menuPrincipal.add(mnMensajes);
 		
-		mntmUsuario = new JMenuItem("USUARIO");
-		mntmUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmUsuario);
-		
-		mntmContacto = new JMenuItem("CONTACTO");
-		mntmContacto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmContacto);
-		
-		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
-		mntmAcercaDe.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmAcercaDe);
+		mntmMensajes = new JMenuItem("MENSAJES");
+		mntmMensajes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmMensajes.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnMensajes.add(mntmMensajes);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
 		btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -492,19 +480,7 @@ public VistaPrincipal() {
 			}
 		});
 		
-		mntmUsuario.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmContacto.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmAcercaDe.addActionListener(new ActionListener(){
+		mntmMensajes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}

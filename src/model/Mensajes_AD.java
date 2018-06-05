@@ -43,6 +43,28 @@ public class Mensajes_AD {
 			System.out.println("Error");
 			return null;
 		}
+		
+	}
+	public Mensajes_TD InsertaMensaje (String mensaje) {
+		try {
+			Mensajes_TD mensajenuevo = null;
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("INSERT INTO MENSAJES (cod_mensaje, mensaje, usu_mensaje) VALUES (10,'"+mensaje+"','usuario'");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			miSentencia.execute();
+			miSentencia.close();
+			miConexion.close();
+			return mensajenuevo;
+		} catch (NullPointerException e){
+			System.out.println("Error al buscar parametros");
+			return null;
+		} catch (SQLException e)  {
+			System.out.println("Error");
+			return null;
+		}
+		
 	}
 
 }
