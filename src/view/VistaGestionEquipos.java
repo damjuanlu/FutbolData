@@ -70,7 +70,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JCalendar calendar;
 	public JTextArea textAreaJugadores;
 	public JTextArea textAreaPartidosEquipo;
-	public JLabel lblFechaAsistencia;
+	public JLabel lblInformativo;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
 	public JComboBox comboBoxSelecMes;
@@ -240,15 +240,20 @@ public VistaGestionEquipos() {
 		comboBoxSelecEquipo.setBounds(35, 85, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
-		lblFechaAsistencia = new JLabel(equipoSeleccionado);
-		lblFechaAsistencia.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFechaAsistencia.setOpaque(true);
-		lblFechaAsistencia.setBackground(new Color(144, 238, 144));
-		lblFechaAsistencia.setFont(new Font("Palatino Linotype", Font.PLAIN, 14));
-		lblFechaAsistencia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFechaAsistencia.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblFechaAsistencia.setBounds(312, 95, 733, 30);
-		panel.add(lblFechaAsistencia);
+		lblInformativo = new JLabel("");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setIcon(new ImageIcon(VistaGestionEquipos.class.getResource("/Repositorios/lblInformativo.jpg")));
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(312, 95, 733, 30);
+		panel.add(lblInformativo);
 		
 		JLabel lblTituloventana = new JLabel("EQUIPOS");
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
@@ -319,6 +324,7 @@ public VistaGestionEquipos() {
 		panel.add(textAreaDatosEquipo);
 		
 		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);

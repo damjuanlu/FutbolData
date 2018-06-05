@@ -504,6 +504,8 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
 			
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+			
+			miVistaGestionEquipos.lblInformativo.setText("MOSTRANDO INFORMACIÓN DE EQUIPO "+seleccion);
 
 			//Lista jugadores
 			Jugadores_AD jugadores = new Jugadores_AD();
