@@ -76,7 +76,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	private JLabel lblDatosPartidos;
+	private JTextArea textAreaCampo;
 
 public VistaGestionEquipos() {
 		
@@ -226,7 +226,7 @@ public VistaGestionEquipos() {
 		
 		lblFotoPlantilla = new JLabel("");
 		lblFotoPlantilla.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFotoPlantilla.setBounds(640, 150, 405, 255);
+		lblFotoPlantilla.setBounds(640, 211, 405, 255);
 		panel.add(lblFotoPlantilla);
 		
 		//OBTENER IMAGEN DE PLANTILLA
@@ -257,6 +257,10 @@ public VistaGestionEquipos() {
 		panel.add(lblTituloventana);
 		
 		JButton btnInformeEquipo = new JButton("INFORME");
+		btnInformeEquipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnInformeEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInformeEquipo.setFocusable(false);
 		btnInformeEquipo.setFocusPainted(false);
@@ -264,19 +268,8 @@ public VistaGestionEquipos() {
 		btnInformeEquipo.setBackground(SystemColor.activeCaption);
 		btnInformeEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnInformeEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnInformeEquipo.setBounds(945, 40, 100, 25);
+		btnInformeEquipo.setBounds(930, 39, 100, 25);
 		panel.add(btnInformeEquipo);
-		
-		JButton btnModificarEquipo = new JButton("MODIFICAR DATOS");
-		btnModificarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnModificarEquipo.setFocusable(false);
-		btnModificarEquipo.setFocusPainted(false);
-		btnModificarEquipo.setDefaultCapable(false);
-		btnModificarEquipo.setBackground(SystemColor.activeCaption);
-		btnModificarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnModificarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnModificarEquipo.setBounds(770, 40, 160, 25);
-		panel.add(btnModificarEquipo);
 		
 		JButton btnAgregarEquipo = new JButton("AGREGAR EQUIPO");
 		btnAgregarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -286,7 +279,7 @@ public VistaGestionEquipos() {
 		btnAgregarEquipo.setBackground(SystemColor.activeCaption);
 		btnAgregarEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnAgregarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnAgregarEquipo.setBounds(590, 40, 160, 25);
+		btnAgregarEquipo.setBounds(590, 39, 160, 25);
 		panel.add(btnAgregarEquipo);
 		
 		JButton btnEliminarEquipo = new JButton("ELIMINAR EQUIPO");
@@ -297,14 +290,8 @@ public VistaGestionEquipos() {
 		btnEliminarEquipo.setBackground(new Color(255, 0, 0));
 		btnEliminarEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnEliminarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnEliminarEquipo.setBounds(885, 655, 160, 25);
+		btnEliminarEquipo.setBounds(760, 39, 160, 25);
 		panel.add(btnEliminarEquipo);
-		
-		lblDatosPartidos = new JLabel("\u00BF\u00BF\u00BF DATOS DE PARTIDOS ???");
-		lblDatosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDatosPartidos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblDatosPartidos.setBounds(640, 434, 405, 211);
-		panel.add(lblDatosPartidos);
 		
 		btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
 		btnMostrarEquipo.setVerticalAlignment(SwingConstants.TOP);
@@ -325,6 +312,11 @@ public VistaGestionEquipos() {
 		textAreaPartidosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaPartidosEquipo.setBounds(336, 211, 260, 434);
 		panel.add(textAreaPartidosEquipo);
+		
+		textAreaCampo = new JTextArea();
+		textAreaCampo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaCampo.setBounds(640, 497, 405, 148);
+		panel.add(textAreaCampo);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
