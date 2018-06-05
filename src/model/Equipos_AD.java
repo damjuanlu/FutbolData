@@ -24,10 +24,16 @@ public class Equipos_AD {
 				int codigo=result.getInt(1);
 				String nombre=result.getString(2);
 				String campo=result.getString(3);
-				equipo = new Equipos_TD(codigo,nombre,campo);
+				String entrenamiento=result.getString(4);
+				String horario=result.getString(5);
+				equipo = new Equipos_TD(codigo,nombre,campo,entrenamiento,horario);
 			  }
 		    
+		    miSentencia.close();
+		    miConexion.close();
+		    
 		    return equipo;
+		    
 		} catch (SQLException e) {
 			System.out.println("Error al buscar parametros");
 			return null;

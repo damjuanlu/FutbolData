@@ -76,7 +76,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	private JTextArea textAreaCampo;
+	public JTextArea textAreaDatosEquipo;
 
 public VistaGestionEquipos() {
 		
@@ -313,10 +313,10 @@ public VistaGestionEquipos() {
 		textAreaPartidosEquipo.setBounds(336, 211, 260, 434);
 		panel.add(textAreaPartidosEquipo);
 		
-		textAreaCampo = new JTextArea();
-		textAreaCampo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textAreaCampo.setBounds(640, 497, 405, 148);
-		panel.add(textAreaCampo);
+		textAreaDatosEquipo = new JTextArea();
+		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaDatosEquipo.setBounds(640, 497, 405, 148);
+		panel.add(textAreaDatosEquipo);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));

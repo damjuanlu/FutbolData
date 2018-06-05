@@ -538,6 +538,16 @@ public class Controlador implements ActionListener{
 				acumPart++;
 			}
 
+			//Lista datos equipo
+			Equipos_AD datos_equipo = new Equipos_AD();
+			Equipos_TD miEquipo=null;
+			miEquipo=datos_equipo.BuscaEquiposGestion(seleccion);
+
+				String nombre=miEquipo.getNombre();
+				String campo=miEquipo.getCampo();
+				String entrenamiento=miEquipo.getEntrenamiento();
+				String horario=miEquipo.getHorario();
+				miVistaGestionEquipos.textAreaDatosEquipo.append(" EQUIPO: "+nombre+"\n\r CAMPO: "+campo+"\n\r DIAS DE ENTRENAMIENTO: "+entrenamiento+"\n\r HORARIO: "+horario);
 			
 		}
 		
