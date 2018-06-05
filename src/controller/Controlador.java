@@ -41,7 +41,7 @@ public class Controlador implements ActionListener{
 	
 	int cod_jugador=0;
 	
-	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos) {
+	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaMensajes miVistaMensajes) {
 		
 		this.miVistaLogin=miVistaLogin;
 		this.miVistaRegistro=miVistaRegistro;
@@ -53,6 +53,7 @@ public class Controlador implements ActionListener{
 		this.miVistaPartidosDisputados=miVistaPartidosDisputados;
 		this.miVistaFichaPartidos=miVistaFichaPartidos;
 		this.miVistaConvocatorias=miVistaConvocatorias;
+		this.miVistaMensajes=miVistaMensajes;
 		
 		//Asociar el componente Swing al listener
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
@@ -98,6 +99,8 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		
+		miVistaMensajes.btnEnviar.addActionListener(this);
+		
 	}
 	
 	@Override
@@ -134,6 +137,26 @@ public class Controlador implements ActionListener{
 				miVistaPrincipal.setVisible(true);
 				miVistaPrincipal.lblUser.setText("Bienvenido " + User);
 				
+				//Carga Clasificación
+				ArrayList<Clasificacion_TD> arrayListClasif= new ArrayList <Clasificacion_TD> ();
+				arrayListClasif=miClasificacionAD.CargaClasificacion();
+				Iterator listIteratorClasif = arrayListClasif.listIterator();
+				int sizeArrayClasif=arrayListClasif.size();
+				int acumClas=1;
+				sizeArrayClasif--;
+				while(listIteratorClasif.hasNext()) {
+					Clasificacion_TD miClasif;
+					miClasif=arrayListClasif.get(sizeArrayClasif);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getNombre_eq(), acumClas, 1);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPuntos(), acumClas, 2);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPartidos_jug(), acumClas, 3);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_favor(), acumClas, 4);
+					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_contra(), acumClas, 5);
+					acumClas++;
+					sizeArrayClasif--;
+					listIteratorClasif.next();
+				}
+				
 				//Carga Mensajes
 				ArrayList<Mensajes_TD> arrayListMensaje= new ArrayList <Mensajes_TD> ();
 				arrayListMensaje=miMensajesAD.BuscarMensajes();
@@ -157,7 +180,7 @@ public class Controlador implements ActionListener{
 				int acumeq=0;
 				int sizeArray=ArrayListPartidos.size();
 				sizeArray--;
-				while(listIteratorEquipos.hasNext()) {
+				while(listIteratorEquipos.hasNext() || acumeq<=5) {
 					partidos=ArrayListPartidos.get(sizeArray);
 					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_local(), acumeq, 0);
 					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getGol_local()+"-"+partidos.getGol_visit(), acumeq, 1);
@@ -167,25 +190,7 @@ public class Controlador implements ActionListener{
 					listIteratorEquipos.next();
 				}
 				
-				//Carga Clasificación
-				ArrayList<Clasificacion_TD> arrayListClasif= new ArrayList <Clasificacion_TD> ();
-				arrayListClasif=miClasificacionAD.CargaClasificacion();
-				Iterator listIteratorClasif = arrayListClasif.listIterator();
-				int sizeArrayClasif=arrayListClasif.size();
-				int acumClas=1;
-				sizeArrayClasif--;
-				while(listIteratorClasif.hasNext()) {
-					Clasificacion_TD miClasif;
-					miClasif=arrayListClasif.get(sizeArrayClasif);
-					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getNombre_eq(), acumClas, 1);
-					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPuntos(), acumClas, 2);
-					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getPartidos_jug(), acumClas, 3);
-					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_favor(), acumClas, 4);
-					miVistaPrincipal.tableClasif.getModel().setValueAt(miClasif.getGol_contra(), acumClas, 5);
-					acumClas++;
-					sizeArrayClasif--;
-					listIteratorClasif.next();
-				}
+
 				
 			}
 		}
@@ -506,7 +511,7 @@ public class Controlador implements ActionListener{
 			miArrayListPart=partidos.BuscaPartidosEquipo(seleccion);
 			Iterator listIteratorPart = miArrayListPart.listIterator();	
 			int acumPart=0;
-			while(listIteratorPart.hasNext()) {
+			while(listIteratorPart.hasNext() || acumPart<=5) {
 				Partidos_TD partido;
 				partido=miArrayListPart.get(acumPart);
 				String eq_local=partido.getEq_local();
@@ -522,22 +527,22 @@ public class Controlador implements ActionListener{
 		}
 		
 		
-		/*
-		 * 
-		 * 
-		 * LISTENER VISTA MENSAJES
-		 * 
-		 * 
-		 */
-		
-		if (e.getSource()==miVistaMensajes.btnEnviar){
-			
-			String mensaje=miVistaMensajes.txtAreaMensaje.getText();
-			
-			miMensajesAD.InsertaMensaje(mensaje);
-			JOptionPane.showMessageDialog(null, "Mensaje enviado");
-			
-		}
+//		/*
+//		 * 
+//		 * 
+//		 * LISTENER VISTA MENSAJES
+//		 * 
+//		 * 
+//		 */
+//		
+//		if (e.getSource()==miVistaMensajes.btnEnviar){
+//			
+//			String mensaje=miVistaMensajes.txtAreaMensaje.getText();
+//			
+//			miMensajesAD.InsertaMensaje(mensaje);
+//			JOptionPane.showMessageDialog(null, "Mensaje enviado");
+//			
+//		}
 		
 	}
 

@@ -50,7 +50,13 @@ public class Mensajes_AD {
 			Mensajes_TD mensajenuevo = null;
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("INSERT INTO MENSAJES (cod_mensaje, mensaje, usu_mensaje) VALUES (10,'"+mensaje+"','usuario'");
+			String busquedaID=("SELECT MAX(cod_mensaje) FROM mensajes");
+			PreparedStatement miSentenciaID= miConexion.prepareStatement(busquedaID);
+			ResultSet rst = miSentenciaID.executeQuery();
+			rst.next();
+			int ID=(int)rst.getInt(1);
+			ID=ID+1;
+			String InstruccionSQL=("INSERT INTO MENSAJES (cod_mensaje, mensaje, usu_mensaje) VALUES ("+ID+",'"+mensaje+"','usuario')");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();
