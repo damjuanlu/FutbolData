@@ -56,7 +56,7 @@ public class Mensajes_AD {
 			rst.next();
 			int ID=(int)rst.getInt(1);
 			ID=ID+1;
-			String InstruccionSQL=("INSERT INTO MENSAJES (cod_mensaje, mensaje, usu_mensaje) VALUES ("+ID+",'"+mensaje+"','usuario')");
+			String InstruccionSQL=("INSERT INTO MENSAJES (cod_mensaje, mensaje, usu_mensaje) VALUES ("+ID+",'"+mensaje+"','presidente')");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();

@@ -180,7 +180,7 @@ public class Controlador implements ActionListener{
 				int acumeq=0;
 				int sizeArray=ArrayListPartidos.size();
 				sizeArray--;
-				while(listIteratorEquipos.hasNext() || acumeq<=5) {
+				while(listIteratorEquipos.hasNext() && acumeq<=4) {
 					partidos=ArrayListPartidos.get(sizeArray);
 					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getEq_local(), acumeq, 0);
 					miVistaPrincipal.tableUltimos.getModel().setValueAt(partidos.getGol_local()+"-"+partidos.getGol_visit(), acumeq, 1);
@@ -527,22 +527,22 @@ public class Controlador implements ActionListener{
 		}
 		
 		
-//		/*
-//		 * 
-//		 * 
-//		 * LISTENER VISTA MENSAJES
-//		 * 
-//		 * 
-//		 */
-//		
-//		if (e.getSource()==miVistaMensajes.btnEnviar){
-//			
-//			String mensaje=miVistaMensajes.txtAreaMensaje.getText();
-//			
-//			miMensajesAD.InsertaMensaje(mensaje);
-//			JOptionPane.showMessageDialog(null, "Mensaje enviado");
-//			
-//		}
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA MENSAJES
+		 * 
+		 * 
+		 */
+		
+		if (e.getSource()==miVistaMensajes.btnEnviar){
+			
+			String mensaje=miVistaMensajes.txtAreaMensaje.getText();
+			
+			miMensajesAD.InsertaMensaje(mensaje);
+			JOptionPane.showMessageDialog(null, "Mensaje enviado");
+			
+		}
 		
 	}
 
