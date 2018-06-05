@@ -70,6 +70,7 @@ public class VistaFichas extends JFrame{
 	public JButton btnGuardar;
 	public JButton btnModificar;
 	public JButton btnBorrar;
+	public JButton btnInsert;
 	public JLabel lblEstadsticasDeJugador;
 	public JComboBox comboBoxSelecEquipo;
 	public JTable tablaEst;
@@ -360,12 +361,17 @@ public VistaFichas() {
 		lblObservaciones.setBounds(270, 299, 130, 14);
 		panel.add(lblObservaciones);
 		
+		btnInsert = new JButton("INSERTAR");
+		btnInsert.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnInsert.setBounds(910, 188, 100, 23);
+		panel.add(btnInsert);
+		
 		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		btnGuardar.setBounds(910, 224, 100, 23);
 		panel.add(btnGuardar);
 		
-		btnModificar = new JButton("MODIFICAR");
+		btnModificar = new JButton("HABILITAR");
 		btnModificar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		btnModificar.setBounds(910, 266, 100, 23);
 		panel.add(btnModificar);

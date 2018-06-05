@@ -87,6 +87,7 @@ public class Controlador implements ActionListener{
 		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
+		miVistaFichas.btnInsert.addActionListener(this);
 		
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
 		miVistaGestionEquipos.mntmInicio.addActionListener(this);
@@ -424,6 +425,10 @@ public class Controlador implements ActionListener{
 			else
 				JOptionPane.showMessageDialog(null, "ERROR! Modificación realizada incorrectamente");
 			
+			
+		}
+		
+		if (e.getSource()==miVistaFichas.btnInsert) {
 			
 		}
 		
