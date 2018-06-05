@@ -430,18 +430,18 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaFichas.btnInsert) {
 			Jugadores_AD jugadorAD=new Jugadores_AD();
-			String nombre=miVistaFichas.txtNombre.getText();
-			String apellido=miVistaFichas.txtApellido.getText();
-			String equipo=miVistaFichas.txtEquipo.getText();
-			String posicion=miVistaFichas.txtPosicion.getText();
+			String nombre_nuevo=miVistaFichas.txtNombre.getText();
+			String apellido_nuevo=miVistaFichas.txtApellido.getText();
+			String equipo_nuevo=miVistaFichas.txtEquipo.getText();
+			String posicion_nuevo=miVistaFichas.txtPosicion.getText();
 			String dorsal_comprobacion=miVistaFichas.txtDorsal.getText();
 			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			if (nombre!="" && apellido!="" && posicion!="" && equipo!="" && dorsal_comprobacion!=null) {
-				jugadorAD.InsertaJugador(nombre, apellido, equipo, posicion, dorsal);
+			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && equipo_nuevo!="" && dorsal_comprobacion!=null) {
+				jugadorAD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal);
 				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
 			} else
 				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
-		
+		}
 		/*
 		 * 
 		 * 

@@ -128,13 +128,13 @@ public class Jugadores_AD {
 			rst.next();
 			int ID=(int)rst.getInt(1);
 			ID=ID+1;
-			String InstruccionSQL=("INSERT INTO jugadores (cod_jugador, nombre_jugador, apellido_jugador, equipo, posicion, dorsal) VALUES ("+ID+"," +nombre+"','"+apellido+"',equipo='"+equipo+"', posicion='"+posicion+"', dorsal='"+dorsal+"')");
+			String InstruccionSQL=("INSERT INTO jugadores (cod_jugador, nombre_jugador, apellido_jugador, fecha_nacimiento, equipo, posicion, dorsal) VALUES ("+ID+", '" +nombre+"','"+apellido+"','2000-10-10','"+equipo+"','"+posicion+"', "+dorsal+")");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
-			miSentencia.executeUpdate();
+			miSentencia.execute();
 			return null;
 		} catch (SQLException e) {
-			System.out.println("Error al buscar parametros");
+			System.out.println(e);
 			return null;
 		} catch (NullPointerException e) {
 			System.out.println("Error");
