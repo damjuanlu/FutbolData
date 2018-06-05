@@ -39,7 +39,6 @@ public class ControladorEstadisticas implements ActionListener {
 		miVistaEstadisticas.mntmPartidosDisputados.addActionListener(this);
 		miVistaEstadisticas.mntmConvocatorias.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
-		miVistaEstadisticas.comboBoxSelecMes.addActionListener(this);
 	}
 	
 	/*IMPLEMENTAR EL METODO ABSTRACTO QUE INDICA LAS ACCIONES A LLEVAR A CABO
@@ -97,9 +96,5 @@ public class ControladorEstadisticas implements ActionListener {
 			miVistaEstadisticas.equipoSeleccionado.equals(seleccion);
 		}
 		
-		if (e.getSource()==miVistaEstadisticas.comboBoxSelecMes) {
-			String mesSeleccionado =  (String) miVistaEstadisticas.comboBoxSelecMes.getSelectedItem();
-			miVistaEstadisticas.mesSeleccionado.equals(mesSeleccionado);
-		}
 	}
 }

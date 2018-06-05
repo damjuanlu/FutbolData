@@ -102,6 +102,8 @@ public class Controlador implements ActionListener{
 		
 		miVistaMensajes.btnEnviar.addActionListener(this);
 		
+		miVistaEstadisticas.btnBuscar.addActionListener(this);
+		
 	}
 	
 	@Override
@@ -567,6 +569,40 @@ public class Controlador implements ActionListener{
 			miMensajesAD.InsertaMensaje(mensaje);
 			JOptionPane.showMessageDialog(null, "Mensaje enviado");
 			
+		}
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA ESTADISTICAS
+		 * 
+		 * 
+		 */
+		if (e.getSource()==miVistaEstadisticas.btnBuscar) {
+			
+			Estadisticas_AD estadisticas = new Estadisticas_AD();
+			ArrayList <Estadisticas_TD> miArrayListEstad=new ArrayList <Estadisticas_TD> ();
+			miArrayListEstad=estadisticas.MuestraALLEStad();
+			Iterator listIteratorEst = miArrayListEstad.listIterator();	
+			int acumEst=1;
+			while(listIteratorEst.hasNext() || acumEst<=24) {
+				Estadisticas_TD estadistica;
+				estadistica=miArrayListEstad.get(acumEst);
+				int codigo=estadistica.getCod_jugador();
+				int partidos=estadistica.getPartidos_jug();
+				int goles=estadistica.getGoles();
+				int asistencias=estadistica.getAsistencias();
+				int amarillas=estadistica.getTarjetas_amarillas();
+				int rojas=estadistica.getTarjetas_rojas();
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(codigo, acumEst, 0);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(partidos, acumEst, 1);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(goles, acumEst, 2);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(asistencias, acumEst, 3);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(amarillas, acumEst, 4);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(rojas, acumEst, 5);
+				listIteratorEst.next();
+				acumEst++;
+			}
 		}
 		
 	}

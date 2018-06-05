@@ -68,10 +68,10 @@ public class VistaEstadisticas extends JFrame{
 	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
-	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
 	public JTable tableEstadisticas;
+	public JButton btnBuscar;
 
 public VistaEstadisticas() {
 		
@@ -219,16 +219,10 @@ public VistaEstadisticas() {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
-		comboBoxSelecMes = new JComboBox();
-		comboBoxSelecMes.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Mes", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecMes.setModel(new DefaultComboBoxModel(new String[] {"0 - TODOS", "1 - ENERO", "2 - FEBRERO", "3 - MARZO", "4 - ABRIL", "5 - MAYO", "6 - JUNIO", "7 - JULIO", "8 - AGOSTO", "9 - SEPTIEMBRE", "10 - OCTUBRE", "11 - NOVIEMBRE", "12 - DICIEMBRE"}));
-		comboBoxSelecMes.setBounds(35, 95, 248, 40);
-		panel.add(comboBoxSelecMes);
-		
 		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"- SENIOR", "- JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
-		comboBoxSelecEquipo.setBounds(35, 170, 248, 40);
+		comboBoxSelecEquipo.setBounds(35, 95, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
 		lblFechaAsistencia = new JLabel("Visualizando estadisticas de "+equipoSeleccionado);
@@ -257,66 +251,58 @@ public VistaEstadisticas() {
 		tableEstadisticas.setRowSelectionAllowed(false);
 		tableEstadisticas.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Jugador", "Convocado", "Titular", "Suplente", "Sin jugar", "Minutos", "Goles", "Asistencias", "TAmarillas", "TRojas"},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null},
+				{"JUGADOR", "PART. JUGADOS", "GOLES", "ASISTENCIAS", "AMARILLAS", "ROJAS"},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"Jugador", "Convocado", "Titular", "Suplente", "Sin jugar", "Minutos", "Goles", "Asistencias", "TAmarillas", "TRojas"
+				"JUGADOR", "PARTIDOS JUGADOS", "GOLES", "ASISTENCIAS", "AMARILLAS", "ROJAS"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false, false, false
+				false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		tableEstadisticas.getColumnModel().getColumn(0).setPreferredWidth(200);
-		tableEstadisticas.getColumnModel().getColumn(0).setMinWidth(200);
-		tableEstadisticas.getColumnModel().getColumn(1).setPreferredWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(1).setMinWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(2).setPreferredWidth(45);
-		tableEstadisticas.getColumnModel().getColumn(2).setMinWidth(45);
-		tableEstadisticas.getColumnModel().getColumn(3).setPreferredWidth(55);
-		tableEstadisticas.getColumnModel().getColumn(3).setMinWidth(55);
-		tableEstadisticas.getColumnModel().getColumn(4).setPreferredWidth(55);
-		tableEstadisticas.getColumnModel().getColumn(4).setMinWidth(55);
-		tableEstadisticas.getColumnModel().getColumn(5).setPreferredWidth(50);
-		tableEstadisticas.getColumnModel().getColumn(5).setMinWidth(50);
-		tableEstadisticas.getColumnModel().getColumn(6).setPreferredWidth(35);
-		tableEstadisticas.getColumnModel().getColumn(6).setMinWidth(35);
-		tableEstadisticas.getColumnModel().getColumn(7).setPreferredWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(7).setMinWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(8).setPreferredWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(8).setMinWidth(65);
-		tableEstadisticas.getColumnModel().getColumn(9).setPreferredWidth(45);
-		tableEstadisticas.getColumnModel().getColumn(9).setMinWidth(45);
+		tableEstadisticas.getColumnModel().getColumn(0).setPreferredWidth(160);
+		tableEstadisticas.getColumnModel().getColumn(0).setMinWidth(160);
+		tableEstadisticas.getColumnModel().getColumn(1).setPreferredWidth(80);
+		tableEstadisticas.getColumnModel().getColumn(1).setMinWidth(80);
+		tableEstadisticas.getColumnModel().getColumn(2).setPreferredWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(2).setMinWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(3).setPreferredWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(3).setMinWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(4).setPreferredWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(4).setMinWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(5).setPreferredWidth(60);
+		tableEstadisticas.getColumnModel().getColumn(5).setMinWidth(60);
 		tableEstadisticas.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		tableEstadisticas.setBorder(new LineBorder(Color.BLACK));
 		tableEstadisticas.setBounds(312, 120, 733, 505);
@@ -332,6 +318,16 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnInformeAsistencia.setBounds(945, 40, 100, 25);
 		panel.add(btnInformeAsistencia);
+		
+		btnBuscar = new JButton("BUSCAR");
+		btnBuscar.setVerticalAlignment(SwingConstants.TOP);
+		btnBuscar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnBuscar.setFocusable(false);
+		btnBuscar.setFocusPainted(false);
+		btnBuscar.setDefaultCapable(false);
+		btnBuscar.setBackground(SystemColor.activeCaption);
+		btnBuscar.setBounds(110, 164, 100, 25);
+		panel.add(btnBuscar);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
@@ -431,12 +427,6 @@ public VistaEstadisticas() {
 		});
 		
 		comboBoxSelecEquipo.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-                
-            }
-		});
-		
-		comboBoxSelecMes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 
             }
