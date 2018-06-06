@@ -80,6 +80,9 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmMensajes.addActionListener(this);
 		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
 		
+		ArrayList<String>listaEquipos = new ArrayList<>();
+		listaEquipos=miJugadoresAD.rellenaComboEquipos();
+		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
 		miVistaFichas.mntmEstadisticas.addActionListener(this);
@@ -88,6 +91,10 @@ public class Controlador implements ActionListener{
 		miVistaFichas.mntmPartidosDisputados.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
+		miVistaFichas.comboBoxSelecEquipo.removeAllItems();
+		for (int i=0; i<listaEquipos.size();i++) {
+			miVistaFichas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
+		}
 		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
@@ -599,16 +606,13 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaGestionEquipos.btnEliminarEquipo) {
 			Equipos_AD equipoAD=new Equipos_AD();
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
-			boolean comprobar=equipoAD.EliminaEquipo(seleccion);
 //			JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 			int opcionJPane = JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-			
 			switch(opcionJPane) {
 			   case 0 :
-				   if (comprobar==true) {
+					   equipoAD.EliminaEquipo(seleccion);
 						JOptionPane.showMessageDialog(null, "Equipo "+seleccion+" ELIMINADO");
 						miVistaGestionEquipos.btnEliminarEquipo.setEnabled(false);
-					} 
 			      break; // optional
 			   
 			   case 1 :

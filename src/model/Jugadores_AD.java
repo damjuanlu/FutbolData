@@ -162,6 +162,34 @@ public class Jugadores_AD {
 		}
 	}
 	
+	public ArrayList<String> rellenaComboEquipos(){
+		try {
+			ArrayList<String> ListEquipo = new ArrayList();
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("SELECT nombre FROM equipos");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			Statement stmt = miConexion.createStatement();
+		    ResultSet result = stmt.executeQuery(InstruccionSQL);
+			while(result.next()) {
+				ListEquipo.add(result.getString("nombre"));
+			  }
+			
+			miSentencia.close();
+			miConexion.close();
+			
+			return ListEquipo;
+		} catch (SQLException e) {
+			System.out.println(e);
+			return null;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return null;
+		}
+
+	}
+	
 	
 
 }
