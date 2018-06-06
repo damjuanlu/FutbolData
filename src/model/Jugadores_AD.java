@@ -142,6 +142,24 @@ public class Jugadores_AD {
 		}
 	}
 	
+	public boolean EliminaJugador (String nombre, String apellido, String equipo) {
+		try {
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("DELETE FROM jugadores WHERE nombre_jugador = '" +nombre+"', apellido_jugador = '"+apellido+"' AND equipo='"+equipo+"'");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			miSentencia.execute();
+			return true;
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return false;
+		}
+	}
+	
 	
 
 }

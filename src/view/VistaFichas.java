@@ -211,7 +211,7 @@ public VistaFichas() {
 		mnAyuda.add(mntmContacto);
 		
 		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
-		mntmAcercaDe.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mntmAcercaDe.setFont(new Font("Agency FB", Font.BOLD, 12));
 		mnAyuda.add(mntmAcercaDe);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
@@ -389,17 +389,18 @@ public VistaFichas() {
 		
 		btnInsert = new JButton("INSERTAR");
 		btnInsert.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnInsert.setBounds(914, 279, 100, 23);
+		btnInsert.setBounds(914, 284, 100, 23);
 		panel.add(btnInsert);
 		
 		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setEnabled(false);
 		btnGuardar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnGuardar.setBounds(914, 315, 100, 23);
 		panel.add(btnGuardar);
 		
-		btnModificar = new JButton("HABILITAR");
+		btnModificar = new JButton("MODIFICAR");
 		btnModificar.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnModificar.setBounds(914, 357, 100, 23);
+		btnModificar.setBounds(914, 346, 100, 23);
 		panel.add(btnModificar);
 		
 		btnBorrar = new JButton("BORRAR");
