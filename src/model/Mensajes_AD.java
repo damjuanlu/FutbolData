@@ -45,6 +45,7 @@ public class Mensajes_AD {
 		}
 		
 	}
+	
 	public Mensajes_TD InsertaMensaje (String mensaje) {
 		try {
 			Mensajes_TD mensajenuevo = null;

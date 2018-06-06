@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -141,25 +143,21 @@ setResizable(false);
 		panel.add(lblHorario);
 		
 		txtNombre = new JTextField();
-		txtNombre.setEnabled(false);
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(180, 125, 400, 20);
 		panel.add(txtNombre);
 		
 		txtCampo = new JTextField();
-		txtCampo.setEnabled(false);
 		txtCampo.setColumns(10);
 		txtCampo.setBounds(180, 155, 400, 20);
 		panel.add(txtCampo);
 		
 		txtHorario = new JTextField();
-		txtHorario.setEnabled(false);
 		txtHorario.setColumns(10);
 		txtHorario.setBounds(180, 215, 400, 20);
 		panel.add(txtHorario);
 		
 		txtEntrenamiento = new JTextField();
-		txtEntrenamiento.setEnabled(false);
 		txtEntrenamiento.setColumns(10);
 		txtEntrenamiento.setBounds(180, 185, 400, 20);
 		panel.add(txtEntrenamiento);
@@ -169,11 +167,24 @@ setResizable(false);
 		btnGuardar.setBounds(297, 280, 100, 23);
 		panel.add(btnGuardar);
 		
-		
-		
 		lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 0, 694, 374);
 		panel.add(lblImagenFondo);
+		
+		//ACTION LISTENER
+		
+		
+		btnGuardar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		btnVolver.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	}
 }

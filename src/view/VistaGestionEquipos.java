@@ -66,6 +66,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JMenuItem mntmAcercaDe;
 	public JButton btnCerrarSesion;
 	public JButton btnMostrarEquipo;
+	public JButton btnAgregarEquipo;
 	public JLabel lblUser;
 	public JLabel lblFotoPlantilla;
 	public JCalendar calendar;
@@ -282,7 +283,7 @@ public VistaGestionEquipos() {
 		btnInformeEquipo.setBounds(945, 116, 100, 25);
 		panel.add(btnInformeEquipo);
 		
-		JButton btnAgregarEquipo = new JButton("AGREGAR EQUIPO");
+		btnAgregarEquipo = new JButton("AGREGAR EQUIPO");
 		btnAgregarEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAgregarEquipo.setFocusable(false);
 		btnAgregarEquipo.setFocusPainted(false);
@@ -438,6 +439,12 @@ public VistaGestionEquipos() {
 		});
 		
 		btnMostrarEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
+		
+		btnAgregarEquipo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 
             }

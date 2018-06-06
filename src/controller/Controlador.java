@@ -99,6 +99,7 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
+		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
 		
 		miVistaAñadirEquipo.btnVolver.addActionListener(this);
 		miVistaAñadirEquipo.btnGuardar.addActionListener(this);
@@ -500,6 +501,11 @@ public class Controlador implements ActionListener{
 			//miVistaGestionEquipos.equipoSeleccionado.equals(seleccion);
 		}
 		
+		if (e.getSource()==miVistaGestionEquipos.btnAgregarEquipo) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaAñadirEquipo.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
 			
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
@@ -568,21 +574,25 @@ public class Controlador implements ActionListener{
 		}
 		
 		if (e.getSource()==miVistaAñadirEquipo.btnGuardar) {
-//			
-//			Equipos_AD Equipos_AD=new Equipos_AD();
-//			
-//			String nombre_nuevo=miVistaAñadirEquipo.txtNombre.getText();
-//			String apellido_nuevo=miVistaAñadirEquipo.txtApellido.getText();
-//			String equipo_nuevo=miVistaAñadirEquipo.txtEquipo.getText();
-//			String posicion_nuevo=miVistaAñadirEquipo.txtPosicion.getText();
-//			String dorsal_comprobacion=miVistaAñadirEquipo.txtDorsal.getText();
-//			int dorsal=Integer.parseInt(miVistaAñadirEquipo.txtDorsal.getText());
-//			
-//			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && equipo_nuevo!="" && dorsal_comprobacion!=null) {
-//				Equipos_AD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal);
-//				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
-//			} else
-//				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
+			
+			Equipos_AD Equipos_AD=new Equipos_AD();
+			
+			String nombre_nuevo=miVistaAñadirEquipo.txtNombre.getText();
+			String campo_nuevo=miVistaAñadirEquipo.txtCampo.getText();
+			String entrenamiento_nuevo=miVistaAñadirEquipo.txtEntrenamiento.getText();
+			String horario_nuevo=miVistaAñadirEquipo.txtHorario.getText();
+						
+			if (nombre_nuevo!="" && campo_nuevo!="" && entrenamiento_nuevo!="" && horario_nuevo!="") {
+				Equipos_AD.InsertaJugador(nombre_nuevo, campo_nuevo, entrenamiento_nuevo, horario_nuevo);
+				JOptionPane.showMessageDialog(null, "Nuevo equipo insertado");
+				
+				miVistaAñadirEquipo.txtNombre.setText("");
+				miVistaAñadirEquipo.txtCampo.setText("");
+				miVistaAñadirEquipo.txtEntrenamiento.setText("");
+				miVistaAñadirEquipo.txtHorario.setText("");
+				
+			} else
+				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
 		}
 		
 		
