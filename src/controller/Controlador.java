@@ -638,12 +638,21 @@ public class Controlador implements ActionListener{
 		 */
 		if (e.getSource()==miVistaEstadisticas.btnBuscar) {
 			
+			for (int i=1; i<=27; i++) {
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 0);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 1);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 2);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 3);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 4);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 5);
+			}
+			
 			Estadisticas_AD estadisticas = new Estadisticas_AD();
 			ArrayList <Estadisticas_TD> miArrayListEstad=new ArrayList <Estadisticas_TD> ();
 			miArrayListEstad=estadisticas.MuestraALLEStad();
 			Iterator listIteratorEst = miArrayListEstad.listIterator();	
-			int acumEst=1;
-			while(listIteratorEst.hasNext() || acumEst<=24) {
+			int acumEst=0;
+			while(listIteratorEst.hasNext() || acumEst<=25) {
 				Estadisticas_TD estadistica;
 				estadistica=miArrayListEstad.get(acumEst);
 				int codigo=estadistica.getCod_jugador();
@@ -652,12 +661,12 @@ public class Controlador implements ActionListener{
 				int asistencias=estadistica.getAsistencias();
 				int amarillas=estadistica.getTarjetas_amarillas();
 				int rojas=estadistica.getTarjetas_rojas();
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(codigo, acumEst, 0);
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(partidos, acumEst, 1);
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(goles, acumEst, 2);
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(asistencias, acumEst, 3);
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(amarillas, acumEst, 4);
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(rojas, acumEst, 5);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(codigo, acumEst+1, 0);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(partidos, acumEst+1, 1);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(goles, acumEst+1, 2);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(asistencias, acumEst+1, 3);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(amarillas, acumEst+1, 4);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(rojas, acumEst+1, 5);
 				listIteratorEst.next();
 				acumEst++;
 			}
