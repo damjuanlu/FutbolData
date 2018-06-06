@@ -612,6 +612,7 @@ public class Controlador implements ActionListener{
 //			
 //			else
 //				JOptionPane.showMessageDialog(null, "Error al eliminar, revise parámetros");
+			      
 			}
 		}
 		
