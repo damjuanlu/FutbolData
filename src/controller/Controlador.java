@@ -384,6 +384,7 @@ public class Controlador implements ActionListener{
 				//miVistaFichas.txtFecha.setText((String)jugador.getFecha_nac());
 				miVistaFichas.txtPosicion.setText(jugador.getPosicion());
 				miVistaFichas.txtDorsal.setText(Integer.toString(jugador.getDorsal()));
+				miVistaFichas.txtObservaciones.setText(jugador.getObservaciones());
 				
 				//Busca estadistica
 				estadisticas=estadisticasAD.BuscaEstadisticas(codigojugador);
@@ -414,6 +415,7 @@ public class Controlador implements ActionListener{
 			//miVistaFichas.txtFecha.setEnabled(true);
 			miVistaFichas.txtPosicion.setEnabled(true);
 			miVistaFichas.txtDorsal.setEnabled(true);
+			miVistaFichas.txtObservaciones.setEnabled(true);
 			
 //			miVistaFichas.txtNombre.setEditable(true);
 //			miVistaFichas.txtApellido.setEditable(true);
@@ -437,7 +439,8 @@ public class Controlador implements ActionListener{
 			String equipo=miVistaFichas.txtEquipo.getText();
 			String posicion=miVistaFichas.txtPosicion.getText();
 			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			boolean accion=jugadorAD.ModificaJugador(cod_jugador, nombre, apellido, equipo, posicion, dorsal);
+			String observaciones=miVistaFichas.txtObservaciones.getText();
+			boolean accion=jugadorAD.ModificaJugador(cod_jugador, nombre, apellido, equipo, posicion, dorsal,observaciones);
 			if (accion==true)
 				JOptionPane.showMessageDialog(null, "Modificación realizada correctamente");
 			else
@@ -454,8 +457,9 @@ public class Controlador implements ActionListener{
 			String posicion_nuevo=miVistaFichas.txtPosicion.getText();
 			String dorsal_comprobacion=miVistaFichas.txtDorsal.getText();
 			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && equipo_nuevo!="" && dorsal_comprobacion!=null) {
-				jugadorAD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal);
+			String observaciones=miVistaFichas.txtObservaciones.getText();
+			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && posicion_nuevo!="" && dorsal_comprobacion!=null) {
+				jugadorAD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal, observaciones);
 				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
 			} else
 				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
