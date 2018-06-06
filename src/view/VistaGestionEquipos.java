@@ -316,16 +316,22 @@ public VistaGestionEquipos() {
 		panel.add(btnMostrarEquipo);
 		
 		textAreaJugadores = new JTextArea();
+		textAreaJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		textAreaJugadores.setFocusable(false);
 		textAreaJugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaJugadores.setBounds(35, 211, 260, 434);
 		panel.add(textAreaJugadores);
 		
 		textAreaPartidosEquipo = new JTextArea();
+		textAreaPartidosEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		textAreaPartidosEquipo.setFocusable(false);
 		textAreaPartidosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaPartidosEquipo.setBounds(336, 211, 260, 434);
 		panel.add(textAreaPartidosEquipo);
 		
 		textAreaDatosEquipo = new JTextArea();
+		textAreaDatosEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		textAreaDatosEquipo.setFocusable(false);
 		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaDatosEquipo.setBounds(640, 497, 405, 148);
 		panel.add(textAreaDatosEquipo);
