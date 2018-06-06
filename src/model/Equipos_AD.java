@@ -45,7 +45,7 @@ public class Equipos_AD {
 	
 	public Equipos_TD InsertaJugador(String nombre, String campo, String entrenamiento, String horario) {
 		try {
-			Equipos_TD equipo_nuevo=null;
+			//Equipos_TD equipo_nuevo=null;
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
 			String busquedaID=("SELECT MAX(cod_equipo) FROM equipos");
@@ -54,7 +54,7 @@ public class Equipos_AD {
 			rst.next();
 			int ID=(int)rst.getInt(1);
 			ID=ID+1;
-			String InstruccionSQL=("INSERT INTO equipos (cod_equipo, nombre, campo, dias_entrenamiento, horario) VALUES ("+ID+", '" +nombre+"','"+campo+"','"+entrenamiento+"','"+horario+")");
+			String InstruccionSQL=("INSERT INTO equipos (cod_equipo, nombre, campo, dias_entrenamiento, horario) VALUES ("+ID+", '" +nombre+"','"+campo+"','"+entrenamiento+"','"+horario+"')");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();
