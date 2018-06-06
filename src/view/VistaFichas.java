@@ -100,20 +100,20 @@ public VistaFichas() {
 		super.setContentPane(panel);
 		
 		lblUser = new JLabel("");
-		lblUser.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		lblUser.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUser.setBounds(800, 0, 260, 21);
 		panel.add(lblUser);
 		
 		menuPrincipal = new JMenuBar();
-		menuPrincipal.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		menuPrincipal.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.setBounds(0, 0, ancho, 21);
 		panel.add(menuPrincipal);
 		
 		mntmInicio = new JMenuItem("INICIO");
 		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmInicio.setMaximumSize(new Dimension(60, 32767));
-		mntmInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmInicio.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mntmInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		menuPrincipal.add(mntmInicio);
 		
@@ -121,97 +121,97 @@ public VistaFichas() {
 		mnJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
 		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
-		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnJugadores);
 		
 		mntmFichas = new JMenuItem("FICHAS");
 		mntmFichas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmFichas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmFichas);
 		
 		mntmAsistencia = new JMenuItem("ASISTENCIA");
 		mntmAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmAsistencia.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmAsistencia);
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
 		mnCompeticion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
-		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnCompeticion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnCompeticion);
 		
 		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
 		mntmGestionEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmGestionEquipos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmGestionEquipos);
 		
 		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
 		mntmPartidosDisputados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmPartidosDisputados.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmPartidosDisputados);
 		
 		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
 		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
 		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmCalendariosYResultados.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmCalendariosYResultados);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
 		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
-		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnEntrenamiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnEntrenamiento);
 		
 		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
 		
 		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
 		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
-		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnAdministracion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnAdministracion);
 		
 		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
 		mntmCuotasJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmCuotasJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
 		mnAyuda = new JMenu("AYUDA");
 		mnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
-		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnAyuda.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnAyuda);
 		
 		mntmUsuario = new JMenuItem("USUARIO");
-		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmUsuario.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAyuda.add(mntmUsuario);
 		
 		mntmContacto = new JMenuItem("CONTACTO");
-		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmContacto.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAyuda.add(mntmContacto);
 		
 		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
-		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmAcercaDe.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAyuda.add(mntmAcercaDe);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
@@ -221,39 +221,45 @@ public VistaFichas() {
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
-		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 11));
 		
 		txtNombre = new JTextField();
+		txtNombre.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtNombre.setEnabled(false);
 		txtNombre.setBounds(414, 285, 126, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtEquipo = new JTextField();
+		txtEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtEquipo.setEnabled(false);
 		txtEquipo.setColumns(10);
 		txtEquipo.setBounds(414, 316, 126, 20);
 		panel.add(txtEquipo);
 		
 		txtApellido = new JTextField();
+		txtApellido.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtApellido.setEnabled(false);
 		txtApellido.setColumns(10);
 		txtApellido.setBounds(675, 285, 137, 20);
 		panel.add(txtApellido);
 		
 		txtPosicion = new JTextField();
+		txtPosicion.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtPosicion.setEnabled(false);
 		txtPosicion.setColumns(10);
 		txtPosicion.setBounds(675, 316, 137, 20);
 		panel.add(txtPosicion);
 		
 		txtFecha = new JTextField();
+		txtFecha.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtFecha.setEnabled(false);
 		txtFecha.setColumns(10);
 		txtFecha.setBounds(414, 347, 126, 20);
 		panel.add(txtFecha);
 		
 		txtDorsal = new JTextField();
+		txtDorsal.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtDorsal.setEnabled(false);
 		txtDorsal.setColumns(10);
 		txtDorsal.setBounds(675, 347, 137, 20);
@@ -261,37 +267,37 @@ public VistaFichas() {
 		
 		JLabel lblNombreFic = new JLabel("NOMBRE");
 		lblNombreFic.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombreFic.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblNombreFic.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblNombreFic.setBounds(274, 288, 130, 14);
 		panel.add(lblNombreFic);
 		
 		JLabel lblApellidos = new JLabel("EQUIPO");
 		lblApellidos.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblApellidos.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblApellidos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblApellidos.setBounds(274, 319, 130, 14);
 		panel.add(lblApellidos);
 		
 		JLabel lblFechaNacimiento = new JLabel("FECHA NACIMIENTO");
 		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaNacimiento.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblFechaNacimiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblFechaNacimiento.setBounds(274, 350, 130, 14);
 		panel.add(lblFechaNacimiento);
 		
 		JLabel lblCaducidadFicha = new JLabel("DORSAL");
 		lblCaducidadFicha.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCaducidadFicha.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblCaducidadFicha.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblCaducidadFicha.setBounds(550, 350, 115, 14);
 		panel.add(lblCaducidadFicha);
 		
 		JLabel lblPosicin = new JLabel("POSICI\u00D3N");
 		lblPosicin.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPosicin.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblPosicin.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblPosicin.setBounds(550, 319, 115, 14);
 		panel.add(lblPosicin);
 		
 		JLabel lblApellido = new JLabel("APELLIDO");
 		lblApellido.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblApellido.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblApellido.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblApellido.setBounds(550, 288, 115, 14);
 		panel.add(lblApellido);
 		
@@ -318,7 +324,7 @@ public VistaFichas() {
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(85, 40, 930, 30);
@@ -330,7 +336,7 @@ public VistaFichas() {
 		
 		lblBuscadorDeJugadores = new JLabel("BUSCADOR DE JUGADORES");
 		lblBuscadorDeJugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBuscadorDeJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblBuscadorDeJugadores.setFont(new Font("Agency FB", Font.BOLD, 18));
 		lblBuscadorDeJugadores.setBounds(414, 106, 229, 14);
 		panel.add(lblBuscadorDeJugadores);
 		
@@ -340,30 +346,30 @@ public VistaFichas() {
 		panel.add(txtApellidoBuscar);
 		
 		lblNombre = new JLabel("NOMBRE");
-		lblNombre.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblNombre.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(45, 154, 70, 14);
 		panel.add(lblNombre);
 		
 		lblApellido_1 = new JLabel("APELLIDO");
-		lblApellido_1.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblApellido_1.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblApellido_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblApellido_1.setBounds(362, 154, 77, 14);
 		panel.add(lblApellido_1);
 		
 		btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnBuscar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnBuscar.setBounds(949, 150, 89, 23);
 		panel.add(btnBuscar);
 		
 		JLabel lblFichaDeJugador = new JLabel("FICHA DE JUGADOR");
 		lblFichaDeJugador.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFichaDeJugador.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblFichaDeJugador.setFont(new Font("Agency FB", Font.BOLD, 18));
 		lblFichaDeJugador.setBounds(473, 242, 127, 14);
 		panel.add(lblFichaDeJugador);
 		
 		comboBoxSelecEquipo = new JComboBox();
-		comboBoxSelecEquipo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setBounds(671, 136, 248, 40);
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
@@ -377,27 +383,27 @@ public VistaFichas() {
 		
 		lblObservaciones = new JLabel("OBSERVACIONES");
 		lblObservaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblObservaciones.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblObservaciones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblObservaciones.setBounds(274, 390, 130, 14);
 		panel.add(lblObservaciones);
 		
 		btnInsert = new JButton("INSERTAR");
-		btnInsert.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnInsert.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnInsert.setBounds(914, 279, 100, 23);
 		panel.add(btnInsert);
 		
 		btnGuardar = new JButton("GUARDAR");
-		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnGuardar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnGuardar.setBounds(914, 315, 100, 23);
 		panel.add(btnGuardar);
 		
 		btnModificar = new JButton("HABILITAR");
-		btnModificar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnModificar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnModificar.setBounds(914, 357, 100, 23);
 		panel.add(btnModificar);
 		
 		btnBorrar = new JButton("BORRAR");
-		btnBorrar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnBorrar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnBorrar.setBounds(914, 400, 100, 23);
 		panel.add(btnBorrar);
 		
@@ -405,7 +411,7 @@ public VistaFichas() {
 		tablaEst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tablaEst.setRowSelectionAllowed(false);
 		tablaEst.setRowHeight(18);
-		tablaEst.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tablaEst.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		tablaEst.setFocusable(false);
 		tablaEst.setBorder(new LineBorder(Color.BLACK));
 
@@ -432,7 +438,7 @@ public VistaFichas() {
 		
 		lblEstadsticasDeJugador = new JLabel("ESTAD\u00CDSTICAS DE JUGADOR");
 		lblEstadsticasDeJugador.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEstadsticasDeJugador.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblEstadsticasDeJugador.setFont(new Font("Agency FB", Font.BOLD, 18));
 		lblEstadsticasDeJugador.setBounds(445, 567, 194, 14);
 		panel.add(lblEstadsticasDeJugador);
 		
@@ -445,6 +451,7 @@ public VistaFichas() {
 		panel.add(separator2);
 		
 		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblImagenFondo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
