@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.SimpleAttributeSet;
 
 import database.ConexionBD;
 import model.*;
