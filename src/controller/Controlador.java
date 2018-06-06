@@ -102,6 +102,7 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
+		miVistaGestionEquipos.btnEliminarEquipo.addActionListener(this);
 		
 		miVistaAñadirEquipo.btnVolver.addActionListener(this);
 		miVistaAñadirEquipo.btnGuardar.addActionListener(this);
@@ -528,6 +529,8 @@ public class Controlador implements ActionListener{
 			
 			miVistaGestionEquipos.lblInformativo.setText("MOSTRANDO INFORMACIÓN DE EQUIPO "+seleccion);
 
+			miVistaGestionEquipos.btnEliminarEquipo.setEnabled(true);
+			
 			//Lista jugadores
 			Jugadores_AD jugadores = new Jugadores_AD();
 			ArrayList <Jugadores_TD> miArrayList=new ArrayList <Jugadores_TD> ();
@@ -574,6 +577,42 @@ public class Controlador implements ActionListener{
 				String horario=miEquipo.getHorario();
 				miVistaGestionEquipos.textAreaDatosEquipo.append(" EQUIPO: "+nombre+"\n\r CAMPO: "+campo+"\n\r DIAS DE ENTRENAMIENTO: "+entrenamiento+"\n\r HORARIO: "+horario);
 			
+		}
+		
+		
+		if (e.getSource()==miVistaGestionEquipos.btnEliminarEquipo) {
+			Equipos_AD equipoAD=new Equipos_AD();
+			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
+			boolean comprobar=equipoAD.EliminaEquipo(seleccion);
+//			JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			int opcionJPane = JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			
+			switch(opcionJPane) {
+			   case 0 :
+				   if (comprobar==true) {
+						JOptionPane.showMessageDialog(null, "Equipo "+seleccion+" ELIMINADO");
+						miVistaGestionEquipos.btnEliminarEquipo.setEnabled(false);
+					} 
+			      break; // optional
+			   
+			   case 1 :
+			   case -1:
+					JOptionPane.showMessageDialog(null, "Eliminar "+seleccion+" CANCELADO");
+					miVistaGestionEquipos.btnEliminarEquipo.setEnabled(true);
+			      break; // optional
+			
+//			if (comprobar==true && JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+//				JOptionPane.showMessageDialog(null, "Equipo Eliminado");
+//				miVistaGestionEquipos.btnEliminarEquipo.setEnabled(false);
+//			} 
+//			
+//			else if (JOptionPane.showConfirmDialog(null, "Realmente desea eliminar el equipo "+seleccion+"?", "Confirmar eliminar equipo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION) {
+//				JOptionPane.showMessageDialog(null, "Eliminar cancelado");
+//			}
+//			
+//			else
+//				JOptionPane.showMessageDialog(null, "Error al eliminar, revise parámetros");
+			}
 		}
 		
 		
