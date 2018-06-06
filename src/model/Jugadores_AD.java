@@ -146,7 +146,7 @@ public class Jugadores_AD {
 		try {
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("DELETE FROM jugadores WHERE nombre_jugador = '" +nombre+"', apellido_jugador = '"+apellido+"' AND equipo='"+equipo+"'");
+			String InstruccionSQL=("DELETE FROM jugadores WHERE nombre_jugador = '" +nombre+"' AND apellido_jugador = '"+apellido+"' AND equipo='"+equipo+"'");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();

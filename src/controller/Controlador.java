@@ -89,6 +89,7 @@ public class Controlador implements ActionListener{
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
 		miVistaFichas.btnInsert.addActionListener(this);
+		miVistaFichas.btnBorrar.addActionListener(this);
 		
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
 		miVistaGestionEquipos.mntmInicio.addActionListener(this);
@@ -393,6 +394,7 @@ public class Controlador implements ActionListener{
 			jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);
 			cod_jugador=jugador.getCod_jugador();
 			
+			miVistaFichas.btnGuardar.setEnabled(true);
 			miVistaFichas.txtNombre.setEnabled(true);
 			miVistaFichas.txtApellido.setEnabled(true);
 			miVistaFichas.txtEquipo.setEnabled(true);
@@ -444,6 +446,15 @@ public class Controlador implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
 			} else
 				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
+		}
+		
+		if (e.getSource()==miVistaFichas.btnBorrar) {
+			Jugadores_AD jugadorAD=new Jugadores_AD();
+			boolean comprobar=jugadorAD.EliminaJugador(miVistaFichas.txtNombre.getText(), miVistaFichas.txtApellido.getText(), miVistaFichas.txtEquipo.getText());
+			if (comprobar==true) {
+				JOptionPane.showMessageDialog(null, "Jugador Eliminado");
+			} else
+				JOptionPane.showMessageDialog(null, "Error al eliminar, revise parámetros");
 		}
 		/*
 		 * 
