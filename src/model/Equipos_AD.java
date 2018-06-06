@@ -59,6 +59,7 @@ public class Equipos_AD {
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();
 			return null;
+			
 		} catch (SQLException e) {
 			System.out.println(e);
 			return null;
