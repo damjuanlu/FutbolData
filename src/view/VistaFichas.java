@@ -224,7 +224,7 @@ public VistaFichas() {
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
 		txtNombre = new JTextField();
-		txtNombre.setEnabled(false);
+		txtNombre.setEditable(false);
 		txtNombre.setBounds(414, 285, 126, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);

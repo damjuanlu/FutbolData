@@ -405,6 +405,12 @@ public class Controlador implements ActionListener{
 			miVistaFichas.txtPosicion.setEnabled(true);
 			miVistaFichas.txtDorsal.setEnabled(true);
 			
+//			miVistaFichas.txtNombre.setEditable(true);
+//			miVistaFichas.txtApellido.setEditable(true);
+//			miVistaFichas.txtEquipo.setEditable(true);
+//			miVistaFichas.txtPosicion.setEditable(true);
+//			miVistaFichas.txtDorsal.setEditable(true);
+			
 		}
 		
 		if (e.getSource()==miVistaFichas.btnGuardar) {
