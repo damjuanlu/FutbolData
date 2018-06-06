@@ -508,6 +508,10 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaGestionEquipos.btnMostrarEquipo) {
 			
+			miVistaGestionEquipos.textAreaPartidosEquipo.setText("");
+			miVistaGestionEquipos.textAreaDatosEquipo.setText("");
+			miVistaGestionEquipos.textAreaJugadores.setText("");
+			
 			String seleccion =  (String) miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem();
 			
 			miVistaGestionEquipos.lblInformativo.setText("MOSTRANDO INFORMACIÓN DE EQUIPO "+seleccion);
