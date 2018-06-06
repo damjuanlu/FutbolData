@@ -21,6 +21,7 @@ public class Controlador implements ActionListener{
 	private VistaAsistencias miVistaAsistencias;
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
+	private VistaAñadirEquipo miVistaAñadirEquipo;
 	private VistaPartidosDisputados miVistaPartidosDisputados;
 	private VistaFichaPartidos miVistaFichaPartidos;
 	private VistaConvocatorias miVistaConvocatorias;
@@ -41,7 +42,7 @@ public class Controlador implements ActionListener{
 	
 	int cod_jugador=0;
 	
-	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaMensajes miVistaMensajes) {
+	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaMensajes miVistaMensajes) {
 		
 		this.miVistaLogin=miVistaLogin;
 		this.miVistaRegistro=miVistaRegistro;
@@ -50,6 +51,7 @@ public class Controlador implements ActionListener{
 		this.miVistaAsistencias=miVistaAsistencias;
 		this.miVistaEstadisticas=miVistaEstadisticas;
 		this.miVistaGestionEquipos=miVistaGestionEquipos;
+		this.miVistaAñadirEquipo=miVistaAñadirEquipo;
 		this.miVistaPartidosDisputados=miVistaPartidosDisputados;
 		this.miVistaFichaPartidos=miVistaFichaPartidos;
 		this.miVistaConvocatorias=miVistaConvocatorias;
@@ -99,6 +101,9 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
 		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
+		
+		miVistaAñadirEquipo.btnVolver.addActionListener(this);
+		miVistaAñadirEquipo.btnGuardar.addActionListener(this);
 		
 		miVistaMensajes.btnEnviar.addActionListener(this);
 		
@@ -559,6 +564,37 @@ public class Controlador implements ActionListener{
 				String horario=miEquipo.getHorario();
 				miVistaGestionEquipos.textAreaDatosEquipo.append(" EQUIPO: "+nombre+"\n\r CAMPO: "+campo+"\n\r DIAS DE ENTRENAMIENTO: "+entrenamiento+"\n\r HORARIO: "+horario);
 			
+		}
+		
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA AÑADIR EQUIPO
+		 * 
+		 * 
+		 */
+		if (e.getSource()==miVistaAñadirEquipo.btnVolver) {
+			miVistaAñadirEquipo.setVisible(false);
+			miVistaGestionEquipos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaAñadirEquipo.btnGuardar) {
+//			
+//			Equipos_AD Equipos_AD=new Equipos_AD();
+//			
+//			String nombre_nuevo=miVistaAñadirEquipo.txtNombre.getText();
+//			String apellido_nuevo=miVistaAñadirEquipo.txtApellido.getText();
+//			String equipo_nuevo=miVistaAñadirEquipo.txtEquipo.getText();
+//			String posicion_nuevo=miVistaAñadirEquipo.txtPosicion.getText();
+//			String dorsal_comprobacion=miVistaAñadirEquipo.txtDorsal.getText();
+//			int dorsal=Integer.parseInt(miVistaAñadirEquipo.txtDorsal.getText());
+//			
+//			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && equipo_nuevo!="" && dorsal_comprobacion!=null) {
+//				Equipos_AD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal);
+//				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
+//			} else
+//				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
 		}
 		
 		

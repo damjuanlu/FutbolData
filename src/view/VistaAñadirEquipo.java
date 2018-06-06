@@ -49,13 +49,14 @@ public class VistaAñadirEquipo extends JFrame {
 	public JMenuItem mntmContacto;
 	public JMenuItem mntmAcercaDe;
 	public JLabel lblUser;
-	public JButton btnCerrarSesion;
+	public JButton btnGuardar;
+	public JButton btnVolver;
 	public JLabel lblImagenFondo;
 	public JLabel lblInformativo;
-	private JTextField txtNombre;
-	private JTextField txtCampo;
-	private JTextField txtHorario;
-	private JTextField txtEntrenamiento;
+	public JTextField txtNombre;
+	public JTextField txtCampo;
+	public JTextField txtHorario;
+	public JTextField txtEntrenamiento;
 	
 	public VistaAñadirEquipo(){
 		
@@ -85,15 +86,15 @@ setResizable(false);
 		lblUser.setBounds(800, 0, 260, 21);
 		panel.add(lblUser);
 
-		btnCerrarSesion = new JButton("VOLVER");
-		btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnCerrarSesion.setFocusable(false);
-		btnCerrarSesion.setDefaultCapable(false);
-		btnCerrarSesion.setFocusPainted(false);
-		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnCerrarSesion.setBounds(600, 350, 100, 23);
-		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
-		panel.add(btnCerrarSesion);
+		btnVolver = new JButton("VOLVER");
+		btnVolver.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnVolver.setFocusable(false);
+		btnVolver.setDefaultCapable(false);
+		btnVolver.setFocusPainted(false);
+		btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnVolver.setBounds(600, 350, 100, 23);
+		btnVolver.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		panel.add(btnVolver);
 		
 		lblInformativo = new JLabel("NUEVO EQUIPO");
 		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -163,7 +164,7 @@ setResizable(false);
 		txtEntrenamiento.setBounds(180, 185, 400, 20);
 		panel.add(txtEntrenamiento);
 
-		JButton btnGuardar = new JButton("GUARDAR");
+		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		btnGuardar.setBounds(297, 280, 100, 23);
 		panel.add(btnGuardar);
