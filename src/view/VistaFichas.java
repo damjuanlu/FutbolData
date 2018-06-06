@@ -26,6 +26,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.JSeparator;
 
 public class VistaFichas extends JFrame{
 
@@ -74,6 +75,7 @@ public class VistaFichas extends JFrame{
 	public JLabel lblEstadsticasDeJugador;
 	public JComboBox comboBoxSelecEquipo;
 	public JTable tablaEst;
+	public JLabel lblInformativo;
 
 public VistaFichas() {
 		
@@ -223,79 +225,79 @@ public VistaFichas() {
 		
 		txtNombre = new JTextField();
 		txtNombre.setEnabled(false);
-		txtNombre.setBounds(410, 194, 126, 20);
+		txtNombre.setBounds(414, 285, 126, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtEquipo = new JTextField();
 		txtEquipo.setEnabled(false);
 		txtEquipo.setColumns(10);
-		txtEquipo.setBounds(410, 225, 126, 20);
+		txtEquipo.setBounds(414, 316, 126, 20);
 		panel.add(txtEquipo);
 		
 		txtApellido = new JTextField();
 		txtApellido.setEnabled(false);
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(671, 194, 137, 20);
+		txtApellido.setBounds(675, 285, 137, 20);
 		panel.add(txtApellido);
 		
 		txtPosicion = new JTextField();
 		txtPosicion.setEnabled(false);
 		txtPosicion.setColumns(10);
-		txtPosicion.setBounds(671, 225, 137, 20);
+		txtPosicion.setBounds(675, 316, 137, 20);
 		panel.add(txtPosicion);
 		
 		txtFecha = new JTextField();
 		txtFecha.setEnabled(false);
 		txtFecha.setColumns(10);
-		txtFecha.setBounds(410, 256, 126, 20);
+		txtFecha.setBounds(414, 347, 126, 20);
 		panel.add(txtFecha);
 		
 		txtDorsal = new JTextField();
 		txtDorsal.setEnabled(false);
 		txtDorsal.setColumns(10);
-		txtDorsal.setBounds(671, 256, 137, 20);
+		txtDorsal.setBounds(675, 347, 137, 20);
 		panel.add(txtDorsal);
 		
 		JLabel lblNombreFic = new JLabel("NOMBRE");
 		lblNombreFic.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombreFic.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblNombreFic.setBounds(270, 197, 130, 14);
+		lblNombreFic.setBounds(274, 288, 130, 14);
 		panel.add(lblNombreFic);
 		
 		JLabel lblApellidos = new JLabel("EQUIPO");
 		lblApellidos.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblApellidos.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblApellidos.setBounds(270, 228, 130, 14);
+		lblApellidos.setBounds(274, 319, 130, 14);
 		panel.add(lblApellidos);
 		
 		JLabel lblFechaNacimiento = new JLabel("FECHA NACIMIENTO");
 		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFechaNacimiento.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblFechaNacimiento.setBounds(270, 259, 130, 14);
+		lblFechaNacimiento.setBounds(274, 350, 130, 14);
 		panel.add(lblFechaNacimiento);
 		
 		JLabel lblCaducidadFicha = new JLabel("DORSAL");
 		lblCaducidadFicha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCaducidadFicha.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblCaducidadFicha.setBounds(546, 259, 115, 14);
+		lblCaducidadFicha.setBounds(550, 350, 115, 14);
 		panel.add(lblCaducidadFicha);
 		
 		JLabel lblPosicin = new JLabel("POSICI\u00D3N");
 		lblPosicin.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPosicin.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblPosicin.setBounds(546, 228, 115, 14);
+		lblPosicin.setBounds(550, 319, 115, 14);
 		panel.add(lblPosicin);
 		
 		JLabel lblApellido = new JLabel("APELLIDO");
 		lblApellido.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblApellido.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblApellido.setBounds(546, 197, 115, 14);
+		lblApellido.setBounds(550, 288, 115, 14);
 		panel.add(lblApellido);
 		
 		lblFoto = new JLabel("");
 		lblFoto.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFoto.setBounds(81, 188, 126, 156);
+		lblFoto.setBounds(85, 279, 126, 156);
 		panel.add(lblFoto);
 
 		//OBTENER FOTO JUGADOR
@@ -304,81 +306,99 @@ public VistaFichas() {
 		lblFoto.setIcon(imagenJugador);
 		
 		txtNombreBuscar = new JTextField();
-		txtNombreBuscar.setBounds(121, 96, 164, 20);
+		txtNombreBuscar.setBounds(125, 151, 164, 20);
 		panel.add(txtNombreBuscar);
 		txtNombreBuscar.setColumns(10);
 		
+		lblInformativo = new JLabel("FICHAS JUGADOR");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaFichas.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
+		
 		lblBuscadorDeJugadores = new JLabel("BUSCADOR DE JUGADORES");
 		lblBuscadorDeJugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBuscadorDeJugadores.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblBuscadorDeJugadores.setBounds(410, 51, 229, 14);
+		lblBuscadorDeJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblBuscadorDeJugadores.setBounds(414, 106, 229, 14);
 		panel.add(lblBuscadorDeJugadores);
 		
 		txtApellidoBuscar = new JTextField();
 		txtApellidoBuscar.setColumns(10);
-		txtApellidoBuscar.setBounds(445, 96, 164, 20);
+		txtApellidoBuscar.setBounds(449, 151, 164, 20);
 		panel.add(txtApellidoBuscar);
 		
 		lblNombre = new JLabel("NOMBRE");
 		lblNombre.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setBounds(41, 99, 70, 14);
+		lblNombre.setBounds(45, 154, 70, 14);
 		panel.add(lblNombre);
 		
 		lblApellido_1 = new JLabel("APELLIDO");
 		lblApellido_1.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		lblApellido_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblApellido_1.setBounds(358, 99, 77, 14);
+		lblApellido_1.setBounds(362, 154, 77, 14);
 		panel.add(lblApellido_1);
 		
 		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		btnBuscar.setBounds(945, 95, 89, 23);
+		btnBuscar.setBounds(949, 150, 89, 23);
 		panel.add(btnBuscar);
 		
 		JLabel lblFichaDeJugador = new JLabel("FICHA DE JUGADOR");
 		lblFichaDeJugador.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFichaDeJugador.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblFichaDeJugador.setBounds(469, 151, 127, 14);
+		lblFichaDeJugador.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblFichaDeJugador.setBounds(473, 242, 127, 14);
 		panel.add(lblFichaDeJugador);
 		
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setBounds(667, 81, 248, 40);
+		comboBoxSelecEquipo.setBounds(671, 136, 248, 40);
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
 		panel.add(comboBoxSelecEquipo);
 		
 		txtObservaciones = new JTextArea();
 		txtObservaciones.setEnabled(false);
 		txtObservaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
-		txtObservaciones.setBounds(410, 294, 398, 90);
+		txtObservaciones.setBounds(414, 385, 398, 90);
 		panel.add(txtObservaciones);
 		
 		lblObservaciones = new JLabel("OBSERVACIONES");
 		lblObservaciones.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblObservaciones.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblObservaciones.setBounds(270, 299, 130, 14);
+		lblObservaciones.setBounds(274, 390, 130, 14);
 		panel.add(lblObservaciones);
 		
 		btnInsert = new JButton("INSERTAR");
 		btnInsert.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		btnInsert.setBounds(910, 188, 100, 23);
+		btnInsert.setBounds(914, 279, 100, 23);
 		panel.add(btnInsert);
 		
 		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		btnGuardar.setBounds(910, 224, 100, 23);
+		btnGuardar.setBounds(914, 315, 100, 23);
 		panel.add(btnGuardar);
 		
 		btnModificar = new JButton("HABILITAR");
 		btnModificar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		btnModificar.setBounds(910, 266, 100, 23);
+		btnModificar.setBounds(914, 357, 100, 23);
 		panel.add(btnModificar);
 		
 		btnBorrar = new JButton("BORRAR");
 		btnBorrar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		btnBorrar.setBounds(910, 309, 100, 23);
+		btnBorrar.setBounds(914, 400, 100, 23);
 		panel.add(btnBorrar);
 		
 		tablaEst = new JTable();
@@ -407,20 +427,22 @@ public VistaFichas() {
 		});
 		tablaEst.getColumnModel().getColumn(0).setResizable(false);
 		tablaEst.setBorder(new LineBorder(new Color(1, 1, 1)));
-		tablaEst.setBounds(81, 509, 929, 36);
+		tablaEst.setBounds(85, 600, 929, 36);
 		panel.add(tablaEst);
-		
-		JLabel lblTituloventana = new JLabel("FICHAS JUGADOR");
-		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
-		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloventana.setBounds(35, 40, 248, 20);
-		panel.add(lblTituloventana);
 		
 		lblEstadsticasDeJugador = new JLabel("ESTAD\u00CDSTICAS DE JUGADOR");
 		lblEstadsticasDeJugador.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEstadsticasDeJugador.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
-		lblEstadsticasDeJugador.setBounds(445, 451, 194, 14);
+		lblEstadsticasDeJugador.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		lblEstadsticasDeJugador.setBounds(445, 567, 194, 14);
 		panel.add(lblEstadsticasDeJugador);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(85, 208, 930, 2);
+		panel.add(separator);
+		
+		JSeparator separator2 = new JSeparator();
+		separator2.setBounds(85, 520, 930, 2);
+		panel.add(separator2);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setAlignmentX(Component.CENTER_ALIGNMENT);

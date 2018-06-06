@@ -5,9 +5,11 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +19,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class VistaAñadirEquipo extends JFrame {
 	
@@ -44,6 +47,7 @@ public class VistaAñadirEquipo extends JFrame {
 	public JLabel lblUser;
 	public JButton btnCerrarSesion;
 	public JLabel lblImagenFondo;
+	public JLabel lblInformativo;
 	
 	public VistaAñadirEquipo(){
 		
@@ -191,6 +195,23 @@ setResizable(false);
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
+		lblInformativo = new JLabel("NUEVO EQUIPO");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaAñadirEquipo.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
 		lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));

@@ -5,9 +5,11 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -46,6 +48,7 @@ public class VistaMensajes extends JFrame {
 	public JLabel lblNewLabel;
 	public JButton btnEnviar;
 	public JTextArea txtAreaMensaje;
+	public JLabel lblInformativo;
 	
 	public VistaMensajes(){
 		
@@ -186,17 +189,35 @@ public class VistaMensajes extends JFrame {
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
 		
+		lblInformativo = new JLabel("ENVIAR MENSAJES");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaMensajes.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
+		
 		txtAreaMensaje = new JTextArea();
 		txtAreaMensaje.setBorder(new LineBorder(new Color(0, 0, 0)));
-		txtAreaMensaje.setBounds(199, 278, 525, 164);
+		txtAreaMensaje.setBounds(274, 263, 525, 164);
 		panel.add(txtAreaMensaje);
 		
 		btnEnviar = new JButton("Enviar");
-		btnEnviar.setBounds(428, 468, 91, 23);
+		btnEnviar.setBounds(491, 468, 91, 23);
 		panel.add(btnEnviar);
 		
 		JLabel lblNewLabel_1 = new JLabel("MENSAJE");
-		lblNewLabel_1.setBounds(198, 235, 102, 14);
+		lblNewLabel_1.setBounds(274, 235, 102, 14);
 		panel.add(lblNewLabel_1);
 		
 		lblNewLabel = new JLabel("New label");

@@ -103,7 +103,7 @@ public class ControladorConvocatorias implements ActionListener {
 		if (e.getSource()==miVistaConvocatorias.btnBuscar) {
 			
 			String equipoBusc=(String)miVistaConvocatorias.comboBoxSelecEquipo.getSelectedItem();
-			miVistaConvocatorias.lblFechaAsistencia.setText("Mostrando convocatoria de "+equipoBusc);
+			miVistaConvocatorias.lblInformativo.setText("Mostrando convocatoria de "+equipoBusc);
 			
 //			if (nombreBusc!=null && apellidoBusc!=null && equipoBusc!=null){
 //				jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);

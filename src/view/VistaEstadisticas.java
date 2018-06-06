@@ -65,13 +65,13 @@ public class VistaEstadisticas extends JFrame{
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
 	public JCalendar calendar;
-	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
 	public JTable tableEstadisticas;
 	public JButton btnBuscar;
+	public JLabel lblInformativo;
 
 public VistaEstadisticas() {
 		
@@ -222,24 +222,26 @@ public VistaEstadisticas() {
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setBounds(35, 95, 248, 40);
+		comboBoxSelecEquipo.setBounds(35, 90, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
-		lblFechaAsistencia = new JLabel("Visualizando estadisticas de "+equipoSeleccionado);
-		lblFechaAsistencia.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFechaAsistencia.setOpaque(true);
-		lblFechaAsistencia.setBackground(new Color(144, 238, 144));
-		lblFechaAsistencia.setFont(new Font("Palatino Linotype", Font.PLAIN, 14));
-		lblFechaAsistencia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFechaAsistencia.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblFechaAsistencia.setBounds(312, 95, 733, 20);
-		panel.add(lblFechaAsistencia);
+		lblInformativo = new JLabel("ESTAD\u00CDSTICAS");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
 		
-		JLabel lblTituloventana = new JLabel("ESTAD\u00CDSTICAS");
-		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
-		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloventana.setBounds(35, 40, 248, 20);
-		panel.add(lblTituloventana);
+		ImageIcon imgCabecera = new ImageIcon(VistaEstadisticas.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
 		//TABLA ASISTENCIAS
 		//FALTA CABECERA DE COLUMNAS
@@ -305,7 +307,7 @@ public VistaEstadisticas() {
 		tableEstadisticas.getColumnModel().getColumn(5).setMinWidth(60);
 		tableEstadisticas.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		tableEstadisticas.setBorder(new LineBorder(Color.BLACK));
-		tableEstadisticas.setBounds(312, 120, 733, 505);
+		tableEstadisticas.setBounds(170, 160, 733, 505);
 		panel.add(tableEstadisticas);
 		
 		JButton btnInformeAsistencia = new JButton("INFORME");
@@ -316,7 +318,7 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
 		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
 		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnInformeAsistencia.setBounds(945, 40, 100, 25);
+		btnInformeAsistencia.setBounds(945, 90, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
 		btnBuscar = new JButton("BUSCAR");
@@ -326,7 +328,7 @@ public VistaEstadisticas() {
 		btnBuscar.setFocusPainted(false);
 		btnBuscar.setDefaultCapable(false);
 		btnBuscar.setBackground(SystemColor.activeCaption);
-		btnBuscar.setBounds(110, 164, 100, 25);
+		btnBuscar.setBounds(310, 95, 100, 25);
 		panel.add(btnBuscar);
 		
 		JLabel lblImagenFondo = new JLabel("");

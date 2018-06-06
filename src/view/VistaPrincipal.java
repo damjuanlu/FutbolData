@@ -64,6 +64,7 @@ public class VistaPrincipal extends JFrame{
 	public JTextArea txtAreaMensajes;
 	private JLabel lblEntrenamientos;
 	private JLabel lblCumpleaosDa;
+	public JLabel lblInformativo;
 
 public VistaPrincipal() {
 		
@@ -221,6 +222,24 @@ public VistaPrincipal() {
 				
 			}
 		});
+		
+		lblInformativo = new JLabel("RESUMEN ESCOLAPIOS C.F.");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(216, 40, 635, 30);
+		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
 		lblEscudo = new JLabel("");
 		lblEscudo.setBorder(new LineBorder(new Color(0, 0, 0)));

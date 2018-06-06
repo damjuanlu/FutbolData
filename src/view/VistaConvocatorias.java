@@ -65,7 +65,6 @@ public class VistaConvocatorias extends JFrame{
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
 	public JCalendar calendar;
-	public JLabel lblFechaAsistencia;
 	public String stringFecha;
 	public JComboBox comboBoxSelecEquipo;
 	public JComboBox comboBoxSelecMes;
@@ -73,6 +72,7 @@ public class VistaConvocatorias extends JFrame{
 	public String mesSeleccionado;
 	public JTable tableConvocatorias;
 	public JButton btnBuscar;
+	public JLabel lblInformativo;
 
 public VistaConvocatorias() {
 		
@@ -226,24 +226,26 @@ public VistaConvocatorias() {
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
-		comboBoxSelecEquipo.setBounds(35, 85, 150, 40);
+		comboBoxSelecEquipo.setBounds(360, 85, 150, 40);
 		panel.add(comboBoxSelecEquipo);
 		
-		lblFechaAsistencia = new JLabel(equipoSeleccionado);
-		lblFechaAsistencia.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblFechaAsistencia.setOpaque(true);
-		lblFechaAsistencia.setBackground(new Color(144, 238, 144));
-		lblFechaAsistencia.setFont(new Font("Palatino Linotype", Font.PLAIN, 14));
-		lblFechaAsistencia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFechaAsistencia.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblFechaAsistencia.setBounds(312, 95, 733, 30);
-		panel.add(lblFechaAsistencia);
+		lblInformativo = new JLabel("CONVOCATORIAS");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
 		
-		JLabel lblTituloventana = new JLabel("CONVOCATORIAS");
-		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
-		lblTituloventana.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTituloventana.setBounds(35, 40, 248, 20);
-		panel.add(lblTituloventana);
+		ImageIcon imgCabecera = new ImageIcon(VistaConvocatorias.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
 		JButton btnNuevaConvocatoria = new JButton("NUEVA CONVOCATORIA");
 		btnNuevaConvocatoria.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -253,7 +255,7 @@ public VistaConvocatorias() {
 		btnNuevaConvocatoria.setBackground(SystemColor.activeCaption);
 		btnNuevaConvocatoria.setVerticalAlignment(SwingConstants.TOP);
 		btnNuevaConvocatoria.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnNuevaConvocatoria.setBounds(845, 40, 200, 25);
+		btnNuevaConvocatoria.setBounds(845, 630, 200, 25);
 		panel.add(btnNuevaConvocatoria);
 		
 		tableConvocatorias = new JTable();
@@ -298,11 +300,11 @@ public VistaConvocatorias() {
 		tableConvocatorias.getColumnModel().getColumn(4).setPreferredWidth(30);
 		tableConvocatorias.getColumnModel().getColumn(4).setMinWidth(300);
 		tableConvocatorias.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tableConvocatorias.setBounds(35, 150, 1010, 495);
+		tableConvocatorias.setBounds(35, 150, 1010, 450);
 		panel.add(tableConvocatorias);
 		
 		btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(205, 85, 89, 40);
+		btnBuscar.setBounds(560, 85, 89, 40);
 		panel.add(btnBuscar);
 		
 		JLabel lblImagenFondo = new JLabel("");

@@ -39,6 +39,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTextArea;
+import javax.swing.JSeparator;
 
 public class VistaGestionEquipos extends JFrame{
 
@@ -77,6 +78,7 @@ public class VistaGestionEquipos extends JFrame{
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
 	public JTextArea textAreaDatosEquipo;
+	private JSeparator separator;
 
 public VistaGestionEquipos() {
 		
@@ -237,23 +239,27 @@ public VistaGestionEquipos() {
 		comboBoxSelecEquipo = new JComboBox();
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
-		comboBoxSelecEquipo.setBounds(35, 85, 248, 40);
+		comboBoxSelecEquipo.setBounds(35, 101, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
-		lblInformativo = new JLabel("");
+		lblInformativo = new JLabel("SELECCIONA EQUIPO A MOSTRAR");
 		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblInformativo.setToolTipText("");
 		lblInformativo.setOpaque(true);
 		lblInformativo.setFocusable(false);
 		lblInformativo.setForeground(Color.WHITE);
-		lblInformativo.setIcon(new ImageIcon(VistaGestionEquipos.class.getResource("/Repositorios/lblInformativo.jpg")));
+		//lblInformativo.setIcon(new ImageIcon(VistaFichas.class.getResource("/Repositorios/lblInformativo.jpg")));
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
 		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblInformativo.setBounds(312, 95, 733, 30);
+		lblInformativo.setBounds(85, 40, 930, 30);
 		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaFichas.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
 		JLabel lblTituloventana = new JLabel("EQUIPOS");
 		lblTituloventana.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
@@ -273,7 +279,7 @@ public VistaGestionEquipos() {
 		btnInformeEquipo.setBackground(SystemColor.activeCaption);
 		btnInformeEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnInformeEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnInformeEquipo.setBounds(930, 39, 100, 25);
+		btnInformeEquipo.setBounds(945, 116, 100, 25);
 		panel.add(btnInformeEquipo);
 		
 		JButton btnAgregarEquipo = new JButton("AGREGAR EQUIPO");
@@ -284,7 +290,7 @@ public VistaGestionEquipos() {
 		btnAgregarEquipo.setBackground(SystemColor.activeCaption);
 		btnAgregarEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnAgregarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnAgregarEquipo.setBounds(590, 39, 160, 25);
+		btnAgregarEquipo.setBounds(605, 116, 160, 25);
 		panel.add(btnAgregarEquipo);
 		
 		JButton btnEliminarEquipo = new JButton("ELIMINAR EQUIPO");
@@ -295,7 +301,7 @@ public VistaGestionEquipos() {
 		btnEliminarEquipo.setBackground(new Color(255, 0, 0));
 		btnEliminarEquipo.setVerticalAlignment(SwingConstants.TOP);
 		btnEliminarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnEliminarEquipo.setBounds(760, 39, 160, 25);
+		btnEliminarEquipo.setBounds(775, 116, 160, 25);
 		panel.add(btnEliminarEquipo);
 		
 		btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
@@ -305,7 +311,7 @@ public VistaGestionEquipos() {
 		btnMostrarEquipo.setFocusPainted(false);
 		btnMostrarEquipo.setDefaultCapable(false);
 		btnMostrarEquipo.setBackground(SystemColor.activeCaption);
-		btnMostrarEquipo.setBounds(75, 150, 160, 25);
+		btnMostrarEquipo.setBounds(336, 115, 160, 25);
 		panel.add(btnMostrarEquipo);
 		
 		textAreaJugadores = new JTextArea();
@@ -322,6 +328,10 @@ public VistaGestionEquipos() {
 		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaDatosEquipo.setBounds(640, 497, 405, 148);
 		panel.add(textAreaDatosEquipo);
+		
+		separator = new JSeparator();
+		separator.setBounds(85, 170, 930, 2);
+		panel.add(separator);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setFont(new Font("Palatino Linotype", Font.BOLD, 16));
