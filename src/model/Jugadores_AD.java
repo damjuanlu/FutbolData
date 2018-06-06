@@ -30,7 +30,8 @@ public class Jugadores_AD {
 				String equipo=result.getString(5);
 				String posicion=result.getString(6);
 				int dorsal=result.getInt(7);
-				jugador = new Jugadores_TD(codigo,nombre,apellido,fecha_nac,equipo,posicion,dorsal);
+				String observaciones=result.getString(8);
+				jugador = new Jugadores_TD(codigo,nombre,apellido,fecha_nac,equipo,posicion,dorsal,observaciones);
 			  }
 			
 			miSentencia.close();
@@ -50,13 +51,13 @@ public class Jugadores_AD {
 
 	}
 	
-	public boolean ModificaJugador(int codigo, String nombre, String apellido, String equipo, String posicion, int dorsal) {
+	public boolean ModificaJugador(int codigo, String nombre, String apellido, String equipo, String posicion, int dorsal, String observaciones) {
 		try {
 			Jugadores_TD jugador = null;
 	
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("UPDATE jugadores SET nombre_jugador = '" +nombre+"',apellido_jugador = '"+apellido+"',equipo='"+equipo+"', posicion='"+posicion+"', dorsal='"+dorsal+"' WHERE cod_jugador="+codigo);
+			String InstruccionSQL=("UPDATE jugadores SET nombre_jugador = '" +nombre+"',apellido_jugador = '"+apellido+"',equipo='"+equipo+"', posicion='"+posicion+"', dorsal='"+dorsal+"', observaciones='"+observaciones+"' WHERE cod_jugador="+codigo);
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.executeUpdate();
@@ -96,7 +97,8 @@ public class Jugadores_AD {
 				String equipo=result.getString(5);
 				String posicion=result.getString(6);
 				int dorsal=result.getInt(7);
-				jugador = new Jugadores_TD(codigo,nombre,apellido,fecha_nac,equipo,posicion,dorsal);
+				String observaciones=result.getString(8);
+				jugador = new Jugadores_TD(codigo,nombre,apellido,fecha_nac,equipo,posicion,dorsal,observaciones);
 				arrayJugadores.add(jugador);
 			  }
 			
@@ -117,7 +119,7 @@ public class Jugadores_AD {
 
 	}
 	
-	public Jugadores_TD InsertaJugador(String nombre, String apellido, /*Date fecha,*/ String equipo, String posicion, int dorsal) {
+	public Jugadores_TD InsertaJugador(String nombre, String apellido, /*Date fecha,*/ String equipo, String posicion, int dorsal, String observaciones) {
 		try {
 			Jugadores_TD jugador=null;
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
@@ -128,7 +130,7 @@ public class Jugadores_AD {
 			rst.next();
 			int ID=(int)rst.getInt(1);
 			ID=ID+1;
-			String InstruccionSQL=("INSERT INTO jugadores (cod_jugador, nombre_jugador, apellido_jugador, fecha_nacimiento, equipo, posicion, dorsal) VALUES ("+ID+", '" +nombre+"','"+apellido+"','2000-10-10','"+equipo+"','"+posicion+"', "+dorsal+")");
+			String InstruccionSQL=("INSERT INTO jugadores (cod_jugador, nombre_jugador, apellido_jugador, fecha_nacimiento, equipo, posicion, dorsal) VALUES ("+ID+", '" +nombre+"','"+apellido+"','2000-10-10','"+equipo+"','"+posicion+"', "+dorsal+",'"+observaciones+"')");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();
