@@ -20,6 +20,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.border.TitledBorder;
+import javax.swing.JSeparator;
 
 public class VistaAñadirEquipo extends JFrame {
 	
@@ -48,6 +52,10 @@ public class VistaAñadirEquipo extends JFrame {
 	public JButton btnCerrarSesion;
 	public JLabel lblImagenFondo;
 	public JLabel lblInformativo;
+	private JTextField txtNombre;
+	private JTextField txtCampo;
+	private JTextField txtHorario;
+	private JTextField txtEntrenamiento;
 	
 	public VistaAñadirEquipo(){
 		
@@ -56,8 +64,8 @@ setResizable(false);
 		int CentrarAncho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
 		int CentrarAlto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		
-		int alto=720;
-		int ancho=1080;
+		int ancho=700;
+		int alto=400;
 	
 		super.setBounds(((CentrarAncho / 2) - 540), ((CentrarAlto / 2) - 360), ancho, alto);
 	
@@ -76,124 +84,16 @@ setResizable(false);
 		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUser.setBounds(800, 0, 260, 21);
 		panel.add(lblUser);
-		
-		menuPrincipal = new JMenuBar();
-		menuPrincipal.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.setBounds(0, 0, ancho, 21);
-		panel.add(menuPrincipal);
-		
-		mntmInicio = new JMenuItem("INICIO");
-		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmInicio.setMaximumSize(new Dimension(60, 32767));
-		mntmInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mntmInicio.setHorizontalAlignment(SwingConstants.CENTER);
-		menuPrincipal.add(mntmInicio);
-		
-		mnJugadores = new JMenu("JUGADORES");
-		mnJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
-		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnJugadores);
-		
-		mntmFichas = new JMenuItem("FICHAS");
-		mntmFichas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnJugadores.add(mntmFichas);
-		
-		mntmAsistencia = new JMenuItem("ASISTENCIA");
-		mntmAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnJugadores.add(mntmAsistencia);
-		
-		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
-		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnJugadores.add(mntmEstadisticas);
-		
-		mnCompeticion = new JMenu("COMPETICI\u00D3N");
-		mnCompeticion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
-		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
-		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnCompeticion);
-		
-		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
-		mntmGestionEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmGestionEquipos);
-		
-		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
-		mntmPartidosDisputados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmPartidosDisputados);
-		
-		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
-		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmConvocatorias);
-		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmCalendariosYResultados);
-		
-		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
-		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
-		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
-		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnEntrenamiento);
-		
-		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
-		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
-		
-		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
-		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
-		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
-		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnAdministracion);
-		
-		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
-		mntmCuotasJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAdministracion.add(mntmCuotasJugadores);
-		
-		mnAyuda = new JMenu("AYUDA");
-		mnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
-		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
-		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnAyuda);
-		
-		mntmUsuario = new JMenuItem("USUARIO");
-		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmUsuario);
-		
-		mntmContacto = new JMenuItem("CONTACTO");
-		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmContacto);
-		
-		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
-		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmAcercaDe);
-		
-		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
+
+		btnCerrarSesion = new JButton("VOLVER");
 		btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrarSesion.setFocusable(false);
 		btnCerrarSesion.setDefaultCapable(false);
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
-		menuPrincipal.add(btnCerrarSesion);
+		btnCerrarSesion.setBounds(600, 350, 100, 23);
 		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		panel.add(btnCerrarSesion);
 		
 		lblInformativo = new JLabel("NUEVO EQUIPO");
 		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -206,17 +106,73 @@ setResizable(false);
 		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblInformativo.setBounds(85, 40, 930, 30);
+		lblInformativo.setBounds(40, 40, 588, 30);
 		panel.add(lblInformativo);
 		
 		ImageIcon imgCabecera = new ImageIcon(VistaAñadirEquipo.class.getResource("/Repositorios/lblInformativo.jpg"));
 		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
 		lblInformativo.setIcon(imagenCabecera);
 		
+		JLabel lblNombreEquipo = new JLabel("NOMBRE EQUIPO");
+		lblNombreEquipo.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNombreEquipo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNombreEquipo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblNombreEquipo.setBounds(40, 125, 130, 14);
+		panel.add(lblNombreEquipo);
+		
+		JLabel lblCampo = new JLabel("CAMPO");
+		lblCampo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCampo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblCampo.setBounds(40, 155, 130, 14);
+		panel.add(lblCampo);
+		
+		JLabel lblEntrenamiento = new JLabel("ENTRENAMIENTO");
+		lblEntrenamiento.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEntrenamiento.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblEntrenamiento.setBounds(40, 185, 130, 14);
+		panel.add(lblEntrenamiento);
+		
+		JLabel lblHorario = new JLabel("HORARIO");
+		lblHorario.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblHorario.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHorario.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblHorario.setBounds(40, 215, 130, 14);
+		panel.add(lblHorario);
+		
+		txtNombre = new JTextField();
+		txtNombre.setEnabled(false);
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(180, 125, 400, 20);
+		panel.add(txtNombre);
+		
+		txtCampo = new JTextField();
+		txtCampo.setEnabled(false);
+		txtCampo.setColumns(10);
+		txtCampo.setBounds(180, 155, 400, 20);
+		panel.add(txtCampo);
+		
+		txtHorario = new JTextField();
+		txtHorario.setEnabled(false);
+		txtHorario.setColumns(10);
+		txtHorario.setBounds(180, 215, 400, 20);
+		panel.add(txtHorario);
+		
+		txtEntrenamiento = new JTextField();
+		txtEntrenamiento.setEnabled(false);
+		txtEntrenamiento.setColumns(10);
+		txtEntrenamiento.setBounds(180, 185, 400, 20);
+		panel.add(txtEntrenamiento);
+
+		JButton btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnGuardar.setBounds(297, 280, 100, 23);
+		panel.add(btnGuardar);
+		
+		
+		
 		lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
-		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		lblImagenFondo.setBounds(0, 0, 694, 374);
 		panel.add(lblImagenFondo);
 	}
-
 }
