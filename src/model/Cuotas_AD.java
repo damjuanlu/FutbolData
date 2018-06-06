@@ -23,7 +23,7 @@ public class Cuotas_AD {
 
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("SELECT * FROM cuotas WHERE nombre_jugador = '" +nombre+"' AND apellido_jugador = '"+apellido+"' AND equipo='"+equipo+"'");
+			String InstruccionSQL=("SELECT * FROM cuotas WHERE nombre = '" +nombre+"' AND apellido = '"+apellido+"' AND equipo='"+equipo+"'");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();

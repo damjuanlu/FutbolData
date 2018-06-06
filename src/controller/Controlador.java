@@ -27,6 +27,7 @@ public class Controlador implements ActionListener{
 	private VistaFichaPartidos miVistaFichaPartidos;
 	private VistaConvocatorias miVistaConvocatorias;
 	private VistaMensajes miVistaMensajes;
+	private VistaCuotas miVistaCuotas;
 	
 	Equipos_TD equipos;
 	Equipos_AD miEquipoAD=new Equipos_AD();
@@ -43,7 +44,7 @@ public class Controlador implements ActionListener{
 	
 	int cod_jugador=0;
 	
-	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaMensajes miVistaMensajes) {
+	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaCuotas miVistaCuotas, VistaMensajes miVistaMensajes) {
 		
 		this.miVistaLogin=miVistaLogin;
 		this.miVistaRegistro=miVistaRegistro;
@@ -57,6 +58,7 @@ public class Controlador implements ActionListener{
 		this.miVistaFichaPartidos=miVistaFichaPartidos;
 		this.miVistaConvocatorias=miVistaConvocatorias;
 		this.miVistaMensajes=miVistaMensajes;
+		this.miVistaCuotas=miVistaCuotas;
 		
 		//Asociar el componente Swing al listener
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
@@ -76,6 +78,7 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmGestionEquipos.addActionListener(this);
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
 		miVistaPrincipal.mntmMensajes.addActionListener(this);
+		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
@@ -110,6 +113,11 @@ public class Controlador implements ActionListener{
 		miVistaMensajes.btnEnviar.addActionListener(this);
 		
 		miVistaEstadisticas.btnBuscar.addActionListener(this);
+		
+		miVistaCuotas.btnActualizar.addActionListener(this);
+		miVistaCuotas.btnBuscarJug.addActionListener(this);
+		miVistaCuotas.btnCerrarSesion.addActionListener(this);
+		
 		
 	}
 	
@@ -294,6 +302,10 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaPrincipal.mntmMensajes) {
 			miVistaPrincipal.setVisible(false);
 			miVistaMensajes.setVisible(true);
+		}
+		if (e.getSource()==miVistaPrincipal.mntmCuotasJugadores) {
+			miVistaPrincipal.setVisible(false);
+			miVistaCuotas.setVisible(true);
 		}
 		
 		/*
@@ -710,6 +722,40 @@ public class Controlador implements ActionListener{
 				listIteratorEst.next();
 				acumEst++;
 			}
+		}
+		
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA CUOTAS
+		 * 
+		 * 
+		 */
+		if (e.getSource()==miVistaCuotas.btnBuscarJug) {
+			Cuotas_AD cuotasAD= new Cuotas_AD();
+			Cuotas_TD cuota=null;
+			
+			String nomcuo=miVistaCuotas.txtNombre.getText();
+			String apecuo=miVistaCuotas.txtApellido.getText();
+			String equipocuo=miVistaCuotas.comboEquipo.getSelectedItem().toString();
+			
+			if (miVistaCuotas.txtNombre.getText()!="" && miVistaCuotas.txtApellido.getText()!="" && miVistaCuotas.comboEquipo.getSelectedItem().toString()!="") {
+				cuota=cuotasAD.muestraCuotas(nomcuo, apecuo, equipocuo);
+				int cant_cuota=cuota.getCantidad();
+				boolean bool_cuota=cuota.isPagado();
+				String cantidad_cuota=String.valueOf(cant_cuota);
+				miVistaCuotas.txtCuota.setText(cantidad_cuota);
+				miVistaCuotas.checkCuota.setSelected(bool_cuota);
+			}else {
+				JOptionPane.showMessageDialog(null, "Error, introduzca todos los parámetros");
+			}
+	
+			
+		}
+		
+		if (e.getSource()==miVistaCuotas.btnActualizar) {
+			
 		}
 		
 	}

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -46,17 +47,20 @@ public class VistaCuotas extends JFrame{
 	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
-	private JTextField txtNombre;
+	public JTextField txtNombre;
 	private JLabel label;
 	private JLabel label_1;
-	private JTextField txtApellido;
+	public JTextField txtApellido;
 	private JLabel label_2;
 	private JLabel label_3;
-	private JButton btnBuscarJug;
-	private JComboBox comboEquipo;
+	public JButton btnBuscarJug;
+	public JComboBox comboEquipo;
 	private JSeparator separator;
 	private JLabel lblInformativo;
-	private JTextField txtCuota;
+	public JTextField txtCuota;
+	public JButton btnActualizar;
+	public JButton btnInforme;
+	public JCheckBox checkCuota;
 	
 	public VistaCuotas() {
 		
@@ -267,12 +271,17 @@ public class VistaCuotas extends JFrame{
 		txtCuota.setBounds(354, 359, 164, 20);
 		panel.add(txtCuota);
 		
-		JCheckBox checkCuota = new JCheckBox("CUOTA/SALARIO PAGADO");
+		checkCuota = new JCheckBox("CUOTA/SALARIO PAGADO");
 		checkCuota.setFont(new Font("Agency FB", Font.BOLD, 15));
 		checkCuota.setBounds(576, 360, 190, 23);
 		panel.add(checkCuota);
 		
-		JButton btnInforme = new JButton("INFORME TOTAL CUOTAS/SALARIOS");
+		btnActualizar = new JButton("ACTUALIZAR");
+		btnActualizar.setFont(new Font("Agency FB", Font.BOLD, 15));
+		btnActualizar.setBounds(411, 419, 229, 23);
+		panel.add(btnActualizar);
+		
+		btnInforme = new JButton("INFORME TOTAL CUOTAS/SALARIOS");
 		btnInforme.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnInforme.setBounds(411, 462, 229, 23);
 		panel.add(btnInforme);
