@@ -47,10 +47,8 @@ public class ControladorVistaPrincipal implements ActionListener {
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
 		miVistaPrincipal.btnCerrarSesion.addActionListener(this);
 		miVistaPrincipal.mntmFichas.addActionListener(this);
-		miVistaPrincipal.mntmAsistencia.addActionListener(this);
 		miVistaPrincipal.mntmEstadisticas.addActionListener(this);
 		miVistaPrincipal.mntmGestionEquipos.addActionListener(this);
-		miVistaPrincipal.mntmPartidosDisputados.addActionListener(this);
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
 	}
 	
@@ -134,11 +132,6 @@ public class ControladorVistaPrincipal implements ActionListener {
 			miVistaFichas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaPrincipal.mntmAsistencia) {
-			miVistaPrincipal.setVisible(false);
-			miVistaAsistencias.setVisible(true);
-		}
-		
 		if (e.getSource()==miVistaPrincipal.mntmEstadisticas) {
 			miVistaPrincipal.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
@@ -147,11 +140,6 @@ public class ControladorVistaPrincipal implements ActionListener {
 		if (e.getSource()==miVistaPrincipal.mntmGestionEquipos) {
 			miVistaPrincipal.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
-		}
-		
-		if (e.getSource()==miVistaPrincipal.mntmPartidosDisputados) {
-			miVistaPrincipal.setVisible(false);
-			miVistaPartidosDisputados.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPrincipal.mntmConvocatorias) {
