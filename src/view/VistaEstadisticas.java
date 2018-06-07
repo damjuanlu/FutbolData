@@ -206,6 +206,7 @@ public VistaEstadisticas() {
 		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
 		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setBounds(35, 90, 248, 40);
@@ -219,7 +220,7 @@ public VistaEstadisticas() {
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(85, 40, 930, 30);
@@ -291,7 +292,7 @@ public VistaEstadisticas() {
 		tableEstadisticas.getColumnModel().getColumn(4).setMinWidth(60);
 		tableEstadisticas.getColumnModel().getColumn(5).setPreferredWidth(60);
 		tableEstadisticas.getColumnModel().getColumn(5).setMinWidth(60);
-		tableEstadisticas.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
+		tableEstadisticas.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		tableEstadisticas.setBorder(new LineBorder(Color.BLACK));
 		tableEstadisticas.setBounds(170, 160, 733, 505);
 		panel.add(tableEstadisticas);
@@ -303,13 +304,13 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setDefaultCapable(false);
 		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
 		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnInformeAsistencia.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnInformeAsistencia.setBounds(945, 90, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
 		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setVerticalAlignment(SwingConstants.TOP);
-		btnBuscar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnBuscar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnBuscar.setFocusable(false);
 		btnBuscar.setFocusPainted(false);
 		btnBuscar.setDefaultCapable(false);
@@ -318,6 +319,7 @@ public VistaEstadisticas() {
 		panel.add(btnBuscar);
 		
 		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);

@@ -91,7 +91,6 @@ public class Controlador implements ActionListener{
 		miVistaLogin.btnLogin.addActionListener(this);
 		miVistaLogin.btnRegistrarse.addActionListener(this);
 		miVistaLogin.btnVolver.addActionListener(this);
-		
 		miVistaLogin.btnLogin.addActionListener(this);
 		miVistaLogin.btnRegistrarse.addActionListener(this);
 		miVistaLogin.btnVolver.addActionListener(this);
@@ -112,8 +111,8 @@ public class Controlador implements ActionListener{
 		miVistaFichas.mntmEstadisticas.addActionListener(this);
 		miVistaFichas.mntmGestionEquipos.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
-
-
+		miVistaFichas.mntmMensajes.addActionListener(this);
+		miVistaFichas.mntmCuotasJugadores.addActionListener(this);
 		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
@@ -123,11 +122,11 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
 		miVistaGestionEquipos.mntmInicio.addActionListener(this);
 		miVistaGestionEquipos.mntmFichas.addActionListener(this);
-		miVistaGestionEquipos.mntmAsistencia.addActionListener(this);
 		miVistaGestionEquipos.mntmEstadisticas.addActionListener(this);
 		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
-		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
+		miVistaGestionEquipos.mntmMensajes.addActionListener(this);
+		miVistaGestionEquipos.mntmCuotasJugadores.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnEliminarEquipo.addActionListener(this);
@@ -537,19 +536,10 @@ public class Controlador implements ActionListener{
 			miVistaFichas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaGestionEquipos.mntmAsistencia) {
-			miVistaGestionEquipos.setVisible(false);
-			miVistaAsistencias.setVisible(true);
-		}
 		
 		if (e.getSource()==miVistaGestionEquipos.mntmEstadisticas) {
 			miVistaGestionEquipos.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
-		}
-		
-		if (e.getSource()==miVistaGestionEquipos.mntmPartidosDisputados) {
-			miVistaGestionEquipos.setVisible(false);
-			miVistaPartidosDisputados.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.mntmConvocatorias) {
