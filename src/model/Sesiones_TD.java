@@ -18,7 +18,6 @@ public class Sesiones_TD {
 	private String vuelta_calma;
 	private int cod_sesion;
 
-//	cod_equipo	nombre	dia	minutos	objetivo	material	observaciones_sesion	calentamiento	parte_principal	vuelta_calma
 
 	public Sesiones_TD( int cod_equipo, String nombre, String dia, String minutos, String objetivo, 
 						String material, String observaciones_sesion, String calentamiento, 
