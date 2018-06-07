@@ -46,22 +46,16 @@ public class VistaConvocatorias extends JFrame{
 	public JMenuItem mntmInicio;
 	public JMenu mnJugadores;
 	public JMenuItem mntmFichas;
-	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
-	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
-	public JMenuItem mntmCalendariosYResultados;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
-	public JMenu mnAyuda;
-	public JMenuItem mntmUsuario;
-	public JMenuItem mntmContacto;
-	public JMenuItem mntmAcercaDe;
+	public JMenu mnMensajes;
+	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
 	public JCalendar calendar;
@@ -70,9 +64,10 @@ public class VistaConvocatorias extends JFrame{
 	public JComboBox comboBoxSelecMes;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JTable tableConvocatorias;
 	public JButton btnBuscar;
 	public JLabel lblInformativo;
+	private JTable tablaConvocar;
+	private JTextField txtRival;
 
 public VistaConvocatorias() {
 		
@@ -118,98 +113,70 @@ public VistaConvocatorias() {
 		mnJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
 		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
-		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnJugadores);
 		
 		mntmFichas = new JMenuItem("FICHAS");
 		mntmFichas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmFichas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmFichas);
-		
-		mntmAsistencia = new JMenuItem("ASISTENCIA");
-		mntmAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnJugadores.add(mntmAsistencia);
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
 		mnCompeticion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
-		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnCompeticion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnCompeticion);
 		
 		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
 		mntmGestionEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmGestionEquipos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmGestionEquipos);
-		
-		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
-		mntmPartidosDisputados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmPartidosDisputados);
 		
 		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
-		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmCalendariosYResultados);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
 		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
-		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnEntrenamiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnEntrenamiento);
 		
 		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
-		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnAdministracion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnAdministracion);
 		
 		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
 		mntmCuotasJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmCuotasJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
-		mnAyuda = new JMenu("AYUDA");
-		mnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mnAyuda.setHorizontalAlignment(SwingConstants.CENTER);
-		mnAyuda.setMargin(new Insets(2, 10, 0, 10));
-		mnAyuda.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		menuPrincipal.add(mnAyuda);
+		mnMensajes = new JMenu("MENSAJES");
+		mnMensajes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mnMensajes.setHorizontalAlignment(SwingConstants.CENTER);
+		mnMensajes.setMargin(new Insets(2, 10, 0, 10));
+		mnMensajes.setFont(new Font("Agency FB", Font.BOLD, 15));
+		menuPrincipal.add(mnMensajes);
 		
-		mntmUsuario = new JMenuItem("USUARIO");
-		mntmUsuario.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmUsuario);
-		
-		mntmContacto = new JMenuItem("CONTACTO");
-		mntmContacto.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmContacto);
-		
-		mntmAcercaDe = new JMenuItem("ACERCA DE ...");
-		mntmAcercaDe.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnAyuda.add(mntmAcercaDe);
+		mntmMensajes = new JMenuItem("MENSAJES");
+		mntmMensajes.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnMensajes.add(mntmMensajes);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
 		btnCerrarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -224,9 +191,10 @@ public VistaConvocatorias() {
 		ImageIcon imgPlantilla = new ImageIcon("src/Repositorios/fotoPlantillaATM.jpg");
 		
 		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
-		comboBoxSelecEquipo.setBounds(360, 85, 150, 40);
+		comboBoxSelecEquipo.setBounds(108, 85, 150, 40);
 		panel.add(comboBoxSelecEquipo);
 		
 		lblInformativo = new JLabel("CONVOCATORIAS");
@@ -237,7 +205,7 @@ public VistaConvocatorias() {
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(85, 40, 930, 30);
@@ -248,64 +216,86 @@ public VistaConvocatorias() {
 		lblInformativo.setIcon(imagenCabecera);
 		
 		JButton btnNuevaConvocatoria = new JButton("NUEVA CONVOCATORIA");
+		btnNuevaConvocatoria.setEnabled(false);
 		btnNuevaConvocatoria.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNuevaConvocatoria.setFocusable(false);
 		btnNuevaConvocatoria.setFocusPainted(false);
 		btnNuevaConvocatoria.setDefaultCapable(false);
 		btnNuevaConvocatoria.setBackground(SystemColor.activeCaption);
 		btnNuevaConvocatoria.setVerticalAlignment(SwingConstants.TOP);
-		btnNuevaConvocatoria.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnNuevaConvocatoria.setBounds(845, 630, 200, 25);
+		btnNuevaConvocatoria.setFont(new Font("Agency FB", Font.BOLD, 15));
+		btnNuevaConvocatoria.setBounds(786, 99, 200, 25);
 		panel.add(btnNuevaConvocatoria);
 		
-		tableConvocatorias = new JTable();
-		tableConvocatorias.setModel(new DefaultTableModel(
+		btnBuscar = new JButton("BUSCAR");
+		btnBuscar.setFont(new Font("Agency FB", Font.BOLD, 15));
+		btnBuscar.setBounds(346, 85, 89, 40);
+		panel.add(btnBuscar);
+		
+		tablaConvocar = new JTable();
+		tablaConvocar.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Editar", "Fecha", "Hora", "Motivo", "Lugar"},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
+				{"JUGADOR", "POSICION", Boolean.FALSE},
+				{null, null, Boolean.FALSE},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"Editar", "Fecha", "Hora", "Motivo", "Lugar"
+				"New column", "New column", "New column"
 			}
-		));
-		tableConvocatorias.getColumnModel().getColumn(0).setPreferredWidth(40);
-		tableConvocatorias.getColumnModel().getColumn(1).setPreferredWidth(80);
-		tableConvocatorias.getColumnModel().getColumn(2).setPreferredWidth(80);
-		tableConvocatorias.getColumnModel().getColumn(3).setPreferredWidth(30);
-		tableConvocatorias.getColumnModel().getColumn(3).setMinWidth(300);
-		tableConvocatorias.getColumnModel().getColumn(4).setPreferredWidth(30);
-		tableConvocatorias.getColumnModel().getColumn(4).setMinWidth(300);
-		tableConvocatorias.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tableConvocatorias.setBounds(35, 150, 1010, 450);
-		panel.add(tableConvocatorias);
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, Boolean.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		tablaConvocar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tablaConvocar.setRowSelectionAllowed(false);
+		tablaConvocar.setRowHeight(18);
+		tablaConvocar.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		tablaConvocar.setFocusable(false);
+		tablaConvocar.setBorder(new LineBorder(Color.BLACK));
+		tablaConvocar.setBounds(159, 150, 733, 505);
+		panel.add(tablaConvocar);
 		
-		btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(560, 85, 89, 40);
-		panel.add(btnBuscar);
+		txtRival = new JTextField();
+		txtRival.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		txtRival.setBounds(558, 100, 167, 20);
+		panel.add(txtRival);
+		txtRival.setColumns(10);
+		
+		JLabel lblRival = new JLabel("RIVAL");
+		lblRival.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblRival.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblRival.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblRival.setBounds(424, 101, 124, 21);
+		panel.add(lblRival);
 		
 		JLabel lblImagenFondo = new JLabel("");
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
@@ -326,12 +316,6 @@ public VistaConvocatorias() {
 			}
 		});
 		
-		mntmAsistencia.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
 		mntmEstadisticas.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
@@ -344,19 +328,7 @@ public VistaConvocatorias() {
 			}
 		});
 		
-		mntmPartidosDisputados.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
 		mntmConvocatorias.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmCalendariosYResultados.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -368,31 +340,13 @@ public VistaConvocatorias() {
 			}
 		});
 		
-		mntmBaseDeDatos.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
 		mntmCuotasJugadores.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
-		mntmUsuario.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmContacto.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmAcercaDe.addActionListener(new ActionListener(){
+		mntmMensajes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
