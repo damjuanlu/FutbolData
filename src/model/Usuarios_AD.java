@@ -30,20 +30,21 @@ public class Usuarios_AD {
 				miSentencia= miConexion.prepareStatement(InstruccionSQL);
 				System.out.println(InstruccionSQL);
 				stmt = miConexion.createStatement();
-			    stmt.executeQuery(InstruccionSQL);
+			    stmt.execute(InstruccionSQL);
 			    
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
 			}
-			try {
-				InstruccionSQL=("GRANT ALL PRIVILEGES ON sportclubdata TO '"+user+"'@'localhost'");
-				miSentencia= miConexion.prepareStatement(InstruccionSQL);
-				System.out.println(InstruccionSQL);
-				stmt = miConexion.createStatement();
-			    stmt.executeQuery(InstruccionSQL);
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
-			}
+			//NO SE PUEDEN DAR PRIVILEGIOS DESDE JAVA
+//			try {
+//				InstruccionSQL=("GRANT ALL PRIVILEGES ON sportclubdata TO '"+user+"'@'localhost'");
+//				miSentencia= miConexion.prepareStatement(InstruccionSQL);
+//				System.out.println(InstruccionSQL);
+//				stmt = miConexion.createStatement();
+//			    stmt.execute(InstruccionSQL);
+//			} catch (Exception e) {
+//				JOptionPane.showMessageDialog(null, "Campos introducidos erróneos");
+//			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

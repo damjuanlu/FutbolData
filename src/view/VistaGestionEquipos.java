@@ -114,7 +114,7 @@ public VistaGestionEquipos() {
 		mntmInicio = new JMenuItem("INICIO");
 		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmInicio.setMaximumSize(new Dimension(60, 32767));
-		mntmInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmInicio.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mntmInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		menuPrincipal.add(mntmInicio);
 		
@@ -122,74 +122,74 @@ public VistaGestionEquipos() {
 		mnJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnJugadores.setHorizontalAlignment(SwingConstants.CENTER);
 		mnJugadores.setMargin(new Insets(2, 10, 0, 10));
-		mnJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnJugadores);
 		
 		mntmFichas = new JMenuItem("FICHAS");
 		mntmFichas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmFichas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmFichas);
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
 		mnCompeticion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnCompeticion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnCompeticion.setMargin(new Insets(2, 10, 0, 10));
-		mnCompeticion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnCompeticion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnCompeticion);
 		
 		mntmGestionEquipos = new JMenuItem("GESTI\u00D3N EQUIPOS");
 		mntmGestionEquipos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmGestionEquipos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmGestionEquipos);
 		
 		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
 		mnEntrenamiento.setMargin(new Insets(2, 10, 0, 10));
-		mnEntrenamiento.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnEntrenamiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnEntrenamiento);
 		
 		mntmPlanificacionSesiones = new JMenuItem("PLANIFICACI\u00D3N SESIONES");
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
 		
 		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
 		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
 		mnAdministracion.setMargin(new Insets(2, 10, 0, 10));
-		mnAdministracion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnAdministracion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnAdministracion);
 		
 		mntmCuotasJugadores = new JMenuItem("CUOTAS JUGADORES");
 		mntmCuotasJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCuotasJugadores.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmCuotasJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnAdministracion.add(mntmCuotasJugadores);
 		
 		mnMensajes = new JMenu("MENSAJES");
 		mnMensajes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnMensajes.setHorizontalAlignment(SwingConstants.CENTER);
 		mnMensajes.setMargin(new Insets(2, 10, 0, 10));
-		mnMensajes.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mnMensajes.setFont(new Font("Agency FB", Font.BOLD, 15));
 		menuPrincipal.add(mnMensajes);
 		
 		mntmMensajes = new JMenuItem("MENSAJES");
-		mntmMensajes.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmMensajes.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnMensajes.add(mntmMensajes);
 		
 		btnCerrarSesion = new JButton("CERRAR SESI\u00D3N");
@@ -199,7 +199,7 @@ public VistaGestionEquipos() {
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
-		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
 		lblFotoPlantilla = new JLabel("");
 		lblFotoPlantilla.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -212,6 +212,7 @@ public VistaGestionEquipos() {
 		lblFotoPlantilla.setIcon(imagenPlantilla);
 		
 		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN", "BENJAMIN"}));
 		comboBoxSelecEquipo.setBounds(35, 101, 248, 40);
@@ -226,7 +227,7 @@ public VistaGestionEquipos() {
 		//lblInformativo.setIcon(new ImageIcon(VistaFichas.class.getResource("/Repositorios/lblInformativo.jpg")));
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(85, 40, 930, 30);
@@ -253,7 +254,7 @@ public VistaGestionEquipos() {
 		btnInformeEquipo.setDefaultCapable(false);
 		btnInformeEquipo.setBackground(SystemColor.activeCaption);
 		btnInformeEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnInformeEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnInformeEquipo.setBounds(945, 116, 100, 25);
 		panel.add(btnInformeEquipo);
 		
@@ -264,7 +265,7 @@ public VistaGestionEquipos() {
 		btnAgregarEquipo.setDefaultCapable(false);
 		btnAgregarEquipo.setBackground(SystemColor.activeCaption);
 		btnAgregarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnAgregarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnAgregarEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnAgregarEquipo.setBounds(605, 116, 160, 25);
 		panel.add(btnAgregarEquipo);
 		
@@ -276,13 +277,13 @@ public VistaGestionEquipos() {
 		btnEliminarEquipo.setDefaultCapable(false);
 		btnEliminarEquipo.setBackground(new Color(255, 0, 0));
 		btnEliminarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnEliminarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnEliminarEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnEliminarEquipo.setBounds(775, 116, 160, 25);
 		panel.add(btnEliminarEquipo);
 		
 		btnMostrarEquipo = new JButton("MOSTRAR EQUIPO");
 		btnMostrarEquipo.setVerticalAlignment(SwingConstants.TOP);
-		btnMostrarEquipo.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnMostrarEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnMostrarEquipo.setFocusable(false);
 		btnMostrarEquipo.setFocusPainted(false);
 		btnMostrarEquipo.setDefaultCapable(false);
@@ -291,6 +292,7 @@ public VistaGestionEquipos() {
 		panel.add(btnMostrarEquipo);
 		
 		textAreaJugadores = new JTextArea();
+		textAreaJugadores.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaJugadores.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textAreaJugadores.setFocusable(false);
 		textAreaJugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -298,6 +300,7 @@ public VistaGestionEquipos() {
 		panel.add(textAreaJugadores);
 		
 		textAreaPartidosEquipo = new JTextArea();
+		textAreaPartidosEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaPartidosEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textAreaPartidosEquipo.setFocusable(false);
 		textAreaPartidosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -305,6 +308,7 @@ public VistaGestionEquipos() {
 		panel.add(textAreaPartidosEquipo);
 		
 		textAreaDatosEquipo = new JTextArea();
+		textAreaDatosEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaDatosEquipo.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textAreaDatosEquipo.setFocusable(false);
 		textAreaDatosEquipo.setBorder(new LineBorder(new Color(0, 0, 0)));
