@@ -78,6 +78,11 @@ public class VistaSesiones extends JFrame{
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
 	public JButton btnBuscar;
+	public JButton btnInformeAsistencia;
+	public JButton btnModificarSesion;
+	public JButton btnEliminarSesion;
+	public JButton btnGuardar;
+	public JButton btnNuevaSesion;
 	public JLabel lblInformativo;
 	public JTextField txtNombreEquipo;
 	private JLabel label;
@@ -256,7 +261,8 @@ public VistaSesiones() {
 		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
 		lblInformativo.setIcon(imagenCabecera);
 		
-		JButton btnInformeAsistencia = new JButton("INFORME");
+		btnInformeAsistencia = new JButton("INFORME");
+		btnInformeAsistencia.setEnabled(false);
 		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInformeAsistencia.setFocusable(false);
 		btnInformeAsistencia.setFocusPainted(false);
@@ -301,19 +307,7 @@ public VistaSesiones() {
 		separator.setBounds(85, 140, 930, 2);
 		panel.add(separator);
 		
-		JButton btnNuevaSesion = new JButton("NUEVA SESION");
-		btnNuevaSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNuevaSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnNuevaSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnNuevaSesion.setFocusable(false);
-		btnNuevaSesion.setFocusPainted(false);
-		btnNuevaSesion.setEnabled(false);
-		btnNuevaSesion.setDefaultCapable(false);
-		btnNuevaSesion.setBackground(SystemColor.activeCaption);
-		btnNuevaSesion.setBounds(793, 150, 130, 25);
-		panel.add(btnNuevaSesion);
-		
-		JButton btnModificarSesion = new JButton("MODIFICAR SESION");
+		btnModificarSesion = new JButton("MODIFICAR SESION");
 		btnModificarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnModificarSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnModificarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
@@ -322,10 +316,10 @@ public VistaSesiones() {
 		btnModificarSesion.setEnabled(false);
 		btnModificarSesion.setDefaultCapable(false);
 		btnModificarSesion.setBackground(SystemColor.activeCaption);
-		btnModificarSesion.setBounds(170, 150, 157, 25);
+		btnModificarSesion.setBounds(85, 150, 157, 25);
 		panel.add(btnModificarSesion);
 		
-		JButton btnEliminarSesion = new JButton("ELIMINAR SESION");
+		btnEliminarSesion = new JButton("ELIMINAR SESION");
 		btnEliminarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminarSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnEliminarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
@@ -334,8 +328,31 @@ public VistaSesiones() {
 		btnEliminarSesion.setEnabled(false);
 		btnEliminarSesion.setDefaultCapable(false);
 		btnEliminarSesion.setBackground(SystemColor.activeCaption);
-		btnEliminarSesion.setBounds(487, 150, 146, 25);
+		btnEliminarSesion.setBounds(298, 150, 146, 25);
 		panel.add(btnEliminarSesion);
+		
+		btnGuardar = new JButton("GUARDAR SESION");
+		btnGuardar.setVerticalAlignment(SwingConstants.TOP);
+		btnGuardar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnGuardar.setFocusable(false);
+		btnGuardar.setFocusPainted(false);
+		btnGuardar.setEnabled(false);
+		btnGuardar.setDefaultCapable(false);
+		btnGuardar.setBackground(SystemColor.activeCaption);
+		btnGuardar.setBounds(601, 150, 146, 25);
+		panel.add(btnGuardar);
+		
+		btnNuevaSesion = new JButton("NUEVA SESION");
+		btnNuevaSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNuevaSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnNuevaSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnNuevaSesion.setFocusable(false);
+		btnNuevaSesion.setFocusPainted(false);
+		btnNuevaSesion.setEnabled(false);
+		btnNuevaSesion.setDefaultCapable(false);
+		btnNuevaSesion.setBackground(SystemColor.activeCaption);
+		btnNuevaSesion.setBounds(885, 150, 130, 25);
+		panel.add(btnNuevaSesion);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(85, 180, 930, 2);
@@ -559,5 +576,12 @@ public VistaSesiones() {
                 
             }
 		});
+		
+		comboBoxSelecSesion.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
+		
 	}
 }
