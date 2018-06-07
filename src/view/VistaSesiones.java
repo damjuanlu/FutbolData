@@ -1,43 +1,109 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Insets;
-import java.awt.Toolkit;
-
-import javax.swing.JButton;
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.text.DateFormat;
+
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+import com.toedter.calendar.JCalendar;
+
+import java.util.Date;
+
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.border.TitledBorder;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextPane;
+import javax.swing.JEditorPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.JSeparator;
+import javax.swing.DropMode;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class VistaSesiones extends JFrame{
-	
+
 	public JPanel panel;
 	public JMenuBar menuPrincipal;
 	public JMenuItem mntmInicio;
 	public JMenu mnJugadores;
 	public JMenuItem mntmFichas;
+	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
+	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
+	public JMenuItem mntmCalendariosYResultados;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
+	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
+	public JMenu mnAyuda;
+	public JMenuItem mntmUsuario;
+	public JMenuItem mntmContacto;
+	public JMenuItem mntmAcercaDe;
 	public JMenu mnMensajes;
 	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
-	private JLabel lblUser;
-	
-	public VistaSesiones() {
+	public JLabel lblUser;
+	public JCalendar calendar;
+	public String stringFecha;
+	public JComboBox comboBoxSelecEquipo;
+	public JComboBox comboBoxSelecSesion;
+	public String equipoSeleccionado;
+	public String mesSeleccionado;
+	public JButton btnBuscar;
+	public JLabel lblInformativo;
+	public JTextField txtNombreEquipo;
+	private JLabel label;
+	public JTextField txtDiaSesion;
+	private JLabel lblMinutosDeLa;
+	public JTextField txtMinutosSesion;
+	private JLabel lblObjetivos;
+	public JTextArea textAreaMaterial;
+	private JLabel lblMaterial;
+	private JLabel lblObservaciones;
+	public JTextArea textAreaObservaciones;
+	public JTextArea textAreaObjetivosSesion;
+	private JScrollPane scrollBarMaterial;
+	private JScrollPane scrollBarObservaciones;
+	private JScrollPane scrollBarObjetivosSesion;
+	private JLabel lblCalentamiento;
+	public JTextArea textAreaCalentamiento;
+	private JScrollPane scrollBarCalentamiento;
+	private JLabel lblPartePrincipal;
+	public JTextArea textAreaPartePrincipal;
+	private JScrollPane scrollBarPartePrincipal;
+	private JLabel lblVueltaCalma;
+	public JTextArea textAreaVueltaCalma;
+	private JScrollPane scrollBarVueltaCalma;
+
+public VistaSesiones() {
 		
 		setResizable(false);
 		
@@ -54,7 +120,7 @@ public class VistaSesiones extends JFrame{
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 204));
 		panel.setLayout(null);
-		setTitle("SportClubData - FICHAS");
+		setTitle("SportClubData - SESIONES DE ENTRENAMIENTO");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Repositorios/logoSCD_32x32.png"));
 		
 		super.setContentPane(panel);
@@ -91,7 +157,7 @@ public class VistaSesiones extends JFrame{
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 12));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
@@ -111,6 +177,11 @@ public class VistaSesiones extends JFrame{
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
+		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
+		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmCalendariosYResultados.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmCalendariosYResultados);
+		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,6 +193,11 @@ public class VistaSesiones extends JFrame{
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
+		
+		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
+		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 12));
+		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -143,6 +219,7 @@ public class VistaSesiones extends JFrame{
 		menuPrincipal.add(mnMensajes);
 		
 		mntmMensajes = new JMenuItem("MENSAJES");
+		mntmMensajes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmMensajes.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnMensajes.add(mntmMensajes);
 		
@@ -153,6 +230,334 @@ public class VistaSesiones extends JFrame{
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
-		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 11));
+		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
+		
+		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {}));
+		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		comboBoxSelecEquipo.setBounds(35, 90, 248, 40);
+		panel.add(comboBoxSelecEquipo);
+		
+		lblInformativo = new JLabel("SESIONES DE ENTRENAMIENTO");
+		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblInformativo.setToolTipText("");
+		lblInformativo.setOpaque(true);
+		lblInformativo.setFocusable(false);
+		lblInformativo.setForeground(Color.WHITE);
+		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblInformativo.setBackground(new Color(144, 238, 144));
+		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblInformativo.setBounds(85, 40, 930, 30);
+		panel.add(lblInformativo);
+		
+		ImageIcon imgCabecera = new ImageIcon(VistaEstadisticas.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
+		
+		JButton btnInformeAsistencia = new JButton("INFORME");
+		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnInformeAsistencia.setFocusable(false);
+		btnInformeAsistencia.setFocusPainted(false);
+		btnInformeAsistencia.setDefaultCapable(false);
+		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
+		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
+		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnInformeAsistencia.setBounds(915, 95, 100, 25);
+		panel.add(btnInformeAsistencia);
+		
+		btnBuscar = new JButton("BUSCAR");
+		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBuscar.setVerticalAlignment(SwingConstants.TOP);
+		btnBuscar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnBuscar.setFocusable(false);
+		btnBuscar.setFocusPainted(false);
+		btnBuscar.setDefaultCapable(false);
+		btnBuscar.setBackground(SystemColor.activeCaption);
+		btnBuscar.setBounds(310, 95, 100, 25);
+		panel.add(btnBuscar);
+		
+		comboBoxSelecSesion = new JComboBox();
+		comboBoxSelecSesion.setModel(new DefaultComboBoxModel(new String[] {}));
+		comboBoxSelecSesion.setEnabled(false);
+		comboBoxSelecSesion.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Sesion", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		comboBoxSelecSesion.setBounds(462, 90, 248, 40);
+		panel.add(comboBoxSelecSesion);
+
+		JButton btnMuestraSesion = new JButton("MOSTRAR");
+		btnMuestraSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMuestraSesion.setEnabled(false);
+		btnMuestraSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnMuestraSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnMuestraSesion.setFocusable(false);
+		btnMuestraSesion.setFocusPainted(false);
+		btnMuestraSesion.setDefaultCapable(false);
+		btnMuestraSesion.setBackground(SystemColor.activeCaption);
+		btnMuestraSesion.setBounds(737, 95, 100, 25);
+		panel.add(btnMuestraSesion);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(85, 140, 930, 2);
+		panel.add(separator);
+		
+		JButton btnNuevaSesion = new JButton("NUEVA SESION");
+		btnNuevaSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNuevaSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnNuevaSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnNuevaSesion.setFocusable(false);
+		btnNuevaSesion.setFocusPainted(false);
+		btnNuevaSesion.setEnabled(false);
+		btnNuevaSesion.setDefaultCapable(false);
+		btnNuevaSesion.setBackground(SystemColor.activeCaption);
+		btnNuevaSesion.setBounds(793, 150, 130, 25);
+		panel.add(btnNuevaSesion);
+		
+		JButton btnModificarSesion = new JButton("MODIFICAR SESION");
+		btnModificarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnModificarSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnModificarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnModificarSesion.setFocusable(false);
+		btnModificarSesion.setFocusPainted(false);
+		btnModificarSesion.setEnabled(false);
+		btnModificarSesion.setDefaultCapable(false);
+		btnModificarSesion.setBackground(SystemColor.activeCaption);
+		btnModificarSesion.setBounds(170, 150, 157, 25);
+		panel.add(btnModificarSesion);
+		
+		JButton btnEliminarSesion = new JButton("ELIMINAR SESION");
+		btnEliminarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminarSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnEliminarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnEliminarSesion.setFocusable(false);
+		btnEliminarSesion.setFocusPainted(false);
+		btnEliminarSesion.setEnabled(false);
+		btnEliminarSesion.setDefaultCapable(false);
+		btnEliminarSesion.setBackground(SystemColor.activeCaption);
+		btnEliminarSesion.setBounds(487, 150, 146, 25);
+		panel.add(btnEliminarSesion);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(85, 180, 930, 2);
+		panel.add(separator_1);
+		
+		JLabel lblDiaSesion = new JLabel("EQUIPO");
+		lblDiaSesion.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDiaSesion.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblDiaSesion.setBounds(33, 189, 130, 14);
+		panel.add(lblDiaSesion);
+		
+		txtNombreEquipo = new JTextField();
+		txtNombreEquipo.setEditable(false);
+		txtNombreEquipo.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtNombreEquipo.setEnabled(false);
+		txtNombreEquipo.setColumns(10);
+		txtNombreEquipo.setBounds(173, 186, 140, 20);
+		panel.add(txtNombreEquipo);
+		
+		label = new JLabel("D\u00CDA (dd/mm/aaaa)");
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setFont(new Font("Dialog", Font.BOLD, 15));
+		label.setBounds(390, 189, 130, 14);
+		panel.add(label);
+		
+		txtDiaSesion = new JTextField();
+		txtDiaSesion.setEnabled(false);
+		txtDiaSesion.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtDiaSesion.setColumns(10);
+		txtDiaSesion.setBounds(530, 186, 126, 20);
+		panel.add(txtDiaSesion);
+		
+		lblMinutosDeLa = new JLabel("MINUTOS DE LA SESION");
+		lblMinutosDeLa.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblMinutosDeLa.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblMinutosDeLa.setBounds(738, 189, 179, 14);
+		panel.add(lblMinutosDeLa);
+		
+		txtMinutosSesion = new JTextField();
+		txtMinutosSesion.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtMinutosSesion.setEnabled(false);
+		txtMinutosSesion.setColumns(10);
+		txtMinutosSesion.setBounds(928, 186, 80, 20);
+		panel.add(txtMinutosSesion);
+		
+		lblObjetivos = new JLabel("OBJETIVO");
+		lblObjetivos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblObjetivos.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblObjetivos.setBounds(33, 220, 320, 14);
+		panel.add(lblObjetivos);
+
+		textAreaObjetivosSesion = new JTextArea();
+		textAreaObjetivosSesion.setEnabled(false);
+		textAreaObjetivosSesion.setBounds(0, 0, 320, 40);
+		textAreaObjetivosSesion.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaObjetivosSesion.setLineWrap(true);
+		
+		scrollBarObjetivosSesion = new JScrollPane(textAreaObjetivosSesion);
+		scrollBarObjetivosSesion.setBounds(33, 240, 320, 40);
+		panel.add(scrollBarObjetivosSesion);
+		
+		lblMaterial = new JLabel("MATERIAL");
+		lblMaterial.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMaterial.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblMaterial.setBounds(378, 220, 320, 14);
+		panel.add(lblMaterial);
+		
+		textAreaMaterial = new JTextArea();
+		textAreaMaterial.setEnabled(false);
+		textAreaMaterial.setBounds(0, 0, 320, 40);
+		textAreaMaterial.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaMaterial.setLineWrap(true);
+		
+		scrollBarMaterial = new JScrollPane(textAreaMaterial);
+		scrollBarMaterial.setBounds(378, 240, 320, 40);
+		panel.add(scrollBarMaterial);
+		
+		lblObservaciones = new JLabel("OBSERVACIONES");
+		lblObservaciones.setHorizontalAlignment(SwingConstants.CENTER);
+		lblObservaciones.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblObservaciones.setBounds(723, 220, 320, 14);
+		panel.add(lblObservaciones);
+		
+		textAreaObservaciones = new JTextArea();
+		textAreaObservaciones.setEnabled(false);
+		textAreaObservaciones.setBounds(0, 0, 320, 40);
+		textAreaObservaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaObservaciones.setLineWrap(true);
+		
+		scrollBarObservaciones = new JScrollPane(textAreaObservaciones);
+		scrollBarObservaciones.setBounds(723, 240, 320, 40);
+		panel.add(scrollBarObservaciones);
+		
+		/*
+		 * CALENTAMIENTO
+		 */
+		lblCalentamiento = new JLabel("CALENTAMIENTO");
+		lblCalentamiento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCalentamiento.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblCalentamiento.setBounds(33, 285, 1010, 14);
+		panel.add(lblCalentamiento);
+		
+		textAreaCalentamiento = new JTextArea();
+		textAreaCalentamiento.setEnabled(false);
+		textAreaCalentamiento.setBounds(0, 0, 1010, 80);
+		textAreaCalentamiento.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaCalentamiento.setLineWrap(true);
+		
+		scrollBarCalentamiento = new JScrollPane(textAreaCalentamiento);
+		scrollBarCalentamiento.setBounds(33, 305, 1010, 80);
+		panel.add(scrollBarCalentamiento);
+		
+		/*
+		 * PARTE PRINCIPAL
+		 */
+		lblPartePrincipal = new JLabel("PARTE PRINCIPAL");
+		lblPartePrincipal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPartePrincipal.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblPartePrincipal.setBounds(33, 390, 1010, 14);
+		panel.add(lblPartePrincipal);
+		
+		textAreaPartePrincipal = new JTextArea();
+		textAreaPartePrincipal.setEnabled(false);
+		textAreaPartePrincipal.setBounds(0, 0, 1010, 180);
+		textAreaPartePrincipal.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaPartePrincipal.setLineWrap(true);
+		
+		scrollBarPartePrincipal = new JScrollPane(textAreaPartePrincipal);
+		scrollBarPartePrincipal.setBounds(33, 410, 1010, 180);
+		panel.add(scrollBarPartePrincipal);
+
+		/*
+		 * PARTE VUELTA A LA CALMA
+		 */
+		lblVueltaCalma = new JLabel("VUELTA A LA CALMA");
+		lblVueltaCalma.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVueltaCalma.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblVueltaCalma.setBounds(33, 595, 1010, 14);
+		panel.add(lblVueltaCalma);
+		
+		textAreaVueltaCalma = new JTextArea();
+		textAreaVueltaCalma.setEnabled(false);
+		textAreaVueltaCalma.setBounds(0, 0, 1010, 60);
+		textAreaVueltaCalma.setBorder(new LineBorder(new Color(0, 0, 0)));
+		textAreaVueltaCalma.setLineWrap(true);
+		
+		scrollBarVueltaCalma = new JScrollPane(textAreaVueltaCalma);
+		scrollBarVueltaCalma.setBounds(33, 615, 1010, 60);
+		panel.add(scrollBarVueltaCalma);
+
+		//IMAGEN DE FONDO
+		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
+		lblImagenFondo.setBounds(0, 15, 1080, 680);
+		panel.add(lblImagenFondo);
+		
+		//ACTION LISTENER
+		
+		mntmInicio.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmFichas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmEstadisticas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmGestionEquipos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmConvocatorias.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmCalendariosYResultados.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmBaseDeDatos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmCuotasJugadores.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		comboBoxSelecEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                
+            }
+		});
 	}
 }
