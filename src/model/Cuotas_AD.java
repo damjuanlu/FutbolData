@@ -53,4 +53,27 @@ public class Cuotas_AD {
 		}
 		
 	}
+	
+	public boolean actualizaCuotas (String nombre, String apellido, String equipo, int cuotanueva, boolean pagadonuevo) {
+		try {
+
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("UPDATE cuotas SET cantidad="+cuotanueva+", pagado="+pagadonuevo+"  WHERE nombre = '" +nombre+"' AND apellido = '"+apellido+"' AND equipo='"+equipo+"'");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			miSentencia.executeUpdate();
+			
+			miSentencia.close();
+			miConexion.close();
+			
+			return true;
+		}catch (SQLException e) {
+			System.out.println("Error al buscar parametros");
+			return false;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return false;
+		}
+	}
 }

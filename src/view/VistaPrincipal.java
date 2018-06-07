@@ -38,10 +38,9 @@ public class VistaPrincipal extends JFrame{
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmConvocatorias;
-	public JMenuItem mntmCalendariosYResultados;
+	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	public JMenu mnMensajes;
@@ -54,13 +53,9 @@ public class VistaPrincipal extends JFrame{
 	public JTable tableUltimos;
 	private JLabel lblMensajes_1;
 	private JSeparator separator_1;
-	private JSeparator separator_2;
-	private JSeparator separator_3;
 	private JLabel label;
-	public JTextArea textArea_2;
 	public JTextArea txtAreaMensajes;
-	private JLabel lblEntrenamientos;
-	private JLabel lblCumpleaosDa;
+	private JScrollPane scrollBarMensajes;
 	public JLabel lblInformativo;
 
 public VistaPrincipal() {
@@ -138,10 +133,10 @@ public VistaPrincipal() {
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Agency FB", Font.BOLD, 15));
-		mnCompeticion.add(mntmCalendariosYResultados);
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -154,11 +149,6 @@ public VistaPrincipal() {
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -231,7 +221,7 @@ public VistaPrincipal() {
 		
 		lblEscudo = new JLabel("");
 		lblEscudo.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblEscudo.setBounds(880, 40, 165, 165);
+		lblEscudo.setBounds(885, 121, 165, 165);
 		panel.add(lblEscudo);
 		
 		//OBTENER ESCUDO DEL CLUB
@@ -338,52 +328,26 @@ public VistaPrincipal() {
 		separator_1.setBounds(35, 465, 248, 2);
 		panel.add(separator_1);
 		
-		separator_2 = new JSeparator();
-		separator_2.setBounds(861, 215, 203, 2);
-		panel.add(separator_2);
-		
-		separator_3 = new JSeparator();
-		separator_3.setBounds(857, 446, 203, 2);
-		panel.add(separator_3);
-		
 		label = new JLabel("New label");
 		label.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/1_Primary_logo_on_transparent_201x71.png")));
-		label.setBounds(35, 40, 180, 72);
+		label.setBounds(35, 93, 180, 72);
 		panel.add(label);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		textArea_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textArea_1.setBackground(Color.WHITE);
-		textArea_1.setBounds(880, 257, 165, 165);
-		panel.add(textArea_1);
-		
-		textArea_2 = new JTextArea();
-		textArea_2.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		textArea_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textArea_2.setBackground(Color.WHITE);
-		textArea_2.setBounds(880, 483, 165, 177);
-		panel.add(textArea_2);
+
 		
 		txtAreaMensajes = new JTextArea();
+		//panel.add(txtAreaMensajes);
 		txtAreaMensajes.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtAreaMensajes.setEditable(false);
 		txtAreaMensajes.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtAreaMensajes.setBackground(Color.WHITE);
-		txtAreaMensajes.setBounds(35, 525, 816, 140);
-		panel.add(txtAreaMensajes);
+		txtAreaMensajes.setBounds(35, 522, 816, 138);
+		txtAreaMensajes.setLineWrap(true);
+		//panel.add(txtAreaMensajes);
 		
-		panel.add(txtAreaMensajes);
-		
-		lblCumpleaosDa = new JLabel("CUMPLEA\u00D1OS D\u00CDA");
-		lblCumpleaosDa.setFont(new Font("Agency FB", Font.BOLD, 18));
-		lblCumpleaosDa.setBounds(880, 232, 160, 14);
-		panel.add(lblCumpleaosDa);
-		
-		lblEntrenamientos = new JLabel("ENTRENAMIENTOS D\u00CDA");
-		lblEntrenamientos.setFont(new Font("Agency FB", Font.BOLD, 18));
-		lblEntrenamientos.setBounds(880, 465, 160, 14);
-		panel.add(lblEntrenamientos);
+		scrollBarMensajes = new JScrollPane(txtAreaMensajes);
+		scrollBarMensajes.setBounds(35, 522, 816, 138);
+		panel.add(scrollBarMensajes);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
@@ -422,19 +386,13 @@ public VistaPrincipal() {
 			}
 		});
 		
-		mntmCalendariosYResultados.addActionListener(new ActionListener(){
+		mntmPartidos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
 		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		mntmBaseDeDatos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}

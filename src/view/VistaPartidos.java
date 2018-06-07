@@ -1,14 +1,15 @@
 package view;
 
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,50 +19,44 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import javax.swing.JComboBox;
-import javax.swing.border.TitledBorder;
-import javax.swing.JSeparator;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+import javax.swing.JSlider;
 
-public class VistaCuotas extends JFrame{
+public class VistaPartidos extends JFrame{
 	
 	private JPanel panel;
 	private JMenuBar menuPrincipal;
-	public JMenuItem mntmInicio;
+	private JMenuItem mntmInicio;
 	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmConvocatorias;
-	public JMenuItem mntmCalendariosYResultados;
+	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	public JMenu mnMensajes;
 	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
 	public JLabel lblUser;
-	public JTextField txtNombre;
-	private JLabel label;
-	private JLabel label_1;
-	public JTextField txtApellido;
-	private JLabel label_2;
-	private JLabel label_3;
-	public JButton btnBuscarJug;
-	public JComboBox comboEquipo;
-	private JSeparator separator;
-	private JLabel lblInformativo;
-	public JTextField txtCuota;
-	public JButton btnActualizar;
-	public JCheckBox checkCuota;
+	public JLabel label;
+	public JLabel lblInformativo;
+	public JTextField txtLocal;
+	public JTextField txtVisit;
+	public JLabel lblGolesLocal;
+	public JLabel lblGolesVisitante;
+	public JTextField txtLiga;
+	private JLabel lblLiga;
+	public JSlider sliderLocal;
+	public JSlider sliderVisit;
+	public JButton btnInsert;
 	
-	public VistaCuotas() {
+	
+	public VistaPartidos() {
 		
 		setResizable(false);
 		
@@ -136,10 +131,10 @@ public class VistaCuotas extends JFrame{
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Agency FB", Font.BOLD, 15));
-		mnCompeticion.add(mntmCalendariosYResultados);
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -152,11 +147,6 @@ public class VistaCuotas extends JFrame{
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -191,14 +181,7 @@ public class VistaCuotas extends JFrame{
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
-		txtNombre = new JTextField();
-		txtNombre.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		txtNombre.setColumns(10);
-		txtNombre.setBounds(123, 185, 164, 20);
-		panel.add(txtNombre);
-		
-		lblInformativo = new JLabel("CUOTAS JUGADOR");
-		lblInformativo.setIcon(new ImageIcon(VistaCuotas.class.getResource("/Repositorios/lblInformativo.jpg")));
+		lblInformativo = new JLabel("PARTIDOS");
 		lblInformativo.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblInformativo.setToolTipText("");
 		lblInformativo.setOpaque(true);
@@ -206,80 +189,82 @@ public class VistaCuotas extends JFrame{
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 25));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblInformativo.setBounds(114, 54, 834, 30);
+		lblInformativo.setBounds(208, 82, 635, 30);
 		panel.add(lblInformativo);
 		
-		label_1 = new JLabel("BUSCADOR DE JUGADORES");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setFont(new Font("Agency FB", Font.BOLD, 15));
-		label_1.setBounds(411, 115, 229, 14);
-		panel.add(label_1);
+		ImageIcon imgCabecera = new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/lblInformativo.jpg"));
+		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
+		lblInformativo.setIcon(imagenCabecera);
 		
-		txtApellido = new JTextField();
-		txtApellido.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		txtApellido.setColumns(10);
-		txtApellido.setBounds(447, 185, 164, 20);
-		panel.add(txtApellido);
+		txtLocal = new JTextField();
+		txtLocal.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		txtLocal.setBounds(208, 199, 185, 20);
+		panel.add(txtLocal);
+		txtLocal.setColumns(10);
 		
-		label_2 = new JLabel("NOMBRE");
-		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setFont(new Font("Agency FB", Font.BOLD, 15));
-		label_2.setBounds(42, 188, 70, 14);
-		panel.add(label_2);
+		txtVisit = new JTextField();
+		txtVisit.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		txtVisit.setColumns(10);
+		txtVisit.setBounds(658, 199, 185, 20);
+		panel.add(txtVisit);
 		
-		label_3 = new JLabel("APELLIDO");
-		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setFont(new Font("Agency FB", Font.BOLD, 15));
-		label_3.setBounds(360, 188, 77, 14);
-		panel.add(label_3);
+		JLabel lblLocal = new JLabel("LOCAL");
+		lblLocal.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblLocal.setBounds(283, 174, 46, 14);
+		panel.add(lblLocal);
 		
-		btnBuscarJug = new JButton("BUSCAR");
-		btnBuscarJug.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnBuscarJug.setBounds(947, 184, 89, 23);
-		panel.add(btnBuscarJug);
+		JLabel lblVisitante = new JLabel("VISITANTE");
+		lblVisitante.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblVisitante.setBounds(723, 174, 76, 14);
+		panel.add(lblVisitante);
 		
-		comboEquipo = new JComboBox();
-		comboEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
-		comboEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		comboEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboEquipo.setBounds(669, 170, 248, 40);
-		panel.add(comboEquipo);
+		lblGolesLocal = new JLabel("GOLES LOCAL");
+		lblGolesLocal.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblGolesLocal.setBounds(268, 287, 81, 14);
+		panel.add(lblGolesLocal);
 		
-		separator = new JSeparator();
-		separator.setBounds(84, 262, 930, 2);
-		panel.add(separator);
+		lblGolesVisitante = new JLabel("GOLES VISITANTE");
+		lblGolesVisitante.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblGolesVisitante.setBounds(713, 287, 97, 14);
+		panel.add(lblGolesVisitante);
 		
-		JLabel lblCuotasDeJugadores = new JLabel("CUOTAS DE JUGADORES");
-		lblCuotasDeJugadores.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCuotasDeJugadores.setFont(new Font("Agency FB", Font.BOLD, 15));
-		lblCuotasDeJugadores.setBounds(411, 295, 229, 14);
-		panel.add(lblCuotasDeJugadores);
+		txtLiga = new JTextField();
+		txtLiga.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		txtLiga.setColumns(10);
+		txtLiga.setBounds(433, 268, 185, 20);
+		panel.add(txtLiga);
 		
-		JLabel lblCuotasalario = new JLabel("CUOTA/SALARIO");
-		lblCuotasalario.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCuotasalario.setFont(new Font("Agency FB", Font.BOLD, 15));
-		lblCuotasalario.setBounds(229, 362, 115, 14);
-		panel.add(lblCuotasalario);
+		lblLiga = new JLabel("LIGA");
+		lblLiga.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblLiga.setBounds(506, 239, 37, 14);
+		panel.add(lblLiga);
 		
-		txtCuota = new JTextField();
-		txtCuota.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		txtCuota.setColumns(10);
-		txtCuota.setBounds(354, 359, 164, 20);
-		panel.add(txtCuota);
+		sliderLocal = new JSlider();
+		sliderLocal.setFont(new Font("Agency FB", Font.BOLD, 15));
+		sliderLocal.setMajorTickSpacing(1);
+		sliderLocal.setMinorTickSpacing(1);
+		sliderLocal.setMaximum(15);
+		sliderLocal.setBounds(166, 327, 270, 45);
+		sliderLocal.setPaintTicks(true);
+		sliderLocal.setPaintLabels(true);
+		panel.add(sliderLocal);
 		
-		checkCuota = new JCheckBox("CUOTA/SALARIO PAGADO");
-		checkCuota.setFont(new Font("Agency FB", Font.BOLD, 15));
-		checkCuota.setBounds(576, 360, 190, 23);
-		panel.add(checkCuota);
+		sliderVisit = new JSlider();
+		sliderVisit.setFont(new Font("Agency FB", Font.BOLD, 15));
+		sliderVisit.setMajorTickSpacing(1);
+		sliderVisit.setMaximum(15);
+		sliderVisit.setBounds(616, 327, 279, 45);
+		sliderVisit.setPaintTicks(true);
+		sliderVisit.setPaintLabels(true);
+		panel.add(sliderVisit);
 		
-		btnActualizar = new JButton("ACTUALIZAR");
-		btnActualizar.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnActualizar.setBounds(411, 419, 229, 23);
-		panel.add(btnActualizar);
-		
+		btnInsert = new JButton("INSERTA PARTIDO");
+		btnInsert.setFont(new Font("Agency FB", Font.BOLD, 15));
+		btnInsert.setBounds(433, 429, 185, 30);
+		panel.add(btnInsert);
 		
 		
 		
@@ -287,6 +272,5 @@ public class VistaCuotas extends JFrame{
 		lblNewLabel.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblNewLabel.setBounds(0, 15, 1080, 680);
 		panel.add(lblNewLabel);
-		
 	}
 }

@@ -36,6 +36,7 @@ public class Controlador implements ActionListener{
 	private VistaMensajes miVistaMensajes;
 	private VistaCuotas miVistaCuotas;
 	private VistaSesiones miVistaSesion;
+	private VistaPartidos miVistaPartidos;
 	
 	Equipos_TD equipos;
 	Equipos_AD miEquipoAD=new Equipos_AD();
@@ -52,7 +53,7 @@ public class Controlador implements ActionListener{
 	
 	int cod_jugador=0;
 	
-	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaCuotas miVistaCuotas, VistaSesiones miVistaSesion, VistaMensajes miVistaMensajes) {
+	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaCuotas miVistaCuotas, VistaSesiones miVistaSesion, VistaMensajes miVistaMensajes, VistaPartidos miVistaPartidos) {
 		
 		this.miVistaLogin=miVistaLogin;
 		this.miVistaRegistro=miVistaRegistro;
@@ -66,6 +67,7 @@ public class Controlador implements ActionListener{
 		this.miVistaMensajes=miVistaMensajes;
 		this.miVistaCuotas=miVistaCuotas;
 		this.miVistaSesion=miVistaSesion;
+		this.miVistaPartidos=miVistaPartidos;
 		
 		/******  COMBOBOX EQUIPOS  ******/
 		
@@ -104,6 +106,7 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
 		miVistaPrincipal.mntmMensajes.addActionListener(this);
 		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
+		miVistaPrincipal.mntmPartidos.addActionListener(this);
 
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
@@ -377,6 +380,10 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaPrincipal.mntmPlanificacionSesiones) {
 			miVistaPrincipal.setVisible(false);
 			miVistaSesion.setVisible(true);
+		}
+		if (e.getSource()==miVistaPrincipal.mntmPartidos) {
+			miVistaPrincipal.setVisible(false);
+			miVistaPartidos.setVisible(true);
 		}
 		
 		/*
@@ -1071,7 +1078,21 @@ public class Controlador implements ActionListener{
 		}
 		
 		if (e.getSource()==miVistaCuotas.btnActualizar) {
+			Cuotas_AD cuotasAD= new Cuotas_AD();
+			Cuotas_TD cuota=null;
+			String nomcuo=miVistaCuotas.txtNombre.getText();
+			String apecuo=miVistaCuotas.txtApellido.getText();
+			String equipocuo=miVistaCuotas.comboEquipo.getSelectedItem().toString();
 			
+			int cuotanueva=Integer.parseInt(miVistaCuotas.txtCuota.getText());
+			boolean pagadonuevo=(boolean)miVistaCuotas.checkCuota.isSelected();
+			
+			boolean comprobacion=cuotasAD.actualizaCuotas(nomcuo, apecuo, equipocuo, cuotanueva, pagadonuevo);
+			
+			if (comprobacion==true)
+				JOptionPane.showMessageDialog(null, "Actualizado!");
+			else
+				JOptionPane.showMessageDialog(null, "Error al actualizar!");
 		}
 		
 		/*
@@ -1153,7 +1174,7 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaConvocatorias.btnNuevaConvocatoria) {
 			
-			JOptionPane.showMessageDialog(null, "La convocatoria será de 15 jugadores");
+			//JOptionPane.showMessageDialog(null, "La convocatoria será de 15 jugadores");
 			
 //			int convocados=0;
 //			String convocado="false";
@@ -1183,24 +1204,17 @@ public class Controlador implements ActionListener{
 				        bufferWritter.newLine();
 				        bufferWritter.newLine();
 				        int i=1;
-//						while (i<=25) {
-//							String valor=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
-//							if(valor=="true") {
-//								String var1=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
-//								String var2=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
-//		
-//								bufferWritter.write("Nombre: "+var1+", Posición: "+var2);
-//						        bufferWritter.newLine();
-//							}
-//							i++;
-//						}
-				        				        
-				        while (i<=25) {
-				        	String var1=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
-							String var2=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
-							String var3=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
+
+						String convocado="";
+			        	String var1="";
+						String var2="";
+						String var3="";
+				        
+				        while (i<=27) {
+				        	var1=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
+							var2=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
+							var3=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
 							
-							String convocado="";
 							if (var3=="true")
 								convocado="SI";
 							else
@@ -1233,6 +1247,73 @@ public class Controlador implements ActionListener{
 			}
 //			} else
 //				JOptionPane.showMessageDialog(null, "ERROR. Seleccione 15 jugadores");
+		}
+		
+		
+		/*
+		 * 
+		 * 
+		 * LISTENER VISTA PARTIDOS
+		 * 
+		 * 
+		 */
+		if (e.getSource()==miVistaPartidos.btnCerrarSesion) {
+			miVistaPartidos.setVisible(false);
+			miVistaLogin.setVisible(true);
+			miVistaLogin.lblError.setVisible(false);
+			miVistaLogin.btnIniciarSesion.setVisible(true);
+			miVistaLogin.btnRegistrarse.setVisible(true);
+			miVistaLogin.lblUsuario.setVisible(false);
+			miVistaLogin.lblPassword.setVisible(false);
+			miVistaLogin.txtUser.setVisible(false);
+			miVistaLogin.txtPassword.setVisible(false);
+			miVistaLogin.btnLogin.setVisible(false);
+			miVistaLogin.btnVolver.setVisible(false);
+			miVistaLogin.setTitle("SportClubData");
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmFichas) {
+			miVistaPartidos.setVisible(false);
+			miVistaFichas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmEstadisticas) {
+			miVistaPartidos.setVisible(false);
+			miVistaEstadisticas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmGestionEquipos) {
+			miVistaPartidos.setVisible(false);
+			miVistaGestionEquipos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmConvocatorias) {
+			miVistaPartidos.setVisible(false);
+			miVistaConvocatorias.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmMensajes) {
+			miVistaPartidos.setVisible(false);
+			miVistaMensajes.setVisible(true);
+		}
+		if (e.getSource()==miVistaPartidos.mntmCuotasJugadores) {
+			miVistaPartidos.setVisible(false);
+			miVistaCuotas.setVisible(true);
+		}
+		if (e.getSource()==miVistaPartidos.mntmPlanificacionSesiones) {
+			miVistaPartidos.setVisible(false);
+			miVistaSesion.setVisible(true);
+		}
+		if (e.getSource()==miVistaPartidos.mntmPartidos) {
+			miVistaPartidos.setVisible(false);
+			miVistaPartidos.setVisible(true);
+		}
+		if (e.getSource()==miVistaPartidos.btnInsert) {
+			/*
+			 * 
+			 * 
+			 * codigo
+			 */
 		}
 		
 	}
