@@ -22,19 +22,16 @@ public class Principal {
 		VistaRegistro miVistaRegistro = new VistaRegistro();
 		VistaPrincipal miVistaPrincipal = new VistaPrincipal();
 		VistaFichas miVistaFichas = new VistaFichas();
-		VistaAsistencias miVistaAsistencias = new VistaAsistencias();
 		VistaEstadisticas miVistaEstadisticas = new VistaEstadisticas();
 		VistaGestionEquipos miVistaGestionEquipos = new VistaGestionEquipos();
 		VistaAñadirEquipo miVistaAñadirEquipo = new VistaAñadirEquipo();
-		VistaPartidosDisputados miVistaPartidosDisputados = new VistaPartidosDisputados();
-		VistaFichaPartidos miVistaFichaPartidos = new VistaFichaPartidos();
 		VistaConvocatorias miVistaConvocatorias = new VistaConvocatorias();
 		VistaMensajes miVistaMensajes = new VistaMensajes();
 		VistaCuotas miVistaCuotas = new VistaCuotas();
 		VistaSesiones miVistaSesion = new VistaSesiones();
 		VistaPartidos miVistaPartidos = new VistaPartidos();
 		
-		Controlador miControlador = new Controlador (miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaEstadisticas, miVistaGestionEquipos, miVistaAñadirEquipo, miVistaConvocatorias, miVistaFichaPartidos, miVistaCuotas, miVistaSesion, miVistaMensajes, miVistaPartidos);
+		Controlador miControlador = new Controlador (miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaEstadisticas, miVistaGestionEquipos, miVistaAñadirEquipo, miVistaConvocatorias, miVistaCuotas, miVistaSesion, miVistaMensajes, miVistaPartidos);
 		
 //		ControladorVistaPrincipal miControladorPrincipal = new ControladorVistaPrincipal(miVistaLogin, miVistaRegistro, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados, miVistaConvocatorias);
 //		ControladorFichas  miControladorFichas = new ControladorFichas(miVistaLogin, miVistaPrincipal, miVistaFichas, miVistaAsistencias, miVistaEstadisticas, miVistaGestionEquipos, miVistaPartidosDisputados, miVistaConvocatorias);

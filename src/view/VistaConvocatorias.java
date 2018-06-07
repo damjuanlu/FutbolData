@@ -69,6 +69,7 @@ public class VistaConvocatorias extends JFrame{
 	public JLabel lblInformativo;
 	public JTable tablaConvocar;
 	public JTextField txtRival;
+	private JMenuItem mntmPartidos;
 
 public VistaConvocatorias() {
 		
@@ -143,6 +144,10 @@ public VistaConvocatorias() {
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
+		
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -330,6 +335,12 @@ public VistaConvocatorias() {
 		});
 		
 		mntmConvocatorias.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		mntmPartidos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
