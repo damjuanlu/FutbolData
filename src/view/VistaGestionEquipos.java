@@ -81,6 +81,7 @@ public class VistaGestionEquipos extends JFrame{
 	public String mesSeleccionado;
 	public JTextArea textAreaDatosEquipo;
 	private JSeparator separator;
+	public JButton btnInformeEquipo;
 
 public VistaGestionEquipos() {
 		
@@ -269,7 +270,7 @@ public VistaGestionEquipos() {
 		lblTituloventana.setBounds(35, 40, 248, 20);
 		panel.add(lblTituloventana);
 		
-		JButton btnInformeEquipo = new JButton("INFORME");
+		btnInformeEquipo = new JButton("INFORME");
 		btnInformeEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

@@ -74,6 +74,7 @@ public class VistaEstadisticas extends JFrame{
 	public JTable tableEstadisticas;
 	public JButton btnBuscar;
 	public JLabel lblInformativo;
+	public JButton btnInformeAsistencia;
 
 public VistaEstadisticas() {
 		
@@ -295,7 +296,7 @@ public VistaEstadisticas() {
 		tableEstadisticas.setBounds(170, 160, 733, 505);
 		panel.add(tableEstadisticas);
 		
-		JButton btnInformeAsistencia = new JButton("INFORME");
+		btnInformeAsistencia = new JButton("INFORME");
 		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInformeAsistencia.setFocusable(false);
 		btnInformeAsistencia.setFocusPainted(false);

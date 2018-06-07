@@ -2,6 +2,13 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -121,12 +128,10 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
 		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
-
-
-
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnEliminarEquipo.addActionListener(this);
+		miVistaGestionEquipos.btnInformeEquipo.addActionListener(this);
 		
 		miVistaAñadirEquipo.btnVolver.addActionListener(this);
 		miVistaAñadirEquipo.btnGuardar.addActionListener(this);
@@ -134,6 +139,7 @@ public class Controlador implements ActionListener{
 		miVistaMensajes.btnEnviar.addActionListener(this);
 		
 		miVistaEstadisticas.btnBuscar.addActionListener(this);
+		miVistaEstadisticas.btnInformeAsistencia.addActionListener(this);
 
 		
 		miVistaCuotas.btnActualizar.addActionListener(this);
@@ -655,6 +661,64 @@ public class Controlador implements ActionListener{
 			}
 		}
 		
+		if (e.getSource()==miVistaGestionEquipos.btnInformeEquipo) {
+			
+			String JugadoresEquipo=miVistaGestionEquipos.textAreaJugadores.getText();
+			String PartidosEquipo=miVistaGestionEquipos.textAreaPartidosEquipo.getText();
+			String DatosEquipo=miVistaGestionEquipos.textAreaDatosEquipo.getText();
+			
+			FileWriter fileWritter;
+			
+			try {
+				fileWritter = new FileWriter("InformeEquipo.txt");
+				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+				try {
+					
+					bufferWritter.write("INFORME DE EQUIPO");
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write("JUGADORES");
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write(JugadoresEquipo);
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write("PARTIDOS");
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write(PartidosEquipo);
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write("DATOS DE EQUIPO");
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					bufferWritter.write(DatosEquipo);
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+
+			        bufferWritter.close();
+			} catch (IOException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			
+			} catch (FileNotFoundException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			
+		}
+		
 		
 		/*
 		 * 
@@ -748,6 +812,45 @@ public class Controlador implements ActionListener{
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(rojas, acumEst+1, 5);
 				listIteratorEst.next();
 				acumEst++;
+			}
+		}
+		
+		if (e.getSource()==miVistaEstadisticas.btnInformeAsistencia) {
+			
+			FileWriter fileWritter;
+			try {
+				fileWritter = new FileWriter("InformeEstadisticas.txt");
+				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+				try {
+					
+					bufferWritter.write("INFORMDE DE ESTADÍSTICAS");
+			        bufferWritter.newLine();
+			        bufferWritter.newLine();
+			        
+					for (int i = 1; i <=27; i++) {
+						String var1=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 0).toString();
+						String var2=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 1).toString();
+						String var3=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 2).toString();
+						String var4=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 3).toString();
+						String var5=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 4).toString();
+						String var6=miVistaEstadisticas.tableEstadisticas.getModel().getValueAt(i, 5).toString();
+
+						bufferWritter.write("Nombre: "+var1+", PJ: "+var2+", GOL: "+var3+", ASIST: "+var4+", AMARILLAS: "+var5+", ROJAS: "+var6);
+				        bufferWritter.newLine();
+					}
+
+			        bufferWritter.close();
+			} catch (IOException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			
+			} catch (FileNotFoundException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		}
 		
