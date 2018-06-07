@@ -26,12 +26,9 @@ public class Controlador implements ActionListener{
 	private VistaRegistro miVistaRegistro;
 	private VistaPrincipal miVistaPrincipal;
 	private VistaFichas miVistaFichas;
-	private VistaAsistencias miVistaAsistencias;
 	private VistaEstadisticas miVistaEstadisticas;
 	private VistaGestionEquipos miVistaGestionEquipos;
 	private VistaAñadirEquipo miVistaAñadirEquipo;
-	private VistaPartidosDisputados miVistaPartidosDisputados;
-	private VistaFichaPartidos miVistaFichaPartidos;
 	private VistaConvocatorias miVistaConvocatorias;
 	private VistaMensajes miVistaMensajes;
 	private VistaCuotas miVistaCuotas;
@@ -57,7 +54,7 @@ public class Controlador implements ActionListener{
 	
 	public Controlador(	VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, 
 						VistaFichas miVistaFichas,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, 
-						VistaAñadirEquipo miVistaAñadirEquipo, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, 
+						VistaAñadirEquipo miVistaAñadirEquipo, VistaConvocatorias miVistaConvocatorias, 
 						VistaCuotas miVistaCuotas, VistaSesiones miVistaSesion, VistaMensajes miVistaMensajes, VistaPartidos miVistaPartidos) {
 		
 		this.miVistaLogin=miVistaLogin;
@@ -67,7 +64,6 @@ public class Controlador implements ActionListener{
 		this.miVistaEstadisticas=miVistaEstadisticas;
 		this.miVistaGestionEquipos=miVistaGestionEquipos;
 		this.miVistaAñadirEquipo=miVistaAñadirEquipo;
-		this.miVistaFichaPartidos=miVistaFichaPartidos;
 		this.miVistaConvocatorias=miVistaConvocatorias;
 		this.miVistaMensajes=miVistaMensajes;
 		this.miVistaCuotas=miVistaCuotas;
