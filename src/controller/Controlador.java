@@ -60,6 +60,23 @@ public class Controlador implements ActionListener{
 		this.miVistaMensajes=miVistaMensajes;
 		this.miVistaCuotas=miVistaCuotas;
 		
+		/******  COMBOBOX EQUIPOS  ******/
+		
+		ArrayList<String>listaEquipos = new ArrayList<>();
+		listaEquipos=miJugadoresAD.rellenaComboEquipos();
+		
+		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
+		miVistaFichas.comboBoxSelecEquipo.removeAllItems();
+		miVistaGestionEquipos.comboBoxSelecEquipo.removeAllItems();
+		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
+		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
+		miVistaEstadisticas.comboBoxSelecEquipo.removeAllItems();
+		for (int i=0; i<listaEquipos.size();i++) {
+			miVistaFichas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
+			miVistaEstadisticas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
+			miVistaGestionEquipos.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
+		}
+		
 		//Asociar el componente Swing al listener
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
 		miVistaLogin.btnLogin.addActionListener(this);
@@ -79,9 +96,7 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
 		miVistaPrincipal.mntmMensajes.addActionListener(this);
 		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
-		
-		ArrayList<String>listaEquipos = new ArrayList<>();
-		listaEquipos=miJugadoresAD.rellenaComboEquipos();
+
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
@@ -90,11 +105,8 @@ public class Controlador implements ActionListener{
 		miVistaFichas.mntmGestionEquipos.addActionListener(this);
 		miVistaFichas.mntmPartidosDisputados.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
-		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
-		miVistaFichas.comboBoxSelecEquipo.removeAllItems();
-		for (int i=0; i<listaEquipos.size();i++) {
-			miVistaFichas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
-		}
+
+
 		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
@@ -109,7 +121,9 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
 		miVistaGestionEquipos.mntmPartidosDisputados.addActionListener(this);
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
-		miVistaGestionEquipos.comboBoxSelecEquipo.addActionListener(this);
+
+
+
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnEliminarEquipo.addActionListener(this);
@@ -120,10 +134,15 @@ public class Controlador implements ActionListener{
 		miVistaMensajes.btnEnviar.addActionListener(this);
 		
 		miVistaEstadisticas.btnBuscar.addActionListener(this);
+
 		
 		miVistaCuotas.btnActualizar.addActionListener(this);
 		miVistaCuotas.btnBuscarJug.addActionListener(this);
 		miVistaCuotas.btnCerrarSesion.addActionListener(this);
+		
+		
+
+
 		
 		
 	}

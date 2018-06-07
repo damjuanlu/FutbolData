@@ -372,7 +372,7 @@ public VistaFichas() {
 		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setBounds(671, 136, 248, 40);
-		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"}));
+		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {/*"SENIOR", "JUVENIL A", "- JUVENIL B", "- CADETE A", "- CADETE B", "- INFANTIL A", "- INFANTIL B", "- ALEVIN A", "- ALEVIN B", "- BENJAMIN A", "- BENJAMIN B"*/}));
 		panel.add(comboBoxSelecEquipo);
 		
 		txtObservaciones = new JTextArea();
