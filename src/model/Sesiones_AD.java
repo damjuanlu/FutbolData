@@ -174,12 +174,12 @@ public class Sesiones_AD {
 		}
 	}
 	
-	public ArrayList<String> rellenaComboSesion(int cod_equipo, String dia){
+	public ArrayList<String> rellenaComboSesion(int cod_equipo){
 		try {
 			ArrayList<String> ListSesion = new ArrayList();
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("SELECT dia FROM entrenamientos WHERE cod_equipo = " +cod_equipo+" AND dia = '"+dia+"'");
+			String InstruccionSQL=("SELECT dia FROM entrenamientos WHERE cod_equipo = " +cod_equipo+"");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();

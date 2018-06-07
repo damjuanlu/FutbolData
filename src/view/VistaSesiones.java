@@ -77,7 +77,8 @@ public class VistaSesiones extends JFrame{
 	public JComboBox comboBoxSelecSesion;
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
-	public JButton btnBuscar;
+	public JButton btnBuscarSesion;
+	public JButton btnMuestraSesion;
 	public JButton btnInformeAsistencia;
 	public JButton btnModificarSesion;
 	public JButton btnEliminarSesion;
@@ -273,16 +274,16 @@ public VistaSesiones() {
 		btnInformeAsistencia.setBounds(915, 95, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
-		btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBuscar.setVerticalAlignment(SwingConstants.TOP);
-		btnBuscar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		btnBuscar.setFocusable(false);
-		btnBuscar.setFocusPainted(false);
-		btnBuscar.setDefaultCapable(false);
-		btnBuscar.setBackground(SystemColor.activeCaption);
-		btnBuscar.setBounds(310, 95, 100, 25);
-		panel.add(btnBuscar);
+		btnBuscarSesion = new JButton("BUSCAR");
+		btnBuscarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBuscarSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnBuscarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnBuscarSesion.setFocusable(false);
+		btnBuscarSesion.setFocusPainted(false);
+		btnBuscarSesion.setDefaultCapable(false);
+		btnBuscarSesion.setBackground(SystemColor.activeCaption);
+		btnBuscarSesion.setBounds(310, 95, 100, 25);
+		panel.add(btnBuscarSesion);
 		
 		comboBoxSelecSesion = new JComboBox();
 		comboBoxSelecSesion.setModel(new DefaultComboBoxModel(new String[] {}));
@@ -291,7 +292,7 @@ public VistaSesiones() {
 		comboBoxSelecSesion.setBounds(462, 90, 248, 40);
 		panel.add(comboBoxSelecSesion);
 
-		JButton btnMuestraSesion = new JButton("MOSTRAR");
+		btnMuestraSesion = new JButton("MOSTRAR");
 		btnMuestraSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMuestraSesion.setEnabled(false);
 		btnMuestraSesion.setVerticalAlignment(SwingConstants.TOP);
@@ -566,6 +567,42 @@ public VistaSesiones() {
 		});
 		
 		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnBuscarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnBuscarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnModificarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnNuevaSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnEliminarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
