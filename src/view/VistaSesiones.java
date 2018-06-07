@@ -268,6 +268,7 @@ public VistaSesiones() {
 		panel.add(btnInformeAsistencia);
 		
 		btnBuscar = new JButton("BUSCAR");
+		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscar.setVerticalAlignment(SwingConstants.TOP);
 		btnBuscar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnBuscar.setFocusable(false);
@@ -285,6 +286,7 @@ public VistaSesiones() {
 		panel.add(comboBoxSelecSesion);
 
 		JButton btnMuestraSesion = new JButton("MOSTRAR");
+		btnMuestraSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMuestraSesion.setEnabled(false);
 		btnMuestraSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnMuestraSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
@@ -300,6 +302,7 @@ public VistaSesiones() {
 		panel.add(separator);
 		
 		JButton btnNuevaSesion = new JButton("NUEVA SESION");
+		btnNuevaSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNuevaSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnNuevaSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnNuevaSesion.setFocusable(false);
@@ -311,6 +314,7 @@ public VistaSesiones() {
 		panel.add(btnNuevaSesion);
 		
 		JButton btnModificarSesion = new JButton("MODIFICAR SESION");
+		btnModificarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnModificarSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnModificarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnModificarSesion.setFocusable(false);
@@ -322,6 +326,7 @@ public VistaSesiones() {
 		panel.add(btnModificarSesion);
 		
 		JButton btnEliminarSesion = new JButton("ELIMINAR SESION");
+		btnEliminarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminarSesion.setVerticalAlignment(SwingConstants.TOP);
 		btnEliminarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		btnEliminarSesion.setFocusable(false);
