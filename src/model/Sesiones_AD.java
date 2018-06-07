@@ -33,7 +33,7 @@ public class Sesiones_AD {
 				String calentamiento=result.getString(8);
 				String parte_principal=result.getString(9);
 				String vuelta_calma=result.getString(10);
-				String cod_equipo=result.getInt(11);
+				int cod_equipo=result.getInt(11);
 				
 				sesion = new Sesiones_TD(cod_sesion, nombre, dia, minutos, objetivo, material, observaciones_sesion, calentamiento, parte_principal, vuelta_calma, cod_equipo);
 			  }

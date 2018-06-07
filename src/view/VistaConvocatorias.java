@@ -225,12 +225,12 @@ public VistaConvocatorias() {
 		btnNuevaConvocatoria.setBackground(SystemColor.activeCaption);
 		btnNuevaConvocatoria.setVerticalAlignment(SwingConstants.TOP);
 		btnNuevaConvocatoria.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnNuevaConvocatoria.setBounds(786, 99, 200, 25);
+		btnNuevaConvocatoria.setBounds(786, 99, 200, 26);
 		panel.add(btnNuevaConvocatoria);
 		
 		btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnBuscar.setBounds(346, 85, 89, 40);
+		btnBuscar.setBounds(346, 99, 89, 26);
 		panel.add(btnBuscar);
 		
 		tablaConvocar = new JTable();
@@ -287,7 +287,7 @@ public VistaConvocatorias() {
 		
 		txtRival = new JTextField();
 		txtRival.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		txtRival.setBounds(558, 100, 167, 20);
+		txtRival.setBounds(558, 100, 167, 25);
 		panel.add(txtRival);
 		txtRival.setColumns(10);
 		
