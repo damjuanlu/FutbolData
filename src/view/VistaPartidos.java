@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -27,7 +29,7 @@ public class VistaPartidos extends JFrame{
 	
 	private JPanel panel;
 	private JMenuBar menuPrincipal;
-	private JMenuItem mntmInicio;
+	public JMenuItem mntmInicio;
 	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmEstadisticas;
@@ -272,5 +274,76 @@ public class VistaPartidos extends JFrame{
 		lblNewLabel.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblNewLabel.setBounds(0, 15, 1080, 680);
 		panel.add(lblNewLabel);
+		
+		
+		//ACTION LISTENER
+		
+				mntmInicio.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmFichas.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmEstadisticas.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmGestionEquipos.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmConvocatorias.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmPartidos.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmPlanificacionSesiones.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmCuotasJugadores.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				mntmMensajes.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				btnCerrarSesion.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				
+				btnInsert.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
 	}
+	
+	
 }

@@ -182,6 +182,16 @@ public class Controlador implements ActionListener{
 		miVistaConvocatorias.mntmConvocatorias.addActionListener(this);
 		miVistaConvocatorias.mntmMensajes.addActionListener(this);
 		
+		miVistaPartidos.btnCerrarSesion.addActionListener(this);
+		miVistaPartidos.btnInsert.addActionListener(this);
+		miVistaPartidos.mntmInicio.addActionListener(this);
+		miVistaPartidos.mntmFichas.addActionListener(this);
+		miVistaPartidos.mntmEstadisticas.addActionListener(this);
+		miVistaPartidos.mntmGestionEquipos.addActionListener(this);
+		miVistaPartidos.mntmPlanificacionSesiones.addActionListener(this);
+		miVistaPartidos.mntmConvocatorias.addActionListener(this);
+		miVistaPartidos.mntmMensajes.addActionListener(this);
+		
 		
 
 
@@ -263,7 +273,7 @@ public class Controlador implements ActionListener{
 				
 				// Carga Ultimos Partidos
 				ArrayList<Partidos_TD> ArrayListPartidos= new ArrayList <Partidos_TD> ();
-				ArrayListPartidos=miPartidosAD.BuscaPartidosEquipo("SENIOR");
+				ArrayListPartidos=miPartidosAD.buscaTodosPartidos();
 				Iterator listIteratorEquipos = arrayListMensaje.listIterator();
 				int acumeq=0;
 				int sizeArray=ArrayListPartidos.size();
@@ -1309,11 +1319,25 @@ public class Controlador implements ActionListener{
 			miVistaPartidos.setVisible(true);
 		}
 		if (e.getSource()==miVistaPartidos.btnInsert) {
-			/*
-			 * 
-			 * 
-			 * codigo
-			 */
+			Partidos_AD partidosAD = new Partidos_AD();
+			Partidos_TD partido=null;
+			
+			String eq_local=miVistaPartidos.txtLocal.getText();
+			String eq_visit=miVistaPartidos.txtVisit.getText();
+			int gol_local=miVistaPartidos.sliderLocal.getValue();
+			int gol_visit=miVistaPartidos.sliderVisit.getValue();
+			String liga=miVistaPartidos.txtLiga.getText();
+			
+			if (eq_local!="" && eq_visit!="" && liga!="") {
+				boolean comprobar=partidosAD.InsertaPartido(eq_local, eq_visit, gol_local, gol_visit, liga);
+				if (comprobar==true) {
+					JOptionPane.showMessageDialog(null, "PARTIDO INSERTADO");
+				}else
+					JOptionPane.showMessageDialog(null, "PARTIDO NO INSERTADO");
+			}else
+				JOptionPane.showMessageDialog(null, "RELLENE TODOS LOS CAMPOS");
+
+			
 		}
 		
 	}
