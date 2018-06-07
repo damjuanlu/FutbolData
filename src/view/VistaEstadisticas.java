@@ -209,7 +209,7 @@ public VistaEstadisticas() {
 		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		comboBoxSelecEquipo.setBounds(35, 90, 248, 40);
+		comboBoxSelecEquipo.setBounds(95, 90, 248, 40);
 		panel.add(comboBoxSelecEquipo);
 		
 		lblInformativo = new JLabel("ESTAD\u00CDSTICAS");
@@ -298,6 +298,7 @@ public VistaEstadisticas() {
 		panel.add(tableEstadisticas);
 		
 		btnInformeAsistencia = new JButton("INFORME");
+		btnInformeAsistencia.setEnabled(false);
 		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnInformeAsistencia.setFocusable(false);
 		btnInformeAsistencia.setFocusPainted(false);
@@ -305,7 +306,7 @@ public VistaEstadisticas() {
 		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
 		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
 		btnInformeAsistencia.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnInformeAsistencia.setBounds(945, 90, 100, 25);
+		btnInformeAsistencia.setBounds(911, 102, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
 		btnBuscar = new JButton("BUSCAR");
@@ -315,7 +316,7 @@ public VistaEstadisticas() {
 		btnBuscar.setFocusPainted(false);
 		btnBuscar.setDefaultCapable(false);
 		btnBuscar.setBackground(SystemColor.activeCaption);
-		btnBuscar.setBounds(310, 95, 100, 25);
+		btnBuscar.setBounds(394, 102, 100, 25);
 		panel.add(btnBuscar);
 		
 		JLabel lblImagenFondo = new JLabel("");

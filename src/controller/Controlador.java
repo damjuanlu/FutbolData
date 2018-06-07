@@ -119,6 +119,17 @@ public class Controlador implements ActionListener{
 		miVistaFichas.btnInsert.addActionListener(this);
 		miVistaFichas.btnBorrar.addActionListener(this);
 		
+		miVistaEstadisticas.btnCerrarSesion.addActionListener(this);
+		miVistaEstadisticas.mntmInicio.addActionListener(this);
+		miVistaEstadisticas.mntmFichas.addActionListener(this);
+		miVistaEstadisticas.mntmEstadisticas.addActionListener(this);
+		miVistaEstadisticas.mntmGestionEquipos.addActionListener(this);
+		miVistaEstadisticas.mntmConvocatorias.addActionListener(this);
+		miVistaEstadisticas.mntmMensajes.addActionListener(this);
+		miVistaEstadisticas.mntmCuotasJugadores.addActionListener(this);
+		miVistaEstadisticas.btnBuscar.addActionListener(this);
+		miVistaEstadisticas.btnInformeAsistencia.addActionListener(this);
+		
 		miVistaGestionEquipos.btnCerrarSesion.addActionListener(this);
 		miVistaGestionEquipos.mntmInicio.addActionListener(this);
 		miVistaGestionEquipos.mntmFichas.addActionListener(this);
@@ -135,15 +146,26 @@ public class Controlador implements ActionListener{
 		miVistaAñadirEquipo.btnVolver.addActionListener(this);
 		miVistaAñadirEquipo.btnGuardar.addActionListener(this);
 		
+		miVistaMensajes.btnCerrarSesion.addActionListener(this);
+		miVistaMensajes.mntmInicio.addActionListener(this);
+		miVistaMensajes.mntmFichas.addActionListener(this);
+		miVistaMensajes.mntmEstadisticas.addActionListener(this);
+		miVistaMensajes.mntmGestionEquipos.addActionListener(this);
+		miVistaMensajes.mntmConvocatorias.addActionListener(this);
+		miVistaMensajes.mntmCuotasJugadores.addActionListener(this);
 		miVistaMensajes.btnEnviar.addActionListener(this);
-		
-		miVistaEstadisticas.btnBuscar.addActionListener(this);
-		miVistaEstadisticas.btnInformeAsistencia.addActionListener(this);
 
 		
 		miVistaCuotas.btnActualizar.addActionListener(this);
 		miVistaCuotas.btnBuscarJug.addActionListener(this);
 		miVistaCuotas.btnCerrarSesion.addActionListener(this);
+		miVistaCuotas.btnCerrarSesion.addActionListener(this);
+		miVistaCuotas.mntmInicio.addActionListener(this);
+		miVistaCuotas.mntmFichas.addActionListener(this);
+		miVistaCuotas.mntmEstadisticas.addActionListener(this);
+		miVistaCuotas.mntmGestionEquipos.addActionListener(this);
+		miVistaCuotas.mntmConvocatorias.addActionListener(this);
+		miVistaCuotas.mntmMensajes.addActionListener(this);
 		
 		
 
@@ -771,6 +793,8 @@ public class Controlador implements ActionListener{
 		 */
 		if (e.getSource()==miVistaEstadisticas.btnBuscar) {
 			
+			miVistaEstadisticas.btnInformeAsistencia.setEnabled(true);
+			
 			for (int i=1; i<=27; i++) {
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 0);
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt("", i, 1);
@@ -783,18 +807,20 @@ public class Controlador implements ActionListener{
 			Estadisticas_AD estadisticas = new Estadisticas_AD();
 			ArrayList <Estadisticas_TD> miArrayListEstad=new ArrayList <Estadisticas_TD> ();
 			miArrayListEstad=estadisticas.MuestraALLEStad();
-			Iterator listIteratorEst = miArrayListEstad.listIterator();	
+			Iterator listIteratorEst = miArrayListEstad.listIterator();
+			int cuenta = miArrayListEstad.size();
 			int acumEst=0;
-			while(listIteratorEst.hasNext() || acumEst<=25) {
+			while(listIteratorEst.hasNext() || acumEst<=cuenta-1) {
 				Estadisticas_TD estadistica;
 				estadistica=miArrayListEstad.get(acumEst);
 				int codigo=estadistica.getCod_jugador();
+				String nombre=estadistica.getNombre_jugador();
 				int partidos=estadistica.getPartidos_jug();
 				int goles=estadistica.getGoles();
 				int asistencias=estadistica.getAsistencias();
 				int amarillas=estadistica.getTarjetas_amarillas();
 				int rojas=estadistica.getTarjetas_rojas();
-				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(codigo, acumEst+1, 0);
+				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(nombre, acumEst+1, 0);
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(partidos, acumEst+1, 1);
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(goles, acumEst+1, 2);
 				miVistaEstadisticas.tableEstadisticas.getModel().setValueAt(asistencias, acumEst+1, 3);
@@ -813,7 +839,7 @@ public class Controlador implements ActionListener{
 				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 				try {
 					
-					bufferWritter.write("INFORMDE DE ESTADÍSTICAS");
+					bufferWritter.write("INFORME DE ESTADÍSTICAS");
 			        bufferWritter.newLine();
 			        bufferWritter.newLine();
 			        
@@ -829,18 +855,23 @@ public class Controlador implements ActionListener{
 				        bufferWritter.newLine();
 					}
 
-			        bufferWritter.close();
+			        bufferWritter.close();	        
+			        JOptionPane.showMessageDialog(null, "Informe obtenido");
+			        
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			}
 			
 			} catch (FileNotFoundException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			}
 		}
 		

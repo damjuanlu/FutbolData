@@ -29,12 +29,13 @@ public class Estadisticas_AD {
 		    ResultSet result = stmt.executeQuery(InstruccionSQL);
 			while(result.next()) {
 				int codigo=result.getInt(1);
-				int partidos=result.getInt(2);
-				int goles=result.getInt(3);
-				int asistencias=result.getInt(4);
-				int amarillas=result.getInt(5);
-				int rojas=result.getInt(6);
-				estadistica = new Estadisticas_TD(codigo, partidos, goles, asistencias, amarillas, rojas);
+				String nombre=result.getString(2);
+				int partidos=result.getInt(3);
+				int goles=result.getInt(4);
+				int asistencias=result.getInt(5);
+				int amarillas=result.getInt(6);
+				int rojas=result.getInt(7);
+				estadistica = new Estadisticas_TD(codigo,nombre,partidos,goles,asistencias,amarillas,rojas);
 			  }
 			
 			miSentencia.close();
@@ -65,12 +66,13 @@ public class Estadisticas_AD {
 		    ArrayList <Estadisticas_TD> ALEstad= new ArrayList <Estadisticas_TD> ();
 			while(result.next()) {
 				int codigo=result.getInt(1);
-				int partidos=result.getInt(2);
-				int goles=result.getInt(3);
-				int asistencias=result.getInt(4);
-				int amarillas=result.getInt(5);
-				int rojas=result.getInt(6);
-				estadistica = new Estadisticas_TD(codigo,partidos,goles,asistencias,amarillas,rojas);
+				String nombre=result.getString(2);
+				int partidos=result.getInt(3);
+				int goles=result.getInt(4);
+				int asistencias=result.getInt(5);
+				int amarillas=result.getInt(6);
+				int rojas=result.getInt(7);
+				estadistica = new Estadisticas_TD(codigo,nombre,partidos,goles,asistencias,amarillas,rojas);
 				ALEstad.add(estadistica);
 			  }
 			miSentencia.close();

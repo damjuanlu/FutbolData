@@ -30,7 +30,7 @@ public class VistaCuotas extends JFrame{
 	
 	private JPanel panel;
 	private JMenuBar menuPrincipal;
-	private JMenuItem mntmInicio;
+	public JMenuItem mntmInicio;
 	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmEstadisticas;

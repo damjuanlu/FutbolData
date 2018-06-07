@@ -26,7 +26,7 @@ public class VistaMensajes extends JFrame {
 	
 	private JPanel panel;
 	private JMenuBar menuPrincipal;
-	private JMenuItem mntmInicio;
+	public JMenuItem mntmInicio;
 	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmAsistencia;
@@ -40,7 +40,7 @@ public class VistaMensajes extends JFrame {
 	private JMenuItem mntmPlanificacionSesiones;
 	private JMenuItem mntmBaseDeDatos;
 	private JMenu mnAdministracion;
-	private JMenuItem mntmCuotasJugadores;
+	public JMenuItem mntmCuotasJugadores;
 	private JMenu mnMensajes;
 	private JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;

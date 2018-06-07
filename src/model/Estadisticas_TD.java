@@ -6,14 +6,16 @@ public class Estadisticas_TD {
 	
 	private int cod_jugador;
 	private int partidos_jug;
+	private String nombre_jugador;
 	private int goles;
 	private int asistencias;
 	private int tarjetas_amarillas;
 	private int tarjetas_rojas;
 	
-	public Estadisticas_TD(int cod_jugador, int partidos_jug, int goles, int asistencias, int tarjetas_amarillas, int tarjetas_rojas){
+	public Estadisticas_TD(int cod_jugador, String nombre_jugador, int partidos_jug, int goles, int asistencias, int tarjetas_amarillas, int tarjetas_rojas){
 		this.cod_jugador=cod_jugador;
 		this.partidos_jug=partidos_jug;
+		this.nombre_jugador=nombre_jugador;
 		this.goles=goles;
 		this.asistencias=asistencias;
 		this.tarjetas_amarillas=tarjetas_amarillas;
@@ -26,6 +28,14 @@ public class Estadisticas_TD {
 
 	public void setCod_jugador(int cod_jugador) {
 		this.cod_jugador = cod_jugador;
+	}
+
+	public String getNombre_jugador() {
+		return nombre_jugador;
+	}
+
+	public void setNombre_jugador(String nombre_jugador) {
+		this.nombre_jugador = nombre_jugador;
 	}
 
 	public int getPartidos_jug() {
