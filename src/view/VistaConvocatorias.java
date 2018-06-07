@@ -105,7 +105,7 @@ public VistaConvocatorias() {
 		mntmInicio = new JMenuItem("INICIO");
 		mntmInicio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmInicio.setMaximumSize(new Dimension(60, 32767));
-		mntmInicio.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		mntmInicio.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mntmInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		menuPrincipal.add(mntmInicio);
 		
