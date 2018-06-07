@@ -1321,12 +1321,15 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaPartidos.btnInsert) {
 			Partidos_AD partidosAD = new Partidos_AD();
 			Partidos_TD partido=null;
+			Clasificacion_AD clasificacion = new Clasificacion_AD();
 			
 			String eq_local=miVistaPartidos.txtLocal.getText();
 			String eq_visit=miVistaPartidos.txtVisit.getText();
 			int gol_local=miVistaPartidos.sliderLocal.getValue();
 			int gol_visit=miVistaPartidos.sliderVisit.getValue();
 			String liga=miVistaPartidos.txtLiga.getText();
+			
+			clasificacion.ActualizaClasificacion(eq_local, eq_visit, gol_local, gol_visit);
 			
 			if (eq_local!="" && eq_visit!="" && liga!="") {
 				boolean comprobar=partidosAD.InsertaPartido(eq_local, eq_visit, gol_local, gol_visit, liga);
