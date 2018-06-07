@@ -29,16 +29,12 @@ public class VistaMensajes extends JFrame {
 	public JMenuItem mntmInicio;
 	private JMenu mnJugadores;
 	public JMenuItem mntmFichas;
-	public JMenuItem mntmAsistencia;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
-	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
-	private JMenuItem mntmCalendariosYResultados;
 	private JMenu mnEntrenamiento;
-	private JMenuItem mntmPlanificacionSesiones;
-	private JMenuItem mntmBaseDeDatos;
+	public JMenuItem mntmPlanificacionSesiones;
 	private JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	private JMenu mnMensajes;
@@ -102,11 +98,6 @@ public class VistaMensajes extends JFrame {
 		mntmFichas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnJugadores.add(mntmFichas);
 		
-		mntmAsistencia = new JMenuItem("ASISTENCIA");
-		mntmAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnJugadores.add(mntmAsistencia);
-		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmEstadisticas.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
@@ -124,20 +115,10 @@ public class VistaMensajes extends JFrame {
 		mntmGestionEquipos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmGestionEquipos);
 		
-		mntmPartidosDisputados = new JMenuItem("PARTIDOS DISPUTADOS");
-		mntmPartidosDisputados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmPartidosDisputados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmPartidosDisputados);
-		
 		mntmConvocatorias = new JMenuItem("CONVOCATORIAS");
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmConvocatorias.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnCompeticion.add(mntmConvocatorias);
-		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnCompeticion.add(mntmCalendariosYResultados);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -150,11 +131,6 @@ public class VistaMensajes extends JFrame {
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

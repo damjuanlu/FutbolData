@@ -65,9 +65,10 @@ public class VistaConvocatorias extends JFrame{
 	public String equipoSeleccionado;
 	public String mesSeleccionado;
 	public JButton btnBuscar;
+	public JButton btnNuevaConvocatoria;
 	public JLabel lblInformativo;
-	private JTable tablaConvocar;
-	private JTextField txtRival;
+	public JTable tablaConvocar;
+	public JTextField txtRival;
 
 public VistaConvocatorias() {
 		
@@ -215,7 +216,7 @@ public VistaConvocatorias() {
 		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
 		lblInformativo.setIcon(imagenCabecera);
 		
-		JButton btnNuevaConvocatoria = new JButton("NUEVA CONVOCATORIA");
+		btnNuevaConvocatoria = new JButton("NUEVA CONVOCATORIA");
 		btnNuevaConvocatoria.setEnabled(false);
 		btnNuevaConvocatoria.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNuevaConvocatoria.setFocusable(false);
