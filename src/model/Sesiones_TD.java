@@ -6,7 +6,7 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 
 public class Sesiones_TD {
 
-	private int cod_equipo;
+	private int cod_sesion;
 	private String nombre;
 	private String dia;
 	private String minutos;
@@ -16,12 +16,11 @@ public class Sesiones_TD {
 	private String calentamiento;
 	private String parte_principal;
 	private String vuelta_calma;
-	private int cod_sesion;
+	private int cod_equipo;
 
-
-	public Sesiones_TD( int cod_equipo, String nombre, String dia, String minutos, String objetivo, 
+	public Sesiones_TD( int cod_sesion, String nombre, String dia, String minutos, String objetivo, 
 						String material, String observaciones_sesion, String calentamiento, 
-						String parte_principal, String vuelta_calma, int cod_sesion) {
+						String parte_principal, String vuelta_calma, int cod_equipo) {
 		this.cod_equipo=cod_equipo;
 		this.nombre=nombre;
 		this.dia=dia;

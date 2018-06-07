@@ -74,7 +74,7 @@ public class Controlador implements ActionListener{
 		
 		ArrayList<String>listaEquipos = new ArrayList<>();
 		listaEquipos=miJugadoresAD.rellenaComboEquipos();
-		ArrayList<String>listaSesiones = new ArrayList<>();
+		ArrayList<Integer>listaSesiones = new ArrayList<>();
 		listaSesiones=miSesiones_AD.rellenaComboSesion(cod_jugador);
 		
 		
@@ -85,13 +85,11 @@ public class Controlador implements ActionListener{
 		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecEquipo.removeAllItems();
 		miVistaSesion.comboBoxSelecEquipo.removeAllItems();
-		miVistaSesion.comboBoxSelecSesion.removeAllItems();
 		for (int i=0; i<listaEquipos.size();i++) {
 			miVistaFichas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaEstadisticas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaGestionEquipos.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaSesion.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
-			miVistaSesion.comboBoxSelecSesion.addItem(listaEquipos.get(i));
 		}
 		
 		//Asociar el componente Swing al listener
@@ -1357,18 +1355,22 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaSesion.btnBuscarSesion) {
 						
-			int cod_equipoBusc=(int)miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
+			String cod_equipoBusc=(String) miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
 			
 			Sesiones_AD sesionAD=new Sesiones_AD();
 			Sesiones_TD sesion;
 
-				//Busca sesion
-				sesion=sesionAD.rellenaComboSesion(cod_equipo);
-				int codigojugador=jugador.getCod_jugador();
+			ArrayList<Integer>listaSesiones = new ArrayList<>();
+			listaSesiones=miSesiones_AD.rellenaComboSesion(cod_jugador);
+			
+			miVistaSesion.comboBoxSelecSesion.removeAllItems();
+			for (int i=0; i<listaSesiones.size();i++) {
+				miVistaSesion.comboBoxSelecSesion.addItem(listaSesiones.get(i));
 				
 				miVistaSesion.comboBoxSelecSesion.setEnabled(true);
 				miVistaSesion.btnMuestraSesion.setEnabled(true);
-				miVistaSesion.btnModificarSesion.setEnabled(true);
+				miVistaSesion.btnNuevaSesion.setEnabled(true);
+			}
 		}
 		
 		if (e.getSource()==miVistaFichas.btnModificar) {

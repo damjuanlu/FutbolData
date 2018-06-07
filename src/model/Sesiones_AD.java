@@ -3,6 +3,8 @@ package model;
 import java.sql.*;
 import java.util.ArrayList;
 
+import com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac;
+
  
 public class Sesiones_AD {
 	
@@ -174,11 +176,14 @@ public class Sesiones_AD {
 		}
 	}
 	
-	public ArrayList<String> rellenaComboSesion(int cod_equipo){
+	public ArrayList<Integer> rellenaComboSesion(int cod_equipo){
+
+		Sesiones_TD sesion = null;
 		try {
-			ArrayList<String> ListSesion = new ArrayList();
+			ArrayList<Integer> ListSesion = new ArrayList();
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
+			//int cod_equipo = ("SELECT cod_equipo FROM equipos WHERE nombre = "+nombre+"");
 			String InstruccionSQL=("SELECT dia FROM entrenamientos WHERE cod_equipo = " +cod_equipo+"");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
