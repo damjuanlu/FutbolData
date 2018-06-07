@@ -28,6 +28,7 @@ public class Controlador implements ActionListener{
 	private VistaConvocatorias miVistaConvocatorias;
 	private VistaMensajes miVistaMensajes;
 	private VistaCuotas miVistaCuotas;
+	private VistaSesiones miVistaSesion;
 	
 	Equipos_TD equipos;
 	Equipos_AD miEquipoAD=new Equipos_AD();
@@ -44,7 +45,7 @@ public class Controlador implements ActionListener{
 	
 	int cod_jugador=0;
 	
-	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaCuotas miVistaCuotas, VistaMensajes miVistaMensajes) {
+	public Controlador(VistaLogin miVistaLogin, VistaRegistro miVistaRegistro, VistaPrincipal miVistaPrincipal, VistaFichas miVistaFichas,VistaAsistencias miVistaAsistencias,VistaEstadisticas miVistaEstadisticas,VistaGestionEquipos miVistaGestionEquipos, VistaAñadirEquipo miVistaAñadirEquipo, VistaPartidosDisputados miVistaPartidosDisputados, VistaConvocatorias miVistaConvocatorias, VistaFichaPartidos miVistaFichaPartidos, VistaCuotas miVistaCuotas, VistaSesiones miVistaSesion, VistaMensajes miVistaMensajes) {
 		
 		this.miVistaLogin=miVistaLogin;
 		this.miVistaRegistro=miVistaRegistro;
@@ -59,6 +60,7 @@ public class Controlador implements ActionListener{
 		this.miVistaConvocatorias=miVistaConvocatorias;
 		this.miVistaMensajes=miVistaMensajes;
 		this.miVistaCuotas=miVistaCuotas;
+		this.miVistaSesion=miVistaSesion;
 		
 		/******  COMBOBOX EQUIPOS  ******/
 		
@@ -101,9 +103,7 @@ public class Controlador implements ActionListener{
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
 		miVistaFichas.mntmEstadisticas.addActionListener(this);
-		miVistaFichas.mntmAsistencia.addActionListener(this);
 		miVistaFichas.mntmGestionEquipos.addActionListener(this);
-		miVistaFichas.mntmPartidosDisputados.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
 
 
@@ -367,24 +367,24 @@ public class Controlador implements ActionListener{
 			miVistaEstadisticas.setVisible(true);
 		}
 
-		if (e.getSource()==miVistaFichas.mntmAsistencia) {
-			miVistaFichas.setVisible(false);
-			miVistaAsistencias.setVisible(true);
-		}
-
 		if (e.getSource()==miVistaFichas.mntmGestionEquipos) {
 			miVistaFichas.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaFichas.mntmPartidosDisputados) {
-			miVistaFichas.setVisible(false);
-			miVistaPartidosDisputados.setVisible(true);
-		}
-		
 		if (e.getSource()==miVistaFichas.mntmConvocatorias) {
 			miVistaFichas.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaFichas.mntmCuotasJugadores) {
+			miVistaFichas.setVisible(false);
+			miVistaCuotas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaFichas.mntmPlanificacionSesiones) {
+			miVistaFichas.setVisible(false);
+			miVistaSesion.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaFichas.btnBuscar) {
