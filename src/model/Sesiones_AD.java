@@ -19,7 +19,7 @@ public class Sesiones_AD {
 
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("SELECT * FROM entrenamientos WHERE dia = " +diaBusc+"");
+			String InstruccionSQL=("SELECT * FROM entrenamientos WHERE dia = '" +diaBusc+"'");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();

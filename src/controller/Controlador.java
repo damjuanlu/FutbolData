@@ -1410,7 +1410,7 @@ public class Controlador implements ActionListener{
 			String diaBusc=(String)miVistaSesion.comboBoxSelecSesion.getSelectedItem();
 			
 			Sesiones_AD sesionAD=new Sesiones_AD();
-			Sesiones_TD sesiones;
+			Sesiones_TD sesiones=null;
 			
 			if (diaBusc==null)
 				JOptionPane.showMessageDialog(null, "No hay sesion seleccionada");
@@ -1422,6 +1422,7 @@ public class Controlador implements ActionListener{
 				miVistaSesion.btnModificarSesion.setEnabled(true);
 				miVistaSesion.btnEliminarSesion.setEnabled(true);
 				
+				sesiones.setCod_sesion(sesiones.getCod_sesion());
 				miVistaSesion.txtDiaSesion.setText(diaBusc);
 				miVistaSesion.txtMinutosSesion.setText(sesiones.getMinutos());
 				miVistaSesion.textAreaObjetivosSesion.setText(sesiones.getObjetivo());
@@ -1452,7 +1453,8 @@ public class Controlador implements ActionListener{
 
 			Sesiones_AD sesionAD=new Sesiones_AD();
 			
-			int cod_sesionModif= (int) miVistaSesion.comboBoxSelecSesion.getSelectedItem();
+			//int cod_sesionModif= (int) miVistaSesion.comboBoxSelecSesion.getSelectedItem();
+			int cod_sesionModif= sesiones.getCod_sesion();
 			String nombreModif=miVistaSesion.txtNombreEquipo.getText();
 			String diaModif=miVistaSesion.txtDiaSesion.getText();
 			String minutosModif=miVistaSesion.txtMinutosSesion.getText();
