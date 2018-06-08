@@ -190,6 +190,36 @@ public class Jugadores_AD {
 
 	}
 	
+	public ArrayList<String> rellenaComboJugadores(String nombre_equipo){
+
+		try {
+			ArrayList<String> ListJugador = new ArrayList();
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
+			System.out.println("Se ha conectado a la BD");
+			String InstruccionSQL=("SELECT nombre_jugador, apellido_jugador FROM jugadores WHERE equipo = '"+nombre_equipo+"'");
+			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
+			System.out.println(InstruccionSQL);
+			Statement stmt = miConexion.createStatement();
+		    ResultSet result = stmt.executeQuery(InstruccionSQL);
+			while(result.next()) {
+				ListJugador.add(result.getString("nombre_jugador"+" "+"apellido_jugador"));
+			  }
+			
+			miSentencia.close();
+			miConexion.close();
+			
+			return ListJugador;
+		} catch (SQLException e) {
+			System.out.println(e);
+			return null;
+		} catch (NullPointerException e) {
+			System.out.println("Error");
+			return null;
+		}
+
+	}
+	
+	
 	
 
 }
