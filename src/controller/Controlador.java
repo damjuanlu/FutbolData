@@ -1371,9 +1371,7 @@ public class Controlador implements ActionListener{
 			miVistaSesion.setVisible(false);
 			miVistaFichas.setVisible(true);
 		}
-		/*
-		 * CORREGIR!!!!
-		 */
+
 		if (e.getSource()==miVistaSesion.btnBuscarSesion) {
 						
 			String nombre_equipoBusc=(String) miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
