@@ -42,7 +42,6 @@ public class VistaCuotas extends JFrame{
 	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	public JMenu mnMensajes;
@@ -57,6 +56,7 @@ public class VistaCuotas extends JFrame{
 	private JLabel label_3;
 	public JButton btnBuscarJug;
 	public JComboBox comboEquipo;
+	public JComboBox comboJugador;
 	private JSeparator separator;
 	private JLabel lblInformativo;
 	public JTextField txtCuota;
@@ -155,11 +155,6 @@ public class VistaCuotas extends JFrame{
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
 		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
-		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnAdministracion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -244,11 +239,17 @@ public class VistaCuotas extends JFrame{
 		panel.add(btnBuscarJug);
 		
 		comboEquipo = new JComboBox();
-		comboEquipo.setModel(new DefaultComboBoxModel(new String[] {"SENIOR", "JUVENIL", "CADETE", "INFANTIL", "ALEVIN"}));
+		comboEquipo.setModel(new DefaultComboBoxModel(new String[] {}));
 		comboEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		comboEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboEquipo.setBounds(669, 170, 248, 40);
 		panel.add(comboEquipo);
+		
+		comboJugador = new JComboBox();
+		comboJugador.setFont(new Font("Agency FB", Font.PLAIN, 15));
+		comboJugador.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Jugador", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		comboJugador.setBounds(123, 114, 248, 40);
+		panel.add(comboJugador);
 		
 		separator = new JSeparator();
 		separator.setBounds(84, 262, 930, 2);

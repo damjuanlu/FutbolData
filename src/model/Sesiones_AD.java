@@ -175,9 +175,7 @@ public class Sesiones_AD {
 		}
 	}
 	
-	/*
-	 * CORREGIR!!!!
-	 */
+
 	public ArrayList<String> rellenaComboSesion(String nombre_equipo){
 
 		try {
