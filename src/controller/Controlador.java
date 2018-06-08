@@ -1194,8 +1194,11 @@ public class Controlador implements ActionListener{
 		 * LISTENER VISTA CONVOCATORIAS
 		 * 
 		 * 
+		 * 
+		 * 
 		 */
 		
+		//Mi vista Convocatorias
 		if (e.getSource()==miVistaConvocatorias.btnCerrarSesion) {
 			miVistaConvocatorias.setVisible(false);
 			miVistaLogin.setVisible(true);
