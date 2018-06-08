@@ -112,6 +112,12 @@ setResizable(false);
 		lblInformativo.setBounds(40, 40, 588, 30);
 		panel.add(lblInformativo);
 		
+		JLabel lblVersion = new JLabel("0.9.8");
+		lblVersion.setBounds(10, 346, 24, 15);
+		panel.add(lblVersion);
+		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblVersion.setForeground(Color.BLACK);
+		
 		ImageIcon imgCabecera = new ImageIcon(VistaAñadirEquipo.class.getResource("/Repositorios/lblInformativo.jpg"));
 		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
 		lblInformativo.setIcon(imagenCabecera);

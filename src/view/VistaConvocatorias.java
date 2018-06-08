@@ -93,6 +93,12 @@ public VistaConvocatorias() {
 		
 		super.setContentPane(panel);
 		
+		JLabel lblVersion = new JLabel("0.9.8");
+		lblVersion.setBounds(10, 666, 24, 15);
+		panel.add(lblVersion);
+		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblVersion.setForeground(Color.BLACK);
+		
 		lblUser = new JLabel("");
 		lblUser.setFont(new Font("Palatino Linotype", Font.PLAIN, 12));
 		lblUser.setHorizontalAlignment(SwingConstants.RIGHT);

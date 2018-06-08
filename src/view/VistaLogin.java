@@ -92,7 +92,7 @@ public VistaLogin() {
 		txtPassword.setBounds(137, 177, 120, 20);
 		panel.add(txtPassword);
 		
-		JLabel lblVersion = new JLabel("0.9.4");
+		JLabel lblVersion = new JLabel("0.9.8");
 		lblVersion.setBounds(10, 245, 24, 15);
 		panel.add(lblVersion);
 		lblVersion.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
