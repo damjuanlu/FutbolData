@@ -74,8 +74,8 @@ public class Controlador implements ActionListener{
 		
 		ArrayList<String>listaEquipos = new ArrayList<>();
 		listaEquipos=miJugadoresAD.rellenaComboEquipos();
-		ArrayList<Integer>listaSesiones = new ArrayList<>();
-		listaSesiones=miSesiones_AD.rellenaComboSesion(cod_jugador);
+		ArrayList<String>listaSesiones = new ArrayList<>();
+		listaSesiones=miSesiones_AD.rellenaComboSesion(null);
 		
 		
 		miVistaFichas.comboBoxSelecEquipo.addActionListener(this);
@@ -104,22 +104,27 @@ public class Controlador implements ActionListener{
 		miVistaRegistro.btnVolver.addActionListener(this);
 		miVistaLogin.btnIniciarSesion.addActionListener(this);
 		miVistaPrincipal.btnCerrarSesion.addActionListener(this);
+		miVistaPrincipal.mntmInicio.addActionListener(this);
 		miVistaPrincipal.mntmFichas.addActionListener(this);
 		miVistaPrincipal.mntmEstadisticas.addActionListener(this);
 		miVistaPrincipal.mntmGestionEquipos.addActionListener(this);
 		miVistaPrincipal.mntmConvocatorias.addActionListener(this);
-		miVistaPrincipal.mntmMensajes.addActionListener(this);
-		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
 		miVistaPrincipal.mntmPartidos.addActionListener(this);
+		miVistaPrincipal.mntmPlanificacionSesiones.addActionListener(this);
+		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
+		miVistaPrincipal.mntmMensajes.addActionListener(this);
 
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
 		miVistaFichas.mntmInicio.addActionListener(this);
+		miVistaFichas.mntmFichas.addActionListener(this);
 		miVistaFichas.mntmEstadisticas.addActionListener(this);
 		miVistaFichas.mntmGestionEquipos.addActionListener(this);
 		miVistaFichas.mntmConvocatorias.addActionListener(this);
-		miVistaFichas.mntmMensajes.addActionListener(this);
+		miVistaFichas.mntmPartidos.addActionListener(this);
+		miVistaFichas.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaFichas.mntmCuotasJugadores.addActionListener(this);
+		miVistaFichas.mntmMensajes.addActionListener(this);
 		miVistaFichas.btnBuscar.addActionListener(this);
 		miVistaFichas.btnGuardar.addActionListener(this);
 		miVistaFichas.btnModificar.addActionListener(this);
@@ -132,8 +137,10 @@ public class Controlador implements ActionListener{
 		miVistaEstadisticas.mntmEstadisticas.addActionListener(this);
 		miVistaEstadisticas.mntmGestionEquipos.addActionListener(this);
 		miVistaEstadisticas.mntmConvocatorias.addActionListener(this);
-		miVistaEstadisticas.mntmMensajes.addActionListener(this);
+		miVistaEstadisticas.mntmPartidos.addActionListener(this);
+		miVistaEstadisticas.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaEstadisticas.mntmCuotasJugadores.addActionListener(this);
+		miVistaEstadisticas.mntmMensajes.addActionListener(this);
 		miVistaEstadisticas.btnBuscar.addActionListener(this);
 		miVistaEstadisticas.btnInformeAsistencia.addActionListener(this);
 		
@@ -143,8 +150,10 @@ public class Controlador implements ActionListener{
 		miVistaGestionEquipos.mntmEstadisticas.addActionListener(this);
 		miVistaGestionEquipos.mntmGestionEquipos.addActionListener(this);
 		miVistaGestionEquipos.mntmConvocatorias.addActionListener(this);
-		miVistaGestionEquipos.mntmMensajes.addActionListener(this);
+		miVistaGestionEquipos.mntmPartidos.addActionListener(this);
+		miVistaGestionEquipos.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaGestionEquipos.mntmCuotasJugadores.addActionListener(this);
+		miVistaGestionEquipos.mntmMensajes.addActionListener(this);
 		miVistaGestionEquipos.btnMostrarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnAgregarEquipo.addActionListener(this);
 		miVistaGestionEquipos.btnEliminarEquipo.addActionListener(this);
@@ -159,55 +168,65 @@ public class Controlador implements ActionListener{
 		miVistaMensajes.mntmEstadisticas.addActionListener(this);
 		miVistaMensajes.mntmGestionEquipos.addActionListener(this);
 		miVistaMensajes.mntmConvocatorias.addActionListener(this);
+		miVistaMensajes.mntmPartidos.addActionListener(this);
 		miVistaMensajes.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaMensajes.mntmCuotasJugadores.addActionListener(this);
 		miVistaMensajes.btnEnviar.addActionListener(this);
 
-		miVistaCuotas.btnActualizar.addActionListener(this);
-		miVistaCuotas.btnBuscarJug.addActionListener(this);
-		miVistaCuotas.btnCerrarSesion.addActionListener(this);
 		miVistaCuotas.btnCerrarSesion.addActionListener(this);
 		miVistaCuotas.mntmInicio.addActionListener(this);
 		miVistaCuotas.mntmFichas.addActionListener(this);
 		miVistaCuotas.mntmEstadisticas.addActionListener(this);
 		miVistaCuotas.mntmGestionEquipos.addActionListener(this);
-		miVistaCuotas.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaCuotas.mntmConvocatorias.addActionListener(this);
+		miVistaCuotas.mntmPartidos.addActionListener(this);
+		miVistaCuotas.mntmPlanificacionSesiones.addActionListener(this);
+		miVistaCuotas.mntmCuotasJugadores.addActionListener(this);
 		miVistaCuotas.mntmMensajes.addActionListener(this);
+		miVistaCuotas.btnActualizar.addActionListener(this);
+		miVistaCuotas.btnBuscarJug.addActionListener(this);
 		
 		miVistaConvocatorias.btnCerrarSesion.addActionListener(this);
-		miVistaConvocatorias.btnBuscar.addActionListener(this);
-		miVistaConvocatorias.btnNuevaConvocatoria.addActionListener(this);
 		miVistaConvocatorias.mntmInicio.addActionListener(this);
 		miVistaConvocatorias.mntmFichas.addActionListener(this);
 		miVistaConvocatorias.mntmEstadisticas.addActionListener(this);
 		miVistaConvocatorias.mntmGestionEquipos.addActionListener(this);
-		miVistaConvocatorias.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaConvocatorias.mntmConvocatorias.addActionListener(this);
+		miVistaConvocatorias.mntmPartidos.addActionListener(this);
+		miVistaConvocatorias.mntmPlanificacionSesiones.addActionListener(this);
+		miVistaConvocatorias.mntmCuotasJugadores.addActionListener(this);
 		miVistaConvocatorias.mntmMensajes.addActionListener(this);
+		miVistaConvocatorias.btnBuscar.addActionListener(this);
+		miVistaConvocatorias.btnNuevaConvocatoria.addActionListener(this);
 		
 		miVistaPartidos.btnCerrarSesion.addActionListener(this);
-		miVistaPartidos.btnInsert.addActionListener(this);
 		miVistaPartidos.mntmInicio.addActionListener(this);
 		miVistaPartidos.mntmFichas.addActionListener(this);
 		miVistaPartidos.mntmEstadisticas.addActionListener(this);
 		miVistaPartidos.mntmGestionEquipos.addActionListener(this);
-		miVistaPartidos.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaPartidos.mntmConvocatorias.addActionListener(this);
+		miVistaPartidos.mntmPartidos.addActionListener(this);
+		miVistaPartidos.mntmPlanificacionSesiones.addActionListener(this);
+		miVistaPartidos.mntmCuotasJugadores.addActionListener(this);
 		miVistaPartidos.mntmMensajes.addActionListener(this);
-		
+		miVistaPartidos.btnInsert.addActionListener(this);
+
 		miVistaSesion.btnCerrarSesion.addActionListener(this);
 		miVistaSesion.mntmInicio.addActionListener(this);
+		miVistaSesion.mntmFichas.addActionListener(this);
 		miVistaSesion.mntmEstadisticas.addActionListener(this);
 		miVistaSesion.mntmGestionEquipos.addActionListener(this);
 		miVistaSesion.mntmConvocatorias.addActionListener(this);
-		miVistaSesion.mntmMensajes.addActionListener(this);
+		miVistaSesion.mntmPartidos.addActionListener(this);
+		miVistaSesion.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaSesion.mntmCuotasJugadores.addActionListener(this);
+		miVistaSesion.mntmMensajes.addActionListener(this);
 		miVistaSesion.btnBuscarSesion.addActionListener(this);
 		miVistaSesion.btnMuestraSesion.addActionListener(this);
 		miVistaSesion.btnGuardar.addActionListener(this);
 		miVistaSesion.btnModificarSesion.addActionListener(this);
 		miVistaSesion.btnNuevaSesion.addActionListener(this);
+		miVistaSesion.btnGuardarNueva.addActionListener(this);
 		miVistaSesion.btnEliminarSesion.addActionListener(this);
 		miVistaSesion.comboBoxSelecEquipo.addActionListener(this);
 		miVistaSesion.comboBoxSelecSesion.addActionListener(this);
@@ -1352,105 +1371,180 @@ public class Controlador implements ActionListener{
 			miVistaSesion.setVisible(false);
 			miVistaFichas.setVisible(true);
 		}
-		
+		/*
+		 * CORREGIR!!!!
+		 */
 		if (e.getSource()==miVistaSesion.btnBuscarSesion) {
 						
-			String cod_equipoBusc=(String) miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
+			String nombre_equipoBusc=(String) miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
 			
 			Sesiones_AD sesionAD=new Sesiones_AD();
-			Sesiones_TD sesion;
+			Sesiones_TD sesiones;
 
-			ArrayList<Integer>listaSesiones = new ArrayList<>();
-			listaSesiones=miSesiones_AD.rellenaComboSesion(cod_jugador);
+			ArrayList<String>listaSesiones = new ArrayList<>();
+			listaSesiones=sesionAD.rellenaComboSesion(nombre_equipoBusc);
 			
 			miVistaSesion.comboBoxSelecSesion.removeAllItems();
 			for (int i=0; i<listaSesiones.size();i++) {
 				miVistaSesion.comboBoxSelecSesion.addItem(listaSesiones.get(i));
-				
+			}
 				miVistaSesion.comboBoxSelecSesion.setEnabled(true);
 				miVistaSesion.btnMuestraSesion.setEnabled(true);
 				miVistaSesion.btnNuevaSesion.setEnabled(true);
+				
+				miVistaSesion.txtNombreEquipo.setText(nombre_equipoBusc);
+				
+				miVistaSesion.txtDiaSesion.setEnabled(false);
+				miVistaSesion.txtMinutosSesion.setEnabled(false);
+				miVistaSesion.textAreaObjetivosSesion.setEnabled(false);
+				miVistaSesion.textAreaMaterial.setEnabled(false);
+				miVistaSesion.textAreaObservaciones.setEnabled(false);
+				miVistaSesion.textAreaCalentamiento.setEnabled(false);
+				miVistaSesion.textAreaPartePrincipal.setEnabled(false);
+				miVistaSesion.textAreaVueltaCalma.setEnabled(false);
+			
+		}
+		
+		if (e.getSource()==miVistaSesion.btnMuestraSesion) {
+			
+			String diaBusc=(String)miVistaSesion.comboBoxSelecSesion.getSelectedItem();
+			
+			Sesiones_AD sesionAD=new Sesiones_AD();
+			Sesiones_TD sesiones;
+			
+			if (diaBusc==null)
+				JOptionPane.showMessageDialog(null, "No hay sesion seleccionada");
+			else {
+				//Busca jugador
+				sesiones=sesionAD.BuscarSesion(diaBusc);
+				
+				miVistaSesion.btnInformeAsistencia.setEnabled(true);
+				miVistaSesion.btnModificarSesion.setEnabled(true);
+				miVistaSesion.btnEliminarSesion.setEnabled(true);
+				
+				miVistaSesion.txtDiaSesion.setText(diaBusc);
+				miVistaSesion.txtMinutosSesion.setText(sesiones.getMinutos());
+				miVistaSesion.textAreaObjetivosSesion.setText(sesiones.getObjetivo());
+				miVistaSesion.textAreaMaterial.setText(sesiones.getMaterial());
+				miVistaSesion.textAreaObservaciones.setText(sesiones.getObservaciones_sesion());
+				miVistaSesion.textAreaCalentamiento.setText(sesiones.getCalentamiento());
+				miVistaSesion.textAreaPartePrincipal.setText(sesiones.getParte_principal());
+				miVistaSesion.textAreaVueltaCalma.setText(sesiones.getVuelta_calma());
+
 			}
 		}
 		
-		if (e.getSource()==miVistaFichas.btnModificar) {
+		if (e.getSource()==miVistaSesion.btnModificarSesion) {
 			
-			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
-			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
-			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
-			
-			Jugadores_AD jugadorAD=new Jugadores_AD();
-			Jugadores_TD jugador;
-			
-			jugador=jugadorAD.BuscarJugador(nombreBusc, apellidoBusc, equipoBusc);
-			cod_jugador=jugador.getCod_jugador();
-			
-			miVistaFichas.btnGuardar.setEnabled(true);
-			miVistaFichas.txtNombre.setEnabled(true);
-			miVistaFichas.txtApellido.setEnabled(true);
-			miVistaFichas.txtEquipo.setEnabled(true);
-			//miVistaFichas.txtFecha.setEnabled(true);
-			miVistaFichas.txtPosicion.setEnabled(true);
-			miVistaFichas.txtDorsal.setEnabled(true);
-			miVistaFichas.txtObservaciones.setEnabled(true);
-			
-//			miVistaFichas.txtNombre.setEditable(true);
-//			miVistaFichas.txtApellido.setEditable(true);
-//			miVistaFichas.txtEquipo.setEditable(true);
-//			miVistaFichas.txtPosicion.setEditable(true);
-//			miVistaFichas.txtDorsal.setEditable(true);
+			miVistaSesion.btnGuardar.setEnabled(true);
+			miVistaSesion.txtDiaSesion.setEnabled(true);
+			miVistaSesion.txtMinutosSesion.setEnabled(true);
+			miVistaSesion.textAreaObjetivosSesion.setEnabled(true);
+			miVistaSesion.textAreaMaterial.setEnabled(true);
+			miVistaSesion.textAreaObservaciones.setEnabled(true);
+			miVistaSesion.textAreaCalentamiento.setEnabled(true);
+			miVistaSesion.textAreaPartePrincipal.setEnabled(true);
+			miVistaSesion.textAreaVueltaCalma.setEnabled(true);
 			
 		}
 		
-		if (e.getSource()==miVistaFichas.btnGuardar) {
+		if (e.getSource()==miVistaSesion.btnGuardar) {
+
+			Sesiones_AD sesionAD=new Sesiones_AD();
 			
-			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
-			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
-			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
+			int cod_sesionModif= (int) miVistaSesion.comboBoxSelecSesion.getSelectedItem();
+			String nombreModif=miVistaSesion.txtNombreEquipo.getText();
+			String diaModif=miVistaSesion.txtDiaSesion.getText();
+			String minutosModif=miVistaSesion.txtMinutosSesion.getText();
+			String objetivoModif=miVistaSesion.textAreaObjetivosSesion.getText();
+			String materialModif=miVistaSesion.textAreaMaterial.getText();
+			String observaciones_sesionModif=miVistaSesion.textAreaObservaciones.getText();
+			String calentamientoModif=miVistaSesion.textAreaCalentamiento.getText();
+			String parte_principalModif=miVistaSesion.textAreaPartePrincipal.getText();
+			String vuelta_calmaModif=miVistaSesion.textAreaVueltaCalma.getText();
 			
-			Jugadores_AD jugadorAD=new Jugadores_AD();
-			Jugadores_TD jugador;
-			
-			String nombre=miVistaFichas.txtNombre.getText();
-			String apellido=miVistaFichas.txtApellido.getText();
-			String equipo=miVistaFichas.txtEquipo.getText();
-			String posicion=miVistaFichas.txtPosicion.getText();
-			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			String observaciones=miVistaFichas.txtObservaciones.getText();
-			boolean accion=jugadorAD.ModificaJugador(cod_jugador, nombre, apellido, equipo, posicion, dorsal,observaciones);
-			if (accion==true)
+			boolean accion=sesionAD.ModificaSesion(cod_sesionModif, nombreModif, diaModif, minutosModif, 
+													objetivoModif, materialModif, observaciones_sesionModif, 
+													calentamientoModif, parte_principalModif, vuelta_calmaModif);
+			if (accion==true) {
 				JOptionPane.showMessageDialog(null, "Modificación realizada correctamente");
-			else
+				miVistaSesion.btnGuardar.setEnabled(false);
+				
+			}else
 				JOptionPane.showMessageDialog(null, "ERROR! Modificación realizada incorrectamente");
 			
+		}
+		
+		if (e.getSource()==miVistaSesion.btnNuevaSesion) {
+			
+			miVistaSesion.txtDiaSesion.setText("");
+			miVistaSesion.txtMinutosSesion.setText("");
+			miVistaSesion.textAreaObjetivosSesion.setText("");
+			miVistaSesion.textAreaMaterial.setText("");
+			miVistaSesion.textAreaObservaciones.setText("");
+			miVistaSesion.textAreaCalentamiento.setText("");
+			miVistaSesion.textAreaPartePrincipal.setText("");
+			miVistaSesion.textAreaVueltaCalma.setText("");
+			
+			miVistaSesion.btnGuardarNueva.setEnabled(true);
+			miVistaSesion.btnModificarSesion.setEnabled(false);
+			miVistaSesion.btnGuardar.setEnabled(false);
+			miVistaSesion.btnEliminarSesion.setEnabled(false);
+			miVistaSesion.txtDiaSesion.setEnabled(true);
+			miVistaSesion.txtMinutosSesion.setEnabled(true);
+			miVistaSesion.textAreaObjetivosSesion.setEnabled(true);
+			miVistaSesion.textAreaMaterial.setEnabled(true);
+			miVistaSesion.textAreaObservaciones.setEnabled(true);
+			miVistaSesion.textAreaCalentamiento.setEnabled(true);
+			miVistaSesion.textAreaPartePrincipal.setEnabled(true);
+			miVistaSesion.textAreaVueltaCalma.setEnabled(true);
+
+		}
+		
+		if (e.getSource()==miVistaSesion.btnGuardarNueva) {
+
+			Sesiones_AD sesionAD=new Sesiones_AD();
+			
+			String nombre=miVistaSesion.txtNombreEquipo.getText();
+			String dia=miVistaSesion.txtDiaSesion.getText();
+			String minutos=miVistaSesion.txtMinutosSesion.getText();
+			String objetivo=miVistaSesion.textAreaObjetivosSesion.getText();
+			String material=miVistaSesion.textAreaMaterial.getText();
+			String observaciones_sesion=miVistaSesion.textAreaObservaciones.getText();
+			String calentamiento=miVistaSesion.textAreaCalentamiento.getText();
+			String parte_principal=miVistaSesion.textAreaPartePrincipal.getText();
+			String vuelta_calma=miVistaSesion.textAreaVueltaCalma.getText();
+			
+			boolean accion=sesionAD.InsertaSesion(nombre, dia, minutos, objetivo, material, 
+												observaciones_sesion, calentamiento, parte_principal, 
+												vuelta_calma);
+			if (accion==true && dia!="")
+				JOptionPane.showMessageDialog(null, "Nueva sesion realizada correctamente");
+			else
+				JOptionPane.showMessageDialog(null, "ERROR! Nueva sesion NO se ha realizado correctamente. Introduzca DIA");
+			
 			
 		}
 		
-		if (e.getSource()==miVistaFichas.btnInsert) {
-			Jugadores_AD jugadorAD=new Jugadores_AD();
-			String nombre_nuevo=miVistaFichas.txtNombre.getText();
-			String apellido_nuevo=miVistaFichas.txtApellido.getText();
-			String equipo_nuevo=miVistaFichas.txtEquipo.getText();
-			String posicion_nuevo=miVistaFichas.txtPosicion.getText();
-			String dorsal_comprobacion=miVistaFichas.txtDorsal.getText();
-			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			String observaciones=miVistaFichas.txtObservaciones.getText();
-			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && posicion_nuevo!="" && dorsal_comprobacion!=null) {
-				jugadorAD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal, observaciones);
-				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
-			} else
-				JOptionPane.showMessageDialog(null, "Introduzca todos los parámetros");
-		}
-		
-		if (e.getSource()==miVistaFichas.btnBorrar) {
-			Jugadores_AD jugadorAD=new Jugadores_AD();
-			boolean comprobar=jugadorAD.EliminaJugador(miVistaFichas.txtNombre.getText(), miVistaFichas.txtApellido.getText(), miVistaFichas.txtEquipo.getText());
+		if (e.getSource()==miVistaSesion.btnEliminarSesion) {
+			
+			Sesiones_AD sesionAD=new Sesiones_AD();
+			Sesiones_TD sesion = null;
+			
+			int cod_sesion = sesion.getCod_sesion();
+			
+			boolean comprobar=sesionAD.EliminaSesion(cod_sesion);
 			if (comprobar==true) {
-				JOptionPane.showMessageDialog(null, "Jugador Eliminado");
+				JOptionPane.showMessageDialog(null, "Sesion Eliminada");
 			} else
 				JOptionPane.showMessageDialog(null, "Error al eliminar, revise parámetros");
 		}
 		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
 		
 		
 		if (e.getSource()==miVistaPartidos.mntmFichas) {

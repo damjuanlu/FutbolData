@@ -52,9 +52,9 @@ public class VistaGestionEquipos extends JFrame{
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmConvocatorias;
+	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	public JMenu mnMensajes;
@@ -152,6 +152,11 @@ public VistaGestionEquipos() {
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
+		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnEntrenamiento.setHorizontalAlignment(SwingConstants.CENTER);
@@ -163,11 +168,6 @@ public VistaGestionEquipos() {
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 15));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -325,6 +325,7 @@ public VistaGestionEquipos() {
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);
 		
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){
@@ -357,13 +358,13 @@ public VistaGestionEquipos() {
 			}
 		});
 		
-		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
+		mntmPartidos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
-		mntmBaseDeDatos.addActionListener(new ActionListener(){
+		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -386,6 +387,7 @@ public VistaGestionEquipos() {
 				
 			}
 		});
+		
 		
 		comboBoxSelecEquipo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {

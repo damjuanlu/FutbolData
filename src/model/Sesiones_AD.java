@@ -12,14 +12,14 @@ public class Sesiones_AD {
 		//vacío
 	}
 
-	public Sesiones_TD BuscarSesion(int cod_sesionBusc, String nombreBusc, String diaBusc, int cod_equipoBusc) {
+	public Sesiones_TD BuscarSesion(String diaBusc) {
 		try {
 			
 			Sesiones_TD sesion = null;
 
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			String InstruccionSQL=("SELECT * FROM entrenamientos WHERE cod_sesion = " +cod_sesionBusc+" AND nombre = '"+nombreBusc+"' AND dia='"+diaBusc+"' AND cod_equipo="+cod_equipoBusc+"");
+			String InstruccionSQL=("SELECT * FROM entrenamientos WHERE dia = " +diaBusc+"");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();
@@ -35,9 +35,8 @@ public class Sesiones_AD {
 				String calentamiento=result.getString(8);
 				String parte_principal=result.getString(9);
 				String vuelta_calma=result.getString(10);
-				int cod_equipo=result.getInt(11);
 				
-				sesion = new Sesiones_TD(cod_sesion, nombre, dia, minutos, objetivo, material, observaciones_sesion, calentamiento, parte_principal, vuelta_calma, cod_equipo);
+				sesion = new Sesiones_TD(cod_sesion, nombre, dia, minutos, objetivo, material, observaciones_sesion, calentamiento, parte_principal, vuelta_calma);
 			  }
 			
 			miSentencia.close();
@@ -59,16 +58,16 @@ public class Sesiones_AD {
 	
 	public boolean ModificaSesion (	int cod_sesionModif, String nombreModif, String diaModif, String minutosModif, 
 									String objetivoModif, String materialModif, String observaciones_sesionModif, 
-									String calentamientoModif, String parte_principalModif, String vuelta_calmaModif, int cod_equipo) {
+									String calentamientoModif, String parte_principalModif, String vuelta_calmaModif) {
 		try {
 			Sesiones_TD sesion = null;
 	
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
 			
-			String InstruccionSQL=("UPDATE entrenamientos SET nombre_jugador = '" +nombreModif+"',apellido_jugador = '"+diaModif+
-									"',equipo='"+minutosModif+"', posicion='"+objetivoModif+"', dorsal='"+materialModif+"', observaciones='"+observaciones_sesionModif+
-									"', calentamiento='"+calentamientoModif+"', parte_principal='"+parte_principalModif+"', vuelta_calma='"+vuelta_calmaModif+"', cod_equipo="+cod_equipo+" WHERE cod_sesion="+cod_sesionModif);
+			String InstruccionSQL=("UPDATE entrenamientos SET nombre = '" +nombreModif+"',dia = '"+diaModif+
+									"',minutos='"+minutosModif+"', objetivo='"+objetivoModif+"', material='"+materialModif+"', observaciones_sesion='"+observaciones_sesionModif+
+									"', calentamiento='"+calentamientoModif+"', parte_principal='"+parte_principalModif+"', vuelta_calma='"+vuelta_calmaModif+"' WHERE cod_sesion="+cod_sesionModif);
 			
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
@@ -130,9 +129,9 @@ public class Sesiones_AD {
 //
 //	}
 	
-	public Sesiones_TD InsertaSesion(	String nombre, String dia, String minutos, 
+	public boolean InsertaSesion(	String nombre, String dia, String minutos, 
 										String objetivo, String material, String observaciones_sesion, 
-										String calentamiento, String parte_principal, String vuelta_calma, int cod_equipo) {
+										String calentamiento, String parte_principal, String vuelta_calma) {
 		try {
 			Sesiones_TD sesion=null;
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
@@ -143,18 +142,18 @@ public class Sesiones_AD {
 			rst.next();
 			int ID=(int)rst.getInt(1);
 			ID=ID+1;
-			String InstruccionSQL=("INSERT INTO entrenadores (cod_sesion, nombre, dia, minutos, objetivo, material, observaciones_sesion, calentamiento, parte_principal, vuelta_calma, cod_equipo) "
-					+ "VALUES ("+ID+", '" +nombre+"','"+dia+"','"+minutos+"','"+objetivo+"','"+material+"', "+observaciones_sesion+",'"+calentamiento+"','"+parte_principal+"','"+vuelta_calma+"',"+cod_equipo+")");
+			String InstruccionSQL=("INSERT INTO entrenamientos (cod_sesion, nombre, dia, minutos, objetivo, material, observaciones_sesion, calentamiento, parte_principal, vuelta_calma) "
+					+ "VALUES ("+ID+", '" +nombre+"','"+dia+"','"+minutos+"','"+objetivo+"','"+material+"', '"+observaciones_sesion+"','"+calentamiento+"','"+parte_principal+"','"+vuelta_calma+"')");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			miSentencia.execute();
-			return null;
+			return true;
 		} catch (SQLException e) {
 			System.out.println(e);
-			return null;
+			return false;
 		} catch (NullPointerException e) {
 			System.out.println("Error");
-			return null;
+			return false;
 		}
 	}
 	
@@ -176,15 +175,16 @@ public class Sesiones_AD {
 		}
 	}
 	
-	public ArrayList<Integer> rellenaComboSesion(int cod_equipo){
+	/*
+	 * CORREGIR!!!!
+	 */
+	public ArrayList<String> rellenaComboSesion(String nombre_equipo){
 
-		Sesiones_TD sesion = null;
 		try {
-			ArrayList<Integer> ListSesion = new ArrayList();
+			ArrayList<String> ListSesion = new ArrayList();
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 			System.out.println("Se ha conectado a la BD");
-			//int cod_equipo = ("SELECT cod_equipo FROM equipos WHERE nombre = "+nombre+"");
-			String InstruccionSQL=("SELECT dia FROM entrenamientos WHERE cod_equipo = " +cod_equipo+"");
+			String InstruccionSQL=("SELECT dia FROM entrenamientos WHERE nombre = '"+nombre_equipo+"'");
 			PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 			System.out.println(InstruccionSQL);
 			Statement stmt = miConexion.createStatement();

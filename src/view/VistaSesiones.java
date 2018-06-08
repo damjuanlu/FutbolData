@@ -38,6 +38,9 @@ import javax.swing.JEditorPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.JSeparator;
 import javax.swing.DropMode;
@@ -57,7 +60,7 @@ public class VistaSesiones extends JFrame{
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmPartidosDisputados;
 	public JMenuItem mntmConvocatorias;
-	public JMenuItem mntmCalendariosYResultados;
+	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
 	public JMenuItem mntmBaseDeDatos;
@@ -84,6 +87,7 @@ public class VistaSesiones extends JFrame{
 	public JButton btnEliminarSesion;
 	public JButton btnGuardar;
 	public JButton btnNuevaSesion;
+	public JButton btnGuardarNueva;
 	public JLabel lblInformativo;
 	public JTextField txtNombreEquipo;
 	private JLabel label;
@@ -183,10 +187,10 @@ public VistaSesiones() {
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
 		
-		mntmCalendariosYResultados = new JMenuItem("CALENDARIOS Y RESULTADOS");
-		mntmCalendariosYResultados.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmCalendariosYResultados.setFont(new Font("Agency FB", Font.BOLD, 15));
-		mnCompeticion.add(mntmCalendariosYResultados);
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -329,7 +333,7 @@ public VistaSesiones() {
 		btnEliminarSesion.setEnabled(false);
 		btnEliminarSesion.setDefaultCapable(false);
 		btnEliminarSesion.setBackground(SystemColor.activeCaption);
-		btnEliminarSesion.setBounds(298, 150, 146, 25);
+		btnEliminarSesion.setBounds(445, 150, 146, 25);
 		panel.add(btnEliminarSesion);
 		
 		btnGuardar = new JButton("GUARDAR SESION");
@@ -340,7 +344,7 @@ public VistaSesiones() {
 		btnGuardar.setEnabled(false);
 		btnGuardar.setDefaultCapable(false);
 		btnGuardar.setBackground(SystemColor.activeCaption);
-		btnGuardar.setBounds(601, 150, 146, 25);
+		btnGuardar.setBounds(279, 150, 146, 25);
 		panel.add(btnGuardar);
 		
 		btnNuevaSesion = new JButton("NUEVA SESION");
@@ -352,8 +356,19 @@ public VistaSesiones() {
 		btnNuevaSesion.setEnabled(false);
 		btnNuevaSesion.setDefaultCapable(false);
 		btnNuevaSesion.setBackground(SystemColor.activeCaption);
-		btnNuevaSesion.setBounds(885, 150, 130, 25);
+		btnNuevaSesion.setBounds(712, 150, 130, 25);
 		panel.add(btnNuevaSesion);
+		
+		btnGuardarNueva = new JButton("GUARDAR NUEVA");
+		btnGuardarNueva.setVerticalAlignment(SwingConstants.TOP);
+		btnGuardarNueva.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnGuardarNueva.setFocusable(false);
+		btnGuardarNueva.setFocusPainted(false);
+		btnGuardarNueva.setEnabled(false);
+		btnGuardarNueva.setDefaultCapable(false);
+		btnGuardarNueva.setBackground(SystemColor.activeCaption);
+		btnGuardarNueva.setBounds(869, 150, 146, 25);
+		panel.add(btnGuardarNueva);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(85, 180, 930, 2);
@@ -510,6 +525,7 @@ public VistaSesiones() {
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);
 		
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){
@@ -542,7 +558,7 @@ public VistaSesiones() {
 			}
 		});
 		
-		mntmCalendariosYResultados.addActionListener(new ActionListener(){
+		mntmPartidos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -554,13 +570,13 @@ public VistaSesiones() {
 			}
 		});
 		
-		mntmBaseDeDatos.addActionListener(new ActionListener(){
+		mntmCuotasJugadores.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		
-		mntmCuotasJugadores.addActionListener(new ActionListener(){
+		mntmMensajes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -571,6 +587,7 @@ public VistaSesiones() {
 				
 			}
 		});
+		
 
 		btnBuscarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -578,7 +595,7 @@ public VistaSesiones() {
 			}
 		});
 
-		btnBuscarSesion.addActionListener(new ActionListener() {
+		btnMuestraSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -597,6 +614,12 @@ public VistaSesiones() {
 		});
 
 		btnNuevaSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		btnGuardarNueva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}

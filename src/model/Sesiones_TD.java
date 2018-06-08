@@ -16,12 +16,11 @@ public class Sesiones_TD {
 	private String calentamiento;
 	private String parte_principal;
 	private String vuelta_calma;
-	private int cod_equipo;
 
 	public Sesiones_TD( int cod_sesion, String nombre, String dia, String minutos, String objetivo, 
 						String material, String observaciones_sesion, String calentamiento, 
-						String parte_principal, String vuelta_calma, int cod_equipo) {
-		this.cod_equipo=cod_equipo;
+						String parte_principal, String vuelta_calma) {
+		this.cod_sesion=cod_sesion;
 		this.nombre=nombre;
 		this.dia=dia;
 		this.minutos=minutos;
@@ -31,17 +30,16 @@ public class Sesiones_TD {
 		this.calentamiento=calentamiento;
 		this.parte_principal=parte_principal;
 		this.vuelta_calma=vuelta_calma;
-		this.cod_sesion=cod_sesion;
 	}
 
-	public int getCod_equipo() {
-		return cod_equipo;
+	public int getCod_sesion() {
+		return cod_sesion;
 	}
 
-	public void setCod_equipo(int cod_equipo) {
-		this.cod_equipo = cod_equipo;
+	public void setCod_sesion(int cod_sesion) {
+		this.cod_sesion = cod_sesion;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -113,16 +111,5 @@ public class Sesiones_TD {
 	public void setVuelta_calma(String vuelta_calma) {
 		this.vuelta_calma = vuelta_calma;
 	}
-
-	public int getCod_sesion() {
-		return cod_sesion;
-	}
-
-	public void setCod_sesion(int cod_sesion) {
-		this.cod_sesion = cod_sesion;
-	}
-
-
-
 	
 }

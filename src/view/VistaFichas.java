@@ -39,6 +39,7 @@ public class VistaFichas extends JFrame{
 	public JMenu mnCompeticion;
 	public JMenuItem mntmGestionEquipos;
 	public JMenuItem mntmConvocatorias;
+	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
 	public JMenu mnAdministracion;
@@ -144,6 +145,11 @@ public VistaFichas() {
 		mntmConvocatorias.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmConvocatorias.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnCompeticion.add(mntmConvocatorias);
+		
+		mntmPartidos = new JMenuItem("PARTIDOS");
+		mntmPartidos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		mntmPartidos.setFont(new Font("Agency FB", Font.BOLD, 15));
+		mnCompeticion.add(mntmPartidos);
 		
 		mnEntrenamiento = new JMenu("ENTRENAMIENTO");
 		mnEntrenamiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -424,6 +430,7 @@ public VistaFichas() {
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);
 		
+		
 		//ACTION LISTENER
 		
 		mntmInicio.addActionListener(new ActionListener(){
@@ -456,6 +463,12 @@ public VistaFichas() {
 			}
 		});
 		
+		mntmPartidos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
@@ -479,6 +492,7 @@ public VistaFichas() {
 				
 			}
 		});
+		
 		
 		comboBoxSelecEquipo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {

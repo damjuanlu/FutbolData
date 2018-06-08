@@ -30,7 +30,7 @@ public class VistaPartidos extends JFrame{
 	private JPanel panel;
 	private JMenuBar menuPrincipal;
 	public JMenuItem mntmInicio;
-	private JMenu mnJugadores;
+	public JMenu mnJugadores;
 	public JMenuItem mntmFichas;
 	public JMenuItem mntmEstadisticas;
 	public JMenu mnCompeticion;
@@ -275,74 +275,73 @@ public class VistaPartidos extends JFrame{
 		lblNewLabel.setBounds(0, 15, 1080, 680);
 		panel.add(lblNewLabel);
 		
-		
 		//ACTION LISTENER
 		
-				mntmInicio.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+		mntmInicio.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmFichas.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmFichas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmEstadisticas.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmEstadisticas.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmGestionEquipos.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmGestionEquipos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmConvocatorias.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmConvocatorias.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmPartidos.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmPartidos.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmPlanificacionSesiones.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmPlanificacionSesiones.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmCuotasJugadores.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmCuotasJugadores.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				mntmMensajes.addActionListener(new ActionListener(){
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		mntmMensajes.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
 				
-				btnCerrarSesion.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+		
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-				btnInsert.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
+			}
+		});
+				
+		btnInsert.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	}
 	
 	
