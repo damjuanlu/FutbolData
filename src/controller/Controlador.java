@@ -412,27 +412,29 @@ public class Controlador implements ActionListener{
 			miVistaConvocatorias.setVisible(true);
 		}
 
-		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {
-				
+		if (e.getSource()==miVistaPrincipal.mntmPartidos) {
+			miVistaPrincipal.setVisible(false);
+			miVistaPartidos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmPlanificacionSesiones) {
+			miVistaPrincipal.setVisible(false);
+			miVistaSesion.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPrincipal.mntmCuotasJugadores) {
+			miVistaPrincipal.setVisible(false);
+			miVistaCuotas.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaPrincipal.mntmMensajes) {
 			miVistaPrincipal.setVisible(false);
 			miVistaMensajes.setVisible(true);
 		}
-		if (e.getSource()==miVistaPrincipal.mntmCuotasJugadores) {
-			miVistaPrincipal.setVisible(false);
-			miVistaCuotas.setVisible(true);
+
+		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {
+				
 		}
-		if (e.getSource()==miVistaPrincipal.mntmPlanificacionSesiones) {
-			miVistaPrincipal.setVisible(false);
-			miVistaSesion.setVisible(true);
-		}
-		if (e.getSource()==miVistaPrincipal.mntmPartidos) {
-			miVistaPrincipal.setVisible(false);
-			miVistaPartidos.setVisible(true);
-		}
-		
 		/*
 		 * 
 		 * 
@@ -465,7 +467,7 @@ public class Controlador implements ActionListener{
 			miVistaFichas.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-
+		
 		if (e.getSource()==miVistaFichas.mntmGestionEquipos) {
 			miVistaFichas.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
@@ -474,16 +476,26 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaFichas.mntmConvocatorias) {
 			miVistaFichas.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
-		} 
+		}
+
+		if (e.getSource()==miVistaFichas.mntmPartidos) {
+			miVistaFichas.setVisible(false);
+			miVistaPartidos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaFichas.mntmPlanificacionSesiones) {
+			miVistaFichas.setVisible(false);
+			miVistaSesion.setVisible(true);
+		}
 		
 		if (e.getSource()==miVistaFichas.mntmCuotasJugadores) {
 			miVistaFichas.setVisible(false);
 			miVistaCuotas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaFichas.mntmPlanificacionSesiones) {
+		if (e.getSource()==miVistaFichas.mntmMensajes) {
 			miVistaFichas.setVisible(false);
-			miVistaSesion.setVisible(true);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaFichas.btnBuscar) {
@@ -630,15 +642,19 @@ public class Controlador implements ActionListener{
 			miVistaFichas.setVisible(true);
 		}
 		
-		
 		if (e.getSource()==miVistaGestionEquipos.mntmEstadisticas) {
 			miVistaGestionEquipos.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-		
-		if (e.getSource()==miVistaGestionEquipos.mntmMensajes) {
+
+		if (e.getSource()==miVistaGestionEquipos.mntmConvocatorias) {
 			miVistaGestionEquipos.setVisible(false);
-			miVistaMensajes.setVisible(true);
+			miVistaConvocatorias.setVisible(true);
+		}
+
+		if (e.getSource()==miVistaGestionEquipos.mntmPartidos) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaPartidos.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.mntmPlanificacionSesiones) {
@@ -646,9 +662,14 @@ public class Controlador implements ActionListener{
 			miVistaSesion.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaGestionEquipos.mntmConvocatorias) {
+		if (e.getSource()==miVistaGestionEquipos.mntmCuotasJugadores) {
 			miVistaGestionEquipos.setVisible(false);
-			miVistaConvocatorias.setVisible(true);
+			miVistaCuotas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaGestionEquipos.mntmMensajes) {
+			miVistaGestionEquipos.setVisible(false);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaGestionEquipos.comboBoxSelecEquipo) {
@@ -878,6 +899,11 @@ public class Controlador implements ActionListener{
 			miVistaPrincipal.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaMensajes.mntmFichas) {
+			miVistaFichas.setVisible(false);
+			miVistaPrincipal.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaMensajes.mntmEstadisticas) {
 			miVistaMensajes.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
@@ -953,16 +979,26 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaEstadisticas.mntmConvocatorias) {
 			miVistaEstadisticas.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
-		} 
+		}
+
+		if (e.getSource()==miVistaEstadisticas.mntmPartidos) {
+			miVistaEstadisticas.setVisible(false);
+			miVistaPartidos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaEstadisticas.mntmPlanificacionSesiones) {
+			miVistaEstadisticas.setVisible(false);
+			miVistaSesion.setVisible(true);
+		}
 		
 		if (e.getSource()==miVistaEstadisticas.mntmCuotasJugadores) {
 			miVistaEstadisticas.setVisible(false);
 			miVistaCuotas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaEstadisticas.mntmPlanificacionSesiones) {
+		if (e.getSource()==miVistaEstadisticas.mntmMensajes) {
 			miVistaEstadisticas.setVisible(false);
-			miVistaSesion.setVisible(true);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaEstadisticas.btnBuscar) {
@@ -1077,11 +1113,16 @@ public class Controlador implements ActionListener{
 			miVistaPrincipal.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaCuotas.mntmFichas) {
+			miVistaCuotas.setVisible(false);
+			miVistaFichas.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaCuotas.mntmEstadisticas) {
 			miVistaCuotas.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-
+		
 		if (e.getSource()==miVistaCuotas.mntmGestionEquipos) {
 			miVistaCuotas.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
@@ -1090,16 +1131,21 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaCuotas.mntmConvocatorias) {
 			miVistaCuotas.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
-		} 
-		
-		if (e.getSource()==miVistaCuotas.mntmCuotasJugadores) {
+		}
+
+		if (e.getSource()==miVistaCuotas.mntmPartidos) {
 			miVistaCuotas.setVisible(false);
-			miVistaCuotas.setVisible(true);
+			miVistaPartidos.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaCuotas.mntmPlanificacionSesiones) {
 			miVistaCuotas.setVisible(false);
 			miVistaSesion.setVisible(true);
+		}
+
+		if (e.getSource()==miVistaCuotas.mntmMensajes) {
+			miVistaCuotas.setVisible(false);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaCuotas.btnBuscarJug) {
@@ -1170,29 +1216,39 @@ public class Controlador implements ActionListener{
 			miVistaPrincipal.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaConvocatorias.mntmFichas) {
+			miVistaConvocatorias.setVisible(false);
+			miVistaFichas.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaConvocatorias.mntmEstadisticas) {
 			miVistaConvocatorias.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-
+		
 		if (e.getSource()==miVistaConvocatorias.mntmGestionEquipos) {
 			miVistaConvocatorias.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
 		}
-		
-		if (e.getSource()==miVistaConvocatorias.mntmConvocatorias) {
+
+		if (e.getSource()==miVistaConvocatorias.mntmPartidos) {
 			miVistaConvocatorias.setVisible(false);
-			miVistaConvocatorias.setVisible(true);
-		} 
+			miVistaPartidos.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaConvocatorias.mntmPlanificacionSesiones) {
+			miVistaConvocatorias.setVisible(false);
+			miVistaSesion.setVisible(true);
+		}
 		
 		if (e.getSource()==miVistaConvocatorias.mntmCuotasJugadores) {
 			miVistaConvocatorias.setVisible(false);
 			miVistaCuotas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaConvocatorias.mntmPlanificacionSesiones) {
+		if (e.getSource()==miVistaConvocatorias.mntmMensajes) {
 			miVistaConvocatorias.setVisible(false);
-			miVistaSesion.setVisible(true);
+			miVistaMensajes.setVisible(true);
 		}
 		
 		if (e.getSource()==miVistaConvocatorias.btnBuscar){
@@ -1347,11 +1403,16 @@ public class Controlador implements ActionListener{
 			miVistaPrincipal.setVisible(true);
 		}
 		
+		if (e.getSource()==miVistaSesion.mntmFichas) {
+			miVistaSesion.setVisible(false);
+			miVistaFichas.setVisible(true);
+		}
+		
 		if (e.getSource()==miVistaSesion.mntmEstadisticas) {
 			miVistaSesion.setVisible(false);
 			miVistaEstadisticas.setVisible(true);
 		}
-
+		
 		if (e.getSource()==miVistaSesion.mntmGestionEquipos) {
 			miVistaSesion.setVisible(false);
 			miVistaGestionEquipos.setVisible(true);
@@ -1360,16 +1421,21 @@ public class Controlador implements ActionListener{
 		if (e.getSource()==miVistaSesion.mntmConvocatorias) {
 			miVistaSesion.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
-		} 
+		}
+
+		if (e.getSource()==miVistaSesion.mntmPartidos) {
+			miVistaSesion.setVisible(false);
+			miVistaPartidos.setVisible(true);
+		}
 		
 		if (e.getSource()==miVistaSesion.mntmCuotasJugadores) {
 			miVistaSesion.setVisible(false);
 			miVistaCuotas.setVisible(true);
 		}
 		
-		if (e.getSource()==miVistaSesion.mntmFichas) {
+		if (e.getSource()==miVistaSesion.mntmMensajes) {
 			miVistaSesion.setVisible(false);
-			miVistaFichas.setVisible(true);
+			miVistaMensajes.setVisible(true);
 		}
 
 		if (e.getSource()==miVistaSesion.btnBuscarSesion) {
@@ -1542,7 +1608,7 @@ public class Controlador implements ActionListener{
 		
 		/*
 		 * 
-		 * 
+		 * LISTENER VISTA PARTIDOS
 		 * 
 		 */
 		
@@ -1566,22 +1632,20 @@ public class Controlador implements ActionListener{
 			miVistaPartidos.setVisible(false);
 			miVistaConvocatorias.setVisible(true);
 		}
-		
-		if (e.getSource()==miVistaPartidos.mntmMensajes) {
-			miVistaPartidos.setVisible(false);
-			miVistaMensajes.setVisible(true);
-		}
-		if (e.getSource()==miVistaPartidos.mntmCuotasJugadores) {
-			miVistaPartidos.setVisible(false);
-			miVistaCuotas.setVisible(true);
-		}
+
 		if (e.getSource()==miVistaPartidos.mntmPlanificacionSesiones) {
 			miVistaPartidos.setVisible(false);
 			miVistaSesion.setVisible(true);
 		}
-		if (e.getSource()==miVistaPartidos.mntmPartidos) {
+		
+		if (e.getSource()==miVistaPartidos.mntmCuotasJugadores) {
 			miVistaPartidos.setVisible(false);
-			miVistaPartidos.setVisible(true);
+			miVistaCuotas.setVisible(true);
+		}
+		
+		if (e.getSource()==miVistaPartidos.mntmMensajes) {
+			miVistaPartidos.setVisible(false);
+			miVistaMensajes.setVisible(true);
 		}
 		if (e.getSource()==miVistaPartidos.btnInsert) {
 			Partidos_AD partidosAD = new Partidos_AD();
