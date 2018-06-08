@@ -63,7 +63,6 @@ public class VistaSesiones extends JFrame{
 	public JMenuItem mntmPartidos;
 	public JMenu mnEntrenamiento;
 	public JMenuItem mntmPlanificacionSesiones;
-	public JMenuItem mntmBaseDeDatos;
 	public JMenu mnAdministracion;
 	public JMenuItem mntmCuotasJugadores;
 	public JMenu mnAyuda;
@@ -203,11 +202,6 @@ public VistaSesiones() {
 		mntmPlanificacionSesiones.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mntmPlanificacionSesiones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnEntrenamiento.add(mntmPlanificacionSesiones);
-		
-		mntmBaseDeDatos = new JMenuItem("BASE DE DATOS EJERCICIOS");
-		mntmBaseDeDatos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmBaseDeDatos.setFont(new Font("Agency FB", Font.BOLD, 12));
-		mnEntrenamiento.add(mntmBaseDeDatos);
 		
 		mnAdministracion = new JMenu("ADMINISTRACI\u00D3N");
 		mnAdministracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
