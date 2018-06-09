@@ -85,11 +85,14 @@ public class Controlador implements ActionListener{
 		miVistaEstadisticas.comboBoxSelecEquipo.addActionListener(this);
 		miVistaEstadisticas.comboBoxSelecEquipo.removeAllItems();
 		miVistaSesion.comboBoxSelecEquipo.removeAllItems();
+		miVistaCuotas.comboEquipo.addActionListener(this);
+		miVistaCuotas.comboEquipo.removeAllItems();
 		for (int i=0; i<listaEquipos.size();i++) {
 			miVistaFichas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaEstadisticas.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaGestionEquipos.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
 			miVistaSesion.comboBoxSelecEquipo.addItem(listaEquipos.get(i));
+			miVistaCuotas.comboEquipo.addItem(listaEquipos.get(i));
 		}
 		
 		//Asociar el componente Swing al listener

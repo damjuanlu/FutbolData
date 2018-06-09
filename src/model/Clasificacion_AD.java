@@ -62,12 +62,12 @@ public class Clasificacion_AD {
 			try {
 				Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 				System.out.println("Se ha conectado a la BD");
-				String InstruccionSQL=("UPDATE clasificacion SET puntos = puntos + 3, partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_local+", gol_contra = gol_contra + "+gol_visit+" WHERE nombre_eq='"+eq_local+"'");
+				String InstruccionSQL=("UPDATE clasificacion SET partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_local+", gol_contra = gol_contra + "+gol_visit+" WHERE nombre_eq='"+eq_local+"'");
 				PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 				System.out.println(InstruccionSQL);
 				miSentencia.executeUpdate();
 
-				String InstruccionSQL2=("UPDATE clasificacion SET partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_visit+", gol_contra = gol_contra + "+gol_local+" WHERE nombre_eq='"+eq_visit+"'");
+				String InstruccionSQL2=("UPDATE clasificacion SET puntos = puntos + 3, partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_visit+", gol_contra = gol_contra + "+gol_local+" WHERE nombre_eq='"+eq_visit+"'");
 				PreparedStatement miSentencia2= miConexion.prepareStatement(InstruccionSQL2);
 				System.out.println(InstruccionSQL2);
 				miSentencia2.executeUpdate();
@@ -85,12 +85,12 @@ public class Clasificacion_AD {
 			try {
 				Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost/sportclubdata", "presidente", "presidente");
 				System.out.println("Se ha conectado a la BD");
-				String InstruccionSQL=("UPDATE clasificacion SET partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_local+", gol_contra = gol_contra + "+gol_visit+" WHERE nombre_eq='"+eq_local+"'");
+				String InstruccionSQL=("UPDATE clasificacion SET puntos = puntos + 3, partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_local+", gol_contra = gol_contra + "+gol_visit+" WHERE nombre_eq='"+eq_local+"'");
 				PreparedStatement miSentencia= miConexion.prepareStatement(InstruccionSQL);
 				System.out.println(InstruccionSQL);
 				miSentencia.executeUpdate();
 
-				String InstruccionSQL2=("UPDATE clasificacion SET puntos = puntos + 3, partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_visit+", gol_contra = gol_contra + "+gol_local+" WHERE nombre_eq='"+eq_visit+"'");
+				String InstruccionSQL2=("UPDATE clasificacion SET partidos_jug=partidos_jug+1, gol_favor = gol_favor +"+gol_visit+", gol_contra = gol_contra + "+gol_local+" WHERE nombre_eq='"+eq_visit+"'");
 				PreparedStatement miSentencia2= miConexion.prepareStatement(InstruccionSQL2);
 				System.out.println(InstruccionSQL2);
 				miSentencia2.executeUpdate();
