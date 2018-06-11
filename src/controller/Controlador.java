@@ -1465,11 +1465,11 @@ public class Controlador implements ActionListener{
 						
 			String nombre_equipoBusc=(String) miVistaSesion.comboBoxSelecEquipo.getSelectedItem();
 			
-			Sesiones_AD sesionAD=new Sesiones_AD();
-			Sesiones_TD sesiones;
+//			Sesiones_AD sesionAD=new Sesiones_AD();
+//			Sesiones_TD sesiones;
 
 			ArrayList<String>listaSesiones = new ArrayList<>();
-			listaSesiones=sesionAD.rellenaComboSesion(nombre_equipoBusc);
+			listaSesiones=miSesiones_AD.rellenaComboSesion(nombre_equipoBusc);
 			
 			miVistaSesion.comboBoxSelecSesion.removeAllItems();
 			for (int i=0; i<listaSesiones.size();i++) {
@@ -1496,14 +1496,12 @@ public class Controlador implements ActionListener{
 			
 			String diaBusc=(String)miVistaSesion.comboBoxSelecSesion.getSelectedItem();
 			
-			Sesiones_AD sesionAD=new Sesiones_AD();
-			Sesiones_TD sesiones=null;
 			
 			if (diaBusc==null)
 				JOptionPane.showMessageDialog(null, "No hay sesion seleccionada");
 			else {
 				//Busca jugador
-				sesiones=sesionAD.BuscarSesion(diaBusc);
+				sesiones=miSesiones_AD.BuscarSesion(diaBusc);
 				
 				miVistaSesion.btnInformeSesion.setEnabled(true);
 				miVistaSesion.btnModificarSesion.setEnabled(true);
@@ -1617,12 +1615,10 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaSesion.btnEliminarSesion) {
 			
-			Sesiones_AD sesionAD=new Sesiones_AD();
-			Sesiones_TD sesion = null;
 			
-			int cod_sesion = sesion.getCod_sesion();
+			int cod_sesion = sesiones.getCod_sesion();
 			
-			boolean comprobar=sesionAD.EliminaSesion(cod_sesion);
+			boolean comprobar=miSesiones_AD.EliminaSesion(cod_sesion);
 			if (comprobar==true) {
 				JOptionPane.showMessageDialog(null, "Sesion Eliminada");
 			} else
