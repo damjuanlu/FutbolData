@@ -198,7 +198,7 @@ public VistaPrincipal() {
 		btnSelectorEscudo.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnSelectorEscudo.setMargin(new Insets(0, 14, 0, 14));
 		btnSelectorEscudo.setToolTipText("Cambia Escudo");
-		btnSelectorEscudo.setBounds(1014, 192, 30, 12);
+		btnSelectorEscudo.setBounds(1019, 273, 30, 12);
 		panel.add(btnSelectorEscudo);
 		
 		btnSelectorEscudo.addActionListener(new ActionListener() {
