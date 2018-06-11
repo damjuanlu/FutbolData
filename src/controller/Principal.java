@@ -2,8 +2,12 @@ package controller;
 
 import view.*;
 
+import java.util.Properties;
+
 import javax.swing.UIManager;
 import javax.swing.UIManager.*;
+
+import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 
 public class Principal {
 
@@ -11,6 +15,9 @@ public class Principal {
 		// TODO Auto-generated method stub
 		
 		try {
+			  Properties props = new Properties();
+			  props.put("logoString", "...");
+			  AcrylLookAndFeel.setCurrentTheme(props);
 			//UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
 			UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
 			//UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel");

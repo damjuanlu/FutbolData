@@ -40,6 +40,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTextArea;
 import javax.swing.JSeparator;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class VistaGestionEquipos extends JFrame{
 
@@ -78,6 +80,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JTextArea textAreaDatosEquipo;
 	private JSeparator separator;
 	public JButton btnInformeEquipo;
+	private JScrollPane scrollBarJug;
 
 public VistaGestionEquipos() {
 		
@@ -322,7 +325,12 @@ public VistaGestionEquipos() {
 		textAreaJugadores.setFocusable(false);
 		textAreaJugadores.setBorder(new LineBorder(new Color(0, 0, 0)));
 		textAreaJugadores.setBounds(35, 211, 260, 434);
-		panel.add(textAreaJugadores);
+		textAreaJugadores.setLineWrap(true);
+		//panel.add(textAreaJugadores);
+		
+		scrollBarJug = new JScrollPane(textAreaJugadores);
+		scrollBarJug.setBounds(35, 211, 248, 449);
+		panel.add(scrollBarJug);
 		
 		textAreaPartidosEquipo = new JTextArea();
 		textAreaPartidosEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
