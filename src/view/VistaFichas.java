@@ -62,6 +62,7 @@ public class VistaFichas extends JFrame{
 	public JLabel lblApellido_1;
 	public JTextArea txtObservaciones;
 	public JLabel lblObservaciones;
+	public JButton btnSelectorFoto;
 	public JButton btnBuscar;
 	public JButton btnGuardar;
 	public JButton btnModificar;
@@ -200,6 +201,24 @@ public VistaFichas() {
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 11));
+		
+		btnSelectorFoto = new JButton("...");
+		btnSelectorFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSelectorFoto.setFocusable(false);
+		btnSelectorFoto.setDefaultCapable(false);
+		btnSelectorFoto.setFocusPainted(false);
+		btnSelectorFoto.setVerticalTextPosition(SwingConstants.BOTTOM);
+		btnSelectorFoto.setVerticalAlignment(SwingConstants.BOTTOM);
+		btnSelectorFoto.setMargin(new Insets(0, 14, 0, 14));
+		btnSelectorFoto.setToolTipText("Cambia Escudo");
+		btnSelectorFoto.setBounds(180, 422, 30, 12);
+		panel.add(btnSelectorFoto);
+		
+		btnSelectorFoto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		txtNombre = new JTextField();
 		txtNombre.setFont(new Font("Agency FB", Font.PLAIN, 15));

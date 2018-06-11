@@ -60,6 +60,7 @@ public class VistaGestionEquipos extends JFrame{
 	public JMenu mnMensajes;
 	public JMenuItem mntmMensajes;
 	public JButton btnCerrarSesion;
+	public JButton btnSelectorFoto;
 	public JButton btnMostrarEquipo;
 	public JButton btnAgregarEquipo;
 	public JButton btnEliminarEquipo;
@@ -206,6 +207,24 @@ public VistaGestionEquipos() {
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
 		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
+		
+		btnSelectorFoto = new JButton("...");
+		btnSelectorFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSelectorFoto.setFocusable(false);
+		btnSelectorFoto.setDefaultCapable(false);
+		btnSelectorFoto.setFocusPainted(false);
+		btnSelectorFoto.setVerticalTextPosition(SwingConstants.BOTTOM);
+		btnSelectorFoto.setVerticalAlignment(SwingConstants.BOTTOM);
+		btnSelectorFoto.setMargin(new Insets(0, 14, 0, 14));
+		btnSelectorFoto.setToolTipText("Cambia Escudo");
+		btnSelectorFoto.setBounds(1014, 453, 30, 12);
+		panel.add(btnSelectorFoto);
+		
+		btnSelectorFoto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		lblFotoPlantilla = new JLabel("");
 		lblFotoPlantilla.setBorder(new LineBorder(new Color(0, 0, 0)));
