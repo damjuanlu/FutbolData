@@ -89,7 +89,7 @@ public class VistaSesiones extends JFrame{
 	public JButton btnGuardarNueva;
 	public JLabel lblInformativo;
 	public JTextField txtNombreEquipo;
-	private JLabel label;
+	private JLabel lblDaddmmaaaa;
 	public JTextField txtDiaSesion;
 	private JLabel lblMinutosDeLa;
 	public JTextField txtMinutosSesion;
@@ -390,11 +390,11 @@ public VistaSesiones() {
 		txtNombreEquipo.setBounds(173, 186, 140, 20);
 		panel.add(txtNombreEquipo);
 		
-		label = new JLabel("D\u00CDA (dd/mm/aaaa)");
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setFont(new Font("Agency FB", Font.BOLD, 15));
-		label.setBounds(390, 189, 130, 14);
-		panel.add(label);
+		lblDaddmmaaaa = new JLabel("D\u00CDA (dd-mm-aaaa)");
+		lblDaddmmaaaa.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDaddmmaaaa.setFont(new Font("Agency FB", Font.BOLD, 15));
+		lblDaddmmaaaa.setBounds(390, 189, 130, 14);
+		panel.add(lblDaddmmaaaa);
 		
 		txtDiaSesion = new JTextField();
 		txtDiaSesion.setEnabled(false);
