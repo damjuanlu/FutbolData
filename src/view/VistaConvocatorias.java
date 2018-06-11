@@ -198,7 +198,7 @@ public VistaConvocatorias() {
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
-		btnCerrarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
 		//OBTENER IMAGEN DE PLANTILLA
 		ImageIcon imgPlantilla = new ImageIcon("src/Repositorios/fotoPlantillaATM.jpg");

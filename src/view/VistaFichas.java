@@ -200,7 +200,7 @@ public VistaFichas() {
 		btnCerrarSesion.setFocusPainted(false);
 		btnCerrarSesion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		menuPrincipal.add(btnCerrarSesion);
-		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 11));
+		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
 		btnSelectorFoto = new JButton("...");
 		btnSelectorFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

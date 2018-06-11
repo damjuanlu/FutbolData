@@ -119,7 +119,7 @@ public VistaPrincipal() {
 		
 		mntmEstadisticas = new JMenuItem("ESTAD\u00CDSTICAS");
 		mntmEstadisticas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 12));
+		mntmEstadisticas.setFont(new Font("Agency FB", Font.BOLD, 15));
 		mnJugadores.add(mntmEstadisticas);
 		
 		mnCompeticion = new JMenu("COMPETICI\u00D3N");
