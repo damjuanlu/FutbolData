@@ -81,7 +81,7 @@ public class VistaSesiones extends JFrame{
 	public String mesSeleccionado;
 	public JButton btnBuscarSesion;
 	public JButton btnMuestraSesion;
-	public JButton btnInformeAsistencia;
+	public JButton btnInformeSesion;
 	public JButton btnModificarSesion;
 	public JButton btnEliminarSesion;
 	public JButton btnGuardar;
@@ -267,17 +267,17 @@ public VistaSesiones() {
 		Icon imagenCabecera = new ImageIcon(imgCabecera.getImage().getScaledInstance(lblInformativo.getWidth(), imgCabecera.getIconHeight(), Image.SCALE_DEFAULT));
 		lblInformativo.setIcon(imagenCabecera);
 		
-		btnInformeAsistencia = new JButton("INFORME");
-		btnInformeAsistencia.setEnabled(false);
-		btnInformeAsistencia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnInformeAsistencia.setFocusable(false);
-		btnInformeAsistencia.setFocusPainted(false);
-		btnInformeAsistencia.setDefaultCapable(false);
-		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
-		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeAsistencia.setFont(new Font("Agency FB", Font.BOLD, 15));
-		btnInformeAsistencia.setBounds(915, 95, 100, 25);
-		panel.add(btnInformeAsistencia);
+		btnInformeSesion = new JButton("INFORME");
+		btnInformeSesion.setEnabled(false);
+		btnInformeSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnInformeSesion.setFocusable(false);
+		btnInformeSesion.setFocusPainted(false);
+		btnInformeSesion.setDefaultCapable(false);
+		btnInformeSesion.setBackground(SystemColor.activeCaption);
+		btnInformeSesion.setVerticalAlignment(SwingConstants.TOP);
+		btnInformeSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
+		btnInformeSesion.setBounds(915, 95, 100, 25);
+		panel.add(btnInformeSesion);
 		
 		btnBuscarSesion = new JButton("BUSCAR");
 		btnBuscarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -635,6 +635,12 @@ public VistaSesiones() {
 		});
 
 		btnEliminarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		btnInformeSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}

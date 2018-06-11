@@ -233,6 +233,7 @@ public class Controlador implements ActionListener{
 		miVistaSesion.btnNuevaSesion.addActionListener(this);
 		miVistaSesion.btnGuardarNueva.addActionListener(this);
 		miVistaSesion.btnEliminarSesion.addActionListener(this);
+		miVistaSesion.btnInformeSesion.addActionListener(this);
 		miVistaSesion.comboBoxSelecEquipo.addActionListener(this);
 		miVistaSesion.comboBoxSelecSesion.addActionListener(this);
 
@@ -834,7 +835,7 @@ public class Controlador implements ActionListener{
 
 			        bufferWritter.close();
 			        
-			        JOptionPane.showMessageDialog(null, "Informe obtenido");
+			        JOptionPane.showMessageDialog(null, "Informe obtenido en C:\\Users\\Nombre_Usuario\\git\\FutbolData");
 			        
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
@@ -1085,7 +1086,7 @@ public class Controlador implements ActionListener{
 					}
 
 			        bufferWritter.close();	        
-			        JOptionPane.showMessageDialog(null, "Informe obtenido");
+			        JOptionPane.showMessageDialog(null, "Informe obtenido en C:\\Users\\Nombre_Usuario\\git\\FutbolData");
 			        
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
@@ -1504,7 +1505,7 @@ public class Controlador implements ActionListener{
 				//Busca jugador
 				sesiones=sesionAD.BuscarSesion(diaBusc);
 				
-				miVistaSesion.btnInformeAsistencia.setEnabled(true);
+				miVistaSesion.btnInformeSesion.setEnabled(true);
 				miVistaSesion.btnModificarSesion.setEnabled(true);
 				miVistaSesion.btnEliminarSesion.setEnabled(true);
 				
@@ -1627,6 +1628,70 @@ public class Controlador implements ActionListener{
 			} else
 				JOptionPane.showMessageDialog(null, "Error al eliminar, revise parámetros");
 		}
+		
+//		if (e.getSource()==miVistaSesion.btnInformeSesion) {
+//			
+//			String JugadoresEquipo=miVistaSesion.textAreaJugadores.getText();
+//			String PartidosEquipo=miVistaSesion.textAreaPartidosEquipo.getText();
+//			String DatosEquipo=miVistaSesion.textAreaDatosEquipo.getText();
+//			
+//			FileWriter fileWritter;
+//			
+//			try {
+//				fileWritter = new FileWriter("InformeSesion.txt");
+//				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+//				try {
+//					
+//					bufferWritter.write("INFORME DE EQUIPO");
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write("JUGADORES");
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write(JugadoresEquipo);
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write("PARTIDOS");
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write(PartidosEquipo);
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write("DATOS DE EQUIPO");
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//			        
+//					bufferWritter.write(DatosEquipo);
+//			        bufferWritter.newLine();
+//			        bufferWritter.newLine();
+//
+//			        bufferWritter.close();
+//			        
+//			        JOptionPane.showMessageDialog(null, "Informe obtenido en C:\\Users\\Nombre_Usuario\\git\\FutbolData");
+//			        
+//			} catch (IOException e3) {
+//				// TODO Auto-generated catch block
+//				e3.printStackTrace();
+//		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
+//			}
+//			
+//			} catch (FileNotFoundException e2) {
+//				// TODO Auto-generated catch block
+//				e2.printStackTrace();
+//		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
+//			}
+//
+//			
+//		}
 		
 		/*
 		 * 
