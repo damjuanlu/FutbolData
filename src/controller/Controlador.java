@@ -1640,7 +1640,7 @@ public class Controlador implements ActionListener{
 			FileWriter fileWritter;
 			
 			try {
-//			
+				
 				fileWritter = new FileWriter("Informe Entrenamiento - "+NombreEquipo+" ("+DiaSesion+").txt");
 				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 				try {
