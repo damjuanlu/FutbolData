@@ -243,6 +243,7 @@ public VistaSesiones() {
 		btnCerrarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		
 		comboBoxSelecEquipo = new JComboBox();
+		comboBoxSelecEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		comboBoxSelecEquipo.setModel(new DefaultComboBoxModel(new String[] {}));
 		comboBoxSelecEquipo.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Equipo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		comboBoxSelecEquipo.setBounds(35, 90, 248, 40);
@@ -256,7 +257,7 @@ public VistaSesiones() {
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(85, 40, 930, 30);
@@ -274,14 +275,14 @@ public VistaSesiones() {
 		btnInformeAsistencia.setDefaultCapable(false);
 		btnInformeAsistencia.setBackground(SystemColor.activeCaption);
 		btnInformeAsistencia.setVerticalAlignment(SwingConstants.TOP);
-		btnInformeAsistencia.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnInformeAsistencia.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnInformeAsistencia.setBounds(915, 95, 100, 25);
 		panel.add(btnInformeAsistencia);
 		
 		btnBuscarSesion = new JButton("BUSCAR");
 		btnBuscarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBuscarSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnBuscarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnBuscarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnBuscarSesion.setFocusable(false);
 		btnBuscarSesion.setFocusPainted(false);
 		btnBuscarSesion.setDefaultCapable(false);
@@ -290,6 +291,7 @@ public VistaSesiones() {
 		panel.add(btnBuscarSesion);
 		
 		comboBoxSelecSesion = new JComboBox();
+		comboBoxSelecSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		comboBoxSelecSesion.setModel(new DefaultComboBoxModel(new String[] {}));
 		comboBoxSelecSesion.setEnabled(false);
 		comboBoxSelecSesion.setBorder(new TitledBorder(new LineBorder(new Color(171, 173, 179)), "Seleccione Sesion", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -300,7 +302,7 @@ public VistaSesiones() {
 		btnMuestraSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMuestraSesion.setEnabled(false);
 		btnMuestraSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnMuestraSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnMuestraSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnMuestraSesion.setFocusable(false);
 		btnMuestraSesion.setFocusPainted(false);
 		btnMuestraSesion.setDefaultCapable(false);
@@ -315,7 +317,7 @@ public VistaSesiones() {
 		btnModificarSesion = new JButton("MODIFICAR SESION");
 		btnModificarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnModificarSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnModificarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnModificarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnModificarSesion.setFocusable(false);
 		btnModificarSesion.setFocusPainted(false);
 		btnModificarSesion.setEnabled(false);
@@ -327,7 +329,7 @@ public VistaSesiones() {
 		btnEliminarSesion = new JButton("ELIMINAR SESION");
 		btnEliminarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminarSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnEliminarSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnEliminarSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnEliminarSesion.setFocusable(false);
 		btnEliminarSesion.setFocusPainted(false);
 		btnEliminarSesion.setEnabled(false);
@@ -338,7 +340,7 @@ public VistaSesiones() {
 		
 		btnGuardar = new JButton("GUARDAR SESION");
 		btnGuardar.setVerticalAlignment(SwingConstants.TOP);
-		btnGuardar.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnGuardar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnGuardar.setFocusable(false);
 		btnGuardar.setFocusPainted(false);
 		btnGuardar.setEnabled(false);
@@ -350,7 +352,7 @@ public VistaSesiones() {
 		btnNuevaSesion = new JButton("NUEVA SESION");
 		btnNuevaSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNuevaSesion.setVerticalAlignment(SwingConstants.TOP);
-		btnNuevaSesion.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnNuevaSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnNuevaSesion.setFocusable(false);
 		btnNuevaSesion.setFocusPainted(false);
 		btnNuevaSesion.setEnabled(false);
@@ -361,7 +363,7 @@ public VistaSesiones() {
 		
 		btnGuardarNueva = new JButton("GUARDAR NUEVA");
 		btnGuardarNueva.setVerticalAlignment(SwingConstants.TOP);
-		btnGuardarNueva.setFont(new Font("Palatino Linotype", Font.BOLD, 12));
+		btnGuardarNueva.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnGuardarNueva.setFocusable(false);
 		btnGuardarNueva.setFocusPainted(false);
 		btnGuardarNueva.setEnabled(false);
@@ -376,13 +378,13 @@ public VistaSesiones() {
 		
 		JLabel lblDiaSesion = new JLabel("EQUIPO");
 		lblDiaSesion.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDiaSesion.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblDiaSesion.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblDiaSesion.setBounds(33, 189, 130, 14);
 		panel.add(lblDiaSesion);
 		
 		txtNombreEquipo = new JTextField();
 		txtNombreEquipo.setEditable(false);
-		txtNombreEquipo.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtNombreEquipo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtNombreEquipo.setEnabled(false);
 		txtNombreEquipo.setColumns(10);
 		txtNombreEquipo.setBounds(173, 186, 140, 20);
@@ -390,25 +392,25 @@ public VistaSesiones() {
 		
 		label = new JLabel("D\u00CDA (dd/mm/aaaa)");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setFont(new Font("Dialog", Font.BOLD, 15));
+		label.setFont(new Font("Agency FB", Font.BOLD, 15));
 		label.setBounds(390, 189, 130, 14);
 		panel.add(label);
 		
 		txtDiaSesion = new JTextField();
 		txtDiaSesion.setEnabled(false);
-		txtDiaSesion.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtDiaSesion.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtDiaSesion.setColumns(10);
 		txtDiaSesion.setBounds(530, 186, 126, 20);
 		panel.add(txtDiaSesion);
 		
 		lblMinutosDeLa = new JLabel("MINUTOS DE LA SESION");
 		lblMinutosDeLa.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblMinutosDeLa.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblMinutosDeLa.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblMinutosDeLa.setBounds(738, 189, 179, 14);
 		panel.add(lblMinutosDeLa);
 		
 		txtMinutosSesion = new JTextField();
-		txtMinutosSesion.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtMinutosSesion.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtMinutosSesion.setEnabled(false);
 		txtMinutosSesion.setColumns(10);
 		txtMinutosSesion.setBounds(928, 186, 80, 20);
@@ -416,11 +418,12 @@ public VistaSesiones() {
 		
 		lblObjetivos = new JLabel("OBJETIVO");
 		lblObjetivos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblObjetivos.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblObjetivos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblObjetivos.setBounds(33, 220, 320, 14);
 		panel.add(lblObjetivos);
 
 		textAreaObjetivosSesion = new JTextArea();
+		textAreaObjetivosSesion.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaObjetivosSesion.setEnabled(false);
 		textAreaObjetivosSesion.setBounds(0, 0, 320, 40);
 		textAreaObjetivosSesion.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -432,11 +435,12 @@ public VistaSesiones() {
 		
 		lblMaterial = new JLabel("MATERIAL");
 		lblMaterial.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMaterial.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblMaterial.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblMaterial.setBounds(378, 220, 320, 14);
 		panel.add(lblMaterial);
 		
 		textAreaMaterial = new JTextArea();
+		textAreaMaterial.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaMaterial.setEnabled(false);
 		textAreaMaterial.setBounds(0, 0, 320, 40);
 		textAreaMaterial.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -448,11 +452,12 @@ public VistaSesiones() {
 		
 		lblObservaciones = new JLabel("OBSERVACIONES");
 		lblObservaciones.setHorizontalAlignment(SwingConstants.CENTER);
-		lblObservaciones.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblObservaciones.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblObservaciones.setBounds(723, 220, 320, 14);
 		panel.add(lblObservaciones);
 		
 		textAreaObservaciones = new JTextArea();
+		textAreaObservaciones.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaObservaciones.setEnabled(false);
 		textAreaObservaciones.setBounds(0, 0, 320, 40);
 		textAreaObservaciones.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -467,11 +472,12 @@ public VistaSesiones() {
 		 */
 		lblCalentamiento = new JLabel("CALENTAMIENTO");
 		lblCalentamiento.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCalentamiento.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblCalentamiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblCalentamiento.setBounds(33, 285, 1010, 14);
 		panel.add(lblCalentamiento);
 		
 		textAreaCalentamiento = new JTextArea();
+		textAreaCalentamiento.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaCalentamiento.setEnabled(false);
 		textAreaCalentamiento.setBounds(0, 0, 1010, 80);
 		textAreaCalentamiento.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -486,11 +492,12 @@ public VistaSesiones() {
 		 */
 		lblPartePrincipal = new JLabel("PARTE PRINCIPAL");
 		lblPartePrincipal.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPartePrincipal.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblPartePrincipal.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblPartePrincipal.setBounds(33, 390, 1010, 14);
 		panel.add(lblPartePrincipal);
 		
 		textAreaPartePrincipal = new JTextArea();
+		textAreaPartePrincipal.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaPartePrincipal.setEnabled(false);
 		textAreaPartePrincipal.setBounds(0, 0, 1010, 180);
 		textAreaPartePrincipal.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -505,11 +512,12 @@ public VistaSesiones() {
 		 */
 		lblVueltaCalma = new JLabel("VUELTA A LA CALMA");
 		lblVueltaCalma.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVueltaCalma.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblVueltaCalma.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblVueltaCalma.setBounds(33, 595, 1010, 14);
 		panel.add(lblVueltaCalma);
 		
 		textAreaVueltaCalma = new JTextArea();
+		textAreaVueltaCalma.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		textAreaVueltaCalma.setEnabled(false);
 		textAreaVueltaCalma.setBounds(0, 0, 1010, 60);
 		textAreaVueltaCalma.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -521,6 +529,7 @@ public VistaSesiones() {
 
 		//IMAGEN DE FONDO
 		JLabel lblImagenFondo = new JLabel("");
+		lblImagenFondo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 15, 1080, 680);
 		panel.add(lblImagenFondo);
