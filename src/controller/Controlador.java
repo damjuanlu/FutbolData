@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.text.SimpleAttributeSet;
 
@@ -116,6 +117,7 @@ public class Controlador implements ActionListener{
 		miVistaPrincipal.mntmPlanificacionSesiones.addActionListener(this);
 		miVistaPrincipal.mntmCuotasJugadores.addActionListener(this);
 		miVistaPrincipal.mntmMensajes.addActionListener(this);
+		miVistaPrincipal.btnSelectorEscudo.addActionListener(this);
 
 		
 		miVistaFichas.btnCerrarSesion.addActionListener(this);
@@ -330,7 +332,8 @@ public class Controlador implements ActionListener{
 				
 
 				
-			}
+			}else
+				JOptionPane.showMessageDialog(null, "Usuario y/o contraseña errónea");
 		}
 		if (e.getSource()==miVistaLogin.btnRegistrarse) {
 			miVistaLogin.setVisible(false);
@@ -436,7 +439,14 @@ public class Controlador implements ActionListener{
 		}
 
 		if (e.getSource()==miVistaPrincipal.btnSelectorEscudo) {
-				
+			//Create a file chooser
+			final JFileChooser fc = new JFileChooser();
+			//In response to a button click:
+			int returnVal = fc.showOpenDialog(null);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+	            File file = fc.getSelectedFile();
+	            JOptionPane.showMessageDialog(null, "Archivo seleccionado");
+			}
 		}
 		/*
 		 * 
@@ -1315,21 +1325,21 @@ public class Controlador implements ActionListener{
 				        int i=1;
 
 						String convocado="";
-			        	String var1="";
-						String var2="";
-						String var3="";
+			        	String nombre="";
+						String posicion="";
+						String convoc="";
 				        
 				        while (i<=27) {
-				        	var1=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
-							var2=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
-							var3=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
+				        	nombre=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
+				        	posicion=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
+				        	convoc=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
 							
-							if (var3=="true")
+							if (convoc=="true")
 								convocado="SI";
 							else
 								convocado="NO";
 	
-							bufferWritter.write("Nombre: "+var1+", Posición: "+var2+", Convocado: "+convocado);
+							bufferWritter.write("Nombre: "+nombre+", Posición: "+posicion+", Convocado: "+convoc);
 					        bufferWritter.newLine();
 					        
 					        i++;
@@ -1617,7 +1627,10 @@ public class Controlador implements ActionListener{
 		 * LISTENER VISTA PARTIDOS
 		 * 
 		 */
-		
+		if (e.getSource()==miVistaPartidos.mntmInicio) {
+			miVistaPartidos.setVisible(false);
+			miVistaPrincipal.setVisible(true);
+		}
 		
 		if (e.getSource()==miVistaPartidos.mntmFichas) {
 			miVistaPartidos.setVisible(false);

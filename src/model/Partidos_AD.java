@@ -40,7 +40,7 @@ public class Partidos_AD {
 //				Date fecha=result.getDate(6);
 //				Calendar cal = new GregorianCalendar();
 //		        cal.setTime(fecha);
-				String liga=result.getString(7);
+				String liga=result.getString(6);
 				miPartido = new Partidos_TD(codigo,eq_local,eq_visit,gol_loc,gol_vis,liga);
 				arrayPartidos.add(miPartido);
 			  }

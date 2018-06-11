@@ -190,7 +190,7 @@ public class VistaMensajes extends JFrame {
 		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
-		lblInformativo.setBounds(85, 40, 930, 30);
+		lblInformativo.setBounds(84, 86, 930, 30);
 		panel.add(lblInformativo);
 		
 		ImageIcon imgCabecera = new ImageIcon(VistaMensajes.class.getResource("/Repositorios/lblInformativo.jpg"));
@@ -198,15 +198,18 @@ public class VistaMensajes extends JFrame {
 		lblInformativo.setIcon(imagenCabecera);
 		
 		txtAreaMensaje = new JTextArea();
+		txtAreaMensaje.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtAreaMensaje.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtAreaMensaje.setBounds(274, 263, 525, 164);
 		panel.add(txtAreaMensaje);
 		
-		btnEnviar = new JButton("Enviar");
+		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnEnviar.setBounds(491, 468, 91, 23);
 		panel.add(btnEnviar);
 		
 		JLabel lblNewLabel_1 = new JLabel("MENSAJE");
+		lblNewLabel_1.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(274, 235, 102, 14);
 		panel.add(lblNewLabel_1);
 		

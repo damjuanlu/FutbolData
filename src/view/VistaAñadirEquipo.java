@@ -95,7 +95,7 @@ setResizable(false);
 		btnVolver.setFocusPainted(false);
 		btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnVolver.setBounds(600, 350, 100, 23);
-		btnVolver.setFont(new Font("Palatino Linotype", Font.BOLD, 11));
+		btnVolver.setFont(new Font("Agency FB", Font.BOLD, 15));
 		panel.add(btnVolver);
 		
 		lblInformativo = new JLabel("NUEVO EQUIPO");
@@ -106,7 +106,7 @@ setResizable(false);
 		lblInformativo.setForeground(Color.WHITE);
 		lblInformativo.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblInformativo.setBackground(new Color(144, 238, 144));
-		lblInformativo.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblInformativo.setFont(new Font("Agency FB", Font.BOLD, 22));
 		lblInformativo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInformativo.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblInformativo.setBounds(40, 40, 588, 30);
@@ -125,55 +125,60 @@ setResizable(false);
 		JLabel lblNombreEquipo = new JLabel("NOMBRE EQUIPO");
 		lblNombreEquipo.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNombreEquipo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombreEquipo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblNombreEquipo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblNombreEquipo.setBounds(40, 125, 130, 14);
 		panel.add(lblNombreEquipo);
 		
 		JLabel lblCampo = new JLabel("CAMPO");
 		lblCampo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCampo.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblCampo.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblCampo.setBounds(40, 155, 130, 14);
 		panel.add(lblCampo);
 		
 		JLabel lblEntrenamiento = new JLabel("ENTRENAMIENTO");
 		lblEntrenamiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblEntrenamiento.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblEntrenamiento.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblEntrenamiento.setBounds(40, 185, 130, 14);
 		panel.add(lblEntrenamiento);
 		
 		JLabel lblHorario = new JLabel("HORARIO");
 		lblHorario.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblHorario.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHorario.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		lblHorario.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblHorario.setBounds(40, 215, 130, 14);
 		panel.add(lblHorario);
 		
 		txtNombre = new JTextField();
+		txtNombre.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(180, 125, 400, 20);
 		panel.add(txtNombre);
 		
 		txtCampo = new JTextField();
+		txtCampo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtCampo.setColumns(10);
 		txtCampo.setBounds(180, 155, 400, 20);
 		panel.add(txtCampo);
 		
 		txtHorario = new JTextField();
+		txtHorario.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtHorario.setColumns(10);
 		txtHorario.setBounds(180, 215, 400, 20);
 		panel.add(txtHorario);
 		
 		txtEntrenamiento = new JTextField();
+		txtEntrenamiento.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtEntrenamiento.setColumns(10);
 		txtEntrenamiento.setBounds(180, 185, 400, 20);
 		panel.add(txtEntrenamiento);
 
 		btnGuardar = new JButton("GUARDAR");
-		btnGuardar.setFont(new Font("Palatino Linotype", Font.PLAIN, 11));
+		btnGuardar.setFont(new Font("Agency FB", Font.BOLD, 15));
 		btnGuardar.setBounds(297, 280, 100, 23);
 		panel.add(btnGuardar);
 		
 		lblImagenFondo = new JLabel("");
+		lblImagenFondo.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		lblImagenFondo.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/Repositorios/background1080x720grey.png")));
 		lblImagenFondo.setBounds(0, 0, 694, 374);
 		panel.add(lblImagenFondo);
