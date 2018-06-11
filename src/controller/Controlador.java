@@ -794,6 +794,7 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaGestionEquipos.btnInformeEquipo) {
 			
+			String NombreEquipo=miVistaGestionEquipos.comboBoxSelecEquipo.getSelectedItem().toString();
 			String JugadoresEquipo=miVistaGestionEquipos.textAreaJugadores.getText();
 			String PartidosEquipo=miVistaGestionEquipos.textAreaPartidosEquipo.getText();
 			String DatosEquipo=miVistaGestionEquipos.textAreaDatosEquipo.getText();
@@ -801,7 +802,7 @@ public class Controlador implements ActionListener{
 			FileWriter fileWritter;
 			
 			try {
-				fileWritter = new FileWriter("InformeEquipo.txt");
+				fileWritter = new FileWriter("Informe Equipo "+NombreEquipo+".txt");
 				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 				try {
 					
@@ -1063,9 +1064,11 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaEstadisticas.btnInformeAsistencia) {
 			
+			String NombreEquipo = miVistaEstadisticas.comboBoxSelecEquipo.getSelectedItem().toString();
+			
 			FileWriter fileWritter;
 			try {
-				fileWritter = new FileWriter("InformeEstadisticas.txt");
+				fileWritter = new FileWriter("Informe Estadisticas "+NombreEquipo+".txt");
 				BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 				try {
 					
