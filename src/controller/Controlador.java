@@ -833,17 +833,23 @@ public class Controlador implements ActionListener{
 			        bufferWritter.newLine();
 
 			        bufferWritter.close();
+			        
+			        JOptionPane.showMessageDialog(null, "Informe obtenido");
+			        
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			}
 			
 			} catch (FileNotFoundException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Informe no obtenido");
 			}
 
 			
