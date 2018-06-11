@@ -514,8 +514,8 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaFichas.btnBuscar) {
 						
-			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
-			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
+			String nombreBusc=miVistaFichas.txtNombreBuscar.getText().toUpperCase();
+			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText().toUpperCase();
 			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
 			
 			Jugadores_AD jugadorAD=new Jugadores_AD();
@@ -549,8 +549,8 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaFichas.btnModificar) {
 			
-			String nombreBusc=miVistaFichas.txtNombreBuscar.getText();
-			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText();
+			String nombreBusc=miVistaFichas.txtNombreBuscar.getText().toUpperCase();
+			String apellidoBusc=miVistaFichas.txtApellidoBuscar.getText().toUpperCase();
 			String equipoBusc=(String)miVistaFichas.comboBoxSelecEquipo.getSelectedItem();
 			
 			Jugadores_AD jugadorAD=new Jugadores_AD();
@@ -585,12 +585,12 @@ public class Controlador implements ActionListener{
 			Jugadores_AD jugadorAD=new Jugadores_AD();
 			Jugadores_TD jugador;
 			
-			String nombre=miVistaFichas.txtNombre.getText();
-			String apellido=miVistaFichas.txtApellido.getText();
-			String equipo=miVistaFichas.txtEquipo.getText();
-			String posicion=miVistaFichas.txtPosicion.getText();
+			String nombre=miVistaFichas.txtNombre.getText().toUpperCase();
+			String apellido=miVistaFichas.txtApellido.getText().toUpperCase();
+			String equipo=miVistaFichas.txtEquipo.getText().toUpperCase();
+			String posicion=miVistaFichas.txtPosicion.getText().toUpperCase();
 			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			String observaciones=miVistaFichas.txtObservaciones.getText();
+			String observaciones=miVistaFichas.txtObservaciones.getText().toUpperCase();
 			boolean accion=jugadorAD.ModificaJugador(cod_jugador, nombre, apellido, equipo, posicion, dorsal,observaciones);
 			if (accion==true)
 				JOptionPane.showMessageDialog(null, "Modificación realizada correctamente");
@@ -602,13 +602,13 @@ public class Controlador implements ActionListener{
 		
 		if (e.getSource()==miVistaFichas.btnInsert) {
 			Jugadores_AD jugadorAD=new Jugadores_AD();
-			String nombre_nuevo=miVistaFichas.txtNombre.getText();
-			String apellido_nuevo=miVistaFichas.txtApellido.getText();
-			String equipo_nuevo=miVistaFichas.txtEquipo.getText();
-			String posicion_nuevo=miVistaFichas.txtPosicion.getText();
-			String dorsal_comprobacion=miVistaFichas.txtDorsal.getText();
+			String nombre_nuevo=miVistaFichas.txtNombre.getText().toUpperCase();
+			String apellido_nuevo=miVistaFichas.txtApellido.getText().toUpperCase();
+			String equipo_nuevo=miVistaFichas.txtEquipo.getText().toUpperCase();
+			String posicion_nuevo=miVistaFichas.txtPosicion.getText().toUpperCase();
+			String dorsal_comprobacion=miVistaFichas.txtDorsal.getText().toUpperCase();
 			int dorsal=Integer.parseInt(miVistaFichas.txtDorsal.getText());
-			String observaciones=miVistaFichas.txtObservaciones.getText();
+			String observaciones=miVistaFichas.txtObservaciones.getText().toUpperCase();
 			if (nombre_nuevo!="" && apellido_nuevo!="" && equipo_nuevo!="" && posicion_nuevo!="" && dorsal_comprobacion!=null) {
 				jugadorAD.InsertaJugador(nombre_nuevo, apellido_nuevo, equipo_nuevo, posicion_nuevo, dorsal, observaciones);
 				JOptionPane.showMessageDialog(null, "Nuevo jugador insertado");
@@ -874,10 +874,10 @@ public class Controlador implements ActionListener{
 			
 			Equipos_AD Equipos_AD=new Equipos_AD();
 			
-			String nombre_nuevo=miVistaAñadirEquipo.txtNombre.getText();
-			String campo_nuevo=miVistaAñadirEquipo.txtCampo.getText();
-			String entrenamiento_nuevo=miVistaAñadirEquipo.txtEntrenamiento.getText();
-			String horario_nuevo=miVistaAñadirEquipo.txtHorario.getText();
+			String nombre_nuevo=miVistaAñadirEquipo.txtNombre.getText().toUpperCase();
+			String campo_nuevo=miVistaAñadirEquipo.txtCampo.getText().toUpperCase();
+			String entrenamiento_nuevo=miVistaAñadirEquipo.txtEntrenamiento.getText().toUpperCase();
+			String horario_nuevo=miVistaAñadirEquipo.txtHorario.getText().toUpperCase();
 						
 			if (nombre_nuevo!="" && campo_nuevo!="" && entrenamiento_nuevo!="" && horario_nuevo!="") {
 				Equipos_AD.InsertaJugador(nombre_nuevo, campo_nuevo, entrenamiento_nuevo, horario_nuevo);
@@ -1339,7 +1339,7 @@ public class Controlador implements ActionListener{
 						String posicion="";
 						String convoc="";
 				        
-				        while (i<=27) {
+				        while (i<=25) {
 				        	nombre=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 0).toString();
 				        	posicion=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 1).toString();
 				        	convoc=miVistaConvocatorias.tablaConvocar.getModel().getValueAt(i, 2).toString();
@@ -1349,7 +1349,7 @@ public class Controlador implements ActionListener{
 							else
 								convocado="NO";
 	
-							bufferWritter.write("Nombre: "+nombre+", Posición: "+posicion+", Convocado: "+convoc);
+							bufferWritter.write("Nombre: "+nombre+", Posición: "+posicion+", Convocado: "+convocado);
 					        bufferWritter.newLine();
 					        
 					        i++;
@@ -1784,11 +1784,11 @@ public class Controlador implements ActionListener{
 			Partidos_TD partido=null;
 			Clasificacion_AD clasificacion = new Clasificacion_AD();
 			
-			String eq_local=miVistaPartidos.txtLocal.getText();
-			String eq_visit=miVistaPartidos.txtVisit.getText();
+			String eq_local=miVistaPartidos.txtLocal.getText().toUpperCase();
+			String eq_visit=miVistaPartidos.txtVisit.getText().toUpperCase();
 			int gol_local=miVistaPartidos.sliderLocal.getValue();
 			int gol_visit=miVistaPartidos.sliderVisit.getValue();
-			String liga=miVistaPartidos.txtLiga.getText();
+			String liga=miVistaPartidos.txtLiga.getText().toUpperCase();
 			
 			clasificacion.ActualizaClasificacion(eq_local, eq_visit, gol_local, gol_visit);
 			

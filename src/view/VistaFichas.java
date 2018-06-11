@@ -52,7 +52,6 @@ public class VistaFichas extends JFrame{
 	public JTextField txtEquipo;
 	public JTextField txtApellido;
 	public JTextField txtPosicion;
-	public JTextField txtFecha;
 	public JTextField txtDorsal;
 	public JLabel lblFoto;
 	public JTextField txtNombreBuscar;
@@ -248,13 +247,6 @@ public VistaFichas() {
 		txtPosicion.setBounds(675, 316, 137, 20);
 		panel.add(txtPosicion);
 		
-		txtFecha = new JTextField();
-		txtFecha.setFont(new Font("Agency FB", Font.PLAIN, 15));
-		txtFecha.setEnabled(false);
-		txtFecha.setColumns(10);
-		txtFecha.setBounds(414, 347, 126, 20);
-		panel.add(txtFecha);
-		
 		txtDorsal = new JTextField();
 		txtDorsal.setFont(new Font("Agency FB", Font.PLAIN, 15));
 		txtDorsal.setEnabled(false);
@@ -273,12 +265,6 @@ public VistaFichas() {
 		lblApellidos.setFont(new Font("Agency FB", Font.BOLD, 15));
 		lblApellidos.setBounds(274, 319, 130, 14);
 		panel.add(lblApellidos);
-		
-		JLabel lblFechaNacimiento = new JLabel("FECHA NACIMIENTO");
-		lblFechaNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaNacimiento.setFont(new Font("Agency FB", Font.BOLD, 15));
-		lblFechaNacimiento.setBounds(274, 350, 130, 14);
-		panel.add(lblFechaNacimiento);
 		
 		JLabel lblCaducidadFicha = new JLabel("DORSAL");
 		lblCaducidadFicha.setHorizontalAlignment(SwingConstants.RIGHT);
